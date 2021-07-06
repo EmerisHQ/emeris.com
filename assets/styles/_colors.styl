@@ -1,0 +1,91 @@
+/*
+
+   Tachyons
+   COLOR VARIABLES
+
+   Grayscale
+   - Solids
+   - Transparencies
+   Colors
+   Utility
+
+*/
+
+:root
+  // grays
+  --black #000
+  --gray-100 #191919
+  --gray-950 #F7F7F7
+
+  // grays semi-transparent
+  --trans-gray-300 rgba(0,0,0,0.667)
+  --trans-gray-600 rgba(0,0,0,0.33)
+  --trans-gray-900 rgba(0,0,0,0.1)
+  --trans-gray-950 rgba(0,0,0,0.03)
+
+  // whites
+  --white-100 rgba(255, 255, 255, 0.1)
+  --white-200 rgba(255, 255, 255, 0.16)
+  --white-400 rgba(255, 255, 255, 0.44)
+  --white-700 rgba(255, 255, 255, 0.667)
+  --white #FFFFFF
+
+  // misc
+  --transparent transparent
+
+  // brand
+  --primary #FFFD38
+  --primary-alt #A8FF89
+  --secondary #30FFDF
+  --secondary-alt #4EF2E4
+  --tertiary #64DAFB
+  // gradients
+  --primary-gradient linear-gradient(154deg, #64DAFB 9.7%, #30FFDF 34%, #FFFD38 69%)
+  --primary-gradient-complex radial-gradient(145% 78% at 90% 100%, #FFFD38 26%, rgba(158, 255, 185, 0) 100%), linear-gradient(153deg, #64DAFB 5.4%, #30FFDF 30.2%, #B0FF94 54.7%)
+
+  // functional colors
+  --bg var(--black)
+  --fg var(--gray-100)
+  --fg-trans var(--white-100)
+  --surface var(--gray-100)
+  --title var(--white)
+  --text var(--white)
+  --muted var(--white-700)
+  --inactive var(--white-400)
+  --link var(--secondary)
+  --link-hover var(--primary)
+  --border var(--white-100)
+  --success var(--primary-alt)
+  --error #FF6C87
+  --warning #FFA34E
+
+// light mode | functional colors
+.light-mode
+  --bg var(--white)
+  --fg var(--gray-950)
+  --fg-trans var(--trans-gray-950)
+  --surface var(--white)
+  --title var(--black)
+  --text var(--black)
+  --muted var(--trans-gray-300)
+  --inactive var(--trans-gray-600)
+  --link #018516
+  --link-hover #88740B
+  --border var(--trans-gray-900)
+  --success #018516
+  --error #CA0842
+  --warning #EC7100
+
+
+// color utility classes
+.tm-title
+  color var(--title)
+
+.tm-text
+  color var(--text)
+
+.tm-muted
+  color var(--muted)
+
+.tm-bg
+  color var(--bg)
