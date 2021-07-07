@@ -42,7 +42,7 @@ export default {
   data() {
     return {
       links: [
-        { title: 'Blog', url: '/todo/' },
+        { title: 'Blog', url: 'https://blog.emeris.com' },
         { title: 'Telegram', url: 'https://t.me/EmerisHQ' },
         { title: 'Twitter', url: 'https://twitter.com/emerisHQ' },
       ],
