@@ -28,7 +28,7 @@
   font-display swap
   font-style normal
   font-named-instance 'Regular'
-  src url("~/assets/fonts/Casta-Full-Variable-Font FV.ttf") format("ttf")
+  src local("Casta var"), url("~/assets/fonts/Casta-Full-Variable-Font FV.ttf") format("truetype")
 
 /* Monospaced Typefaces (for code) */
 
@@ -39,7 +39,7 @@
 //   font-feature-settings 'liga' on, 'calt' on, 'zero' on
 
 .serif
-  font-family $font-family-serif !important
+  font-family $font-family-serif
 
 @supports (font-variation-settings: normal)
   .serif
