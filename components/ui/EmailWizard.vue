@@ -1,7 +1,7 @@
 <template>
   <div class="wizard">
     <div class="wizard__inner">
-      <transition-group name="fade" mode="out-in">
+      <transition-group :name="transition">
         <div v-show="step === 0" ref="step0" key="step0">
           <label
             class="
@@ -114,6 +114,7 @@ export default {
   data() {
     return {
       step: 0,
+      transition: 'forwards',
       email: null,
       url: 'https://app.mailerlite.com/webforms/submit/l9a9o3',
       formData: {
@@ -175,35 +176,11 @@ export default {
 .icon__right
   margin-left 0.25em
 
-// Transition
-.fade-enter-active
-  transition all .4s ease-out
-
-.fade-leave-active
-  transition all .2s ease-out
-
-.fade-enter
-  opacity 0
-  transform translateY(1rem)
-
-.fade-enter-to
-  opacity 1
-  transform translateY(0)
-
-.fade-leave
-  opacity 1
-  transform scale(1)
-
-.fade-leave-to
-  opacity 0
-  transform scale(.96)
-
 // Graphics
 .surfer-graphics
   width 70%
 
 // Form
-
 .form-wrapper__success
   text-align center
   padding var(--spacing-6)

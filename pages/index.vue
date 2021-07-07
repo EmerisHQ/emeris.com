@@ -1,5 +1,5 @@
 <template>
-  <main class="page-container" id="homepage">
+  <main id="homepage" class="page-container">
     <div class="section-hero tm-section tm-wrapper tm-container">
       <graphics-hero class="graphics" />
       <logo-emeris-hero class="logo" />
@@ -48,8 +48,8 @@
         <p class="mt-10">
           <tm-button
             variant="text"
-            toLink="external"
-            href="https://blog.emeris.com/"
+            to-link="external"
+            href="https://blog.emeris.com"
             size="l"
             color="var(--text)"
             >Introducing Emeris
@@ -79,10 +79,10 @@ export default {
 <style lang="stylus" scoped>
 
 .page-container
-    display flex
-    flex-direction column
-    align-items center
-    min-height 100vh
+  display flex
+  flex-direction column
+  align-items center
+  min-height 100vh
 
 .section-hero
   width 100%
