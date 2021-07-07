@@ -334,26 +334,26 @@ export default {
 
   // sizes
   &__size__s
+    padding-top var(--spacing-3)
+    padding-bottom var(--spacing-3)
+    &.tm-button__variant__contained,
+    &.tm-button__variant__outlined
+       padding-left var(--spacing-5)
+       padding-right var(--spacing-5)
+  &__size__m
     padding-top var(--spacing-4)
     padding-bottom var(--spacing-4)
     &.tm-button__variant__contained,
     &.tm-button__variant__outlined
-       padding-left var(--spacing-6)
-       padding-right var(--spacing-6)
-  &__size__m
+       padding-left var(--spacing-7)
+       padding-right var(--spacing-7)
+  &__size__l
     padding-top var(--spacing-5)
     padding-bottom var(--spacing-5)
     &.tm-button__variant__contained,
     &.tm-button__variant__outlined
        padding-left var(--spacing-8)
        padding-right var(--spacing-8)
-  &__size__l
-    padding-top var(--spacing-6)
-    padding-bottom var(--spacing-6)
-    &.tm-button__variant__contained,
-    &.tm-button__variant__outlined
-       padding-left var(--spacing-9)
-       padding-right var(--spacing-9)
 
   &__content
     position relative

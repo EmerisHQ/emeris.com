@@ -109,10 +109,11 @@ export default {
 
 .wizard
   position fixed
-  bottom 2rem
+  bottom 0
   left 0
   z-index $z-index-tooltip
   width 100%
+  padding var(--wrap-gap)
   center()
 
 .beta-badge
@@ -205,6 +206,7 @@ export default {
 @media $breakpoint-medium
   .wizard
     position static
+    padding 0
 
   .portal
     clip-path polygon(0 0, 100% calc(0% + 14rem), 100% 100%, 0 100%)
