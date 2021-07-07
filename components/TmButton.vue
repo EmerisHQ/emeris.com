@@ -90,7 +90,7 @@ export default {
   props: {
     size: {
       /**
-       * `s` | `m` | `l` | `xl`
+       * `s` | `m` | `l`
        */
       type: String,
       default: 'm',
@@ -217,9 +217,6 @@ export default {
           break
         case 'l':
           classes += ' tm-rf1'
-          break
-        case 'xl':
-          classes += ' tm-rf2'
           break
         default:
           classes += ' tm-rf0'
@@ -357,9 +354,6 @@ export default {
     &.tm-button__variant__outlined
        padding-left var(--spacing-9)
        padding-right var(--spacing-9)
-  &__size__xl
-    padding-top var(--spacing-6)
-    padding-bottom var(--spacing-6)
 
   &__content
     position relative

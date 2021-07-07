@@ -11,6 +11,7 @@
   <nuxt-link
     v-else-if="checkLink === 'internal'"
     :to="href"
+    :href="href"
     :class="['tm-link', hoverUnderline && 'tm-link-underline-hover']"
   >
     <slot></slot>
@@ -18,6 +19,7 @@
   <a
     v-else-if="checkLink === 'anchor'"
     :v-scroll-to="href"
+    :href="href"
     :class="['tm-link', hoverUnderline && 'tm-link-underline-hover']"
   >
     <slot></slot>

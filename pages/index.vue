@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="page-container" id="homepage">
     <div class="section-hero tm-section tm-wrapper tm-container">
       <graphics-hero class="graphics" />
       <logo-emeris-hero class="logo" />
@@ -7,18 +7,56 @@
         <span class="beta-badge tm-rf-1 tm-title">Beta</span
         ><span class="tm-rf0 tm-title tm-muted">Coming soon</span>
       </p>
-      <email-wizard class="wizard mt-7" />
+      <email-wizard class="mt-8" />
     </div>
 
     <div class="section-intro tm-container">
-      <div
-        class="
-          portal
-          tm-text-center tm-grid-base tm-wrapper tm-section
-          light-mode
-        "
-      >
-        <site-footer class="tm-bg" />
+      <div class="hand-orb">
+        <div class="hand-orb__inner">
+          <img
+            class="hand"
+            src="~/assets/images/elements/intro-glass-hand.png"
+            alt="Glass hand"
+          />
+          <img
+            class="orb"
+            src="~/assets/images/elements/orb-malibu.png"
+            alt="Glowing blue orb"
+          />
+        </div>
+      </div>
+      <div class="portal tm-text-center tm-wrapper tm-section light-mode">
+        <div class="title-ephemeris">
+          <div class="ephemerides">
+            <img
+              class="ephemeris ephemeris-1"
+              src="~/assets/images/elements/gold-ephemeris-ring-1.png"
+              alt="Gold ephemeris ring"
+            />
+            <img
+              class="ephemeris ephemeris-2"
+              src="~/assets/images/elements/gold-ephemeris-ring-2.png"
+              alt="Gold ephemeris ring"
+            />
+          </div>
+          <h2 class="title serif tm-rf5 tm-lh-title tm-title">
+            <span class="tm-text-left">Experience</span>
+            <span class="tm-text-center">cross-chain</span>
+            <span class="tm-text-right">DeFi</span>
+          </h2>
+        </div>
+        <p class="mt-10">
+          <tm-button
+            variant="text"
+            toLink="external"
+            href="https://blog.emeris.com/"
+            size="l"
+            color="var(--text)"
+            >Introducing Emeris
+            <span class="icon__right">&#8599;</span></tm-button
+          >
+        </p>
+        <site-footer class="footer" />
       </div>
     </div>
   </main>
@@ -40,7 +78,14 @@ export default {
 
 <style lang="stylus" scoped>
 
+.page-container
+    display flex
+    flex-direction column
+    align-items center
+    min-height 100vh
+
 .section-hero
+  width 100%
   display flex
   flex-direction column
   align-items center
@@ -65,11 +110,10 @@ export default {
 .wizard
   position fixed
   bottom 2rem
-  left 50%
-  transform translateX(-50%)
+  left 0
   z-index $z-index-tooltip
-  max-width 17.5rem
   width 100%
+  center()
 
 .beta-badge
   display inline-block
@@ -77,29 +121,91 @@ export default {
   background var(--border)
   color var(--text)
   border-radius 1.5rem
-  margin-left var(--spacing-5)
   margin-right var(--spacing-5)
 
 .section-intro
-  .portal
-    background var(--primary-gradient-complex)
-    center()
-    max-width $max-width['8']
+  width 100%
+  flex 1 0 auto
+  display flex
+  flex-direction column
 
-  .footer
-    grid-column 1/-1
+.hand-orb
+  width 100%
+  max-width: $max-width['8']
+  center()
 
-@media $breakpoint-small
-  .wizard
-    position fixed
-    bottom 2rem
-    left 50%
-    transform translateX(-50%)
-    z-index $z-index-tooltip
-    max-width 17.5rem
+  &__inner
     width 100%
+    position relative
+    z-index 1
+    padding-bottom 104%
+    margin-bottom -51%
+
+.hand
+  position absolute
+  width 100%
+  left 0%
+
+.orb
+  position absolute
+  width 58%
+  left 33%
+
+.portal
+  position relative
+  overflow hidden
+  flex 1 0 auto
+  background var(--primary-gradient-complex)
+  center()
+  width 100%
+  max-width: $max-width['8']
+  display flex
+  flex-direction column
+  align-items center
+  clip-path polygon(0 0, 100% calc(0% + 26vw), 100% 100%, 0 100%)
+
+  .title-ephemeris
+    width 100%
+    position relative
+    display flex
+    flex-direction column
+    align-items center
+    justify-content center
+    margin-top 70%
+
+  .ephemerides
+    position absolute
+    width 100%
+    min-width 24rem
+    max-width 36rem
+    display flex
+    align-items center
+    justify-content center
+
+  .ephemeris-1
+    position absolute
+    transform rotate(143deg)
+    width 70%
+
+  .ephemeris-2
+    position absolute
+    transform rotate(150deg)
+    width 92%
+
+  .title
+    width 100%
+    max-width 9em
+    padding 1em 0
+    span
+      display block
+
+.footer
+  margin-top auto
 
 @media $breakpoint-medium
   .wizard
-    position sticky
+    position static
+
+  .portal
+    clip-path polygon(0 0, 100% calc(0% + 14rem), 100% 100%, 0 100%)
 </style>
