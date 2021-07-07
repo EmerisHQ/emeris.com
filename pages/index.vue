@@ -7,7 +7,7 @@
         <span class="beta-badge tm-rf-1 tm-title">Beta</span
         ><span class="tm-rf0 tm-title tm-muted">Coming soon</span>
       </p>
-      <email-wizard class="wizard mt-8" />
+      <email-wizard class="wizard mt-7" />
     </div>
 
     <div class="section-intro tm-container">

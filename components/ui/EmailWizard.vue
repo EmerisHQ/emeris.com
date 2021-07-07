@@ -31,7 +31,7 @@
                 name="fields[email]"
                 class="wizard__form__fieldset__input tm-rf0 tm-lh-copy"
                 type="email"
-                placeholder="Email address"
+                placeholder="Your email address"
                 required="required"
               />
               <tm-button
@@ -50,8 +50,8 @@
           <p
             class="wizard__footnote tm-rf-1 tm-lh-copy tm-text-center tm-muted"
           >
-            You will receive email updates about Emeris.<br />
-            Unsubscribe at any time.
+            You will receive email updates about Emeris. Unsubscribe at any
+            time.
             <a href="https://cosmos.network/privacy"
               >Privacy policy<span class="icon__right">&#8599;</span></a
             >
