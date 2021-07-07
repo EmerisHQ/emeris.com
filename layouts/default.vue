@@ -1,8 +1,8 @@
 <template>
   <div>
     <div id="content">
-      <!-- all page content here - hidden when mobile nav open -->
       <nuxt />
+      <tm-cookie-banner />
     </div>
   </div>
 </template>

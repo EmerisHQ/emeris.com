@@ -54,6 +54,7 @@
     "normalize.css": "^8.0.1",
     "prettier": "^2.2.1",
     "stylus": "^0.54.8",
-    "stylus-loader": "^3.0.2"
+    "stylus-loader": "^3.0.2",
+    "tiny-cookie": "^2.3.2"
   }
 }
