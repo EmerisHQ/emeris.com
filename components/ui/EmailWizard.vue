@@ -70,7 +70,7 @@
             src="~/assets/images/elements/surfer-flying.png"
             alt=""
           />
-          <div class="wizard__title tm-rf0 tm-lh-copy tm-bold">
+          <div class="wizard__title tm-rf1 tm-bold tm-lh-title serif">
             Almost there
           </div>
           <p
@@ -87,17 +87,6 @@
           <tm-button variant="text" class="btn mt-7" @click.native="actionReset"
             >Ok</tm-button
           >
-        </div>
-      </div>
-      <div
-        v-show="step === 3"
-        ref="step3"
-        key="step3"
-        class="wizard__state tm-rf0 tm-lh-copy"
-      >
-        <div class="wizard__title">Something went wrong</div>
-        <div class="wizard__state__error">
-          Uh oh! Refresh the page and try again.
         </div>
       </div>
     </transition-group>
@@ -154,7 +143,7 @@ export default {
           this.step = 2
         })
         .catch(() => {
-          this.step = 3
+          this.step = 0
         })
     },
     actionGoForwards() {
