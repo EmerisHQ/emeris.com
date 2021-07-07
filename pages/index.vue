@@ -68,6 +68,8 @@ export default {
   left 50%
   transform translateX(-50%)
   z-index $z-index-tooltip
+  max-width 17.5rem
+  width 100%
 
 .beta-badge
   display inline-block
@@ -87,13 +89,17 @@ export default {
   .footer
     grid-column 1/-1
 
-// @media $breakpoint-xsmall-only
-//
-// @media $breakpoint-small
-//
-// @media $breakpoint-medium
-//
-// @media $breakpoint-large
-//
-// @media $breakpoint-xl
+@media $breakpoint-small
+  .wizard
+    position fixed
+    bottom 2rem
+    left 50%
+    transform translateX(-50%)
+    z-index $z-index-tooltip
+    max-width 17.5rem
+    width 100%
+
+@media $breakpoint-medium
+  .wizard
+    position sticky
 </style>
