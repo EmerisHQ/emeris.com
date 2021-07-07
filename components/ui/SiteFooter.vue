@@ -11,11 +11,6 @@
           link.title
         }}</tm-link>
       </li>
-      <li>
-        <nuxt-link to="/signup" class="tm-medium tm-text tm-link"
-          >Email</nuxt-link
-        >
-      </li>
     </ul>
     <div class="footnotes tm-muted tm-rf-1 tm-rf0-md-up mt-6">
       <span class="footnote mt-1"
@@ -42,9 +37,9 @@ export default {
   data() {
     return {
       links: [
-        { title: 'Blog', url: 'https://blog.emeris.com' },
         { title: 'Telegram', url: 'https://t.me/EmerisHQ' },
         { title: 'Twitter', url: 'https://twitter.com/emerisHQ' },
+        { title: 'Email', url: '#homepage' },
       ],
     }
   },
