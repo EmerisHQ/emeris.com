@@ -48,12 +48,12 @@ export default {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://gravitydex.io',
+        content: 'https://emeris.com',
       },
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://gravitydex.io/og-image.jpg',
+        content: 'https://emeris.com/og-image.jpg',
       },
       // Twitter Card
       {
@@ -76,7 +76,7 @@ export default {
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content: 'https://gravitydex.io/og-image.jpg',
+        content: 'https://emeris.com/og-image.jpg',
       },
       {
         hid: 'twitter:image:alt',
