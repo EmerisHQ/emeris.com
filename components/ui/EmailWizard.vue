@@ -15,44 +15,48 @@
         </label>
       </div>
       <div v-show="step === 1" ref="step1" key="step1">
-        <form
-          :action="url"
-          method="POST"
-          target="_blank"
-          rel="noreferrer noopener"
-          class="wizard__form"
-          @submit.prevent="actionSubmitEmail"
-        >
-          <fieldset class="wizard__form__fieldset">
-            <input
-              id="field-email"
-              v-model="email"
-              name="fields[email]"
-              class="wizard__form__fieldset__input tm-rf0 tm-lh-copy"
-              type="email"
-              placeholder="Email address"
-              required="required"
-            />
-            <tm-button
-              variant="text"
-              background-color="#890FA8"
-              color="var(--title)"
-              class="btn"
-              :disabled="emailInvalid"
-              @click="actionSubmitEmail"
-            >
-              <span class="sr-only">Sign up</span>
-              <icon-arrow-right-24 />
-            </tm-button>
-          </fieldset>
-        </form>
-        <p class="wizard__footnote tm-rf-1 tm-lh-copy tm-text-center">
-          You will receive email updates about Emeris.<br />
-          Unsubscribe at any time.
-          <a href="https://cosmos.network/privacy"
-            >Privacy policy<span class="icon__right">&#8599;</span></a
+        <div class="form-wrapper__action">
+          <form
+            :action="url"
+            method="POST"
+            target="_blank"
+            rel="noreferrer noopener"
+            class="wizard__form"
+            @submit.prevent="actionSubmitEmail"
           >
-        </p>
+            <fieldset class="wizard__form__fieldset">
+              <input
+                id="field-email"
+                v-model="email"
+                name="fields[email]"
+                class="wizard__form__fieldset__input tm-rf0 tm-lh-copy"
+                type="email"
+                placeholder="Email address"
+                required="required"
+              />
+              <tm-button
+                variant="text"
+                background-color="#890FA8"
+                color="var(--title)"
+                class="btn"
+                :disabled="emailInvalid"
+                @click="actionSubmitEmail"
+              >
+                <span class="sr-only">Sign up</span>
+                <icon-arrow-right-24 />
+              </tm-button>
+            </fieldset>
+          </form>
+          <p
+            class="wizard__footnote tm-rf-1 tm-lh-copy tm-text-center tm-muted"
+          >
+            You will receive email updates about Emeris.<br />
+            Unsubscribe at any time.
+            <a href="https://cosmos.network/privacy"
+              >Privacy policy<span class="icon__right">&#8599;</span></a
+            >
+          </p>
+        </div>
       </div>
       <div
         v-show="step === 2"
@@ -60,12 +64,30 @@
         key="step2"
         class="wizard__state tm-rf0 tm-lh-copy"
       >
-        <div class="wizard__title tm-rf0 tm-lh-copy tm-bold">Almost there</div>
-        <p class="wizard__state__success">
-          Check your inbox (or spam folder) and confirm your email address to
-          receive Emeris updates.
-        </p>
-        <tm-button class="btn mt-7" @click.native="actionReset">Ok</tm-button>
+        <div class="form-wrapper__success">
+          <img
+            class="surfer-graphics"
+            src="~/assets/images/elements/surfer-flying.png"
+            alt=""
+          />
+          <div class="wizard__title tm-rf0 tm-lh-copy tm-bold">
+            Almost there
+          </div>
+          <p
+            class="
+              wizard__state__success
+              tm-rf-1 tm-lh-title tm-muted
+              mt-5
+              mb-3
+            "
+          >
+            Check your inbox (or spam folder) and confirm your email address to
+            receive Emeris updates.
+          </p>
+          <tm-button variant="text" class="btn mt-7" @click.native="actionReset"
+            >Ok</tm-button
+          >
+        </div>
       </div>
       <div
         v-show="step === 3"
@@ -179,7 +201,29 @@ export default {
   opacity 0
   transform scale(.96)
 
+// Graphics
+.surfer-graphics
+  width 70%
+
 // Form
+.form-wrapper__action
+  background var(--gray-100)
+  padding var(--spacing-4)
+  border none
+  border-radius $border-radius-3
+  box-shadow 8px 16px 48px rgba(0, 0, 0, 0.21)
+  backdrop-filter blur(4.5rem)
+
+.form-wrapper__success
+  text-align center
+  max-width 17.5rem
+  background var(--gray-100)
+  padding var(--spacing-6)
+  border none
+  border-radius $border-radius-3
+  box-shadow 8px 16px 48px rgba(0, 0, 0, 0.21)
+  backdrop-filter blur(4.5rem)
+
 .wizard
   &__get-notified
     display flex
@@ -189,20 +233,16 @@ export default {
     outline none
     width 100%
     height auto
-    background var(--white-100)
+    background var(--gray-100)
     border none
     border-radius $border-radius-3
+    box-shadow 8px 16px 48px rgba(0, 0, 0, 0.21)
+    backdrop-filter blur(4.5rem)
     padding var(--spacing-4) var(--spacing-5)
     color var(--white)
     transition color 0.15s ease-out, background 0.15s ease-out
-  &__state
-    &__success
-      color var(--gray-600)
-    &__error
-      color #FF4C52
   &__form
-    margin-top var(--spacing-5)
-    margin-bottom var(--spacing-5)
+    margin-bottom var(--spacing-4)
     max-width: $max-width['7']
     width 100%
     &__fieldset
@@ -211,7 +251,7 @@ export default {
         outline none
         width 100%
         height auto
-        background var(--white-100)
+        background transparent
         border none
         border-radius $border-radius-3
         padding var(--spacing-4) var(--spacing-5)
@@ -221,13 +261,11 @@ export default {
           color var(--gray-600)
           transition color 0.15s ease-out
         &:hover
-          background var(--white-200)
+          background transparent
           &:not(:focus)::placeholder
             color var(--gray-800)
         &:focus
           background var(--white-200)
-  &__footnote
-    color var(--white-500)
 
 .btn
   margin-top var(--spacing-3)
