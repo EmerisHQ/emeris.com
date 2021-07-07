@@ -44,7 +44,8 @@
                   @click="actionSubmitEmail"
                 >
                   <span class="sr-only">Sign up</span>
-                  <icon-arrow-right-24 />
+                  <icon-arrow-right-24 v-show="!loading" />
+                  <icon-spinner-24 v-show="loading" />
                 </tm-button>
               </fieldset>
             </form>
@@ -104,16 +105,19 @@
 <script>
 import querystring from 'querystring'
 import IconArrowRight24 from '~/components/icons/IconArrowRight24.vue'
+import IconSpinner24 from '~/components/icons/IconSpinner24.vue'
 import IconBell24 from '~/components/icons/IconBell24.vue'
 
 export default {
   components: {
     IconArrowRight24,
+    IconSpinner24,
     IconBell24,
   },
   data() {
     return {
       step: 0,
+      loading: false,
       transition: 'forwards',
       email: null,
       url: 'https://app.mailerlite.com/webforms/submit/l9a9o3',
@@ -147,12 +151,15 @@ export default {
           ...this.formData,
         }),
       }
+      this.loading = true
       fetch(this.url, options)
         .then(() => {
           this.step = 2
+          this.loading = false
         })
         .catch(() => {
           this.step = 0
+          this.loading = false
         })
     },
     actionGoForwards() {
