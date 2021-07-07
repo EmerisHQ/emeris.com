@@ -55,7 +55,7 @@
             <tm-button
               variant="text"
               toLink="external"
-              href="https://blog.emeris.com/"
+              href="https://medium.com/emeris-blog"
               size="l"
               color="var(--text)"
               >Introducing Emeris

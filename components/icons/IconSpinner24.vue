@@ -53,5 +53,5 @@
     transform rotate(360deg)
 
 .spinner
-  animation spin .8s linear infinite
+  animation spin .6s linear infinite
 </style>

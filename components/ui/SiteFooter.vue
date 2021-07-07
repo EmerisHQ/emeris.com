@@ -39,7 +39,6 @@ export default {
       links: [
         { title: 'Telegram', url: 'https://t.me/EmerisHQ' },
         { title: 'Twitter', url: 'https://twitter.com/emerisHQ' },
-        { title: 'Email', url: '#homepage' },
       ],
     }
   },
