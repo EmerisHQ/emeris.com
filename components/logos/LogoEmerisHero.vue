@@ -5,7 +5,10 @@
     viewBox="0 0 334 88"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    aria-labelledby="emerisLogoTitle238694"
+    role="img"
   >
+    <title id="emerisLogoTitle238694">Emeris</title>
     <mask
       id="mask0-871892"
       mask-type="alpha"

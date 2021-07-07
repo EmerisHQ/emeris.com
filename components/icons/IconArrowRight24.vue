@@ -5,7 +5,10 @@
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    aria-labelledby="rightArrow104857"
+    role="img"
   >
+    <title id="rightArrow104857">Right arrow</title>
     <path
       d="M2 12H22"
       stroke="url(#paint0_linear-547678)"

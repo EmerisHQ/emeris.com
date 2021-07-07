@@ -6,7 +6,10 @@
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     class="spinner"
+    aria-labelledby="spinner200485"
+    role="img"
   >
+    <title id="spinner200485">Loading icon</title>
     <path
       d="M23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23"
       stroke="url(#paint0_linear-179875)"

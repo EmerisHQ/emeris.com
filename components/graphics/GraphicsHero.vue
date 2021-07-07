@@ -33,9 +33,9 @@
 
 @keyframes surfer-frame
   0%
-    transform rotate(210deg)
+    transform rotate(213deg)
   100%
-    transform rotate(212deg)
+    transform rotate(208deg)
 
 .surfer
   width 85%

@@ -22,7 +22,7 @@
                 />
               </kinesis-element>
             </kinesis-element>
-            <kinesis-element strength="-60" originY="20">
+            <kinesis-element strength="-60" origin-y="20">
               <img
                 class="orb"
                 src="~/assets/images/elements/orb-malibu.png"
@@ -54,10 +54,11 @@
           <p class="mt-10">
             <tm-button
               variant="text"
-              toLink="external"
-              href="https://medium.com/emeris-blog"
+              to-link="external"
+              href="https://medium.com/emeris-blog/introducing-emeris-the-cross-chain-portal-to-all-crypto-apps-4e6eee5b53a8"
               size="l"
               color="var(--text)"
+              light-color="var(--text)"
               >Introducing Emeris
               <span class="icon__right">&#8599;</span></tm-button
             >
