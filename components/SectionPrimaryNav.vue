@@ -1,23 +1,25 @@
 <template>
   <div class="nav-container tm-wrapper tm-container tm-grid-base">
     <nav class="nav nav-primary" role="navigation">
-      <NuxtLink to="/" class="logos-container">
-        <logo-emeris-hero class="logo logo-cosmos" />
-        <span class="sr-only">Emeris</span>
-      </NuxtLink>
-      <div class="nav-end">
+      <div class="nav-head">
+        <nuxt-link to="/" class="logos-container">
+          <logo-emeris-hero class="logo" />
+          <span class="sr-only">Emeris</span>
+        </nuxt-link>
+      </div>
+      <div class="nav-tail">
         <ul>
           <li>
             <tm-link
-              href="https://cosmos.network"
-              class="text tm-rf0 tm-medium tm-lh-title"
-              >Blog &#8594;</tm-link
+              href="https://medium.com/emeris-blog"
+              class="tm-rf0 tm-medium tm-lh-title"
+              >Blog &#8599;</tm-link
             >
           </li>
           <li>
             <tm-link
               href="https://cosmos.network"
-              class="text tm-rf0 tm-medium tm-lh-title"
+              class="tm-rf0 tm-medium tm-lh-title"
               >Get Started &#8594;</tm-link
             >
           </li>
@@ -96,7 +98,7 @@ export default {
   .logos-container
     center()
 
-  .nav-end
+  .nav-tail
     margin-left calc(-1 * var(--spacing-7))
     margin-right calc(-1 * var(--spacing-7))
     overflow-x auto
