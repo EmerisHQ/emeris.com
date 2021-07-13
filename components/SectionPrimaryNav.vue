@@ -1,11 +1,11 @@
 <template>
-  <div class="nav-inner">
-    <nav class="nav nav-primary tm-wrapper tm-container" role="navigation">
-      <NuxtLink to="/" :class="['logos', $route.path != '/' && ' not-home']">
+  <div class="nav-container tm-wrapper tm-container tm-grid-base">
+    <nav class="nav nav-primary" role="navigation">
+      <NuxtLink to="/" class="logos-container">
         <logo-emeris-hero class="logo logo-cosmos" />
+        <span class="sr-only">Emeris</span>
       </NuxtLink>
-      <span class="sr-only">Emeris</span>
-      <div class="nav-scroll">
+      <div class="nav-end">
         <ul>
           <li>
             <tm-link
@@ -38,9 +38,15 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.nav-inner
+.nav-container > *
+  grid-column 1/-1
+
+.logos-container
   position relative
-  z-index 2
+  height 3rem
+  display flex
+  justify-content center
+  flex-direction column
 
 .nav
   /* if no secondary nav, create similar space */
@@ -59,96 +65,38 @@ export default {
     display inline-block
     + li
       margin-left var(--spacing-7)
-  .logo
-    display block
-    transition transform .4s $ease-out, opacity .4s $ease-out, color .4s $ease-out, visibility .4s 0s
-    color var(--white)
-  .logo-stargate
-    position absolute
-    height 1rem
-    opacity 0
-    visibility hidden
-    transform scale(0.8)
-  .logos
-    position relative
-    width 10rem
-    height 3rem
-    display flex
-    justify-content center
-    flex-direction column
-    &.not-home
-      .logo-cosmos
-        transform scale(0.4) translateY(-3.5rem)
-        color var(--gray-600)
-      .logo-stargate
-        opacity 1
-        visibility visible
-        transform scale(1)
-        transition transform .4s $ease-out, opacity .4s $ease-out, visibility 0s
 
-  &-primary ul a
-    display block
-    white-space nowrap
-    padding var(--spacing-6) 0
-    color var(--white)
-    border-radius $border-radius-2
-    transition all .25s $ease-out
-    &:hover,
-    &:focus
-      opacity 0.8
-    &:active
-      opacity 0.6
-      transition-duration .05s
-    // /* exact link will show the primary color for only the exact matching link */
-    &.nuxt-link-exact-active
-      cursor default
-      color var(--gray-600)
-      opacity 1
-  &-secondary
-    .tm-button
-      min-width $max-width['2']
-    .icon
-      display none
-      fill var(--white)
-      width 1.5rem
-      &__reverse
-        transform rotate(180deg)
+.nav-primary ul a
+  display block
+  white-space nowrap
+  padding var(--spacing-6) 0
+  color var(--white)
+  border-radius $border-radius-2
+  transition all .25s $ease-out
 
-@media $breakpoint-small
-  .homelink
-    align-self baseline
-    margin-top var(--spacing-1)
-  .logos
-    align-items start
-    height 4rem
-  .logo
-    transform-origin 0% 50%
-  .nav-primary
-    align-items center
+  &:hover
+  &:focus
+    opacity 0.8
+
+  &:active
+    opacity 0.6
+    transition-duration .05s
+
+  &.nuxt-link-exact-active
+    cursor default
+    color var(--gray-600)
+    opacity 1
 
 @media $breakpoint-xsmall-only
-  .nav
-    &-primary
-      justify-content center
-      flex-direction column
-      align-items unset
-    .logos
-      center()
-    .logo-cosmos
-      max-height 1.5rem
-      width auto
-    .logo-stargate
-      height 0.75rem
-    .logos.not-home
-      .logo-cosmos
-        transform scale(0.5) translateY(-2.5rem)
-    &-secondary
-      .text
-        display none
-      .icon
-        display block
+  .nav-primary
+    justify-content center
+    flex-direction column
+    align-items unset
 
-  .nav-scroll
+  .logos-container
+    center()
+
+  .nav-end
     margin-left calc(-1 * var(--spacing-7))
     margin-right calc(-1 * var(--spacing-7))
     overflow-x auto
@@ -164,15 +112,15 @@ export default {
     justify-content center
     align-items center
 
-  .countdown
-    display none
+@media $breakpoint-small
+  .logos-container
+    align-items start
+    height 4rem
 
-@media screen and (max-width: 1024px)
-  .nav
-    &-primary
-      justify-content center
-      flex-direction column
-
-  .countdown
-    display none
+// @media $breakpoint-medium
+// @media $breakpoint-large
+@media $breakpoint-xl
+  .nav-container > *
+    grid-column 2/span 10
+// @media $breakpoint-xxl
 </style>

@@ -1,7 +1,6 @@
 <template>
   <div>
     <!-- <tm-cookie-banner /> -->
-    <!-- <primary-nav /> -->
     <section-primary-nav />
     <div id="content">
       <nuxt />
