@@ -1,9 +1,12 @@
 <template>
   <div>
+    <!-- <tm-cookie-banner /> -->
+    <!-- <primary-nav /> -->
+    <section-primary-nav />
     <div id="content">
       <nuxt />
-      <tm-cookie-banner />
     </div>
+    <tm-footer />
   </div>
 </template>
 
@@ -17,8 +20,7 @@ export default {}
   transition opacity 0.2s $ease-out
 .page-leave-active
   transition opacity 0.2s $ease-out
-
-.page-enter,
+.page-enter
 .page-leave-to
   opacity 0
 
