@@ -12,7 +12,7 @@
             @click="actionGoForwards"
           >
             <icon-bell-24 class="icon" />
-            <span class="tm-rf0 tm-lh-title">Email me at launch</span>
+            <span class="tm-rf0 tm-lh-title">Get email updates</span>
           </label>
         </div>
         <div v-show="step === 1" ref="step1" key="step1">
@@ -194,8 +194,7 @@ export default {
 
 .wizard
   &__inner
-    max-width 19rem
-    center()
+    max-width 17.5rem
     background var(--fg)
     border-radius $border-radius-3
     box-shadow 8px 16px 48px rgba(0, 0, 0, 0.21)
