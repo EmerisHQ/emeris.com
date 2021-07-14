@@ -7,7 +7,7 @@
           <span class="sr-only">Emeris</span>
         </nuxt-link>
       </div>
-      <div class="nav-tail">
+      <!-- <div class="nav-tail">
         <ul>
           <li>
             <tm-link
@@ -24,7 +24,7 @@
             >
           </li>
         </ul>
-      </div>
+      </div> -->
     </nav>
   </div>
 </template>
@@ -59,7 +59,7 @@ export default {
   ul
     display flex
     align-items center
-    justify-content space-between
+    justify-content center
   ul
     padding 0
   li
