@@ -6,8 +6,19 @@
           <logo-emeris-hero class="logo__cosmos" />
           <span class="sr-only">Cosmos</span>
         </nuxt-link>
-        <tm-link href="https://v1.cosmos.network/privacy" class="privacy"
+        <span class="divider" />
+        <tm-link href="https://v1.cosmos.network/privacy" class="tm-muted"
           >Privacy</tm-link
+        >
+        <tm-link href="https://v1.cosmos.network/privacy" class="tm-muted"
+          >Terms of use</tm-link
+        >
+        <tm-link href="https://v1.cosmos.network/privacy" class="tm-muted"
+          >Get updates</tm-link
+        >
+        <span class="divider" />
+        <tm-link v-scroll-to="'#homepage'" href="#" class="tm-muted scrolltop"
+          >Back to top &#8593;</tm-link
         >
       </nav>
       <nav ref="links" class="social-icons mt-7" role="navigation">
@@ -132,15 +143,17 @@ export default {
   gap var(--spacing-4)
   color inherit
   transition transform .4s $ease-out, opacity .4s $ease-out, color .4s $ease-out, visibility .4s 0s
-  padding-right 1.5rem
   svg
     width auto
   &__cosmos
     height 1.125rem
 
-.privacy
-  padding-left 1.5rem
-  border-left 1px solid var(--white-100)
+.divider
+  margin 0 1.5rem
+  border-right 1px solid var(--white-100)
+
+a + a
+  margin-left 1.5rem
 
 .nav-bottom
   display flex

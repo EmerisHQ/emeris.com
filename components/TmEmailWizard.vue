@@ -75,7 +75,7 @@
               src="~/assets/images/elements/surfer-flying.png"
               alt=""
             />
-            <div class="wizard__title tm-rf1 tm-bold tm-lh-title serif">
+            <div class="wizard__title tm-rf1 tm-bold tm-lh-title tm-serif">
               Almost there
             </div>
             <p

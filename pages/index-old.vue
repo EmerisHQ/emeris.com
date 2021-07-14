@@ -45,7 +45,7 @@
                 alt="Gold ephemeris ring"
               />
             </div>
-            <h2 class="title serif tm-rf5 tm-lh-title tm-title">
+            <h2 class="title tm-serif tm-rf5 tm-lh-title tm-title">
               <span class="tm-text-left">Experience</span>
               <span class="tm-text-center">cross-chain</span>
               <span class="tm-text-right">DeFi</span>

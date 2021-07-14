@@ -93,7 +93,6 @@ export default {
   .nav-primary
     justify-content center
     flex-direction column
-    align-items unset
 
   .logos-container
     center()
