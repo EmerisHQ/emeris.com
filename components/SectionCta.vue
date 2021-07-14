@@ -1,5 +1,5 @@
 <template>
-  <div class="center">
+  <div class="tm-container tm-wrapper tm-section center">
     <h1>Section Cta</h1>
   </div>
 </template>

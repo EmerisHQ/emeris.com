@@ -1,52 +1,64 @@
 <template>
-  <footer class="footer tm-wrapper tm-container tm-grid-base">
-    <div class="row">
-      <nav ref="links" class="nav-bottom tm-rf-1 tm-lh-copy" role="navigation">
-        <nuxt-link to="/" class="logo">
-          <logo-emeris-hero class="logo__cosmos" />
-          <span class="sr-only">Cosmos</span>
-        </nuxt-link>
-        <span class="divider" />
-        <tm-link href="https://v1.cosmos.network/privacy" class="tm-muted"
-          >Privacy</tm-link
+  <footer class="footer tm-wrapper">
+    <div class="tm-container">
+      <div class="row">
+        <nav
+          ref="links"
+          class="nav-bottom tm-rf-1 tm-lh-copy"
+          role="navigation"
         >
-        <tm-link href="https://v1.cosmos.network/privacy" class="tm-muted"
-          >Terms of use</tm-link
-        >
-        <tm-link href="https://v1.cosmos.network/privacy" class="tm-muted"
-          >Get updates</tm-link
-        >
-        <span class="divider" />
-        <tm-link v-scroll-to="'#homepage'" href="#" class="tm-muted scrolltop"
-          >Back to top &#8593;</tm-link
-        >
-      </nav>
-      <nav ref="links" class="social-icons mt-7" role="navigation">
-        <tm-link
-          v-for="link in links"
-          :key="url(link)"
-          :href="url(link)"
-          class="social-icons__item"
-        >
-          <tm-tooltip :text="link.title" position="top-center">
-            <svg
-              width="24"
-              height="24"
-              xmlns="http://www.w3.org/2000/svg"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              fill="currentColor"
-            >
-              <path :d="icon(link)" style="pointer-events: none"></path>
-            </svg>
-          </tm-tooltip>
-        </tm-link>
-      </nav>
+          <nuxt-link to="/" class="logo">
+            <logo-emeris-hero class="logo__emeris" />
+            <span class="sr-only">Emeris</span>
+          </nuxt-link>
+          <span class="divider" />
+          <tm-link
+            href="https://v1.cosmos.network/privacy"
+            class="link-item tm-muted"
+            >Privacy</tm-link
+          >
+          <tm-link
+            href="https://v1.cosmos.network/privacy"
+            class="link-item tm-muted"
+            >Terms of use</tm-link
+          >
+          <tm-link
+            href="https://v1.cosmos.network/privacy"
+            class="link-item tm-muted"
+            >Get updates</tm-link
+          >
+          <span class="divider" />
+          <tm-link v-scroll-to="'#homepage'" href="#" class="tm-muted scrolltop"
+            >Back to top &#8593;</tm-link
+          >
+        </nav>
+        <nav ref="links" class="social-icons mt-7" role="navigation">
+          <tm-link
+            v-for="link in links"
+            :key="url(link)"
+            :href="url(link)"
+            class="social-icons__item"
+          >
+            <tm-tooltip :text="link.title" position="top-center">
+              <svg
+                width="24"
+                height="24"
+                xmlns="http://www.w3.org/2000/svg"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                fill="currentColor"
+              >
+                <path :d="icon(link)" style="pointer-events: none"></path>
+              </svg>
+            </tm-tooltip>
+          </tm-link>
+        </nav>
+      </div>
+      <p class="smallprint tm-rf-1 tm-lh-copy mt-8 tm-muted">
+        &copy; Emeris 2021 — Built by
+        <tm-link href="https://tendermint.com">Tendermint</tm-link>.
+      </p>
     </div>
-    <p class="smallprint tm-rf-1 tm-lh-copy mt-8 tm-muted">
-      &copy; Emeris 2021 — Built by
-      <tm-link href="https://tendermint.com">Tendermint</tm-link>.
-    </p>
   </footer>
 </template>
 
@@ -97,20 +109,13 @@ export default {
       })
       return iconPath
     },
-    isInternal(url) {
-      return url.startsWith('/')
-    },
   },
 }
 </script>
 
 <style lang="stylus" scoped>
 .footer
-  padding-top var(--spacing-10)
   padding-bottom var(--spacing-9)
-
-  > *
-    grid-column 1/-1
 
 .social-icons
   display flex
@@ -119,23 +124,14 @@ export default {
   justify-content center
   align-items center
   text-align center
+
   &__item
     padding var(--spacing-3)
-    opacity 0.5
-    &:hover,
+    opacity 0.75
+
+    &:hover
     &:focus
       opacity 1
-
-.smallprint
-  text-align left
-
-.row
-  padding-top var(--spacing-8)
-  border-top 1px solid var(--white-100)
-  display flex
-  flex-direction column
-  align-items center
-  justify-content space-between
 
 .logo
   display flex
@@ -143,29 +139,87 @@ export default {
   gap var(--spacing-4)
   color inherit
   transition transform .4s $ease-out, opacity .4s $ease-out, color .4s $ease-out, visibility .4s 0s
+
   svg
     width auto
-  &__cosmos
+
+  &__emeris
     height 1.125rem
 
 .divider
-  margin 0 1.5rem
+  margin 0 var(--spacing-6)
   border-right 1px solid var(--white-100)
 
-a + a
-  margin-left 1.5rem
-
-.nav-bottom
-  display flex
-
-@media $breakpoint-medium
+@media $breakpoint-xsmall-only
   .row
     flex-direction row
 
+  .nav-bottom
+    display flex
+    flex-direction column
+    align-items center
+
+  .link-item + .link-item
+    margin-left 0
+
+  .link-item
+    margin-top var(--spacing-6)
+
+    &:first-child
+      margin-top 0
+
+  .scrolltop
+    margin-top var(--spacing-6)
+
+  .smallprint
+    text-align center
+
+@media $breakpoint-small
+  .row
+    display flex
+    flex-direction column
+    align-items center
+    justify-content space-between
+
+  .nav-bottom
+    display flex
+    flex-direction column
+
+  .link-item + .link-item
+    margin-left 0
+
+  .link-item
+    margin-top var(--spacing-6)
+    text-align center
+
+    &:first-child
+      margin-top 0
+
+  .scrolltop
+    margin-top var(--spacing-6)
+    text-align center
+
+  .smallprint
+    text-align center
+
+@media $breakpoint-medium
+  .link-item
+  .scrolltop
+    margin-top 0
+
+  .nav-bottom
+    flex-direction row
+
+  .link-item + .link-item
+    margin-left var(--spacing-6)
+
+@media $breakpoint-large
   .social-icons
     margin-top 0
 
-@media $breakpoint-xl
-  .footer > *
-    grid-column 2/span 10
+  .row
+    flex-direction row
+
+  .smallprint
+    text-align left
 </style>
