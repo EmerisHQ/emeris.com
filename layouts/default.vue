@@ -25,10 +25,4 @@ export default {}
 
 #content
   overflow hidden
-
-.center
-  display grid
-  place-items center
-  center()
-  width 100% // safari
 </style>
