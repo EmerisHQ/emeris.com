@@ -6,7 +6,20 @@
           <h1 class="tm-rf5 tm-bold tm-lh-title tm-serif">
             The best is yet to come.
           </h1>
-          <!-- graphics -->
+          <div class="title-ephemeris">
+            <div class="ephemerides">
+              <img
+                class="ephemeris ephemeris-1"
+                src="~/assets/images/elements/gold-ephemeris-ring-1.png"
+                alt="Gold ephemeris ring"
+              />
+              <img
+                class="ephemeris ephemeris-2"
+                src="~/assets/images/elements/gold-ephemeris-ring-2.png"
+                alt="Gold ephemeris ring"
+              />
+            </div>
+          </div>
         </div>
         <div class="right">
           <div class="text">
@@ -80,6 +93,51 @@ export default {}
 
 .list-item + .list-item
   margin-top var(--spacing-6)
+
+.title-ephemeris
+  width 100%
+  position relative
+  display flex
+  flex-direction column
+  align-items center
+  justify-content center
+  margin-top 20%
+
+.ephemerides
+  position absolute
+  width 100%
+  min-width 24rem
+  max-width 36rem
+  display flex
+  align-items center
+  justify-content center
+
+.ephemeris-1
+  position absolute
+  transform rotate(143deg)
+  width 70%
+  animation ephemeris-1 8s $ease-out infinite
+
+.ephemeris-2
+  position absolute
+  transform rotate(150deg)
+  width 92%
+  animation ephemeris-2 8s $ease-out infinite
+
+@keyframes ephemeris-1
+  0%
+    transform rotate(-37deg)
+  50%
+    transform rotate(143deg)
+  100%
+    transform rotate(323deg)
+@keyframes ephemeris-2
+  0%
+    transform rotate(150deg)
+  50%
+    transform rotate(-30deg)
+  100%
+    transform rotate(-210deg)
 
 @media $breakpoint-xsmall-only
   .right
