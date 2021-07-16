@@ -3,7 +3,7 @@
     <div class="outer tm-container-narrow mt-5">
       <div class="inner center">
         <h1
-          class="title tm-content tm-serif tm-rf5 tm-bold tm-lh-title tm-title"
+          class="title tm-content tm-serif tm-rf6 tm-bold tm-lh-title tm-title"
         >
           <span class="tm-text-left">Experience</span>
           <span class="tm-text-center">the power of</span>
