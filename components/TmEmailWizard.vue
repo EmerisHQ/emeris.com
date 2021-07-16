@@ -201,6 +201,8 @@ export default {
   &__get-notified
     display flex
     align-items center
+    background var(--gold-btn-gradient)
+    color var(--gray-100)
     cursor pointer
     gap var(--spacing-5)
     outline none
