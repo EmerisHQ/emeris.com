@@ -1,9 +1,9 @@
 <template>
-  <div class="canvas">
+  <div class="canvas tm-center">
     <div class="aspect">
       <div class="layer frame"></div>
       <img
-        src="~/assets/images/elements/surfer-levitate.png"
+        src="~/assets/images/elements/surfer-swimming.png"
         alt="Interchain Surfer"
         class="layer surfer"
       />
@@ -17,7 +17,7 @@
   position relative
   height 0
   width 100%
-  padding-bottom 100% // square aspect ratio
+  padding-bottom 70%
 
 .layer
   position absolute
@@ -31,12 +31,6 @@
   100%
     transform translateY(-3%) rotate(-2deg)
 
-@keyframes surfer-frame
-  0%
-    transform rotate(213deg)
-  100%
-    transform rotate(208deg)
-
 .surfer
   width 85%
   top 12%
@@ -44,16 +38,14 @@
   animation surfer-levitate 5s ease-in-out alternate infinite
 
 .frame
-  background-image url('~/assets/images/elements/gold-frame.png')
+  background-image url('~/assets/images/elements/gold-door.png')
   background-size cover
   background-repeat no-repeat
   width 64%
-  padding-bottom 38%
-  transform rotate(210deg)
-  top 82.3%
-  left 67.6%
+  padding-bottom 88%
+  top 2.3%
+  left 33.4%
   transform-origin top left
-  animation surfer-frame 5s ease-in-out alternate infinite
   &-fg
     padding-bottom 3.6%
 </style>

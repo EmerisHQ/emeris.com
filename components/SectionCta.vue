@@ -1,6 +1,6 @@
 <template>
   <div class="section-cta tm-container tm-wrapper tm-section">
-    <!-- graphics -->
+    <graphics-cta class="graphics" />
     <div class="tm-content center text">
       <h1 class="tm-rf5 tm-bold tm-lh-title tm-serif">
         Experience a glimpse<br />of DeFi's future<br />today
@@ -28,4 +28,9 @@ export default {}
 .text
   text-align center
   padding 0 3.5313rem
+
+.graphics
+  flex 1 0 73%
+  width 73%
+  max-width 26rem
 </style>
