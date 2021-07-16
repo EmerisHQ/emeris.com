@@ -18,6 +18,11 @@
                 src="~/assets/images/elements/gold-ephemeris-ring-2.png"
                 alt="Gold ephemeris ring"
               />
+              <img
+                class="orb"
+                src="~/assets/images/elements/orb-crystal.png"
+                alt="Glowing blue orb"
+              />
             </div>
           </div>
         </div>
@@ -115,14 +120,19 @@ export default {}
 .ephemeris-1
   position absolute
   transform rotate(143deg)
-  width 70%
+  width 50%
   animation ephemeris-1 8s $ease-out infinite
 
 .ephemeris-2
   position absolute
   transform rotate(150deg)
-  width 92%
+  width 65%
   animation ephemeris-2 8s $ease-out infinite
+
+.orb
+  position absolute
+  width 100%
+  // animation orb-1 4s ease-in-out infinite
 
 @keyframes ephemeris-1
   0%
@@ -131,6 +141,7 @@ export default {}
     transform rotate(143deg)
   100%
     transform rotate(323deg)
+
 @keyframes ephemeris-2
   0%
     transform rotate(150deg)
@@ -139,15 +150,32 @@ export default {}
   100%
     transform rotate(-210deg)
 
+// @keyframes orb-1
+//   0%
+//     transform translateY(0%) rotate(0deg)
+//   50%
+//     transform translateY(-8%) rotate(45deg)
+//   100%
+//     transform translateY(0%) rotate(0deg)
+
 @media $breakpoint-xsmall-only
   .right
     margin-top var(--spacing-7)
+
+  .title-ephemeris
+    margin 50% 0
 
 @media $breakpoint-small
   .right
     margin-top var(--spacing-7)
 
-// @media $breakpoint-medium
+  .title-ephemeris
+    margin 35% 0
+
+@media $breakpoint-medium
+  .title-ephemeris
+    margin 30% 0
+
 // @media $breakpoint-large
 @media $breakpoint-xl
   .left
