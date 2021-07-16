@@ -3,7 +3,7 @@
     <main id="homepage" class="page-container">
       <div class="section-hero tm-section tm-wrapper tm-container">
         <graphics-hero class="graphics" />
-        <logo-emeris-hero class="logo" />
+        <logo-emeris-wordmark class="logo" />
         <p class="tm-text-center mt-5">
           <span class="beta-badge tm-rf-1 tm-title">Beta</span
           ><span class="tm-rf0 tm-title tm-muted">Coming soon</span>
@@ -73,7 +73,7 @@
 <script>
 import { KinesisContainer, KinesisElement } from 'vue-kinesis'
 
-import LogoEmerisHero from '~/components/logos/LogoEmerisHero.vue'
+import LogoEmerisWordmark from '~/components/logos/LogoEmerisWordmark.vue'
 // import EmailWizard from '~/components/ui/EmailWizard.vue'
 // import SiteFooter from '~/components/ui/SiteFooter.vue'
 
@@ -81,7 +81,7 @@ export default {
   components: {
     KinesisContainer,
     KinesisElement,
-    LogoEmerisHero,
+    LogoEmerisWordmark,
     // EmailWizard,
     // SiteFooter,
   },

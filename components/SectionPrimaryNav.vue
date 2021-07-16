@@ -1,9 +1,9 @@
 <template>
-  <div class="nav-container tm-wrapper tm-container tm-grid-base">
+  <div class="nav-container tm-wrapper tm-container mt-7">
     <nav class="nav nav-primary" role="navigation">
       <div class="nav-head">
         <nuxt-link to="/" class="logos-container">
-          <logo-emeris-hero class="logo" />
+          <logo-emeris-wordmark-color class="logo" />
           <span class="sr-only">Emeris</span>
         </nuxt-link>
       </div>
@@ -30,11 +30,11 @@
 </template>
 
 <script>
-import LogoEmerisHero from '~/components/logos/LogoEmerisHero.vue'
+import LogoEmerisWordmarkColor from '~/components/logos/LogoEmerisWordmarkColor.vue'
 
 export default {
   components: {
-    LogoEmerisHero,
+    LogoEmerisWordmarkColor,
   },
 }
 </script>

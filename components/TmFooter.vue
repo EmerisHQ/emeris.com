@@ -8,7 +8,7 @@
           role="navigation"
         >
           <nuxt-link to="/" class="logo">
-            <logo-emeris-hero class="logo__emeris" />
+            <logo-emeris-wordmark class="logo__emeris" />
             <span class="sr-only">Emeris</span>
           </nuxt-link>
           <span class="divider" />
@@ -63,7 +63,7 @@
 </template>
 
 <script>
-import LogoEmerisHero from '~/components/logos/LogoEmerisHero.vue'
+import LogoEmerisWordmark from '~/components/logos/LogoEmerisWordmark.vue'
 
 const iconList = [
   [
@@ -82,7 +82,7 @@ const iconList = [
 
 export default {
   components: {
-    LogoEmerisHero,
+    LogoEmerisWordmark,
   },
   data() {
     return {
