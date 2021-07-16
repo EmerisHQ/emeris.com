@@ -23,12 +23,12 @@
     </div>
     <div class="bottom tm-wrapper tm-content">
       <div class="tm-grid-base">
-        <div class="left">
+        <div class="left tm-rf1 tm-lh-copy tm-text">
           Access cutting-edge decentralized exchanges, allowing you to obtain
           experimental or alternative coins that may be difficult or impossible
           to get via traditional centralized exchanges.
         </div>
-        <div class="right">
+        <div class="right tm-rf1 tm-lh-copy tm-text">
           <tm-link href="https://cosmos.network" class="tm-link"
             >Stay tuned</tm-link
           >

@@ -3,7 +3,7 @@
     <div class="portal tm-wrapper tm-content">
       <div class="top tm-grid-base">
         <div class="left">
-          <h1 class="tm-rf5 tm-bold tm-lh-title tm-serif">
+          <h1 class="title tm-rf5 tm-bold tm-lh-title tm-serif tm-muted">
             Try<br />the best today
           </h1>
         </div>
@@ -92,6 +92,9 @@ export default {
 .wrapper
   position relative
   color var(--black)
+
+.title
+  color var(--trans-gray-300)
 
 .top .left
 .top .right
