@@ -1,9 +1,16 @@
 <template>
   <div class="section-access tm-section">
-    <div class="tm-container">
+    <!-- <div class="tm-container">
       <img class="ring z-0" src="~/assets/images/elements/ring.png" alt="" />
-    </div>
+    </div> -->
     <div class="tm-wrapper tm-content">
+      <div class="ephemerides">
+        <img
+          class="ephemeris ephemeris-item"
+          src="~/assets/images/elements/gold-ephemeris-2.png"
+          alt="Gold ephemeris ring"
+        />
+      </div>
       <h1 class="title tm-rf5 tm-bold tm-lh-title tm-serif">
         Early access to innovative blockchains
       </h1>
@@ -93,6 +100,23 @@ export default {
 <style lang="stylus" scoped>
 .logos-container
   position relative
+
+img
+  max-width initial
+
+.ephemerides
+  position absolute
+  width 100%
+  min-width 24rem
+  // max-width 36rem
+  display flex
+  align-items center
+  justify-content center
+  margin-top 10rem
+
+.ephemeris-item
+  position absolute
+  width 250%
 
 .tm-link
   color var(--secondary)

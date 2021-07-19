@@ -6,11 +6,14 @@
         Experience a glimpse<br />of DeFi's future<br />today
       </h1>
       <tm-button
-        variant="text"
         to-link="external"
         href="https://medium.com/emeris-blog/introducing-emeris-the-cross-chain-portal-to-all-crypto-apps-4e6eee5b53a8"
         size="l"
+        border-color="var(--primary)"
+        color="var(--white)"
+        variant="outlined"
         class="mt-6"
+        glow
         >Get started <span class="icon__right">&#8594;</span></tm-button
       >
     </div>
