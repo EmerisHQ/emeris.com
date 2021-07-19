@@ -1,6 +1,6 @@
 <template>
   <div class="section-access tm-section">
-    <div class="tm-wrapper tm-content">
+    <div class="tm-content">
       <div class="ephemerides">
         <img
           class="ephemeris ephemeris-item"

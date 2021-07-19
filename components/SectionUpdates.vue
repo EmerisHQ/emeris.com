@@ -1,6 +1,6 @@
 <template>
-  <div class="section-updates tm-section">
-    <div class="tm-wrapper tm-content">
+  <div class="section-updates tm-section tm-wrapper">
+    <div class="tm-content">
       <div class="tm-grid-base">
         <div class="left">
           <h1 class="tm-rf5 tm-bold tm-lh-title tm-serif">

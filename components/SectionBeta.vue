@@ -1,6 +1,6 @@
 <template>
   <div class="section-beta tm-section">
-    <div class="portal tm-wrapper tm-content">
+    <div class="portal tm-wrapper tm-container-narrow">
       <div class="top tm-grid-base">
         <div class="left">
           <h1 class="title tm-rf5 tm-bold tm-lh-title tm-serif tm-muted">
@@ -104,7 +104,6 @@ export default {
   color var(--black)
 
 .portal
-  padding var(--spacing-12) var(--spacing-10)
   max-width 78rem
   background var(--portal-gradient)
   clip-path polygon(0 0, 100% calc(0% + 26vw), 100% 100%, 0 100%)
@@ -153,7 +152,12 @@ export default {
     position relative
     margin-top -30%
 
-// @media $breakpoint-small
+  .portal
+    padding var(--spacing-12) var(--wrap-gap)
+
+@media $breakpoint-small
+  .portal
+    padding var(--spacing-12) var(--wrap-gap)
 
 @media $breakpoint-medium
   .portal
@@ -172,6 +176,9 @@ export default {
 
   .bottom
     grid-template-columns repeat(auto-fit, minmax(0, 1fr))
+
+  .portal
+    padding var(--spacing-12) var(--spacing-10)
 
 // @media $breakpoint-xxl
 </style>
