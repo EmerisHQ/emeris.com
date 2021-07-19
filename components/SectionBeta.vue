@@ -119,7 +119,10 @@ export default {
   grid-template-columns 10rem auto
   gap var(--grid-gap-x)
   align-items center
-  border 1px solid var(--black)
+  background transparent
+  box-sizing border-box
+  background-clip padding-box
+  border 1px solid var(--solid)
   border-radius $border-radius-4
   hover-raise(-3px)
 
