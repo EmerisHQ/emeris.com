@@ -1,14 +1,11 @@
 <template>
   <div class="section-access tm-section">
-    <!-- <div class="tm-container">
-      <img class="ring z-0" src="~/assets/images/elements/ring.png" alt="" />
-    </div> -->
     <div class="tm-wrapper tm-content">
       <div class="ephemerides">
         <img
           class="ephemeris ephemeris-item"
-          src="~/assets/images/elements/gold-ephemeris-2.png"
-          alt="Gold ephemeris ring"
+          src="~/assets/images/elements/gold-ephemeris-section.png"
+          alt="Gold Ephemeris Section Ring"
         />
       </div>
       <h1 class="title tm-rf5 tm-bold tm-lh-title tm-serif">
@@ -127,9 +124,6 @@ img
 
 .title
   text-align center
-
-.ring
-  position absolute
 
 .scrolling-wrapper
   overflow-x scroll
