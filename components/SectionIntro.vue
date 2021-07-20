@@ -4,19 +4,38 @@
       <h2 class="tm-rf4 tm-lh-title tm-bold tm-serif title">
         Your one-stop<br />portal to a new<br />world of DeFi
       </h2>
-      <div class="emeris-beta">
-        <div class="portal"></div>
-        <img
-          src="~/assets/images/elements/emeris-beta.jpg"
-          alt="Emeris intro"
-        />
-      </div>
+      <kinesis-container class="emeris-beta">
+        <div>
+          <kinesis-element
+            strength="-2"
+            type="depth_inv"
+            class="portal-container"
+          >
+            <div>
+              <div class="portal"></div>
+            </div>
+          </kinesis-element>
+          <kinesis-element strength="2" type="depth">
+            <img
+              src="~/assets/images/elements/emeris-beta.jpg"
+              alt="Emeris intro"
+            />
+          </kinesis-element>
+        </div>
+      </kinesis-container>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import { KinesisContainer, KinesisElement } from 'vue-kinesis'
+
+export default {
+  components: {
+    KinesisContainer,
+    KinesisElement,
+  },
+}
 </script>
 
 <style lang="stylus" scoped>
@@ -45,7 +64,6 @@ export default {}
   img
     position absolute
     top 0
-    left 26vw
     left 5.25rem
     width 148vw
     max-width 61.5rem
@@ -61,24 +79,27 @@ export default {}
       margin auto
       border-radius 1rem
 
+.portal-container
+  transform translate3d(0, 0, 0)
+
 .portal
   position absolute
-  top -9%
+  top -8vw
   left -1.75rem
-  height 118%
+  height 106.2vw
   width 13rem
   background var(--portal-gradient)
   transform matrix(-1, 0, 0, 1, 0, 0) perspective(4cm) rotateY(-9deg)
   @media $breakpoint-medium
-    top -10%
-    height 120%
+    top -6vw
+    height 74.4vw
     width 40.5vw
     transform matrix(-1, 0, 0, 1, 0, 0) perspective(100px) rotateY(-3.8deg)
   @media $breakpoint-xl
     left auto
     right 75%
-    top -12%
-    height 124%
-    width 40vw
-    transform matrix(-1, 0, 0, 1, 0, 0) perspective(100px) rotateY(-3.1deg)
+    top -6vw
+    // height 124%
+    width 55vw
+    transform matrix(-1, 0, 0, 1, 0, 0) perspective(170px) rotateY(-3.1deg)
 </style>
