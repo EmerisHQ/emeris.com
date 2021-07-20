@@ -1,5 +1,5 @@
 <template>
-  <div class="section-traiding tm-section">
+  <div class="section-trading tm-section">
     <div class="tm-wrapper tm-container-narrow">
       <div class="tm-grid-base">
         <div class="column">

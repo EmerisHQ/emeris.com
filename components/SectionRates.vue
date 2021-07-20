@@ -37,6 +37,11 @@
       </div>
     </div>
     <div class="graphics-container">
+      <img
+        class="surfer z-2"
+        src="~/assets/images/elements/surfer-controlling.png"
+        alt="Interchain Surfer Controlling"
+      />
       <div class="portal"></div>
     </div>
   </div>
@@ -49,6 +54,7 @@ export default {}
 <style lang="stylus" scoped>
 .text
 .stats
+.graphics-container
   position relative
 
 .section-rates
@@ -77,17 +83,24 @@ export default {}
   -webkit-background-clip text
   -webkit-text-fill-color transparent
 
+.surfer
+  position absolute
+
 .portal
   background var(--portal-gradient)
   clip-path polygon(0% 10%, 100% 0%, 100% 100%, 0% 90%)
 
 @media $breakpoint-xsmall-only
   .section-rates
-  .graphics-container
     position unset
 
   .graphics-container
     margin-top var(--spacing-6)
+
+  .surfer
+    width 32%
+    bottom -19%
+    left 50%
 
   .portal
     width 205.35px
@@ -98,11 +111,15 @@ export default {}
 
 @media $breakpoint-small
   .section-rates
-  .graphics-container
     position unset
 
   .graphics-container
     margin-top var(--spacing-6)
+
+  .surfer
+    width 24%
+    bottom -20%
+    left 65%
 
   .portal
     width 205.35px
@@ -118,6 +135,11 @@ export default {}
   .graphics-container
     margin-top 0
     position absolute
+
+  .surfer
+    width 40%
+    bottom 0
+    left 10%
 
   .portal
     width 326.68px
