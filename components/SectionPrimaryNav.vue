@@ -6,6 +6,10 @@
           <logo-emeris-wordmark-color class="logo" />
           <span class="sr-only">Emeris</span>
         </nuxt-link>
+        <span
+          class="smallprint tm-rf-1 tm-medium tm-lh-title tm-overline tm-muted"
+          >Beta</span
+        >
       </div>
       <!-- <div class="nav-tail">
         <ul>
@@ -43,12 +47,20 @@ export default {
 .nav-container > *
   grid-column 1/-1
 
+.nav-head
+  display flex
+  flex-direction row
+  align-items center
+
 .logos-container
   position relative
   height 3rem
   display flex
   justify-content center
   flex-direction column
+
+.smallprint
+  margin-left var(--spacing-5)
 
 .nav
   /* if no secondary nav, create similar space */
