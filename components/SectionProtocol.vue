@@ -102,7 +102,7 @@ export default {
     height 4.5375rem
     top 44%
     left -18%
-    transform rotate(-90deg) translate3d(0, 0, 0)
+    transform translate3d(0, 0, 0)
     @media $breakpoint-medium
       width 7.21125rem
       height 7.21125rem
@@ -171,7 +171,7 @@ export default {
     &:before
       content ''
       position absolute
-      // opacity .32
+      opacity .32
       width 11.22375rem
       height 11.22375rem
       top 50%
