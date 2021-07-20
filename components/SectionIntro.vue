@@ -11,15 +11,19 @@
             type="depth_inv"
             class="portal-container"
           >
-            <div>
-              <div class="portal"></div>
-            </div>
+            <tm-parallax :power="3">
+              <div>
+                <div class="portal"></div>
+              </div>
+            </tm-parallax>
           </kinesis-element>
           <kinesis-element strength="2" type="depth">
-            <img
-              src="~/assets/images/elements/emeris-beta.jpg"
-              alt="Emeris intro"
-            />
+            <tm-parallax :power="5">
+              <img
+                src="~/assets/images/elements/emeris-beta.jpg"
+                alt="Emeris intro"
+              />
+            </tm-parallax>
           </kinesis-element>
         </div>
       </kinesis-container>
