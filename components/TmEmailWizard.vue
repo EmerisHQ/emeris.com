@@ -1,6 +1,6 @@
 <template>
   <div class="wizard">
-    <div class="wizard__inner">
+    <div v-on-clickaway="onClickOutside" class="wizard__inner">
       <transition-group :name="transition">
         <div v-show="step === 0" ref="step0" key="step0">
           <label
@@ -34,6 +34,7 @@
                   type="email"
                   placeholder="Your email address"
                   required="required"
+                  @keyup="onKeyDown"
                 />
                 <tm-button
                   variant="text"
@@ -104,6 +105,7 @@
 
 <script>
 import querystring from 'querystring'
+import { mixin as clickaway } from 'vue-clickaway'
 import IconArrowRight24 from '~/components/icons/IconArrowRight24.vue'
 import IconSpinner24 from '~/components/icons/IconSpinner24.vue'
 import IconBell24 from '~/components/icons/IconBell24.vue'
@@ -114,6 +116,7 @@ export default {
     IconSpinner24,
     IconBell24,
   },
+  mixins: [clickaway],
   data() {
     return {
       step: 0,
@@ -174,6 +177,15 @@ export default {
       this.transition = 'forwards'
       this.step = 0
     },
+    onKeyDown(e) {
+      if (e.keyCode === 27) {
+        this.actionReset()
+        e.preventDefault()
+      }
+    },
+    onClickOutside() {
+      this.step = 0
+    },
   },
 }
 </script>
@@ -201,6 +213,8 @@ export default {
   &__get-notified
     display flex
     align-items center
+    background var(--gold-btn-gradient)
+    color var(--gray-100)
     cursor pointer
     gap var(--spacing-5)
     outline none

@@ -3,7 +3,7 @@
     <div class="text-container tm-wrapper tm-content">
       <div class="tm-grid-base">
         <div class="left">
-          <div class="text">
+          <div class="text z-2">
             <h1 class="title tm-rf6 tm-bold tm-lh-title tm-serif">
               DeFi<br />for all
             </h1>
@@ -12,7 +12,7 @@
               than typical DeFi exchanges.
             </p>
           </div>
-          <div class="stats mt-8">
+          <div class="stats mt-8 z-2">
             <div class="stats-item">
               <div class="tm-rf0 tm-medium tm-lh-title tm-overline tm-muted">
                 Average swap speed
@@ -47,6 +47,10 @@ export default {}
 </script>
 
 <style lang="stylus" scoped>
+.text
+.stats
+  position relative
+
 .section-rates
   padding-top var(--spacing-12)
   padding-bottom var(--spacing-12)

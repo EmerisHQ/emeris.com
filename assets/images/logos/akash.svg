@@ -1,36 +1,30 @@
-<svg width="306" height="307" viewBox="0 0 306 307" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_di-812612)">
-<ellipse rx="62.7692" ry="62.5385" transform="matrix(-4.39459e-08 1 1 4.35501e-08 152.999 153.5)" fill="url(#paint0_radial-604495)"/>
-<ellipse rx="62.7692" ry="62.5385" transform="matrix(-4.39459e-08 1 1 4.35501e-08 152.999 153.5)" fill="url(#paint1_radial-557869)"/>
+<svg width="272" height="273" viewBox="0 0 272 273" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_i-363991)">
+<path d="M135.997 199.269C170.536 199.269 198.536 171.167 198.536 136.5C198.536 101.834 170.536 73.7308 135.997 73.7308C101.458 73.7308 73.459 101.834 73.459 136.5C73.459 171.167 101.458 199.269 135.997 199.269Z" fill="url(#paint0_radial-953766)"/>
+<path d="M135.997 199.269C170.536 199.269 198.536 171.167 198.536 136.5C198.536 101.834 170.536 73.7308 135.997 73.7308C101.458 73.7308 73.459 101.834 73.459 136.5C73.459 171.167 101.458 199.269 135.997 199.269Z" fill="url(#paint1_radial-438716)"/>
 </g>
 <g style="mix-blend-mode:overlay" opacity="0.9">
-<path d="M143.349 126L172.72 181L182.5 162.664L162.925 126L143.349 126Z" fill="white"/>
-<path d="M143.349 163.714L153.507 181H173.8L163.657 163.714H143.349Z" fill="white"/>
-<path d="M134.65 143.286L124.5 162.143L134.657 181L154.95 143.286H134.65Z" fill="white"/>
+<path d="M126.349 109L155.72 164L165.5 145.664L145.925 109L126.349 109Z" fill="white"/>
+<path d="M126.349 146.714L136.507 164H156.8L146.657 146.714H126.349Z" fill="white"/>
+<path d="M117.65 126.286L107.5 145.143L117.657 164L137.95 126.286H117.65Z" fill="white"/>
 </g>
 <defs>
-<filter id="filter0_di-812612" x="0.460934" y="0.73077" width="305.077" height="305.538" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_i-363991" x="73.459" y="73.7308" width="125.077" height="125.538" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-<feMorphology radius="40" operator="dilate" in="SourceAlpha" result="effect1_dropShadow"/>
-<feOffset/>
-<feGaussianBlur stdDeviation="25"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.937255 0 0 0 0 0.396078 0 0 0 0 0.396078 0 0 0 0.4 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset/>
 <feGaussianBlur stdDeviation="13.3207"/>
 <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
 <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
-<feBlend mode="hard-light" in2="shape" result="effect2_innerShadow"/>
+<feBlend mode="hard-light" in2="shape" result="effect1_innerShadow"/>
 </filter>
-<radialGradient id="paint0_radial-604495" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(98.1328 82.2906) rotate(-161.354) scale(117.774 117.429)">
+<radialGradient id="paint0_radial-953766" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(155.752 171.864) rotate(-108.646) scale(117.774 117.429)">
 <stop offset="0.377782" stop-color="#FF7245"/>
 <stop offset="0.766535" stop-color="#FFBBAC"/>
 <stop offset="1" stop-color="#FFE9BF"/>
 </radialGradient>
-<radialGradient id="paint1_radial-557869" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(18.2683 57.4079) rotate(3.54176) scale(102.462 102.088)">
+<radialGradient id="paint1_radial-438716" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(130.869 91.9991) rotate(86.4582) scale(102.462 102.088)">
 <stop offset="0.244792" stop-color="#FF3131" stop-opacity="0"/>
 <stop offset="0.904105" stop-color="#FF6939" stop-opacity="0.7"/>
 </radialGradient>
