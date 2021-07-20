@@ -17,14 +17,16 @@
               </div>
             </tm-parallax>
           </kinesis-element>
-          <kinesis-element strength="2" type="depth">
-            <tm-parallax :power="5">
-              <img
-                src="~/assets/images/elements/emeris-beta.jpg"
-                alt="Emeris intro"
-              />
-            </tm-parallax>
-          </kinesis-element>
+          <div class="intro-container">
+            <kinesis-element strength="2" type="depth">
+              <tm-parallax :power="5">
+                <img
+                  src="~/assets/images/elements/emeris-beta.jpg"
+                  alt="Emeris intro"
+                />
+              </tm-parallax>
+            </kinesis-element>
+          </div>
         </div>
       </kinesis-container>
     </div>
@@ -84,7 +86,13 @@ export default {
       border-radius 1rem
 
 .portal-container
+  z-index -1
   transform translate3d(0, 0, 0)
+
+.intro-container
+  -webkit-backface-visibility visible
+  transform-style preserve-3d
+  transform translate3d(0, 0, 3vw)
 
 .portal
   position absolute
@@ -103,7 +111,6 @@ export default {
     left auto
     right 75%
     top -6vw
-    // height 124%
     width 55vw
     transform matrix(-1, 0, 0, 1, 0, 0) perspective(170px) rotateY(-3.1deg)
 </style>
