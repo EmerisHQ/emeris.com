@@ -1,9 +1,13 @@
 <template>
   <div class="section-access tm-section">
-    <div class="tm-container">
-      <img class="ring z-0" src="~/assets/images/elements/ring.png" alt="" />
-    </div>
-    <div class="tm-wrapper tm-content">
+    <div class="tm-content">
+      <div class="ephemerides">
+        <img
+          class="ephemeris ephemeris-item"
+          src="~/assets/images/elements/gold-ephemeris-section.png"
+          alt="Gold Ephemeris Section Ring"
+        />
+      </div>
       <h1 class="title tm-rf5 tm-bold tm-lh-title tm-serif">
         Early access to innovative blockchains
       </h1>
@@ -23,12 +27,12 @@
     </div>
     <div class="bottom tm-wrapper tm-content">
       <div class="tm-grid-base">
-        <div class="left">
+        <div class="left tm-rf1 tm-lh-copy tm-text">
           Access cutting-edge decentralized exchanges, allowing you to obtain
           experimental or alternative coins that may be difficult or impossible
           to get via traditional centralized exchanges.
         </div>
-        <div class="right">
+        <div class="right tm-rf1 tm-lh-copy tm-text">
           <tm-link href="https://cosmos.network" class="tm-link"
             >Stay tuned</tm-link
           >
@@ -94,6 +98,23 @@ export default {
 .logos-container
   position relative
 
+img
+  max-width initial
+
+.ephemerides
+  position absolute
+  width 100%
+  min-width 24rem
+  // max-width 36rem
+  display flex
+  align-items center
+  justify-content center
+  margin-top 10rem
+
+.ephemeris-item
+  position absolute
+  width 250%
+
 .tm-link
   color var(--secondary)
 
@@ -103,9 +124,6 @@ export default {
 
 .title
   text-align center
-
-.ring
-  position absolute
 
 .scrolling-wrapper
   overflow-x scroll

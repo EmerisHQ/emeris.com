@@ -1,6 +1,6 @@
 <template>
-  <div class="section-updates tm-section">
-    <div class="tm-wrapper tm-content">
+  <div class="section-updates tm-section tm-wrapper">
+    <div class="tm-content">
       <div class="tm-grid-base">
         <div class="left">
           <h1 class="tm-rf5 tm-bold tm-lh-title tm-serif">
@@ -33,35 +33,19 @@
             </p>
             <div class="list tm-rf1 tm-lh-copy mt-6">
               <div class="list-item">
-                <img
-                  class="bullet"
-                  src="~/assets/images/elements/gold-diamond.svg"
-                  alt=""
-                />
+                <span class="bullet" />
                 <p>Integrated wallet and multi-wallet support</p>
               </div>
               <div class="list-item">
-                <img
-                  class="bullet"
-                  src="~/assets/images/elements/gold-diamond.svg"
-                  alt=""
-                />
+                <span class="bullet" />
                 <p>Access to multiple DeFi trading platforms</p>
               </div>
               <div class="list-item">
-                <img
-                  class="bullet"
-                  src="~/assets/images/elements/gold-diamond.svg"
-                  alt=""
-                />
+                <span class="bullet" />
                 <p>Staking on multiple chains</p>
               </div>
               <div class="list-item">
-                <img
-                  class="bullet"
-                  src="~/assets/images/elements/gold-diamond.svg"
-                  alt=""
-                />
+                <span class="bullet" />
                 <p>Mobile wallet app</p>
               </div>
             </div>
@@ -85,12 +69,15 @@ export default {}
   grid-column 1/-1
 
 .list-item
-  display flex
-  flex-direction row
+  display grid
+  grid-auto-flow column
+  grid-template-columns 1rem auto
 
   .bullet
-    width 1rem
-    height 1rem
+    width 0.6em
+    height 0.6em
+    background var(--gold-material-gradient)
+    transform rotate(45deg)
     margin-top var(--spacing-3)
 
   > p

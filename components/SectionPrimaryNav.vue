@@ -52,8 +52,8 @@ export default {
 
 .nav
   /* if no secondary nav, create similar space */
-  &:first-child:last-child
-    margin-bottom var(--spacing-9)
+  // &:first-child:last-child
+  //   margin-bottom var(--spacing-9)
 
   &-primary,
   ul
