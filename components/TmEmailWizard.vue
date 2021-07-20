@@ -34,6 +34,7 @@
                   type="email"
                   placeholder="Your email address"
                   required="required"
+                  @keyup="onKeyDown"
                 />
                 <tm-button
                   variant="text"
@@ -173,6 +174,12 @@ export default {
     actionReset() {
       this.transition = 'forwards'
       this.step = 0
+    },
+    onKeyDown(e) {
+      if (e.keyCode === 27) {
+        this.actionReset()
+        e.preventDefault()
+      }
     },
   },
 }
