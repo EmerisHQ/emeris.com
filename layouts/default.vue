@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- <tm-cookie-banner /> -->
     <section-primary-nav />
     <div id="content">
       <nuxt />
@@ -9,9 +8,7 @@
   </div>
 </template>
 
-<script>
-export default {}
-</script>
+<script></script>
 
 <style lang="stylus">
 // https://nuxtjs.org/examples/transitions

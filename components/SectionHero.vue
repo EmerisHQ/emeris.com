@@ -1,5 +1,9 @@
 <template>
-  <div id="homepage" class="section-hero tm-container tm-wrapper">
+  <div
+    id="homepage"
+    v-observe-visibility="onFalse"
+    class="section-hero tm-container tm-wrapper"
+  >
     <div class="outer tm-container-narrow mt-5">
       <div class="inner center">
         <div class="ephemerides">
@@ -71,23 +75,32 @@
           </linearGradient>
         </defs>
       </svg>
-      <tm-button
-        to-link="external"
-        href="https://app.emeris.com"
-        size="l"
-        border-color="var(--primary)"
-        color="var(--white)"
-        variant="outlined"
-        class="btn"
-        glow
-        >Launch app <span class="icon__right">&#8594;</span></tm-button
-      >
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      show: true,
+      isVisible: true,
+      throttle: 0,
+      threshold: 0,
+    }
+  },
+  methods: {
+    visibilityChanged(isVisible) {
+      this.isVisible = isVisible
+    },
+    onTrue() {
+      this.isVisible = true
+    },
+    onFalse() {
+      this.isVisible = false
+    },
+  },
+}
 </script>
 
 <style lang="stylus" scoped>
@@ -185,6 +198,8 @@ a.btn
     padding-right 0
 // @media $breakpoint-small
 // @media $breakpoint-medium
+//   a.btn
+//     position static
 // @media $breakpoint-large
 // @media $breakpoint-xl
 // @media $breakpoint-xxl

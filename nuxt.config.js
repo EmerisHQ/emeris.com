@@ -119,6 +119,7 @@ export default {
     '~/plugins/ga.client.js',
     '~/plugins/vue-scrollto.client.js',
     '~/plugins/v-tooltip.client.js',
+    '~/plugins/vue-observe-visibility.client.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
