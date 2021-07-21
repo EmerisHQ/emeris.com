@@ -196,10 +196,16 @@ a.btn
   .inner
     padding-left 0
     padding-right 0
+
+  .hand
+    top 380%
+    left 0%
+
+  .orb
+    left 30%
+
 // @media $breakpoint-small
 // @media $breakpoint-medium
-//   a.btn
-//     position static
 // @media $breakpoint-large
 // @media $breakpoint-xl
 // @media $breakpoint-xxl
