@@ -1,3 +1,4 @@
+/* eslint-disable */
 <template>
   <div class="section-access tm-section">
     <div class="tm-content">
@@ -13,7 +14,8 @@
       </h1>
     </div>
     <div class="tm-container-wide logos-container mt-9 z-2">
-      <div class="scrolling-wrapper">
+      <!-- Infinite horizontal scroll -->
+      <div v-if="$device.isMobile" class="scrolling-wrapper">
         <tm-link v-for="item in list" :key="item.text" :href="item.url">
           <!-- <tm-tooltip :text="`${item.text} ↗`" position="top-center"> -->
           <img
@@ -24,7 +26,40 @@
           <!-- </tm-tooltip> -->
         </tm-link>
       </div>
+      <!-- Marquee -->
+      <div v-else class="wrap">
+        <div
+          class="content"
+          :class="{ paused: hover }"
+          @mouseover="hover = true"
+          @mouseleave="hover = false"
+        >
+          <div class="text">
+            <tm-link v-for="item in list" :key="item.text" :href="item.url">
+              <!-- <tm-tooltip :text="`${item.text} ↗`" position="top-center"> -->
+              <img
+                :src="require(`~/assets/images/logos/${item.img}.svg`)"
+                :alt="item.text"
+                class="logo-item"
+              />
+              <!-- </tm-tooltip> -->
+            </tm-link>
+          </div>
+          <div class="text">
+            <tm-link v-for="item in list" :key="item.text" :href="item.url">
+              <!-- <tm-tooltip :text="`${item.text} ↗`" position="top-center"> -->
+              <img
+                :src="require(`~/assets/images/logos/${item.img}.svg`)"
+                :alt="item.text"
+                class="logo-item"
+              />
+              <!-- </tm-tooltip> -->
+            </tm-link>
+          </div>
+        </div>
+      </div>
     </div>
+
     <div class="bottom tm-wrapper tm-content">
       <div class="tm-grid-base">
         <div class="left tm-rf1 tm-lh-copy tm-text">
@@ -33,7 +68,7 @@
           to get via traditional centralized exchanges.
         </div>
         <div class="right tm-rf1 tm-lh-copy tm-text">
-          <tm-link href="https://cosmos.network" class="tm-link"
+          <tm-link v-scroll-to="'#wizard'" href="#" class="tm-link"
             >Stay tuned</tm-link
           >
           for more chains to be added within the coming weeks.
@@ -47,6 +82,7 @@
 export default {
   data() {
     return {
+      hover: false,
       list: [
         {
           url: 'https://akash.network',
@@ -101,6 +137,12 @@ export default {
 img
   max-width initial
 
+.wrap
+  overflow hidden
+
+.content
+  width 6250rem
+
 .ephemerides
   position absolute
   width 100%
@@ -137,19 +179,64 @@ img
 .logo-item
   display inline-block
   height 16.9375rem
+  padding 5.6563rem
+  &:before
+    content ''
+    opacity 0.28
+    position absolute
+    width 12.044375rem
+    height 12.044375rem
+    top 50%
+    left 50%
+    mix-blend-mode hard-light
+    background radial-gradient(50% 50% at 50% 50%, #FFFE2E 43.09%, rgba(117, 255, 189, 0) 100%)
+    transform translate(-50%, -50%)
+    animation fading-top 5.5s ease-out infinite
+    @media $breakpoint-medium
+      width 15.625rem
+      height 15.625rem
+    @media $breakpoint-xl
+      width 25.5rem
+      height 25.5rem
+
+.paused .text
+  animation-play-state paused
 
 .text > a
   margin-left 1.25rem
+
+@keyframes animation
+  0%
+    transform translateX(0)
+  100%
+    transform translateX(-100%)
 
 @media $breakpoint-xsmall-only
   .bottom .right
     margin-top 1em
 
+  .text
+    animation none
+
 @media $breakpoint-small
   .bottom .right
     margin-top 1em
 
+  .text
+    animation-name animation
+    animation-timing-function linear
+    animation-iteration-count infinite
+    animation-duration 30s
+    float left
+
 // @media $breakpoint-medium
+//   .text
+//     animation-name animation
+//     animation-timing-function linear
+//     animation-iteration-count infinite
+//     animation-duration 30s
+//     float left
+
 // @media $breakpoint-large
 @media $breakpoint-xl
   .bottom .left
