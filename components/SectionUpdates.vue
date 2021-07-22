@@ -1,5 +1,5 @@
 <template>
-  <div class="section-updates tm-section tm-wrapper">
+  <div id="best" class="section-updates tm-section tm-wrapper">
     <div class="tm-content">
       <div class="tm-grid-base">
         <div class="left">

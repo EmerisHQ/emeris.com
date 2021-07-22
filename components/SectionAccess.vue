@@ -68,7 +68,7 @@
           to get via traditional centralized exchanges.
         </div>
         <div class="right tm-rf1 tm-lh-copy tm-text">
-          <tm-link v-scroll-to="'#wizard'" href="#" class="tm-link"
+          <tm-link v-scroll-to="'#best'" href="#" class="tm-link"
             >Stay tuned</tm-link
           >
           for more chains to be added within the coming weeks.
