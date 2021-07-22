@@ -1,5 +1,5 @@
 <template>
-  <div id="wizard" class="wizard">
+  <div class="wizard">
     <div v-on-clickaway="onClickOutside" class="wizard__inner">
       <transition-group :name="transition">
         <div v-show="step === 0" ref="step0" key="step0">
