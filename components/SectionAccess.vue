@@ -8,13 +8,12 @@
           alt="Gold Ephemeris Section Ring"
         />
       </div>
-      <h1 class="title tm-rf5 tm-bold tm-lh-title tm-serif">
+      <h1 class="title tm-rf5 tm-bold tm-lh-title tm-serif z-2">
         Early access to innovative blockchains
       </h1>
     </div>
     <div class="tm-container-wide logos-container mt-9 z-2">
-      <!-- Infinite horizontal scroll -->
-      <div v-if="$device.isMobile" class="scrolling-wrapper">
+      <div class="scrolling-wrapper">
         <tm-link v-for="item in list" :key="item.text" :href="item.url">
           <!-- <tm-tooltip :text="`${item.text} ↗`" position="top-center"> -->
           <img
@@ -25,8 +24,7 @@
           <!-- </tm-tooltip> -->
         </tm-link>
       </div>
-      <!-- Marquee -->
-      <div v-else class="wrap">
+      <div class="marquee-wrapper">
         <div
           class="content"
           :class="{ paused: hover }"
@@ -131,16 +129,18 @@ export default {
 
 <style lang="stylus" scoped>
 .logos-container
+.title
   position relative
 
 img
   max-width initial
 
-.wrap
-  overflow hidden
+.tm-link
+  color var(--secondary)
 
-.content
-  width 6250rem
+.bottom .left
+.bottom .right
+  grid-column 1/-1
 
 .ephemerides
   position absolute
@@ -156,53 +156,18 @@ img
   position absolute
   width 250%
 
-.tm-link
-  color var(--secondary)
-
-.bottom .left
-.bottom .right
-  grid-column 1/-1
-
 .title
   text-align center
 
-.scrolling-wrapper
-  overflow-x scroll
-  overflow-y hidden
-  white-space nowrap
-  -webkit-overflow-scrolling touch
-
-  &::-webkit-scrollbar
-    display none
+.text > a
+  margin-left 2rem
 
 .logo-item
   display inline-block
-  height 16.9375rem
   padding 5.6563rem
-  &:before
-    content ''
-    opacity 0.28
-    position absolute
-    width 12.044375rem
-    height 12.044375rem
-    top 50%
-    left 50%
-    mix-blend-mode hard-light
-    background radial-gradient(50% 50% at 50% 50%, #FFFE2E 43.09%, rgba(117, 255, 189, 0) 100%)
-    transform translate(-50%, -50%)
-    animation fading-top 5.5s ease-out infinite
-    @media $breakpoint-medium
-      width 15.625rem
-      height 15.625rem
-    @media $breakpoint-xl
-      width 25.5rem
-      height 25.5rem
 
 .paused .text
   animation-play-state paused
-
-.text > a
-  margin-left 1.25rem
 
 @keyframes animation
   0%
@@ -211,15 +176,47 @@ img
     transform translateX(-100%)
 
 @media $breakpoint-xsmall-only
+  .marquee-wrapper
+    display none
+
+  .scrolling-wrapper
+    overflow-x scroll
+    overflow-y hidden
+    white-space nowrap
+    -webkit-overflow-scrolling touch
+
+    &::-webkit-scrollbar
+      display none
+
   .bottom .right
     margin-top 1em
-
-  .text
-    animation none
 
 @media $breakpoint-small
+  .marquee-wrapper
+    display none
+
+  .scrolling-wrapper
+    overflow-x scroll
+    overflow-y hidden
+    white-space nowrap
+    -webkit-overflow-scrolling touch
+
+    &::-webkit-scrollbar
+      display none
+
   .bottom .right
     margin-top 1em
+
+@media $breakpoint-medium
+  .marquee-wrapper
+    overflow hidden
+    display inline-block
+
+  .scrolling-wrapper
+    display none
+
+  .content
+    width 6250rem
 
   .text
     animation-name animation
@@ -227,14 +224,6 @@ img
     animation-iteration-count infinite
     animation-duration 30s
     float left
-
-// @media $breakpoint-medium
-//   .text
-//     animation-name animation
-//     animation-timing-function linear
-//     animation-iteration-count infinite
-//     animation-duration 30s
-//     float left
 
 // @media $breakpoint-large
 @media $breakpoint-xl
