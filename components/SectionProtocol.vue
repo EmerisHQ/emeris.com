@@ -1,7 +1,7 @@
 <template>
   <kinesis-container class="section-protocol center">
-    <kinesis-element strength="1" type="depth" class="hand-top">
-      <kinesis-element strength="-4">
+    <kinesis-element :strength="1" type="depth" class="hand-top">
+      <kinesis-element :strength="-4">
         <div class="hand-top-container">
           <img
             class="hand-top-img"
@@ -10,8 +10,8 @@
           />
         </div>
       </kinesis-element>
-      <kinesis-element strength="-10" class="hand-top-circle">
-        <kinesis-element :strength="[-0.25]" type="scale">
+      <kinesis-element :strength="-10" class="hand-top-circle">
+        <kinesis-element :strength="-0.25" type="scale">
           <div>
             <img src="~/assets/images/elements/circle-top.svg" />
           </div>
@@ -25,8 +25,8 @@
         alt="Gravity DEX protocol"
       />
     </tm-parallax>
-    <kinesis-element strength="-1" type="depth" class="hand-bottom">
-      <kinesis-element strength="5">
+    <kinesis-element :strength="-1" type="depth" class="hand-bottom">
+      <kinesis-element :strength="5">
         <div class="hand-bottom-container">
           <img
             class="hand-bottom-img"
@@ -35,8 +35,8 @@
           />
         </div>
       </kinesis-element>
-      <kinesis-element strength="10" class="hand-bottom-circle">
-        <kinesis-element :strength="[-0.25]" type="scale">
+      <kinesis-element :strength="10" class="hand-bottom-circle">
+        <kinesis-element :strength="-0.25" type="scale">
           <div>
             <img src="~/assets/images/elements/circle-bottom.svg" />
           </div>

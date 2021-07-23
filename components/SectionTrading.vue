@@ -6,7 +6,9 @@
           <h2 class="tm-rf4 tm-bold tm-serif title">
             Discover<br />instant<br />cross-chain<br />trading
           </h2>
-          <p class="tm-rf0 tm-rf1-l-up tm-lh-copy mt-7 tm-text">
+          <p
+            class="tm-rf0 tm-rf1-l-up tm-lh-copy mt-7 tm-text tm-measure-narrow"
+          >
             Emeris beta connects you to the best cross&#8209;chain DeFi
             protocols, starting with&nbsp;Gravity DEX.
           </p>

@@ -4,75 +4,75 @@
       <div class="top tm-grid-base">
         <div class="left">
           <h1 class="title tm-rf5 tm-bold tm-lh-title tm-serif tm-muted">
-            Try<br />the best today
+            Try the<br />best today
           </h1>
         </div>
         <div class="right">
-          <tm-link href="https://tutorials.cosmos.network">
-            <div class="wrapper mt-9">
-              <icon-arrow-top-right-16 class="top-right" />
-              <div class="logo-container">
-                <img
-                  class="logo"
-                  src="~/assets/images/elements/surfer-running.png"
-                  alt=""
-                />
-              </div>
-              <div class="text">
-                <h2 class="tm-rf0 tm-lh-title tm-bold">New to DeFi?</h2>
-                <p class="tm-rf-1 tm-lh-copy mt-2">
-                  Don’t be afraid. Follow the simple tutorial to learn how to
-                  swap your first coins.
-                </p>
-              </div>
+          <div class="step-item">
+            <div class="tm-rf2 tm-lh-title">01</div>
+            <div class="tm-rf2 tm-bold tm-lh-title mt-6">Download Keplr</div>
+            <div class="tm-rf0 tm-lh-copy mt-6">
+              For its beta version, Emeris requires you to use it.
             </div>
-          </tm-link>
+            <tm-button
+              variant="text"
+              to-link="external"
+              href="https://chrome.google.com/webstore/detail/keplr/dmkamcknogkgcdfhhbddcghachkejeap?hl=en"
+              size="m"
+              color="var(--success)"
+              class="mt-4"
+              >Get Keplr <span class="icon__right">&#8599;</span></tm-button
+            >
+          </div>
+          <div class="step-item">
+            <div class="tm-rf2 tm-lh-title">02</div>
+            <div class="tm-rf2 tm-bold tm-lh-title mt-6">
+              Connect Keplr to Emeris
+            </div>
+            <div class="tm-rf0 tm-lh-copy mt-6">
+              Go to the Emeris app and connect your Keplr wallet.
+            </div>
+            <tm-button
+              variant="text"
+              to-link="external"
+              href="https://app.emeris.com"
+              size="m"
+              color="var(--success)"
+              class="mt-4"
+              >Launch App <span class="icon__right">&#8594;</span></tm-button
+            >
+          </div>
+          <div class="step-item">
+            <div class="tm-rf2 tm-lh-title">03</div>
+            <div class="tm-rf2 tm-bold tm-lh-title mt-6">
+              Experience cross-chain DeFi
+            </div>
+            <div class="tm-rf0 tm-lh-copy mt-6">
+              Trade, swap, pool and visualize all your assets in one place.
+            </div>
+          </div>
         </div>
       </div>
       <div class="bottom mt-10">
-        <div class="step-item">
-          <div class="tm-rf1 tm-lh-title">01</div>
-          <div class="tm-rf1 tm-bold tm-lh-title mt-5">Download Keplr</div>
-          <div class="tm-rf0 tm-lh-copy mt-5">
-            For its beta version, Emeris requires you to use it.
+        <tm-link href="https://tutorials.cosmos.network">
+          <div class="wrapper mt-9">
+            <icon-arrow-top-right-16 class="top-right" />
+            <div class="logo-container">
+              <img
+                class="logo"
+                src="~/assets/images/elements/surfer-running.png"
+                alt=""
+              />
+            </div>
+            <div class="text">
+              <h2 class="tm-rf0 tm-lh-title tm-bold">New to DeFi?</h2>
+              <p class="tm-rf-1 tm-lh-copy mt-2">
+                Don’t be afraid. Follow the simple tutorial to learn how to swap
+                your first coins.
+              </p>
+            </div>
           </div>
-          <tm-button
-            variant="text"
-            to-link="external"
-            href="https://chrome.google.com/webstore/detail/keplr/dmkamcknogkgcdfhhbddcghachkejeap?hl=en"
-            size="s"
-            color="var(--success)"
-            class="mt-5"
-            >Get Keplr <span class="icon__right">&#8599;</span></tm-button
-          >
-        </div>
-        <div class="step-item">
-          <div class="tm-rf1 tm-lh-title">02</div>
-          <div class="tm-rf1 tm-bold tm-lh-title mt-5">
-            Connect Keplr to Emeris
-          </div>
-          <div class="tm-rf0 tm-lh-copy mt-5">
-            Go to the Emeris app and connect your Keplr wallet.
-          </div>
-          <tm-button
-            variant="text"
-            to-link="external"
-            href="https://app.emeris.com"
-            size="s"
-            color="var(--success)"
-            class="mt-5"
-            >Launch App <span class="icon__right">&#8594;</span></tm-button
-          >
-        </div>
-        <div class="step-item">
-          <div class="tm-rf1 tm-lh-title">03</div>
-          <div class="tm-rf1 tm-bold tm-lh-title mt-5">
-            Experience cross-chain DeFi
-          </div>
-          <div class="tm-rf0 tm-lh-copy mt-5">
-            Trade, swap, pool and visualize all your assets in one place.
-          </div>
-        </div>
+        </tm-link>
       </div>
     </div>
   </div>
@@ -100,13 +100,21 @@ export default {
 .top .right
   grid-column 1/-1
 
+.right
+  margin-top var(--spacing-10)
+
 .section-beta
   color var(--black)
 
 .portal
   max-width 78rem
+  padding var(--spacing-11) var(--wrap-gap)
   background var(--portal-gradient)
-  clip-path polygon(0 0, 100% calc(0% + 26vw), 100% 100%, 0 100%)
+  clip-path polygon(0 0, 100% calc(0% + 7vw), 100% calc(100% - 7vw), 0 100%)
+
+.step-item
+  &:not(:first-child)
+    margin-top var(--spacing-9)
 
 .bottom
   display grid
@@ -126,7 +134,8 @@ export default {
   hover-raise(-3px)
 
 .text
-  padding var(--spacing-7) 0
+  @media $breakpoint-medium
+    padding var(--spacing-7) 0
 
 .top-right
   position absolute
@@ -135,29 +144,21 @@ export default {
 
 .logo-container
   height auto
-  width 100%
+  width 70%
   position relative
 
 .logo
-  position absolute
-  margin-top -60%
+  position relative
+  margin-top -28%
+  margin-left -1.5rem
+  @media $breakpoint-medium
+    position absolute
 
 @media $breakpoint-xsmall-only
   .wrapper
     grid-auto-flow dense
     grid-template-columns auto
     padding var(--spacing-7)
-
-  .logo
-    position relative
-    margin-top -30%
-
-  .portal
-    padding var(--spacing-12) var(--wrap-gap)
-
-@media $breakpoint-small
-  .portal
-    padding var(--spacing-12) var(--wrap-gap)
 
 @media $breakpoint-medium
   .portal

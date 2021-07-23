@@ -14,25 +14,34 @@
           <span class="divider" />
           <tm-link
             href="https://v1.cosmos.network/privacy"
-            class="link-item tm-muted"
+            class="tm-rf0 link-item tm-muted"
+            >Support</tm-link
+          >
+          <tm-link
+            href="https://v1.cosmos.network/privacy"
+            class="tm-rf0 link-item tm-muted"
             >Privacy</tm-link
           >
           <tm-link
             href="https://v1.cosmos.network/privacy"
-            class="link-item tm-muted"
+            class="tm-rf0 link-item tm-muted"
             >Terms of use</tm-link
           >
           <tm-link
             href="https://v1.cosmos.network/privacy"
-            class="link-item tm-muted"
+            class="tm-rf0 link-item tm-muted"
             >Get updates</tm-link
           >
           <span class="divider" />
-          <tm-link v-scroll-to="'#homepage'" href="#" class="tm-muted scrolltop"
-            >Back to top &#8593;</tm-link
+          <tm-link
+            v-scroll-to="'#homepage'"
+            href="#"
+            class="tm-rf0 tm-muted scrolltop"
+          >
+            Back to top &#8593;</tm-link
           >
         </nav>
-        <nav ref="links" class="social-icons mt-7" role="navigation">
+        <nav ref="links" class="social-icons mt-8" role="navigation">
           <tm-link
             v-for="link in links"
             :key="url(link)"
@@ -115,6 +124,7 @@ export default {
 
 <style lang="stylus" scoped>
 .footer
+  padding-top var(--spacing-7)
   padding-bottom var(--spacing-9)
 
 .social-icons
@@ -126,7 +136,7 @@ export default {
   text-align center
 
   &__item
-    padding var(--spacing-3)
+    padding var(--spacing-4)
     opacity 0.75
 
     &:hover
@@ -137,6 +147,7 @@ export default {
   display flex
   align-items center
   gap var(--spacing-4)
+  margin-bottom var(--spacing-5)
   color inherit
   transition transform .4s $ease-out, opacity .4s $ease-out, color .4s $ease-out, visibility .4s 0s
 
@@ -144,7 +155,7 @@ export default {
     width auto
 
   &__emeris
-    height 1.125rem
+    height 1rem
 
 .divider
   margin 0 var(--spacing-6)
@@ -163,13 +174,13 @@ export default {
     margin-left 0
 
   .link-item
-    margin-top var(--spacing-6)
+    margin-top var(--spacing-7)
 
     &:first-child
       margin-top 0
 
   .scrolltop
-    margin-top var(--spacing-6)
+    margin-top var(--spacing-10)
 
   .smallprint
     text-align center

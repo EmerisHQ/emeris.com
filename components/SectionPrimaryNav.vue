@@ -1,15 +1,16 @@
 <template>
-  <div class="nav-container tm-wrapper tm-container mt-7">
+  <div class="nav-container tm-wrapper tm-container">
     <nav class="nav nav-primary" role="navigation">
-      <div class="nav-head">
+      <div class="nav-head center">
         <nuxt-link to="/" class="logos-container">
           <logo-emeris-wordmark-color class="logo" />
           <span class="sr-only">Emeris</span>
         </nuxt-link>
         <span
-          class="smallprint tm-rf-1 tm-medium tm-lh-title tm-overline tm-muted"
-          >Beta</span
+          class="smallprint tm-rf-1 tm-mediumtm-lh-title tm-overline tm-muted"
         >
+          Beta
+        </span>
       </div>
       <!-- <div class="nav-tail">
         <ul>
@@ -44,6 +45,14 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.nav-container
+  position absolute
+  z-index 9
+  top 0
+  left 0
+  right 0
+  padding-top var(--spacing-7)
+
 .nav-container > *
   grid-column 1/-1
 
@@ -51,16 +60,17 @@ export default {
   display flex
   flex-direction row
   align-items center
+  justify-content space-between
 
 .logos-container
   position relative
-  height 3rem
   display flex
   justify-content center
   flex-direction column
-
-.smallprint
-  margin-left var(--spacing-5)
+  height 1.2rem
+  @media $breakpoint-medium
+    center()
+    height 1.5rem
 
 .nav
   /* if no secondary nav, create similar space */
@@ -106,9 +116,6 @@ export default {
     justify-content center
     flex-direction column
 
-  .logos-container
-    center()
-
   .nav-tail
     margin-left calc(-1 * var(--spacing-7))
     margin-right calc(-1 * var(--spacing-7))
@@ -128,7 +135,6 @@ export default {
 @media $breakpoint-small
   .logos-container
     align-items start
-    height 4rem
 
 // @media $breakpoint-medium
 // @media $breakpoint-large

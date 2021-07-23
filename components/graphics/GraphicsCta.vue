@@ -32,20 +32,21 @@
     transform translateY(-3%) rotate(-2deg)
 
 .surfer
-  width 85%
+  width 150%
   top 12%
-  left 9%
+  left 0
   animation surfer-levitate 5s ease-in-out alternate infinite
 
 .frame
   background-image url('~/assets/images/elements/gold-door.png')
   background-size cover
   background-repeat no-repeat
-  width 64%
+  width 102%
   padding-bottom 88%
-  top 2.3%
-  left 33.4%
+  top -3%
+  left 53%
   transform-origin top left
+  transform translateX(-50%)
   &-fg
     padding-bottom 3.6%
 </style>

@@ -7,7 +7,7 @@
       <kinesis-container class="emeris-beta">
         <div>
           <kinesis-element
-            strength="-2"
+            :strength="-2"
             type="depth_inv"
             class="portal-container"
           >
@@ -18,7 +18,7 @@
             </tm-parallax>
           </kinesis-element>
           <div class="intro-container">
-            <kinesis-element strength="2" type="depth">
+            <kinesis-element :strength="2" type="depth">
               <tm-parallax :power="5">
                 <img
                   src="~/assets/images/elements/emeris-beta.jpg"

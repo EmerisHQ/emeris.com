@@ -3,9 +3,9 @@
     <div class="tm-content">
       <div class="tm-grid-base">
         <div class="left">
-          <h1 class="tm-rf5 tm-bold tm-lh-title tm-serif">
-            The best is yet to come.
-          </h1>
+          <h2 class="title tm-rf4 tm-bold tm-lh-title tm-serif">
+            The best is<br />yet to come.
+          </h2>
           <div class="title-ephemeris">
             <div class="ephemerides">
               <img
@@ -28,13 +28,13 @@
         </div>
         <div class="right">
           <div class="text">
-            <p class="tm-rf1 tm-lh-copy">
+            <p class="tm-rf0 tm-lh-copy">
               Emeris aims to be the first one-stop portal to provide:
             </p>
-            <div class="list tm-rf1 tm-lh-copy mt-6">
+            <div class="list tm-rf0 tm-lh-copy mt-6">
               <div class="list-item">
                 <span class="bullet" />
-                <p>Integrated wallet and multi-wallet support</p>
+                <p>Integrated wallet and multi&#8209;wallet support</p>
               </div>
               <div class="list-item">
                 <span class="bullet" />
@@ -49,7 +49,7 @@
                 <p>Mobile wallet app</p>
               </div>
             </div>
-            <div class="cta mt-8">
+            <div class="cta mt-9">
               <tm-email-wizard />
             </div>
           </div>
@@ -86,6 +86,9 @@ export default {}
 .list-item + .list-item
   margin-top var(--spacing-6)
 
+.title
+  text-align center
+
 .title-ephemeris
   width 100%
   position relative
@@ -107,18 +110,19 @@ export default {}
 .ephemeris-1
   position absolute
   transform rotate(143deg)
-  width 50%
+  width 61%
   animation ephemeris-1 8s $ease-out infinite
 
 .ephemeris-2
   position absolute
   transform rotate(150deg)
-  width 65%
+  width 80%
   animation ephemeris-2 8s $ease-out infinite
 
 .orb
   position absolute
-  width 100%
+  width 150%
+  max-width none
   // animation orb-1 4s ease-in-out infinite
 
 @keyframes ephemeris-1
@@ -147,7 +151,7 @@ export default {}
 
 @media $breakpoint-xsmall-only
   .right
-    margin-top var(--spacing-7)
+    margin-top var(--spacing-11)
 
   .title-ephemeris
     margin 50% 0

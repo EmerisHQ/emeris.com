@@ -8,9 +8,9 @@
           alt="Gold Ephemeris Section Ring"
         />
       </div>
-      <h1 class="title tm-rf5 tm-bold tm-lh-title tm-serif">
+      <h2 class="tm-rf4 tm-bold tm-serif tm-lh-title title">
         Early access to innovative blockchains
-      </h1>
+      </h2>
     </div>
     <div class="tm-container-wide logos-container mt-9 z-2">
       <div class="scrolling-wrapper">
@@ -27,12 +27,12 @@
     </div>
     <div class="bottom tm-wrapper tm-content">
       <div class="tm-grid-base">
-        <div class="left tm-rf1 tm-lh-copy tm-text">
+        <div class="left tm-rf0 tm-lh-copy tm-text">
           Access cutting-edge decentralized exchanges, allowing you to obtain
           experimental or alternative coins that may be difficult or impossible
           to get via traditional centralized exchanges.
         </div>
-        <div class="right tm-rf1 tm-lh-copy tm-text">
+        <div class="right tm-rf0 tm-lh-copy tm-text">
           <tm-link href="https://cosmos.network" class="tm-link"
             >Stay tuned</tm-link
           >
@@ -109,11 +109,11 @@ img
   display flex
   align-items center
   justify-content center
-  margin-top 10rem
+  margin-top 12.5rem
 
 .ephemeris-item
   position absolute
-  width 250%
+  width 185%
 
 .tm-link
   color var(--secondary)

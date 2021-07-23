@@ -12,7 +12,10 @@
             @click="actionGoForwards"
           >
             <icon-bell-24 class="icon" />
-            <span class="tm-rf0 tm-lh-title">Get email updates</span>
+            <span class="tm-rf0 tm-lh-title text-with-gradient">
+              Get email updates
+            </span>
+            <icon-arrow-right-24 class="icon" />
           </label>
         </div>
         <div v-show="step === 1" ref="step1" key="step1">
@@ -106,6 +109,7 @@
 <script>
 import querystring from 'querystring'
 import { mixin as clickaway } from 'vue-clickaway'
+import TmButton from './TmButton.vue'
 import IconArrowRight24 from '~/components/icons/IconArrowRight24.vue'
 import IconSpinner24 from '~/components/icons/IconSpinner24.vue'
 import IconBell24 from '~/components/icons/IconBell24.vue'
@@ -115,6 +119,7 @@ export default {
     IconArrowRight24,
     IconSpinner24,
     IconBell24,
+    TmButton,
   },
   mixins: [clickaway],
   data() {
@@ -191,10 +196,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-// Global
-.icon__right
-  margin-left 0.25em
-
 // Graphics
 .surfer-graphics
   width 70%
@@ -205,26 +206,45 @@ export default {
   padding var(--spacing-6)
 
 .wizard
+  position relative
+  z-index 1
+  border 1px solid transparent
+  border-radius $border-radius-3
+  @media $breakpoint-medium
+    max-height 3rem
+    overflow visible
+  &:after
+    content ''
+    z-index -1
+    position absolute
+    trbl -1px
+    border-radius inherit
+    background linear-gradient(280.46deg, #FFF0CA 12.71%, #D3AD5F 33.34%, #FFECC4 41.61%, #997736 59.2%, #FFF2C0 77.69%, #CEA851 97.39%)
   &__inner
     max-width 17.5rem
-    background var(--fg)
+    background var(--bg)
     border-radius $border-radius-3
     box-shadow 8px 16px 48px rgba(0, 0, 0, 0.21)
   &__get-notified
     display flex
     align-items center
-    background var(--gold-btn-gradient)
+    justify-content space-between
     color var(--gray-100)
     cursor pointer
     gap var(--spacing-5)
     outline none
     width 100%
     height auto
-    padding var(--spacing-4) var(--spacing-5)
+    padding var(--spacing-4) var(--spacing-4)
     transition color 0.15s ease-out, background 0.15s ease-out
     border-radius $border-radius-3
     &:hover
       background-color var(--fg-trans)
+    .icon
+      flex-shrink 0
+    span
+      display inline-block
+      width 100%
   &__form
     max-width: $max-width['7']
     width 100%
@@ -257,8 +277,8 @@ export default {
     padding-left var(--spacing-4)
     padding-right var(--spacing-4)
 
-@media $breakpoint-medium
-  .wizard
-    max-height 3rem
-    overflow visible
+.text-with-gradient
+  background var(--title-gradient)
+  -webkit-background-clip text
+  -webkit-text-fill-color transparent
 </style>

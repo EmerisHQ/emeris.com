@@ -5,28 +5,28 @@
         <div class="left">
           <div class="text z-2">
             <h1 class="title tm-rf6 tm-bold tm-lh-title tm-serif">
-              DeFi<br />for all
+              DeFi<br /><span class="title-gradient">for all</span>
             </h1>
-            <p class="tm-rf1 tm-lh-copy mt-5 tm-text">
+            <p class="tm-rf0 tm-lh-copy mt-5 tm-text">
               Emeris beta allows you to swap coins with substantially lower fees
               than typical DeFi exchanges.
             </p>
           </div>
-          <div class="stats mt-8 z-2">
+          <div class="stats mt-11 z-2">
             <div class="stats-item">
-              <div class="tm-rf0 tm-medium tm-lh-title tm-overline tm-muted">
+              <div class="tm-rf-1 tm-medium tm-lh-title tm-overline tm-muted">
                 Average swap speed
               </div>
-              <div class="tm-rf4 tm-bold tm-lh-title tm-serif mt-1">00:07</div>
+              <div class="tm-rf6 tm-bold tm-lh-title tm-serif mt-1">00:07</div>
               <div class="tm-rf0 tm-bold tm-lh-title tm-overline tm-text">
                 seconds
               </div>
             </div>
             <div class="stats-item">
-              <div class="tm-rf0 tm-medium tm-lh-title tm-overline tm-muted">
+              <div class="tm-rf-1 tm-medium tm-lh-title tm-overline tm-muted">
                 Average transaction fee
               </div>
-              <div class="tm-rf4 tm-bold tm-lh-title tm-serif mt-1">$0.08</div>
+              <div class="tm-rf6 tm-bold tm-lh-title tm-serif mt-1">$0.08</div>
               <div class="tm-rf0 tm-bold tm-lh-title tm-overline tm-text">
                 +0.3% SWAP FEE
               </div>
@@ -70,6 +70,14 @@ export default {}
   right -10px
   display grid
   place-items flex-end
+  &:before
+    content ''
+    position absolute
+    top -23px
+    right 0
+    width 445px
+    height 592px
+    background center / contain no-repeat url('~/assets/images/elements/portal-glow.jpg')
 
 .text
   max-width 23.375rem
@@ -78,15 +86,21 @@ export default {}
   display grid
   gap var(--grid-gap-x)
 
-.title
+.title-gradient
   background var(--title-gradient)
   -webkit-background-clip text
   -webkit-text-fill-color transparent
 
 .surfer
   position absolute
+  width 24%
+  bottom -2%
+  left 53%
+  transform translateX(-50%)
 
 .portal
+  width 216px
+  height 395px
   background var(--portal-gradient)
   clip-path polygon(0% 10%, 100% 0%, 100% 100%, 0% 90%)
 
@@ -97,17 +111,8 @@ export default {}
   .graphics-container
     margin-top var(--spacing-6)
 
-  .surfer
-    width 32%
-    bottom -19%
-    left 50%
-
-  .portal
-    width 205.35px
-    height 395.83px
-
   .stats-item:last-child
-    margin-top var(--spacing-8)
+    margin-top var(--spacing-9)
 
 @media $breakpoint-small
   .section-rates
@@ -120,10 +125,6 @@ export default {}
     width 24%
     bottom -20%
     left 65%
-
-  .portal
-    width 205.35px
-    height 395.83px
 
   .stats-item:last-child
     margin-top var(--spacing-8)
