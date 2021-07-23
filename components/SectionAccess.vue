@@ -1,4 +1,3 @@
-/* eslint-disable */
 <template>
   <div class="section-access tm-section">
     <div class="tm-content">
