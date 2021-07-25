@@ -27,12 +27,12 @@
     </div>
     <div class="bottom tm-wrapper tm-content">
       <div class="tm-grid-base">
-        <div class="left tm-rf0 tm-lh-copy tm-text">
+        <div class="column left tm-rf0 tm-lh-copy tm-text tm-measure-narrow">
           Access cutting-edge decentralized exchanges, allowing you to obtain
           experimental or alternative coins that may be difficult or impossible
           to get via traditional centralized exchanges.
         </div>
-        <div class="right tm-rf0 tm-lh-copy tm-text">
+        <div class="column right tm-rf0 tm-lh-copy tm-text tm-measure-narrow">
           <tm-link href="https://cosmos.network" class="tm-link"
             >Stay tuned</tm-link
           >
@@ -110,6 +110,8 @@ img
   align-items center
   justify-content center
   margin-top 12.5rem
+  @media $breakpoint-medium
+    margin-top 9.3rem
 
 .ephemeris-item
   position absolute
@@ -118,11 +120,18 @@ img
 .tm-link
   color var(--secondary)
 
-.bottom .left
-.bottom .right
+.bottom .column
   grid-column 1/-1
+  margin-top 1rem
+  @media $breakpoint-medium
+    grid-column span 4
+    margin-top 0
+  &:first-child()
+    margin-top 0
 
 .title
+  max-width 22rem
+  center()
   text-align center
 
 .scrolling-wrapper
@@ -140,14 +149,6 @@ img
 
 .text > a
   margin-left 1.25rem
-
-@media $breakpoint-xsmall-only
-  .bottom .right
-    margin-top 1em
-
-@media $breakpoint-small
-  .bottom .right
-    margin-top 1em
 
 // @media $breakpoint-medium
 // @media $breakpoint-large

@@ -79,7 +79,7 @@ export default {}
   &-item
     position relative
     display flex
-    margin-top var(--spacing-8)
+    margin-top var(--spacing-7)
     @media $breakpoint-xl
       margin-top var(--spacing-6)
     &:first-child

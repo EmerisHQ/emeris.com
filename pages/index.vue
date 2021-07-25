@@ -17,8 +17,10 @@
     </transition>
     <section-hero v-observe-visibility="onTrue" />
     <section-intro v-observe-visibility="onTrue" />
-    <section-trading v-observe-visibility="onTrue" />
-    <section-protocol v-observe-visibility="onTrue" />
+    <kinesis-container>
+      <section-trading v-observe-visibility="onTrue" />
+      <section-protocol v-observe-visibility="onTrue" />
+    </kinesis-container>
     <section-rates v-observe-visibility="onTrue" />
     <section-access v-observe-visibility="onTrue" />
     <section-beta v-observe-visibility="onTrue" />
@@ -28,7 +30,12 @@
 </template>
 
 <script>
+import { KinesisContainer } from 'vue-kinesis'
+
 export default {
+  components: {
+    KinesisContainer,
+  },
   data() {
     return {
       show: true,
@@ -65,7 +72,9 @@ export default {
   bottom var(--spacing-9)
   left var(--wrap-gap)
   right var(--wrap-gap)
-  // center()
+  @media $breakpoint-medium
+    bottom var(--spacing-10)
+    left auto
   .btn
     width 100%
 

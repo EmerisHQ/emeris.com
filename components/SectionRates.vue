@@ -1,24 +1,30 @@
 <template>
-  <div class="section-rates">
+  <div class="section-rates tm-section">
     <div class="text-container tm-wrapper tm-content">
       <div class="tm-grid-base">
         <div class="left">
           <div class="text z-2">
-            <h1 class="title tm-rf6 tm-bold tm-lh-title tm-serif">
+            <h2 class="title tm-rf5 tm-rf6-m tm-bold tm-lh-title tm-serif">
               DeFi<br /><span class="title-gradient">for all</span>
-            </h1>
-            <p class="tm-rf0 tm-lh-copy mt-5 tm-text">
+            </h2>
+            <p class="tm-rf0 tm-lh-copy mt-5 tm-text tm-measure-narrow">
               Emeris beta allows you to swap coins with substantially lower fees
               than typical DeFi exchanges.
             </p>
           </div>
-          <div class="stats mt-11 z-2">
+          <div class="stats z-2">
             <div class="stats-item">
               <div class="tm-rf-1 tm-medium tm-lh-title tm-overline tm-muted">
                 Average swap speed
               </div>
-              <div class="tm-rf6 tm-bold tm-lh-title tm-serif mt-1">00:07</div>
-              <div class="tm-rf0 tm-bold tm-lh-title tm-overline tm-text">
+              <div
+                class="tm-rf6 tm-rf4-m tm-bold tm-lh-title tm-serif stats-num"
+              >
+                00:07
+              </div>
+              <div
+                class="tm-rf0 tm-rf-1-m tm-bold tm-lh-title tm-overline tm-text"
+              >
                 seconds
               </div>
             </div>
@@ -26,8 +32,14 @@
               <div class="tm-rf-1 tm-medium tm-lh-title tm-overline tm-muted">
                 Average transaction fee
               </div>
-              <div class="tm-rf6 tm-bold tm-lh-title tm-serif mt-1">$0.08</div>
-              <div class="tm-rf0 tm-bold tm-lh-title tm-overline tm-text">
+              <div
+                class="tm-rf6 tm-rf4-m tm-bold tm-lh-title tm-serif stats-num"
+              >
+                $0.08
+              </div>
+              <div
+                class="tm-rf0 tm-rf-1-m tm-bold tm-lh-title tm-overline tm-text"
+              >
                 +0.3% SWAP FEE
               </div>
             </div>
@@ -78,6 +90,11 @@ export default {}
     width 445px
     height 592px
     background center / contain no-repeat url('~/assets/images/elements/portal-glow.jpg')
+    @media $breakpoint-medium
+      top -42px
+      right -20px
+      width 700px
+      height 940px
 
 .text
   max-width 23.375rem
@@ -85,6 +102,14 @@ export default {}
 .stats
   display grid
   gap var(--grid-gap-x)
+  margin-top var(--spacing-11)
+  @media $breakpoint-medium
+    margin-top var(--spacing-9)
+
+.stats-num
+  margin-top var(--spacing-1)
+  @media $breakpoint-medium
+    margin-top var(--spacing-3)
 
 .title-gradient
   background var(--title-gradient)
@@ -92,17 +117,25 @@ export default {}
   -webkit-text-fill-color transparent
 
 .surfer
+  mix-blend-mode hard-light
   position absolute
   width 24%
   bottom -2%
   left 53%
   transform translateX(-50%)
+  animation surfer-levitate 5s ease-in-out alternate infinite
 
 .portal
   width 216px
   height 395px
   background var(--portal-gradient)
   clip-path polygon(0% 10%, 100% 0%, 100% 100%, 0% 90%)
+
+@keyframes surfer-levitate
+  0%, 100%
+    transform translate(-50%, 5%)
+  50%
+    transform translate(-50%, -3%)
 
 @media $breakpoint-xsmall-only
   .section-rates
@@ -134,20 +167,20 @@ export default {}
     position relative
 
   .graphics-container
-    margin-top 0
+    margin-top var(--spacing-9)
     position absolute
 
   .surfer
-    width 40%
-    bottom 0
-    left 10%
+    width 37.5%
+    bottom -3%
+    left 35%
 
   .portal
     width 326.68px
     height 629.71px
 
   .stats-item:last-child
-    margin-top var(--spacing-7)
+    margin-top var(--spacing-3)
 
 // @media $breakpoint-large
 

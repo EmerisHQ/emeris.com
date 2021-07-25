@@ -3,7 +3,7 @@
     <graphics-cta class="graphics" />
     <div class="tm-wrapper mt-11">
       <div class="tm-content center text">
-        <h1 class="tm-rf4 tm-bold tm-lh-title tm-serif">
+        <h1 class="tm-rf4 tm-rf5-m tm-bold tm-lh-title tm-serif">
           Experience a glimpse of DeFi's future today
         </h1>
         <div class="button-container">
@@ -14,7 +14,7 @@
             color="var(--white)"
             variant="outlined"
             glow
-            class="btn mt-10"
+            class="btn"
             >Get started &#8594;</tm-button
           >
         </div>
@@ -30,6 +30,8 @@ export default {}
 <style lang="stylus" scoped>
 .section-cta
   padding var(--spacing-11) 0
+  @media $breakpoint-medium
+    padding var(--spacing-11) 0
 
 .text
   text-align center
@@ -40,9 +42,15 @@ export default {}
   width 100%
   .btn
     width 100%
+    margin-top var(--spacing-10)
+    @media $breakpoint-medium
+      width auto
+      margin-top var(--spacing-7)
 
 .graphics
   flex 1 0 73%
   width 73%
   max-width 26rem
+  @media $breakpoint-medium
+    margin-top var(--spacing-6)
 </style>

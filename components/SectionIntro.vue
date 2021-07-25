@@ -1,10 +1,10 @@
 <template>
-  <div class="section-intro tm-section">
+  <kinesis-container class="section-intro tm-section">
     <div class="tm-wrapper tm-container-narrow center">
       <h2 class="tm-rf4 tm-lh-title tm-bold tm-serif title">
         Your one-stop<br />portal to a new<br />world of DeFi
       </h2>
-      <kinesis-container class="emeris-beta">
+      <div class="emeris-beta">
         <div>
           <kinesis-element
             :strength="-2"
@@ -28,9 +28,9 @@
             </kinesis-element>
           </div>
         </div>
-      </kinesis-container>
+      </div>
     </div>
-  </div>
+  </kinesis-container>
 </template>
 
 <script>
@@ -49,12 +49,14 @@ export default {
   overflow hidden
   padding-bottom 0
   background linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #A8FF89 100%)
+  @media $breakpoint-medium
+    margin-bottom var(--spacing-7)
 
 .title
   margin-bottom var(--spacing-11)
   text-align center
   @media $breakpoint-medium
-    margin-bottom var(--spacing-12)
+    margin-bottom var(--spacing-13)
   @media $breakpoint-xl
     margin-bottom var(--spacing-10)
 
@@ -67,6 +69,7 @@ export default {
   text-align center
   @media $breakpoint-medium
     height 62vw
+    margin-bottom -10%
   img
     position absolute
     top 0
@@ -76,7 +79,8 @@ export default {
     border-radius .5rem
     transform matrix(1, -0.04, -0.1, 1, 0, 0)
     @media $breakpoint-medium
-      left 8.3rem
+      top -1rem
+      left 6.5rem
       width 97vw
     @media $breakpoint-xl
       left 0
@@ -103,7 +107,8 @@ export default {
   background var(--portal-gradient)
   transform matrix(-1, 0, 0, 1, 0, 0) perspective(4cm) rotateY(-9deg)
   @media $breakpoint-medium
-    top -6vw
+    top -7vw
+    left -3.75rem
     height 74.4vw
     width 40.5vw
     transform matrix(-1, 0, 0, 1, 0, 0) perspective(100px) rotateY(-3.8deg)

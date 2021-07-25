@@ -4,14 +4,16 @@
       <div class="top tm-grid-base">
         <div class="left">
           <h1 class="title tm-rf5 tm-bold tm-lh-title tm-serif tm-muted">
-            Try the<br />best today
+            Try the beta today
           </h1>
         </div>
         <div class="right">
           <div class="step-item">
             <div class="tm-rf2 tm-lh-title">01</div>
-            <div class="tm-rf2 tm-bold tm-lh-title mt-6">Download Keplr</div>
-            <div class="tm-rf0 tm-lh-copy mt-6">
+            <div class="tm-rf2 tm-bold tm-lh-title step-name">
+              Download Keplr
+            </div>
+            <div class="tm-rf0 tm-lh-copy step-info">
               For its beta version, Emeris requires you to use it.
             </div>
             <tm-button
@@ -20,16 +22,16 @@
               href="https://chrome.google.com/webstore/detail/keplr/dmkamcknogkgcdfhhbddcghachkejeap?hl=en"
               size="m"
               color="var(--success)"
-              class="mt-4"
+              class="step-link"
               >Get Keplr <span class="icon__right">&#8599;</span></tm-button
             >
           </div>
           <div class="step-item">
             <div class="tm-rf2 tm-lh-title">02</div>
-            <div class="tm-rf2 tm-bold tm-lh-title mt-6">
+            <div class="tm-rf2 tm-bold tm-lh-title step-name">
               Connect Keplr to Emeris
             </div>
-            <div class="tm-rf0 tm-lh-copy mt-6">
+            <div class="tm-rf0 tm-lh-copy step-info">
               Go to the Emeris app and connect your Keplr wallet.
             </div>
             <tm-button
@@ -38,24 +40,24 @@
               href="https://app.emeris.com"
               size="m"
               color="var(--success)"
-              class="mt-4"
+              class="step-link"
               >Launch App <span class="icon__right">&#8594;</span></tm-button
             >
           </div>
           <div class="step-item">
             <div class="tm-rf2 tm-lh-title">03</div>
-            <div class="tm-rf2 tm-bold tm-lh-title mt-6">
+            <div class="tm-rf2 tm-bold tm-lh-title step-name">
               Experience cross-chain DeFi
             </div>
-            <div class="tm-rf0 tm-lh-copy mt-6">
+            <div class="tm-rf0 tm-lh-copy step-info">
               Trade, swap, pool and visualize all your assets in one place.
             </div>
           </div>
         </div>
       </div>
-      <div class="bottom mt-10">
+      <div class="bottom">
         <tm-link href="https://tutorials.cosmos.network">
-          <div class="wrapper mt-9">
+          <div class="wrapper mt-10">
             <icon-arrow-top-right-16 class="top-right" />
             <div class="logo-container">
               <img
@@ -66,7 +68,7 @@
             </div>
             <div class="text">
               <h2 class="tm-rf0 tm-lh-title tm-bold">New to DeFi?</h2>
-              <p class="tm-rf-1 tm-lh-copy mt-2">
+              <p class="tm-rf-1 tm-lh-copy mt-2 tm-measure-narrow">
                 Don’t be afraid. Follow the simple tutorial to learn how to swap
                 your first coins.
               </p>
@@ -89,6 +91,10 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.section-beta
+  @media $breakpoint-medium
+    padding-bottom var(--spacing-7)
+
 .wrapper
   position relative
   color var(--black)
@@ -99,9 +105,13 @@ export default {
 .top .left
 .top .right
   grid-column 1/-1
+  @media $breakpoint-medium
+    grid-column span 4
 
 .right
   margin-top var(--spacing-10)
+  @media $breakpoint-medium
+    margin-top 0
 
 .section-beta
   color var(--black)
@@ -116,9 +126,29 @@ export default {
   &:not(:first-child)
     margin-top var(--spacing-9)
 
+.step-name
+  margin-top var(--spacing-6)
+  @media $breakpoint-medium
+    margin-top var(--spacing-4)
+
+.step-info
+  margin-top var(--spacing-6)
+  @media $breakpoint-medium
+    margin-top var(--spacing-5)
+
+.step-link
+  margin-top var(--spacing-4)
+  @media $breakpoint-medium
+    margin-top var(--spacing-2)
+
 .bottom
   display grid
   gap var(--grid-gap-x)
+  margin-top var(--spacing-10)
+  @media $breakpoint-medium
+    width 80%
+    margin-top 0
+    center()
 
 .wrapper
   display grid
@@ -132,6 +162,9 @@ export default {
   border 1px solid var(--solid)
   border-radius $border-radius-4
   hover-raise(-3px)
+  @media $breakpoint-medium
+    grid-template-columns 6.7rem auto
+    padding 0 var(--spacing-7)
 
 .text
   @media $breakpoint-medium
@@ -146,19 +179,24 @@ export default {
   height auto
   width 70%
   position relative
+  @media $breakpoint-medium
+    width 100%
 
 .logo
+  mix-blend-mode hard-light
   position relative
   margin-top -28%
   margin-left -1.5rem
   @media $breakpoint-medium
-    position absolute
+    width 146%
+    max-width none
+    margin-top -20%
 
 @media $breakpoint-xsmall-only
   .wrapper
     grid-auto-flow dense
     grid-template-columns auto
-    padding var(--spacing-7)
+    padding var(--spacing-6)
 
 @media $breakpoint-medium
   .portal

@@ -61,6 +61,8 @@ export default {
   flex-direction row
   align-items center
   justify-content space-between
+  @media $breakpoint-medium
+    flex-direction column
 
 .logos-container
   position relative
@@ -70,6 +72,7 @@ export default {
   height 1.2rem
   @media $breakpoint-medium
     center()
+    margin-bottom var(--spacing-4)
     height 1.5rem
 
 .nav

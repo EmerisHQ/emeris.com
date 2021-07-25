@@ -14,29 +14,29 @@
           <span class="divider" />
           <tm-link
             href="https://v1.cosmos.network/privacy"
-            class="tm-rf0 link-item tm-muted"
+            class="tm-rf0 tm-rf-1-m link-item tm-muted"
             >Support</tm-link
           >
           <tm-link
             href="https://v1.cosmos.network/privacy"
-            class="tm-rf0 link-item tm-muted"
+            class="tm-rf0 tm-rf-1-m link-item tm-muted"
             >Privacy</tm-link
           >
           <tm-link
             href="https://v1.cosmos.network/privacy"
-            class="tm-rf0 link-item tm-muted"
+            class="tm-rf0 tm-rf-1-m link-item tm-muted"
             >Terms of use</tm-link
           >
           <tm-link
             href="https://v1.cosmos.network/privacy"
-            class="tm-rf0 link-item tm-muted"
+            class="tm-rf0 tm-rf-1-m link-item tm-muted"
             >Get updates</tm-link
           >
           <span class="divider" />
           <tm-link
             v-scroll-to="'#homepage'"
             href="#"
-            class="tm-rf0 tm-muted scrolltop"
+            class="tm-rf0 tm-rf-1-m tm-muted scrolltop"
           >
             Back to top &#8593;</tm-link
           >
@@ -150,6 +150,10 @@ export default {
   margin-bottom var(--spacing-5)
   color inherit
   transition transform .4s $ease-out, opacity .4s $ease-out, color .4s $ease-out, visibility .4s 0s
+  @media $breakpoint-medium
+    justify-content center
+    width 100%
+    margin-bottom var(--spacing-8)
 
   svg
     width auto
@@ -220,6 +224,9 @@ export default {
 
   .nav-bottom
     flex-direction row
+    justify-content center
+    flex-wrap wrap
+    text-align center
 
   .link-item + .link-item
     margin-left var(--spacing-6)

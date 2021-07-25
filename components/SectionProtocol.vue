@@ -1,7 +1,7 @@
 <template>
-  <kinesis-container class="section-protocol center">
-    <kinesis-element :strength="1" type="depth" class="hand-top">
-      <kinesis-element :strength="-4">
+  <div class="section-protocol center">
+    <kinesis-element :strength="2" type="rotate" class="hand-top">
+      <kinesis-element :strength="-10">
         <div class="hand-top-container">
           <img
             class="hand-top-img"
@@ -10,11 +10,9 @@
           />
         </div>
       </kinesis-element>
-      <kinesis-element :strength="-10" class="hand-top-circle">
+      <kinesis-element :strength="-25" class="hand-top-circle">
         <kinesis-element :strength="-0.25" type="scale">
-          <div>
-            <img src="~/assets/images/elements/circle-top.svg" />
-          </div>
+          <div class="hand-top-circle-inner"></div>
         </kinesis-element>
       </kinesis-element>
     </kinesis-element>
@@ -25,8 +23,8 @@
         alt="Gravity DEX protocol"
       />
     </tm-parallax>
-    <kinesis-element :strength="-1" type="depth" class="hand-bottom">
-      <kinesis-element :strength="5">
+    <kinesis-element :strength="-2" type="rotate" class="hand-bottom">
+      <kinesis-element :strength="10">
         <div class="hand-bottom-container">
           <img
             class="hand-bottom-img"
@@ -35,23 +33,20 @@
           />
         </div>
       </kinesis-element>
-      <kinesis-element :strength="10" class="hand-bottom-circle">
+      <kinesis-element :strength="25" class="hand-bottom-circle">
         <kinesis-element :strength="-0.25" type="scale">
-          <div>
-            <img src="~/assets/images/elements/circle-bottom.svg" />
-          </div>
+          <div class="hand-bottom-circle-inner"></div>
         </kinesis-element>
       </kinesis-element>
     </kinesis-element>
-  </kinesis-container>
+  </div>
 </template>
 
 <script>
-import { KinesisContainer, KinesisElement } from 'vue-kinesis'
+import { KinesisElement } from 'vue-kinesis'
 
 export default {
   components: {
-    KinesisContainer,
     KinesisElement,
   },
 }
@@ -110,7 +105,17 @@ export default {
       width 11.769375rem
       height 11.769375rem
     div
+      width 100%
+      height 100%
+    &-inner
+      width 100%
+      height 100%
       transform translate3d(0, 0, 0)
+      background-image url('~/assets/images/elements/emeris.jpg')
+      background-size cover
+      background-position center
+      background-repeat no-repeat
+      border-radius 100%
     &:before
       content ''
       opacity 0.28
@@ -167,7 +172,17 @@ export default {
       width 11.769375rem
       height 11.769375rem
     div
+      width 100%
+      height 100%
+    &-inner
+      width 100%
+      height 100%
       transform translate3d(0, 0, 0)
+      background-image url('~/assets/images/elements/dex.jpg')
+      background-size cover
+      background-position center
+      background-repeat no-repeat
+      border-radius 100%
     &:before
       content ''
       position absolute

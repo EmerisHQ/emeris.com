@@ -26,10 +26,17 @@
           "
         >
           <img
-            class="title-graphics"
-            src="~/assets/images/elements/surfer-shadow.png"
+            class="title-surfer-shadow"
+            src="~/assets/images/elements/surfer-levitate-shadow.png"
             alt="Interchain Surfer Shadow"
           />
+          <div class="frame frame-bottom"></div>
+          <img
+            class="title-surfer"
+            src="~/assets/images/elements/surfer-levitate.png"
+            alt="Interchain Surfer"
+          />
+          <div class="frame frame-top"></div>
           <span class="tm-text-left">Experience</span>
           <span class="tm-text-center">the power of</span>
           <span class="tm-text-right">cross-chain DeFi</span>
@@ -108,6 +115,22 @@ img
 .title
   width 100%
 
+.title
+  &:before
+    content ''
+    position absolute
+    z-index -1
+    bottom 50%
+    left 30%
+    width 50%
+    height 150%
+    background-color var(--bg)
+    transform rotate(29deg)
+    @media $breakpoint-medium
+      bottom auto
+      top -50%
+      left 50%
+
 .section-hero
   display flex
   align-items center
@@ -115,13 +138,20 @@ img
   min-height 100vh
   padding-top var(--spacing-12)
   padding-bottom var(--spacing-7)
+  @media $breakpoint-medium
+    margin-bottom var(--spacing-8)
+    padding-top var(--spacing-11)
+    padding-bottom var(--spacing-10)
+
+.outer
+  @media $breakpoint-medium
+    padding-bottom var(--spacing-13)
 
 .inner
   margin-top calc(var(--spacing-5) * -1)
   padding-bottom var(--spacing-13)
   @media $breakpoint-medium
-    padding-left var(--spacing-7)
-    padding-right var(--spacing-7)
+    margin-top 0
 
 .arrow
   display none
@@ -158,6 +188,10 @@ a.btn
   left 50%
   width 195%
   transform translate(-50%, -22.5%)
+  @media $breakpoint-medium
+    width 233%
+    transform translate(-50%, -29.5%)
+
 
 .hand-orb
   width 100%
@@ -176,7 +210,11 @@ a.btn
   top 40%
   left 50%
   transform translate(-66%, 0%) rotate(14deg)
-  // @media $breakpoint-medium
+  @media $breakpoint-medium
+    width 62vw
+    top 66%
+    left 53%
+    transform translate(-66%, 0%) rotate(14deg)
 
 .orb
   position absolute
@@ -189,6 +227,11 @@ a.btn
   left 50%
   transform translateX(-50%)
   animation orb-1 4s ease-in-out infinite
+  @media $breakpoint-medium
+    width 25vw
+    height 25vw
+    top 72%
+    left 54%
   &:before
     content ''
     position absolute
@@ -210,13 +253,56 @@ a.btn
     background center / contain no-repeat url('~/assets/images/elements/emeris-header.jpg')
 
 
-.title-graphics
+.title-surfer
   mix-blend-mode hard-light
   position absolute
-  width 60%
-  left 45%
-  bottom 105%
-  transform translate(-50%, 50%)
+  width 43%
+  max-width 14.1rem
+  left 52%
+  top 0
+  transform translate(-50%, -64%)
+  @media $breakpoint-medium
+    width 36%
+    left calc(52% + 12.75rem)
+    top 0
+    transform translate(-50%, -42.5%)
+
+.title-surfer-shadow
+  position absolute
+  width 43%
+  max-width 14.1rem
+  left 43%
+  top 10%
+  transform translate(-50%, -64%)
+  @media $breakpoint-medium
+    width 36%
+    left calc(43% + 12.75rem)
+    transform translate(-50%, -42.5%)
+
+.frame
+  position absolute
+  background-size cover
+  background-repeat no-repeat
+  width 47%
+  max-width 16.1rem
+  padding-bottom 38%
+  transform translate(-45%, -63%) rotate(2deg)
+  top 0
+  left 50%
+  @media $breakpoint-medium
+    top -76%
+    left calc(50% + 12.75rem)
+    width 41%
+    transform translateX(-45%) rotate(2deg)
+  &-top
+    top -64.5%
+    left 49.5%
+    background-image url('~/assets/images/elements/frame-top.png')
+    @media $breakpoint-medium
+      top -77%
+      left calc(49.3% + 12.75rem)
+  &-bottom
+    background-image url('~/assets/images/elements/frame-bottom.png')
 
 @keyframes orb-1
   0%, 100%
