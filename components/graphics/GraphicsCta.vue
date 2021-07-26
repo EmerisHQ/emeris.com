@@ -25,6 +25,14 @@
     padding-bottom 30%
   @media $breakpoint-xl
     padding-bottom 33%
+  &:before
+    content ''
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 300%
+    background-color var(--bg)
 
 .layer
   position absolute
@@ -32,7 +40,7 @@
 .guide
   width 100%
 
-@keyframes fsurfer-levitate
+@keyframes surfer-levitate
   0%
     transform translateY(5%) translateX(-50%) rotate(2deg)
   100%
