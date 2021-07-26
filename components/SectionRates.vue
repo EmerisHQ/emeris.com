@@ -147,6 +147,11 @@ export default {}
   left 53%
   transform translateX(-50%)
   animation surfer-levitate 5s ease-in-out alternate infinite
+  mask-mode alpha
+  mask-repeat no-repeat
+  mask-image url('~/assets/images/elements/surfer-rapture-mask.svg')
+  mask-size cover
+  backdrop-filter blur(4.7px)
   @media $breakpoint-small
     width 24%
     bottom -20%
