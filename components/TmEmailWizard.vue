@@ -2,7 +2,7 @@
   <div class="wizard">
     <div v-on-clickaway="onClickOutside" class="wizard__inner">
       <transition-group :name="transition">
-        <div v-show="step === 0" ref="step0" key="step0">
+        <div v-show="step === 0" ref="step0" key="step0" class="wizard__step0">
           <label
             class="
               wizard__get-notified
@@ -96,6 +96,7 @@
             <tm-button
               variant="text"
               class="btn mt-3"
+              color="var(--secondary)"
               @click.native="actionReset"
               >OK</tm-button
             >
@@ -211,7 +212,6 @@ export default {
   border 1px solid transparent
   border-radius $border-radius-3
   @media $breakpoint-medium
-    max-height 3rem
     overflow visible
   &:after
     content ''
@@ -221,10 +221,16 @@ export default {
     border-radius inherit
     background linear-gradient(280.46deg, #FFF0CA 12.71%, #D3AD5F 33.34%, #FFECC4 41.61%, #997736 59.2%, #FFF2C0 77.69%, #CEA851 97.39%)
   &__inner
+    min-height 3rem
     // max-width 17.5rem
     background var(--bg)
     border-radius $border-radius-3
     box-shadow 8px 16px 48px rgba(0, 0, 0, 0.21)
+  &__step0
+    position absolute
+    top 0
+    left 0
+    right 0
   &__get-notified
     display flex
     align-items center
@@ -273,12 +279,17 @@ export default {
         color var(--muted)
   &__footnote
     padding var(--spacing-4)
+    a
+      color var(--secondary)
   .btn
     padding-left var(--spacing-4)
     padding-right var(--spacing-4)
 
 .text-with-gradient
+  display block
   background var(--title-gradient)
   -webkit-background-clip text
+  background-clip text
   -webkit-text-fill-color transparent
+  text-fill-color transparent
 </style>

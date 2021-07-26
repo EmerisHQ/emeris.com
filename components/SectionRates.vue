@@ -135,7 +135,9 @@ export default {}
 .title-gradient
   background var(--title-gradient)
   -webkit-background-clip text
+  background-clip text
   -webkit-text-fill-color transparent
+  text-fill-color transparent
 
 .surfer
   mix-blend-mode hard-light

@@ -318,9 +318,12 @@ export default {
       trbl -0.0625em
       filter blur(0.4rem)
     .tm-button__content
+      display block
       background var(--title-gradient)
       -webkit-background-clip text
+      background-clip text
       -webkit-text-fill-color transparent
+      text-fill-color transparent
     &:hover
       &::after
         background radial-gradient(144.8% 78% at 90.48% 100%, #FFFD38 25.95%, rgba(158, 255, 185, 0) 100%), linear-gradient(153.31deg, #64DAFB 5.41%, #30FFDF 30.23%, #B0FF94 54.73%)
