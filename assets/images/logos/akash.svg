@@ -1,32 +1,5 @@
-<svg width="272" height="273" viewBox="0 0 272 273" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_i-363991)">
-<path d="M135.997 199.269C170.536 199.269 198.536 171.167 198.536 136.5C198.536 101.834 170.536 73.7308 135.997 73.7308C101.458 73.7308 73.459 101.834 73.459 136.5C73.459 171.167 101.458 199.269 135.997 199.269Z" fill="url(#paint0_radial-953766)"/>
-<path d="M135.997 199.269C170.536 199.269 198.536 171.167 198.536 136.5C198.536 101.834 170.536 73.7308 135.997 73.7308C101.458 73.7308 73.459 101.834 73.459 136.5C73.459 171.167 101.458 199.269 135.997 199.269Z" fill="url(#paint1_radial-438716)"/>
-</g>
-<g style="mix-blend-mode:overlay" opacity="0.9">
-<path d="M126.349 109L155.72 164L165.5 145.664L145.925 109L126.349 109Z" fill="white"/>
-<path d="M126.349 146.714L136.507 164H156.8L146.657 146.714H126.349Z" fill="white"/>
-<path d="M117.65 126.286L107.5 145.143L117.657 164L137.95 126.286H117.65Z" fill="white"/>
-</g>
-<defs>
-<filter id="filter0_i-363991" x="73.459" y="73.7308" width="125.077" height="125.538" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset/>
-<feGaussianBlur stdDeviation="13.3207"/>
-<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
-<feBlend mode="hard-light" in2="shape" result="effect1_innerShadow"/>
-</filter>
-<radialGradient id="paint0_radial-953766" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(155.752 171.864) rotate(-108.646) scale(117.774 117.429)">
-<stop offset="0.377782" stop-color="#FF7245"/>
-<stop offset="0.766535" stop-color="#FFBBAC"/>
-<stop offset="1" stop-color="#FFE9BF"/>
-</radialGradient>
-<radialGradient id="paint1_radial-438716" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(130.869 91.9991) rotate(86.4582) scale(102.462 102.088)">
-<stop offset="0.244792" stop-color="#FF3131" stop-opacity="0"/>
-<stop offset="0.904105" stop-color="#FF6939" stop-opacity="0.7"/>
-</radialGradient>
-</defs>
+<svg width="92" height="91" viewBox="0 0 92 91" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M36.3494 18L65.7196 72.9998L75.5 54.6645L55.9247 18L36.3494 18Z" fill="white"/>
+<path d="M36.3494 55.7142L46.5068 72.9998H66.7999L56.657 55.7142H36.3494Z" fill="white"/>
+<path d="M27.6502 35.2858L17.5 54.1429L27.6574 73L47.9505 35.2858H27.6502Z" fill="white"/>
 </svg>
