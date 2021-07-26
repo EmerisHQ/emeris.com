@@ -30,6 +30,37 @@
           </div>
         </div>
       </div>
+      <div class="marquee-wrapper">
+        <div
+          class="content"
+          :class="{ paused: hover }"
+          @mouseover="hover = true"
+          @mouseleave="hover = false"
+        >
+          <div class="text">
+            <tm-link v-for="item in list" :key="item.text" :href="item.url">
+              <!-- <tm-tooltip :text="`${item.text} ↗`" position="top-center"> -->
+              <img
+                :src="require(`~/assets/images/logos/${item.img}.svg`)"
+                :alt="item.text"
+                class="logo-item"
+              />
+              <!-- </tm-tooltip> -->
+            </tm-link>
+          </div>
+          <div class="text">
+            <tm-link v-for="item in list" :key="item.text" :href="item.url">
+              <!-- <tm-tooltip :text="`${item.text} ↗`" position="top-center"> -->
+              <img
+                :src="require(`~/assets/images/logos/${item.img}.svg`)"
+                :alt="item.text"
+                class="logo-item"
+              />
+              <!-- </tm-tooltip> -->
+            </tm-link>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="bottom tm-wrapper tm-container-narrow">
       <div class="tm-grid-base">
@@ -51,7 +82,7 @@
             tm-rf0 tm-rf1-xl-up tm-lh-copy tm-text tm-measure-narrow
           "
         >
-          <tm-link href="https://cosmos.network" class="tm-link"
+          <tm-link v-scroll-to="'#best'" href="#" class="tm-link"
             >Stay tuned</tm-link
           >
           for more chains to be added within the coming weeks.
@@ -70,6 +101,7 @@ export default {
   },
   data() {
     return {
+      hover: false,
       list: [
         {
           url: 'https://akash.network',
@@ -127,6 +159,7 @@ export default {
 
 <style lang="stylus" scoped>
 .logos-container
+.title
   position relative
 
 .logos-item
@@ -218,6 +251,13 @@ export default {
 .logo-item
   width 5.6875rem
 
+.tm-link
+  color var(--secondary)
+
+.bottom .left
+.bottom .right
+  grid-column 1/-1
+
 .ephemerides
   position absolute
   width 100%
@@ -258,19 +298,72 @@ export default {
   @media $breakpoint-large
     max-width 42.5rem
 
-.scrolling-wrapper
-  overflow-x scroll
-  overflow-y hidden
-  white-space nowrap
-  -webkit-overflow-scrolling touch
+.text > a
+  margin-left 2rem
 
-  &::-webkit-scrollbar
+.logo-item
+  display inline-block
+  padding 5.6563rem
+
+.paused .text
+  animation-play-state paused
+
+@keyframes animation
+  0%
+    transform translateX(0)
+  100%
+    transform translateX(-100%)
+
+@media $breakpoint-xsmall-only
+  .marquee-wrapper
     display none
 
-.text > a
-  margin-left 1.25rem
+  .scrolling-wrapper
+    overflow-x scroll
+    overflow-y hidden
+    white-space nowrap
+    -webkit-overflow-scrolling touch
 
-// @media $breakpoint-medium
+    &::-webkit-scrollbar
+      display none
+
+  .bottom .right
+    margin-top 1em
+
+@media $breakpoint-small
+  .marquee-wrapper
+    display none
+
+  .scrolling-wrapper
+    overflow-x scroll
+    overflow-y hidden
+    white-space nowrap
+    -webkit-overflow-scrolling touch
+
+    &::-webkit-scrollbar
+      display none
+
+  .bottom .right
+    margin-top 1em
+
+@media $breakpoint-medium
+  .marquee-wrapper
+    overflow hidden
+    display inline-block
+
+  .scrolling-wrapper
+    display none
+
+  .content
+    width 6250rem
+
+  .text
+    animation-name animation
+    animation-timing-function linear
+    animation-iteration-count infinite
+    animation-duration 30s
+    float left
+
 // @media $breakpoint-large
 @media $breakpoint-xl
   .bottom
