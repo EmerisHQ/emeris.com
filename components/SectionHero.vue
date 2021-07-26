@@ -133,7 +133,7 @@ img
       width 255px
       height 225px
       transform translate(-50%, -50%) rotate(30deg)
-    @media $breakpoint-xl
+    @media $breakpoint-large
       left calc(52% + 23.5rem)
       transform translate(-50%, -16%) rotate(30deg)
 
@@ -152,7 +152,7 @@ img
 .outer
   @media $breakpoint-medium
     padding-bottom var(--spacing-13)
-  @media $breakpoint-xl
+  @media $breakpoint-large
     padding-bottom 0
 
 .inner
@@ -160,8 +160,6 @@ img
   padding-bottom var(--spacing-13)
   @media $breakpoint-medium
     margin-top 0
-  @media $breakpoint-xl
-    margin-top -5rem
 
 .arrow
   display none
@@ -171,7 +169,7 @@ img
   transform translateX(-1rem)
   @media $breakpoint-medium
     display block
-  @media $breakpoint-xl
+  @media $breakpoint-large
     transform translateX(-50%)
 
 a.btn
@@ -227,7 +225,7 @@ a.btn
     width 62vw
     top 66%
     left 53%
-  @media $breakpoint-xl
+  @media $breakpoint-large
     top 43%
     left 50%
 
@@ -247,7 +245,7 @@ a.btn
     height 25vw
     top 72%
     left 54%
-  @media $breakpoint-xl
+  @media $breakpoint-large
     top 47%
     left 51.5%
   &:before
@@ -285,7 +283,7 @@ a.btn
     left calc(52% + 12.75rem)
     top 0
     transform translate(-50%, -39%)
-  @media $breakpoint-xl
+  @media $breakpoint-large
     left calc(52% + 23.5rem)
     transform translate(-50%, -16%)
 
@@ -301,7 +299,7 @@ a.btn
     width 235px
     left calc(43% + 12.75rem)
     transform translate(-50%, -39%)
-  @media $breakpoint-xl
+  @media $breakpoint-large
     left calc(52% + 18.5rem)
     transform translate(-50%, -16%)
 
@@ -323,7 +321,7 @@ a.btn
     height 205px
     padding-bottom 0
     transform translate(-45%, -62%) rotate(2deg)
-  @media $breakpoint-xl
+  @media $breakpoint-large
     top 21%
     left calc(50% + 24rem)
   &-top
@@ -333,7 +331,7 @@ a.btn
     @media $breakpoint-medium
       top -1%
       left calc(49.4% + 12.75rem)
-    @media $breakpoint-xl
+    @media $breakpoint-large
       top 20.2%
       left calc(50% + 23.75rem)
   &-bottom

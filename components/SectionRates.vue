@@ -206,7 +206,15 @@ export default {}
   .stats-item:last-child
     margin-top var(--spacing-3)
 
-// @media $breakpoint-large
+@media $breakpoint-large
+  .stats
+    grid-template-columns repeat(auto-fit, minmax(0, 1fr))
+
+  .stats-item:last-child
+    margin-top 0
+
+  .left
+    grid-column 1/span 6
 
 @media $breakpoint-xl
   .portal
@@ -215,12 +223,6 @@ export default {}
 
   .left
     grid-column 1/span 8
-
-  .stats
-    grid-template-columns repeat(auto-fit, minmax(0, 1fr))
-
-  .stats-item:last-child
-    margin-top 0
 
 // @media $breakpoint-xxl
 </style>

@@ -8,7 +8,7 @@
           </h1>
         </div>
         <div class="column right">
-          <div class="tm-grid-base">
+          <div class="steps-grid">
             <div class="step-item">
               <div class="tm-rf2 tm-rf1-xl-up tm-lh-title">01</div>
               <div class="tm-rf2 tm-rf1-xl-up tm-bold tm-lh-title step-name">
@@ -101,7 +101,7 @@ export default {
 
 .title
   color var(--trans-gray-300)
-  @media $breakpoint-xl
+  @media $breakpoint-large
     max-width 35rem
     center()
     text-align center
@@ -110,14 +110,14 @@ export default {
   grid-column 1/-1
   @media $breakpoint-medium
     grid-column span 4
-  @media $breakpoint-xl
+  @media $breakpoint-large
     grid-column 1/-1
 
 .right
   margin-top var(--spacing-10)
   @media $breakpoint-medium
     margin-top 0
-  @media $breakpoint-xl
+  @media $breakpoint-large
     margin-top var(--spacing-8)
 
 .section-beta
@@ -135,13 +135,22 @@ export default {
   @media $breakpoint-xl
     padding var(--spacing-11) var(--spacing-10)
 
+.steps-grid
+  display grid
+  grid-template-columns repeat(4, 1fr)
+  gap 0 var(--grid-gap-x)
+  @media $breakpoint-medium
+    grid-template-columns repeat(8, 1fr)
+  @media $breakpoint-large
+    grid-template-columns repeat(12, 1fr)
+
 .step-item
   grid-column 1/-1
-  @media $breakpoint-xl
+  @media $breakpoint-large
     grid-column span 4
   &:not(:first-child)
     margin-top var(--spacing-9)
-    @media $breakpoint-xl
+    @media $breakpoint-large
       margin-top 0
 
 .step-name
@@ -167,6 +176,8 @@ export default {
     width 80%
     margin-top 0
     center()
+  @media $breakpoint-large
+    width 65%
   @media $breakpoint-xl
     width 48.5%
 

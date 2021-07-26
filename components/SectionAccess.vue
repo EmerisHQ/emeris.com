@@ -255,7 +255,7 @@ export default {
   max-width 22rem
   center()
   text-align center
-  @media $breakpoint-xl
+  @media $breakpoint-large
     max-width 42.5rem
 
 .scrolling-wrapper
