@@ -12,7 +12,7 @@
         Early access to innovative blockchains
       </h2>
     </div>
-    <div class="tm-container-wide logos-container mt-9 z-2">
+    <div class="tm-container-wide logos-container z-2">
       <div class="scrolling-wrapper">
         <div v-for="item in list" :key="item.text" class="logos-item">
           <tm-link :href="item.url" class="logo" :class="item.img">
@@ -38,26 +38,38 @@
           @mouseleave="hover = false"
         >
           <div class="text">
-            <tm-link v-for="item in list" :key="item.text" :href="item.url">
-              <!-- <tm-tooltip :text="`${item.text} ↗`" position="top-center"> -->
-              <img
-                :src="require(`~/assets/images/logos/${item.img}.svg`)"
-                :alt="item.text"
-                class="logo-item"
-              />
-              <!-- </tm-tooltip> -->
-            </tm-link>
+            <div v-for="item in list" :key="item.text" class="logos-item">
+              <tm-link :href="item.url" class="logo" :class="item.img">
+                <img
+                  :src="require(`~/assets/images/logos/${item.img}.svg`)"
+                  :alt="item.text"
+                  class="logo-item"
+                />
+              </tm-link>
+              <div class="logos-item__info">
+                <tm-tooltip :text="`${item.info}`" position="top-center">
+                  <span class="sr-only">info</span>
+                  <icon-info />
+                </tm-tooltip>
+              </div>
+            </div>
           </div>
           <div class="text">
-            <tm-link v-for="item in list" :key="item.text" :href="item.url">
-              <!-- <tm-tooltip :text="`${item.text} ↗`" position="top-center"> -->
-              <img
-                :src="require(`~/assets/images/logos/${item.img}.svg`)"
-                :alt="item.text"
-                class="logo-item"
-              />
-              <!-- </tm-tooltip> -->
-            </tm-link>
+            <div v-for="item in list" :key="item.text" class="logos-item">
+              <tm-link :href="item.url" class="logo" :class="item.img">
+                <img
+                  :src="require(`~/assets/images/logos/${item.img}.svg`)"
+                  :alt="item.text"
+                  class="logo-item"
+                />
+              </tm-link>
+              <div class="logos-item__info">
+                <tm-tooltip :text="`${item.info}`" position="top-center">
+                  <span class="sr-only">info</span>
+                  <icon-info />
+                </tm-tooltip>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -161,6 +173,13 @@ export default {
 .logos-container
 .title
   position relative
+
+.logos-container
+  margin-top var(--spacing-7)
+  @media $breakpoint-large
+    margin-top var(--spacing-10)
+  @media $breakpoint-xl
+    margin-top var(--spacing-9)
 
 .logos-item
   position relative
@@ -300,10 +319,6 @@ export default {
 
 .text > a
   margin-left 2rem
-
-.logo-item
-  display inline-block
-  padding 5.6563rem
 
 .paused .text
   animation-play-state paused
