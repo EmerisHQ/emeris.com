@@ -23,6 +23,8 @@
   padding-bottom 70%
   @media $breakpoint-medium
     padding-bottom 30%
+  @media $breakpoint-xl
+    padding-bottom 33%
 
 .layer
   position absolute
@@ -48,6 +50,10 @@
     width 83%
     top -13%
     left 46.5%
+  @media $breakpoint-xl
+    width 113%
+    top -21%
+    left 45.3%
 
 .frame
   width 102%
@@ -59,4 +65,8 @@
   @media $breakpoint-medium
     top 0
     left 58.2%
+  @media $breakpoint-xl
+    max-width 19.8rem
+    top -6.5%
+    left 62%
 </style>

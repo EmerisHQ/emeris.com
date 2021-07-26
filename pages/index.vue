@@ -1,7 +1,7 @@
 <template>
   <main>
     <transition name="fade">
-      <div class="fixed-container z-max">
+      <div class="fixed-container">
         <tm-button
           v-if="isVisible"
           to-link="external"
@@ -25,7 +25,7 @@
     <section-access v-observe-visibility="onTrue" />
     <section-beta v-observe-visibility="onTrue" />
     <section-updates v-observe-visibility="onTrue" />
-    <section-cta v-observe-visibility="onFalse" />
+    <section-cta v-observe-visibility="onTrue" />
   </main>
 </template>
 
@@ -69,6 +69,7 @@ export default {
 
 .fixed-container
   position fixed
+  z-index 9
   bottom var(--spacing-9)
   left var(--wrap-gap)
   right var(--wrap-gap)

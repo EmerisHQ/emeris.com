@@ -3,7 +3,7 @@
     <graphics-cta class="graphics" />
     <div class="tm-wrapper mt-11">
       <div class="tm-content center text">
-        <h1 class="tm-rf4 tm-rf5-m tm-bold tm-lh-title tm-serif">
+        <h1 class="title tm-rf4 tm-rf5-m-up tm-bold tm-lh-title tm-serif">
           Experience a glimpse of DeFi's future today
         </h1>
         <div class="button-container">
@@ -11,7 +11,6 @@
             to-link="external"
             href="https://medium.com/emeris-blog/introducing-emeris-the-cross-chain-portal-to-all-crypto-apps-4e6eee5b53a8"
             size="m"
-            color="var(--white)"
             variant="outlined"
             glow
             class="btn"
@@ -30,8 +29,12 @@ export default {}
 <style lang="stylus" scoped>
 .section-cta
   padding var(--spacing-11) 0
-  @media $breakpoint-medium
-    padding var(--spacing-11) 0
+  @media $breakpoint-xl
+    padding var(--spacing-11) 0 var(--spacing-10)
+
+.title
+  @media $breakpoint-large
+    max-width 53rem
 
 .text
   text-align center

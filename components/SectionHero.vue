@@ -21,7 +21,7 @@
         <h1
           class="
             title
-            tm-content tm-serif tm-rf5 tm-bold tm-lh-title tm-title
+            tm-content tm-serif tm-rf5 tm-rf6-xl-up tm-bold tm-lh-title tm-title
             z-2
           "
         >
@@ -128,8 +128,14 @@ img
     transform rotate(29deg)
     @media $breakpoint-medium
       bottom auto
-      top -50%
-      left 50%
+      top 0
+      left calc(50% + 12.75rem)
+      width 255px
+      height 225px
+      transform translate(-50%, -50%) rotate(30deg)
+    @media $breakpoint-xl
+      left calc(52% + 23.5rem)
+      transform translate(-50%, -16%) rotate(30deg)
 
 .section-hero
   display flex
@@ -146,12 +152,16 @@ img
 .outer
   @media $breakpoint-medium
     padding-bottom var(--spacing-13)
+  @media $breakpoint-xl
+    padding-bottom 0
 
 .inner
   margin-top calc(var(--spacing-5) * -1)
   padding-bottom var(--spacing-13)
   @media $breakpoint-medium
     margin-top 0
+  @media $breakpoint-xl
+    margin-top -5rem
 
 .arrow
   display none
@@ -161,6 +171,8 @@ img
   transform translateX(-1rem)
   @media $breakpoint-medium
     display block
+  @media $breakpoint-xl
+    transform translateX(-50%)
 
 a.btn
   position absolute
@@ -187,11 +199,11 @@ a.btn
   top 0
   left 50%
   width 195%
+  max-width 91rem
   transform translate(-50%, -22.5%)
   @media $breakpoint-medium
     width 233%
     transform translate(-50%, -29.5%)
-
 
 .hand-orb
   width 100%
@@ -207,6 +219,7 @@ a.btn
   position absolute
   mix-blend-mode hard-light
   width 52vw
+  max-width 30rem
   top 40%
   left 50%
   transform translate(-66%, 0%) rotate(14deg)
@@ -214,7 +227,9 @@ a.btn
     width 62vw
     top 66%
     left 53%
-    transform translate(-66%, 0%) rotate(14deg)
+  @media $breakpoint-xl
+    top 43%
+    left 50%
 
 .orb
   position absolute
@@ -232,6 +247,9 @@ a.btn
     height 25vw
     top 72%
     left 54%
+  @media $breakpoint-xl
+    top 47%
+    left 51.5%
   &:before
     content ''
     position absolute
@@ -257,15 +275,19 @@ a.btn
   mix-blend-mode hard-light
   position absolute
   width 43%
-  max-width 14.1rem
+  // max-width 14.1rem
   left 52%
   top 0
   transform translate(-50%, -64%)
   @media $breakpoint-medium
-    width 36%
+    // width 36%
+    width 235px
     left calc(52% + 12.75rem)
     top 0
-    transform translate(-50%, -42.5%)
+    transform translate(-50%, -39%)
+  @media $breakpoint-xl
+    left calc(52% + 23.5rem)
+    transform translate(-50%, -16%)
 
 .title-surfer-shadow
   position absolute
@@ -275,9 +297,13 @@ a.btn
   top 10%
   transform translate(-50%, -64%)
   @media $breakpoint-medium
-    width 36%
+    // width 36%
+    width 235px
     left calc(43% + 12.75rem)
-    transform translate(-50%, -42.5%)
+    transform translate(-50%, -39%)
+  @media $breakpoint-xl
+    left calc(52% + 18.5rem)
+    transform translate(-50%, -16%)
 
 .frame
   position absolute
@@ -286,21 +312,30 @@ a.btn
   width 47%
   max-width 16.1rem
   padding-bottom 38%
-  transform translate(-45%, -63%) rotate(2deg)
+  transform translate(-45%, -92%) rotate(2deg)
   top 0
   left 50%
+  @media $breakpoint-small
+    transform translate(-45%, -22vw) rotate(2deg)
   @media $breakpoint-medium
-    top -76%
     left calc(50% + 12.75rem)
-    width 41%
-    transform translateX(-45%) rotate(2deg)
+    width 255px
+    height 205px
+    padding-bottom 0
+    transform translate(-45%, -62%) rotate(2deg)
+  @media $breakpoint-xl
+    top 21%
+    left calc(50% + 24rem)
   &-top
-    top -64.5%
-    left 49.5%
+    top -0.5%
+    left 49.1%
     background-image url('~/assets/images/elements/frame-top.png')
     @media $breakpoint-medium
-      top -77%
-      left calc(49.3% + 12.75rem)
+      top -1%
+      left calc(49.4% + 12.75rem)
+    @media $breakpoint-xl
+      top 20.2%
+      left calc(50% + 23.75rem)
   &-bottom
     background-image url('~/assets/images/elements/frame-bottom.png')
 

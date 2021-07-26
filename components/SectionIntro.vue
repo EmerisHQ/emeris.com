@@ -69,13 +69,12 @@ export default {
   text-align center
   @media $breakpoint-medium
     height 62vw
-    margin-bottom -10%
   img
     position absolute
     top 0
     left 5.25rem
     width 148vw
-    max-width 61.5rem
+    max-width 59rem
     border-radius .5rem
     transform matrix(1, -0.04, -0.1, 1, 0, 0)
     @media $breakpoint-medium
@@ -83,6 +82,7 @@ export default {
       left 6.5rem
       width 97vw
     @media $breakpoint-xl
+      top 0
       left 0
       right 0
       width 100%
@@ -104,6 +104,7 @@ export default {
   left -1.75rem
   height 106.2vw
   width 13rem
+  max-width 27.5rem
   background var(--portal-gradient)
   transform matrix(-1, 0, 0, 1, 0, 0) perspective(4cm) rotateY(-9deg)
   @media $breakpoint-medium

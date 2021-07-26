@@ -3,7 +3,7 @@
     <div class="tm-content">
       <div class="tm-grid-base">
         <div class="column left">
-          <h2 class="title tm-rf4 tm-rf5-m tm-bold tm-lh-title tm-serif">
+          <h2 class="title tm-rf4 tm-rf5-m-up tm-bold tm-lh-title tm-serif">
             The best is yet&nbsp;to come.
           </h2>
           <div class="title-ephemeris">
@@ -28,10 +28,10 @@
         </div>
         <div class="column right">
           <div class="text">
-            <p class="tm-rf0 tm-lh-copy">
+            <p class="tm-rf0 tm-rf1-xl-up tm-lh-copy">
               Emeris aims to be the first one-stop portal to provide:
             </p>
-            <div class="list tm-rf0 tm-lh-copy mt-6">
+            <div class="list tm-rf0 tm-rf1-xl-up tm-lh-copy mt-6">
               <div class="list-item">
                 <span class="bullet" />
                 <p>Integrated wallet and multi&#8209;wallet support</p>
@@ -110,6 +110,8 @@ export default {}
     margin 35% 0
   @media $breakpoint-medium
     margin 19% 0
+  @media $breakpoint-xl
+    margin 22% 0
 
 .ephemerides
   position absolute
@@ -119,6 +121,8 @@ export default {}
   display flex
   align-items center
   justify-content center
+  @media $breakpoint-xl
+    margin-left -3.5rem
 
 .ephemeris-1
   position absolute

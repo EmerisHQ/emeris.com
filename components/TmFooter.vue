@@ -126,18 +126,32 @@ export default {
 .footer
   padding-top var(--spacing-7)
   padding-bottom var(--spacing-9)
+  @media $breakpoint-large
+    position relative
+    z-index 10
+    background-color var(--bg)
+  @media $breakpoint-xl
+    padding-top var(--spacing-8)
+    padding-bottom var(--spacing-8)
 
 .social-icons
-  display flex
-  flex-direction row
-  flex-wrap wrap
-  justify-content center
-  align-items center
+  display grid
+  grid-template-columns repeat(3, 1fr)
+  gap 1rem
   text-align center
 
   &__item
-    padding var(--spacing-4)
+    position relative
     opacity 0.75
+    font-size 0
+    &:before
+      content ''
+      position absolute
+      width 2.5rem
+      height 2.5rem
+      top 50%
+      left 50%
+      transform translate(-50%, -50%)
 
     &:hover
     &:focus
@@ -154,6 +168,9 @@ export default {
     justify-content center
     width 100%
     margin-bottom var(--spacing-8)
+  @media $breakpoint-large
+    width auto
+    margin-bottom 0
 
   svg
     width auto

@@ -1,13 +1,18 @@
 <template>
   <div class="section-rates tm-section">
-    <div class="text-container tm-wrapper tm-content">
+    <div class="text-container tm-wrapper tm-container-narrow">
       <div class="tm-grid-base">
         <div class="left">
           <div class="text z-2">
-            <h2 class="title tm-rf5 tm-rf6-m tm-bold tm-lh-title tm-serif">
+            <h2 class="title tm-rf5 tm-rf6-m-up tm-bold tm-lh-title tm-serif">
               DeFi<br /><span class="title-gradient">for all</span>
             </h2>
-            <p class="tm-rf0 tm-lh-copy mt-5 tm-text tm-measure-narrow">
+            <p
+              class="
+                mt-5
+                tm-rf0 tm-rf1-xl-up tm-lh-copy tm-text tm-measure-narrow
+              "
+            >
               Emeris beta allows you to swap coins with substantially lower fees
               than typical DeFi exchanges.
             </p>
@@ -18,7 +23,10 @@
                 Average swap speed
               </div>
               <div
-                class="tm-rf6 tm-rf4-m tm-bold tm-lh-title tm-serif stats-num"
+                class="
+                  stats-num
+                  tm-rf6 tm-rf4-m-up tm-bold tm-lh-title tm-serif
+                "
               >
                 00:07
               </div>
@@ -33,7 +41,10 @@
                 Average transaction fee
               </div>
               <div
-                class="tm-rf6 tm-rf4-m tm-bold tm-lh-title tm-serif stats-num"
+                class="
+                  stats-num
+                  tm-rf6 tm-rf4-m-up tm-bold tm-lh-title tm-serif
+                "
               >
                 $0.08
               </div>
@@ -72,6 +83,9 @@ export default {}
 .section-rates
   padding-top var(--spacing-12)
   padding-bottom var(--spacing-12)
+  @media $breakpoint-xl
+    padding-top var(--spacing-13)
+    padding-bottom var(--spacing-13)
 
 .left
 .right
@@ -95,6 +109,11 @@ export default {}
       right -20px
       width 700px
       height 940px
+    @media $breakpoint-xl
+      top -85px
+      right -20px
+      width 930px
+      height 1300px
 
 .text
   max-width 23.375rem
@@ -105,6 +124,8 @@ export default {}
   margin-top var(--spacing-11)
   @media $breakpoint-medium
     margin-top var(--spacing-9)
+  @media $breakpoint-xl
+    margin-top var(--spacing-8)
 
 .stats-num
   margin-top var(--spacing-1)
@@ -124,6 +145,17 @@ export default {}
   left 53%
   transform translateX(-50%)
   animation surfer-levitate 5s ease-in-out alternate infinite
+  @media $breakpoint-small
+    width 24%
+    bottom -20%
+    left 65%
+  @media $breakpoint-medium
+    width 37.5%
+    bottom -3%
+    left 35%
+  @media $breakpoint-xl
+    bottom -6%
+    left 30%
 
 .portal
   width 216px
@@ -154,11 +186,6 @@ export default {}
   .graphics-container
     margin-top var(--spacing-6)
 
-  .surfer
-    width 24%
-    bottom -20%
-    left 65%
-
   .stats-item:last-child
     margin-top var(--spacing-8)
 
@@ -169,11 +196,6 @@ export default {}
   .graphics-container
     margin-top var(--spacing-9)
     position absolute
-
-  .surfer
-    width 37.5%
-    bottom -3%
-    left 35%
 
   .portal
     width 326.68px
