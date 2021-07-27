@@ -124,11 +124,8 @@ export default {
 
 <style lang="stylus" scoped>
 .footer
-  position relative
-  z-index 10
   padding-top var(--spacing-7)
   padding-bottom var(--spacing-9)
-  background-color var(--bg)
   @media $breakpoint-xl
     padding-top var(--spacing-8)
     padding-bottom var(--spacing-8)
