@@ -2,7 +2,7 @@
   <div class="nav-container tm-wrapper tm-container">
     <nav class="nav nav-primary" role="navigation">
       <div class="nav-head center">
-        <nuxt-link to="/" class="logos-container">
+        <nuxt-link to="/" class="logos-container" :class="[homePage && 'home']">
           <logo-emeris-wordmark-color class="logo" />
           <span class="sr-only">Emeris</span>
         </nuxt-link>
@@ -41,6 +41,11 @@ export default {
   components: {
     LogoEmerisWordmarkColor,
   },
+  computed: {
+    homePage() {
+      return this.$route.path === '/'
+    },
+  },
 }
 </script>
 
@@ -74,6 +79,8 @@ export default {
     center()
     margin-bottom var(--spacing-4)
     height 1.5rem
+  &.home
+    pointer-events none
 
 .nav
   /* if no secondary nav, create similar space */

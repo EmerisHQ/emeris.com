@@ -9,7 +9,7 @@
         <div class="button-container">
           <tm-button
             to-link="external"
-            href="https://medium.com/emeris-blog/introducing-emeris-the-cross-chain-portal-to-all-crypto-apps-4e6eee5b53a8"
+            href="https://app.emeris.com/"
             size="m"
             variant="outlined"
             glow

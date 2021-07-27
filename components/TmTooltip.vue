@@ -21,6 +21,7 @@
       }"
       :position="position"
       class="tm-link"
+      :style="_styles"
     >
       <slot></slot>
     </button>
@@ -42,6 +43,10 @@ export default {
       default: '',
     },
     text: {
+      type: String,
+      default: '',
+    },
+    controlStyles: {
       type: String,
       default: '',
     },

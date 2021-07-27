@@ -173,6 +173,13 @@ img
   @media $breakpoint-large
     display block
     transform translateX(-50%)
+    animation levitate 1.8s ease-in-out alternate infinite
+
+@keyframes levitate
+  0%, 100%
+    transform translate(-50%, 7%)
+  50%
+    transform translate(-50%, -7%)
 
 a.btn
   position absolute
@@ -269,7 +276,6 @@ a.btn
     height 100%
     border-radius 100%
     background center / contain no-repeat url('~/assets/images/elements/emeris-header.jpg')
-
 
 .title-surfer
   mix-blend-mode hard-light

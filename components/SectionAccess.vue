@@ -15,20 +15,24 @@
     <div class="tm-container-wide logos-container z-2">
       <div class="scrolling-wrapper">
         <div v-for="item in list" :key="item.text" class="logos-item">
-          <tm-link :href="item.url" class="logo" :class="item.img">
+          <tm-tooltip
+            :text="`${item.info}`"
+            position="top-center"
+            class="logo"
+            :class="item.img"
+            control-styles="float: right"
+          >
             <span class="logo-inner" :class="item.img"></span>
             <img
               :src="require(`~/assets/images/logos/${item.img}.svg`)"
               :alt="item.text"
               class="logo-item"
             />
-          </tm-link>
-          <div class="logos-item__info">
-            <tm-tooltip :text="`${item.info}`" position="top-center">
+            <div class="logos-item__info">
               <span class="sr-only">info</span>
               <icon-info />
-            </tm-tooltip>
-          </div>
+            </div>
+          </tm-tooltip>
         </div>
       </div>
       <div class="marquee-wrapper">
@@ -40,38 +44,46 @@
         >
           <div class="text">
             <div v-for="item in list" :key="item.text" class="logos-item">
-              <tm-link :href="item.url" class="logo" :class="item.img">
+              <tm-tooltip
+                :text="`${item.info}`"
+                position="top-center"
+                class="logo"
+                :class="item.img"
+                control-styles="float: right"
+              >
                 <span class="logo-inner" :class="item.img"></span>
                 <img
                   :src="require(`~/assets/images/logos/${item.img}.svg`)"
                   :alt="item.text"
                   class="logo-item"
                 />
-              </tm-link>
-              <div class="logos-item__info">
-                <tm-tooltip :text="`${item.info}`" position="top-center">
+                <div class="logos-item__info">
                   <span class="sr-only">info</span>
                   <icon-info />
-                </tm-tooltip>
-              </div>
+                </div>
+              </tm-tooltip>
             </div>
           </div>
           <div class="text">
             <div v-for="item in list" :key="item.text" class="logos-item">
-              <tm-link :href="item.url" class="logo" :class="item.img">
+              <tm-tooltip
+                :text="`${item.info}`"
+                position="top-center"
+                class="logo"
+                :class="item.img"
+                control-styles="float: right"
+              >
                 <span class="logo-inner" :class="item.img"></span>
                 <img
                   :src="require(`~/assets/images/logos/${item.img}.svg`)"
                   :alt="item.text"
                   class="logo-item"
                 />
-              </tm-link>
-              <div class="logos-item__info">
-                <tm-tooltip :text="`${item.info}`" position="top-center">
+                <div class="logos-item__info">
                   <span class="sr-only">info</span>
                   <icon-info />
-                </tm-tooltip>
-              </div>
+                </div>
+              </tm-tooltip>
             </div>
           </div>
         </div>
@@ -196,12 +208,8 @@ export default {
     top 50%
     left 50%
     opacity .67
-    transition opacity .2s $ease-out
     transform translate(3.05rem, -4.45rem)
     font-size 0
-    &:hover
-    &:focus
-      opacity 1
 
 .logo
   position relative
@@ -264,7 +272,7 @@ export default {
   top 50%
   left 50%
   border-radius 100%
-  display inline-flex
+  display flex
   align-items center
   justify-content center
   background-position center
@@ -396,7 +404,7 @@ export default {
 
 @media $breakpoint-medium
   .marquee-wrapper
-    overflow hidden
+    // overflow hidden
     display inline-block
 
   .scrolling-wrapper
@@ -406,7 +414,7 @@ export default {
     width 6250rem
 
   .text
-    animation-name animation
+    // animation-name animation
     animation-timing-function linear
     animation-iteration-count infinite
     animation-duration 30s
@@ -424,4 +432,19 @@ export default {
     grid-column 7/span 5
     margin-top 0
 // @media $breakpoint-xxl
+@media screen and (min-width: 2070px)
+  .marquee-wrapper
+    position relative
+    left 50%
+    transform translateX(-50%)
+
+  .content
+    width auto
+
+  .text
+    animation-name none
+    float none
+    white-space nowrap
+    &:not(:first-child)
+      display none
 </style>

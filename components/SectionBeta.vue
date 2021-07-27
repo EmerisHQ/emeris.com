@@ -22,7 +22,7 @@
                 to-link="external"
                 href="https://chrome.google.com/webstore/detail/keplr/dmkamcknogkgcdfhhbddcghachkejeap?hl=en"
                 size="m"
-                color="var(--success)"
+                color="var(--black)"
                 class="step-link"
                 >Get Keplr <span class="icon__right">&#8599;</span></tm-button
               >
@@ -40,7 +40,7 @@
                 to-link="external"
                 href="https://app.emeris.com"
                 size="m"
-                color="var(--success)"
+                color="var(--black)"
                 class="step-link"
                 >Launch App <span class="icon__right">&#8594;</span></tm-button
               >
