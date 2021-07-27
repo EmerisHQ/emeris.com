@@ -27,6 +27,11 @@
             class="link-item tm-muted"
             >Get updates</tm-link
           >
+          <tm-link
+            href="https://drive.google.com/file/d/1h4qrMWHGVLGX2vOJ-ryVmHs68Vu_6MY_/view"
+            class="link-item tm-muted"
+            >Brand assets</tm-link
+          >
           <span class="divider" />
           <tm-link v-scroll-to="'#homepage'" href="#" class="tm-muted scrolltop"
             >Back to top &#8593;</tm-link
