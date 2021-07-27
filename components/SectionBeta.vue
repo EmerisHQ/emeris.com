@@ -248,6 +248,12 @@ export default {
   margin-top -28%
   margin-left -1.5rem
   transition transform .25s $ease-out
+  animation surfer-levitate 5s ease-in-out alternate infinite
+  mask-mode alpha
+  mask-repeat no-repeat
+  mask-image url('~/assets/images/elements/surfer-running-mask.svg')
+  mask-size cover
+  backdrop-filter blur(4.7px)
   @media $breakpoint-medium
     width 146%
     max-width none

@@ -116,6 +116,9 @@ img
   width 100%
 
 .title
+  max-width calc((1.401125rem + 3.7441666666666666vw) * 8)
+  @media $breakpoint-small
+    max-width none
   &:before
     content ''
     position absolute
@@ -167,9 +170,8 @@ img
   bottom var(--spacing-10)
   left var(--spacing-10)
   transform translateX(-1rem)
-  @media $breakpoint-medium
-    display block
   @media $breakpoint-large
+    display block
     transform translateX(-50%)
 
 a.btn

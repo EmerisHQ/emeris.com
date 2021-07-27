@@ -41,23 +41,28 @@
   width 100%
 
 @keyframes surfer-levitate
-  0%
-    transform translateY(5%) translateX(-50%) rotate(2deg)
-  100%
-    transform translateY(-3%) translateX(-50%) rotate(-2deg)
+  0%, 100%
+    transform translate(-50%, 5%)
+  50%
+    transform translate(-50%, -3%)
 
 .surfer
   mix-blend-mode hard-light
-  width 150%
   max-width none
-  top -23%
-  left 31%
+  width 130%
+  top -4%
+  left 37%
   transform translateX(-50%)
   animation surfer-levitate 5s ease-in-out alternate infinite
+  mask-mode alpha
+  mask-repeat no-repeat
+  mask-image url('~/assets/images/elements/surfer-dive-mask.svg')
+  mask-size cover
+  backdrop-filter blur(4.7px)
   @media $breakpoint-medium
-    width 83%
+    width 73%
     top -13%
-    left 46.5%
+    left 52%
   @media $breakpoint-xl
     width 113%
     top -21%

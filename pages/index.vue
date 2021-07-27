@@ -1,16 +1,20 @@
 <template>
   <main>
-    <div class="fixed-container">
-      <tm-button
-        to-link="external"
-        href="https://app.emeris.com"
-        size="m"
-        border-color="var(--primary)"
-        variant="outlined"
-        glow
-        class="btn"
-        >Launch app &#8594;</tm-button
-      >
+    <div ref="button" class="fixed-container">
+      <transition name="fade">
+        <tm-button
+          v-if="show"
+          to-link="external"
+          href="https://app.emeris.com"
+          size="m"
+          border-color="var(--primary)"
+          variant="outlined"
+          glow
+          class="btn"
+          >Launch app &#8594;</tm-button
+        >
+      </transition>
+      <tm-cookie-banner />
     </div>
     <section-hero />
     <section-intro />
@@ -22,7 +26,7 @@
     <section-access />
     <section-beta />
     <section-updates />
-    <section-cta />
+    <section-cta ref="cta" />
   </main>
 </template>
 
@@ -36,22 +40,48 @@ export default {
   data() {
     return {
       show: true,
-      isVisible: false,
     }
   },
+
+  mounted() {
+    this.setupListener()
+  },
+
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.scrollHandler, false)
+  },
+
   methods: {
-    visibilityChanged(isVisible, entry) {
-      this.isVisible = isVisible
+    scrollHandler() {
+      const ctaTop = this.$refs.cta.$el.getBoundingClientRect().top
+      const buttonTop = this.$refs.button.getBoundingClientRect().top
+      if (ctaTop <= buttonTop) {
+        this.show = false
+      } else {
+        this.show = true
+      }
+    },
+
+    setupListener() {
+      window.addEventListener('scroll', this.scrollHandler, false)
     },
   },
 }
 </script>
 
 <style lang="stylus" scoped>
+.fade-enter-active
+.fade-leave-active
+  transition opacity .5s
+
+.fade-enter
+.fade-leave-to
+  opacity 0
+
 .fixed-container
   position fixed
   z-index 9
-  bottom var(--spacing-9)
+  bottom 0
   left var(--wrap-gap)
   right var(--wrap-gap)
   @media $breakpoint-medium
@@ -59,6 +89,9 @@ export default {
     left auto
   .btn
     width 100%
+    margin-bottom var(--wrap-gap)
+    @media $breakpoint-medium
+      margin-bottom 0
 
 // @media $breakpoint-large
 // @media $breakpoint-xl

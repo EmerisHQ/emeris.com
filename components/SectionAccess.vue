@@ -16,6 +16,7 @@
       <div class="scrolling-wrapper">
         <div v-for="item in list" :key="item.text" class="logos-item">
           <tm-link :href="item.url" class="logo" :class="item.img">
+            <span class="logo-inner" :class="item.img"></span>
             <img
               :src="require(`~/assets/images/logos/${item.img}.svg`)"
               :alt="item.text"
@@ -40,6 +41,7 @@
           <div class="text">
             <div v-for="item in list" :key="item.text" class="logos-item">
               <tm-link :href="item.url" class="logo" :class="item.img">
+                <span class="logo-inner" :class="item.img"></span>
                 <img
                   :src="require(`~/assets/images/logos/${item.img}.svg`)"
                   :alt="item.text"
@@ -57,6 +59,7 @@
           <div class="text">
             <div v-for="item in list" :key="item.text" class="logos-item">
               <tm-link :href="item.url" class="logo" :class="item.img">
+                <span class="logo-inner" :class="item.img"></span>
                 <img
                   :src="require(`~/assets/images/logos/${item.img}.svg`)"
                   :alt="item.text"
@@ -202,20 +205,21 @@ export default {
 
 .logo
   position relative
-  display inline-flex
-  align-items center
-  justify-content center
   width 7.8125rem
   height 7.8125rem
-  border-radius 100%
-  background-position center
-  background-size 101%
-  background-repeat no-repeat
+  color transparent
   &:hover
-  &:focus
+    .logo-inner
+    .logo-item
+      transform translate(-50%, -50%) scale(1.1)
     &:before
       animation none
-      opacity 0.75
+      opacity 0.7
+  &:focus
+  &:active
+    &:before
+      animation none
+      opacity 0.7
   &:before
     content ''
     opacity 0.5
@@ -229,37 +233,62 @@ export default {
     transition opacity .2s $ease-out
     animation fading-orb 5s ease-out infinite
   &.akash
-    background-image url('~/assets/images/logos/orb-akash.jpg')
     &:before
       background radial-gradient(50% 50% at 50% 50%, #EF6565 35.94%, rgba(243, 102, 91, 0) 100%)
   &.cosmos
-    background-image url('~/assets/images/logos/orb-cosmos.jpg')
     &:before
       background radial-gradient(50% 50% at 50% 50%, #7C8AFF 35.94%, rgba(124, 138, 255, 0) 100%)
   &.crypto-com
-    background-image url('~/assets/images/logos/orb-crypto-com.jpg')
     &:before
       background radial-gradient(50% 50% at 50% 50%, #3C61DB 35.94%, rgba(177, 98, 230, 0) 100%)
   &.irisnet
-    background-image url('~/assets/images/logos/orb-irisnet.jpg')
     &:before
       background radial-gradient(50% 50% at 50% 50%, #7C8AFF 35.94%, rgba(177, 98, 230, 0) 100%)
   &.osmosis
-    background-image url('~/assets/images/logos/orb-osmosis.jpg')
     &:before
       background radial-gradient(50% 50% at 50% 50%, #9948FF 35.94%, rgba(124, 138, 255, 0) 100%)
   &.persistence
-    background-image url('~/assets/images/logos/orb-persistence.jpg')
     &:before
       background radial-gradient(50% 50% at 50% 50%, #6F312A 35.94%, rgba(135, 62, 57, 0) 100%)
   &.regen-network
-    background-image url('~/assets/images/logos/orb-regen-network.jpg')
     &:before
       background radial-gradient(50% 50% at 50% 50%, #57B17C 35.94%, rgba(136, 206, 200, 0) 100%)
   &.sentinel
-    background-image url('~/assets/images/logos/orb-sentinel.jpg')
     &:before
       background radial-gradient(50% 50% at 50% 50%, #506AFF 35.94%, rgba(124, 138, 255, 0) 100%)
+
+.logo-inner
+  position absolute
+  width 100%
+  height 100%
+  top 50%
+  left 50%
+  border-radius 100%
+  display inline-flex
+  align-items center
+  justify-content center
+  background-position center
+  background-size 101%
+  background-repeat no-repeat
+  transform translate(-50%, -50%)
+  transition transform .2s $ease-out
+  will-change all
+  &.akash
+    background-image url('~/assets/images/logos/orb-akash.jpg')
+  &.cosmos
+    background-image url('~/assets/images/logos/orb-cosmos.jpg')
+  &.crypto-com
+    background-image url('~/assets/images/logos/orb-crypto-com.jpg')
+  &.irisnet
+    background-image url('~/assets/images/logos/orb-irisnet.jpg')
+  &.osmosis
+    background-image url('~/assets/images/logos/orb-osmosis.jpg')
+  &.persistence
+    background-image url('~/assets/images/logos/orb-persistence.jpg')
+  &.regen-network
+    background-image url('~/assets/images/logos/orb-regen-network.jpg')
+  &.sentinel
+    background-image url('~/assets/images/logos/orb-sentinel.jpg')
 
 @keyframes fading-orb
   0%, 100%
@@ -268,7 +297,11 @@ export default {
     opacity .55
 
 .logo-item
+  position absolute
+  top 50%
+  left 50%
   width 5.6875rem
+  transform translate(-50%, -50%)
 
 .tm-link
   color var(--secondary)
