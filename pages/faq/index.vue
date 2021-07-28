@@ -1,107 +1,237 @@
 <template>
   <main>
-    <div class="section-hero section-first">
-      <div class="tm-wrapper tm-container tm-section tm-grid-base z-1">
-        <div class="text">
-          <div class="title tm-rf5 tm-bold tm-lh-title tm-measure tm-title">
-            Frequently asked questions
+    <div class="tm-section">
+      <div class="tm-wrapper tm-container-narrow">
+        <h1
+          class="
+            title
+            tm-rf5 tm-bold tm-lh-title tm-measure-narrower tm-title tm-serif
+          "
+        >
+          Get support<br />with Emeris
+        </h1>
+
+        <div class="header-bottom tm-grid-base">
+          <div class="column-emeris">
+            <div class="emeris mt-10">
+              <div class="emeris-inner">
+                <div class="tm-muted">Introduction to Emeris</div>
+                <div
+                  v-for="item in articles.emeris"
+                  :key="item.title"
+                  class="mt-1"
+                >
+                  <tm-link
+                    :href="`/faq/${item.slug}`"
+                    class="btn tm-rf0 tm-bold tm-title"
+                  >
+                    {{ item.title }} <span class="icon__right">&rarr;</span>
+                  </tm-link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column-defi">
+            <h3 class="title tm-rf2 tm-bold tm-lh-copy tm-title mt-10">
+              Introduction to Defi
+            </h3>
+
+            <div class="tm-grid-base">
+              <div class="general-column">
+                <div v-for="(item, index) in articles.defi" :key="item.title">
+                  <div v-if="index <= 4" class="mt-7">
+                    <tm-link
+                      :href="`/faq/${item.slug}`"
+                      class="btn tm-rf0 tm-muted"
+                    >
+                      {{ item.title }} <span class="icon__right">&rarr;</span>
+                    </tm-link>
+                  </div>
+                </div>
+              </div>
+              <div class="general-column">
+                <div v-for="(item, index) in articles.defi" :key="item.title">
+                  <div v-if="index > 4" class="mt-7">
+                    <tm-link
+                      :href="`/faq/${item.slug}`"
+                      class="btn tm-rf0 tm-muted"
+                    >
+                      {{ item.title }} <span class="icon__right">&rarr;</span>
+                    </tm-link>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <!-- <graphics-faq-hero class="graphics z-0" /> -->
     </div>
 
-    <div class="tm-wrapper tm-container tm-grid-base">
-      <div class="content">
-        <div
-          v-for="item in currentIndex"
-          :key="articles[item - 1].title"
-          class="item"
-        >
-          <div class="title tm-rf2 tm-bold tm-lh-copy tm-title">
-            {{ articles[item - 1].title }}
+    <div class="tm-section">
+      <div class="tm-wrapper tm-container-narrow">
+        <h2 class="tm-rf3 tm-bold tm-lh-copy tm-title tm-serif">
+          Frequently asked<br />questions
+        </h2>
+
+        <div class="tm-grid-base">
+          <div class="general-column mt-9">
+            <h3 class="title tm-rf2 tm-bold tm-lh-copy tm-title">
+              Emeris Beta
+            </h3>
+            <div class="mt-7">
+              <tm-collapse accordion>
+                <div v-for="item in articles.gettingStart" :key="item.title">
+                  <tm-collapse-item>
+                    <div slot="header">{{ item.title }}</div>
+                    <nuxt-content :document="item" />
+                  </tm-collapse-item>
+                </div>
+              </tm-collapse>
+            </div>
           </div>
-          <div class="desc tm-rf0 tm-lh-copy mt-4">
-            {{ articles[item - 1].description }}
+
+          <div class="general-column mt-9">
+            <h3 class="title tm-rf2 tm-bold tm-lh-copy tm-title">Swap</h3>
+            <div class="mt-7">
+              <tm-collapse accordion>
+                <div v-for="item in articles.swap" :key="item.title">
+                  <tm-collapse-item>
+                    <div slot="header">{{ item.title }}</div>
+                    <nuxt-content :document="item" />
+                  </tm-collapse-item>
+                </div>
+              </tm-collapse>
+            </div>
+
+            <h3 class="title tm-rf2 tm-bold tm-lh-copy tm-title mt-8">
+              Provide liquidity
+            </h3>
+            <div class="mt-7">
+              <tm-collapse accordion>
+                <div v-for="item in articles.liquidity" :key="item.title">
+                  <tm-collapse-item>
+                    <div slot="header">{{ item.title }}</div>
+                    <nuxt-content :document="item" />
+                  </tm-collapse-item>
+                </div>
+              </tm-collapse>
+            </div>
+
+            <h3 class="title tm-rf2 tm-bold tm-lh-copy tm-title mt-8">
+              Farming
+            </h3>
+            <div class="mt-7">
+              <tm-collapse accordion>
+                <div v-for="item in articles.general" :key="item.title">
+                  <tm-collapse-item>
+                    <div slot="header">{{ item.title }}</div>
+                    <nuxt-content :document="item" />
+                  </tm-collapse-item>
+                </div>
+              </tm-collapse>
+            </div>
           </div>
-          <tm-button
-            to-link="internal"
-            :to="`/faq/${articles[item - 1].slug}`"
-            size="l"
-            variant="text"
-            class="btn"
-            >Learn more <span class="icon__right">&rarr;</span></tm-button
-          >
         </div>
-        <div class="divider mt-8">
-          <svg
-            width="16"
-            height="80"
-            viewBox="0 0 16 80"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M8 64L8 -1.50502e-06"
-              stroke="currentColor"
-              stroke-opacity="0.185"
-            />
-            <path d="M16 72H0M8 80V64" stroke="currentColor" />
-          </svg>
-        </div>
-        <div class="cta">
-          <div
-            v-if="currentIndex != articles.length"
-            @click="currentIndex = articles.length"
-          >
-            <tm-button variant="text" class="btn tm-rf1 tm-lh-copy tm-medium"
-              >Show all <span class="icon__right">&#8595;</span></tm-button
-            >
-          </div>
-          <div v-else @click="currentIndex = 6">
-            <tm-button variant="text" class="btn tm-rf1 tm-lh-copy tm-medium"
-              >Show less <span class="icon__right">&#8593;</span></tm-button
-            >
+
+        <div class="mt-9">
+          <h3 class="title tm-rf2 tm-bold tm-lh-copy tm-title">
+            General questions
+          </h3>
+          <div class="mt-7">
+            <tm-collapse accordion>
+              <div class="tm-grid-base">
+                <div class="general-column">
+                  <div v-for="item in articles.general" :key="item.title">
+                    <tm-collapse-item v-if="item.index <= 7">
+                      <div slot="header">{{ item.title }}</div>
+                      <nuxt-content :document="item" />
+                    </tm-collapse-item>
+                  </div>
+                </div>
+                <div class="general-column">
+                  <div v-for="item in articles.general" :key="item.title">
+                    <tm-collapse-item v-if="item.index > 7">
+                      <div slot="header">{{ item.title }}</div>
+                      <nuxt-content :document="item" />
+                    </tm-collapse-item>
+                  </div>
+                </div>
+              </div>
+            </tm-collapse>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="section-cards tm-wrapper tm-container mt-10">
-      <!-- <tm-cta-cards :data="ctas" /> -->
+    <div class="tm-section">
+      <div class="tm-wrapper tm-container-narrow">
+        <h2 class="tm-title tm-rf3 tm-bold tm-serif">Get in touch</h2>
+        <div class="mt-9">
+          <tm-cta-cards :data="ctas" />
+        </div>
+      </div>
     </div>
   </main>
 </template>
 
 <script>
+import TmCollapse from '~/components/TmCollapse.vue'
+import TmCollapseItem from '~/components/TmCollapseItem.vue'
+
 export default {
+  components: {
+    TmCollapse,
+    TmCollapseItem,
+  },
   async asyncData({ $content, params }) {
-    const articles = await $content('articles', params.slug)
-      .only(['title', 'description', 'img', 'slug', 'author'])
+    const content = await $content('articles', params.slug)
       .sortBy('index', 'asc')
       .fetch()
-    const tags = await $content('tags', params.slug)
-      .only(['name', 'description', 'img', 'slug'])
-      .sortBy('createdAt', 'asc')
-      .fetch()
+
+    const defi = content.filter((item) => item.tags.includes('defi'))
+    const emeris = content.filter((item) => item.tags.includes('emeris'))
+    const gettingStart = content.filter((item) =>
+      item.tags.includes('getting-start')
+    )
+    const swap = content.filter((item) => item.tags.includes('swap'))
+    const liquidity = content.filter((item) => item.tags.includes('liquidity'))
+    const farming = content.filter((item) => item.tags.includes('farming'))
+    const general = content.filter((item) => item.tags.includes('general'))
+
+    const articles = {
+      defi,
+      emeris,
+      gettingStart,
+      swap,
+      liquidity,
+      farming,
+      general,
+    }
+
     return {
       articles,
-      tags,
     }
   },
   data() {
     return {
-      currentIndex: 3,
       ctas: [
-        {
-          href: 'https://discord.com/invite/vcExX9T',
-          overline: 'Discord',
-          title: 'Developer chat',
-        },
         {
           href: 'https://t.me/cosmosproject',
           overline: 'Telegram',
-          title: 'Community chat',
+          title: 'Community support️',
+          variant: 'gradient',
+          graphics: 'graphics-cta-telegram',
+          grafics: '~/assets/images/elements/tg-background.png',
+        },
+        {
+          href: 'https://discord.com/invite/vcExX9T',
+          overline: 'Contact us',
+          title: 'Developer integrations',
+          variant: 'outlined',
+          graphics: 'graphics-cta-developers',
+          grafics: '~/assets/images/elements/cu-background.jpg',
         },
       ],
     }
@@ -138,10 +268,6 @@ export default {
 .item + .item
   margin-top var(--spacing-8)
 
-.cta
-  text-align left
-  cursor pointer
-
 @media $breakpoint-medium
   // Hero
   .section-hero .text
@@ -166,4 +292,57 @@ export default {
   // Content
   .content
     grid-column 6/ 12
+
+.header-bottom
+  @media $breakpoint-large
+    grid-template-columns repeat(3, 1fr)
+    grid-template-areas "defi defi emeris"
+
+.column-emeris
+  grid-column 1 / -1
+  position relative
+  z-index 1
+  @media $breakpoint-large
+    grid-area emeris
+    display flex
+    align-items flex-end
+
+.column-defi
+  grid-column 1 / -1
+  @media $breakpoint-large
+    grid-area defi
+
+.general-column
+  grid-column 1 / -1
+  @media $breakpoint-medium
+    grid-column span 4
+  @media $breakpoint-xl
+    grid-column span 6
+
+.emeris
+  position relative
+  width 100%
+  padding var(--spacing-7)
+  border 0.0625rem solid transparent
+  background-color var(--bg)
+  background-clip padding-box
+  border-radius 10px
+  @media $breakpoint-large
+    display flex
+    flex-direction column
+    align-items flex-end
+    justify-content flex-end
+    min-height 18rem
+  &:before
+    content ''
+    position absolute
+    z-index -1
+    trbl 0
+    border 0
+    border-radius inherit
+    margin -0.0625rem
+    background linear-gradient(280.46deg, #FFF0CA 12.71%, #D3AD5F 33.34%, #FFECC4 41.61%, #997736 59.2%, #FFF2C0 77.69%, #CEA851 97.39%)
+
+.emeris-inner
+  width 100%
 </style>

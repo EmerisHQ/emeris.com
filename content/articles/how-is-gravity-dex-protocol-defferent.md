@@ -1,5 +1,5 @@
 ---
-index: 5
+index: 2
 title: How Is Gravity DEX Protocol Different?
 tags: 
   - defi

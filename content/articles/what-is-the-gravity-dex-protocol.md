@@ -1,5 +1,5 @@
 ---
-index: 4
+index: 2
 title: What Is the Gravity DEX Protocol?
 tags: 
   - defi
