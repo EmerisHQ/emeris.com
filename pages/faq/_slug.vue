@@ -1,38 +1,46 @@
 <template>
   <article>
-    <div class="section-hero section-first tm-section">
+    <div class="tm-section">
       <div class="tm-wrapper">
-        <div class="tm-section tm-container tm-grid-base">
+        <div class="tm-container tm-grid-base">
           <div class="sidebar">
-            <!-- <span v-for="(tag, id) in article.tags" :key="id">
-              <nuxt-link :to="`/tag/${tags[tag].slug}`">
-                <span>
-                  {{ tags[tag].name }}
-                </span>
-              </nuxt-link>
-            </span> -->
-            <div
-              class="
-                subheading
-                tm-rf-1 tm-rf0-m-up tm-medium tm-lh-title tm-overline
-              "
-            >
-              Related questions
+            <tm-button to-link="internal" to="/faq" size="s" variant="text">
+              <span class="icon__left gradient-text">&#8592;</span>
+              <span class="gradient-text">Support</span>
+            </tm-button>
+
+            <div class="related">
+              <div
+                class="
+                  subheading
+                  mt-8
+                  tm-rf0 tm-medium tm-lh-title tm-overline tm-muted
+                "
+              >
+                Related questions
+              </div>
+
+              <div v-for="item in questions" :key="item.title" class="mt-7">
+                <tm-link :href="item.slug" class="tm-rf0 tm-copy">
+                  {{ item.title }}
+                </tm-link>
+              </div>
             </div>
           </div>
           <div class="main tm-center">
-            <tm-button
-              to-link="internal"
-              to="/faq"
-              size="s"
-              variant="text"
-              class="btn"
-              ><span class="icon__left">&#8592;</span>FAQ
-            </tm-button>
-            <div class="title tm-rf4 tm-bold tm-lh-title tm-title">
+            <h1
+              class="
+                title
+                tm-rf4 tm-bold tm-lh-title tm-title tm-serif tm-measure
+              "
+            >
               {{ article.title }}
-            </div>
-            <div class="markdown mt-9">
+            </h1>
+            <p class="mt-5 tm-muted tm-copy tm-rf0 tm-measure">
+              Last updated on {{ formatDate(article.updatedAt) }}
+            </p>
+
+            <div class="markdown mt-9 tm-copy tm-rf1 tm-measure">
               <nuxt-content :document="article" />
             </div>
           </div>
@@ -40,8 +48,10 @@
       </div>
     </div>
 
-    <div class="tm-wrapper tm-container">
-      <!-- <tm-cta-cards :data="ctas" /> -->
+    <div class="tm-section">
+      <div class="tm-wrapper tm-container">
+        <!-- <tm-cta-cards :data="ctas" /> -->
+      </div>
     </div>
   </article>
 </template>
@@ -52,21 +62,15 @@ import '~/assets/styles/markdown.styl'
 export default {
   async asyncData({ $content, params }) {
     const article = await $content('articles', params.slug).fetch()
-    // const tagsList = await $content('tags')
-    //   .only(['name', 'slug'])
-    //   .where({ name: { $containsAny: article.tags } })
-    //   .fetch()
-    // const tags = Object.assign({}, ...tagsList.map((s) => ({ [s.name]: s })))
-    // const [prev, next] = await $content('articles')
-    //   .only(['title', 'slug'])
-    //   .sortBy('createdAt', 'asc')
-    //   .surround(params.slug)
-    //   .fetch()
+
+    const questions = await $content('articles')
+      .only(['title', 'slug'])
+      .where({ tags: { $containsAny: article.tags } })
+      .sortBy('index', 'asc')
+      .fetch()
     return {
       article,
-      // tags,
-      // prev,
-      // next,
+      questions,
     }
   },
   data() {
@@ -115,12 +119,25 @@ export default {
       ],
     }
   },
+  methods: {
+    formatDate(date) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' }
+      return new Date(date).toLocaleDateString('en', options)
+    },
+  },
 }
 </script>
 
 <style lang="stylus" scoped>
-.sidebar
+.gradient-text
+  background var(--title-gradient)
+  -webkit-background-clip text
+  -webkit-text-fill-color transparent
+
+.related
   display none
+  @media $breakpoint-medium
+    display block
 
 .main
   grid-column 1/-1
@@ -128,10 +145,14 @@ export default {
 
 @media $breakpoint-medium
   .sidebar
-    grid-column 1/span 4
+    grid-column span 2
 
   .main
-    grid-column 1/-1
+    grid-column span 6
+
+@media $breakpoint-xl
+  .sidebar
+    grid-column span 3
 
 @media $breakpoint-xl
   .main

@@ -3,6 +3,7 @@ index: 4
 title: What Is Impermanent Loss?
 tags: 
   - liquidity
+  - defi
 ---
 
 Impermanent loss happens after providing liquidity to a liquidity pool when the price of the assets you have deposited changes greatly from when you deposited them. This is very common when trading volatile assets such as cryptocurrency. The larger the change in price is, the more exposed you will be to impermanent loss, meaning that you will withdraw less dollar value than you deposited.

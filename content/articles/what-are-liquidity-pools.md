@@ -3,6 +3,7 @@ index: 1
 title: What Are Liquidity Pools?
 tags: 
   - liquidity
+  - defi
 ---
 
 Liquidity pools are almost certainly the biggest innovation to come out of DeFi and a great enabler of its growth because they allow DEXs to accumulate liquidity through funds locked up in a smart contract and enable automated market making without a centralized intermediary. A liquidity pool is basically just a term used for funds that are collected and locked up in a smart contract and they act as the backbone of most DEXs.

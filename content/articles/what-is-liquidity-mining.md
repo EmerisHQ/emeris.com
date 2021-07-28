@@ -1,8 +1,8 @@
 ---
-index: 2
-title: Does Gravity Dex Protocol/Emeris have farming incentives?
+index: 1
+title: What is Liquidity Mining?
 tags: 
   - farming
 ---
 
-Farming incentives will not be available at Emeris Beta launch, as they must be approved via governance proposal from the ATOM holders first.
+When DeFi applications entice users to their platform by giving them free tokens. This has been the buzziest form of yield farming yet.
