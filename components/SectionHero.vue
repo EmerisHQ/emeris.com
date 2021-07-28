@@ -44,35 +44,35 @@
       </div>
     </div>
     <svg
-      width="15"
-      height="49"
-      viewBox="0 0 15 49"
+      width="16"
+      height="50"
+      viewBox="0 0 16 50"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       class="arrow"
     >
       <path
-        d="M6.79289 48.7071C7.18342 49.0976 7.81658 49.0976 8.2071 48.7071L14.5711 42.3431C14.9616 41.9526 14.9616 41.3195 14.5711 40.9289C14.1805 40.5384 13.5474 40.5384 13.1569 40.9289L7.5 46.5858L1.84314 40.9289C1.45262 40.5384 0.819455 40.5384 0.42893 40.9289C0.0384061 41.3195 0.0384061 41.9526 0.42893 42.3431L6.79289 48.7071ZM6.5 -4.37114e-08L6.5 48L8.5 48L8.5 4.37114e-08L6.5 -4.37114e-08Z"
+        d="M9 1C9 0.447715 8.55228 2.41411e-08 8 0C7.44772 -2.41411e-08 7 0.447715 7 1L9 1ZM7.29289 49.7071C7.68342 50.0976 8.31658 50.0976 8.7071 49.7071L15.0711 43.3431C15.4616 42.9526 15.4616 42.3195 15.0711 41.9289C14.6805 41.5384 14.0474 41.5384 13.6569 41.9289L8 47.5858L2.34314 41.9289C1.95262 41.5384 1.31945 41.5384 0.92893 41.9289C0.538406 42.3195 0.538406 42.9526 0.92893 43.3431L7.29289 49.7071ZM7 1L7 49L9 49L9 1L7 1Z"
         fill="url(#paint0_linear-763726)"
       />
       <defs>
         <linearGradient
           id="paint0_linear-763726"
-          x1="7.31528"
-          y1="48"
-          x2="12.844"
-          y2="47.3764"
+          x1="7.81528"
+          y1="49"
+          x2="8.5"
+          y2="1"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFF0CA" />
-          <stop offset="0.236371" stop-color="#D3AD5F" />
-          <stop offset="0.331099" stop-color="#FFECC4" />
-          <stop offset="0.532612" stop-color="#997736" />
-          <stop offset="0.74446" stop-color="#FFF2C0" />
-          <stop offset="0.970086" stop-color="#CEA851" />
+          <stop stop-color="#FFF0CA"/>
+          <stop offset="0.236371" stop-color="#D3AD5F"/>
+          <stop offset="0.331099" stop-color="#FFECC4"/>
+          <stop offset="0.532612" stop-color="#997736"/>
+          <stop offset="0.74446" stop-color="#FFF2C0"/>
+          <stop offset="0.970086" stop-color="#CEA851"/>
         </linearGradient>
       </defs>
-    </svg>
+  </svg>
   </div>
 </template>
 
