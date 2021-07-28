@@ -30,13 +30,13 @@
             src="~/assets/images/elements/surfer-levitate-shadow.png"
             alt="Interchain Surfer Shadow"
           />
-          <div class="frame frame-bottom"></div>
+          <div class="frame frame-top"></div>
           <img
             class="title-surfer"
             src="~/assets/images/elements/surfer-levitate.png"
             alt="Interchain Surfer"
           />
-          <div class="frame frame-top"></div>
+          <div class="frame frame-bottom"></div>
           <span class="tm-text-left">Experience</span>
           <span class="tm-text-center">the power of</span>
           <span class="tm-text-right">cross-chain DeFi</span>
@@ -163,6 +163,8 @@ img
   padding-bottom var(--spacing-13)
   @media $breakpoint-medium
     margin-top 0
+  @media $breakpoint-large
+    max-width calc((1.57625rem + 5.378333333333333vw) * 10)
 
 .arrow
   display none
@@ -278,22 +280,26 @@ a.btn
     background center / contain no-repeat url('~/assets/images/elements/emeris-header.jpg')
 
 .title-surfer
-  mix-blend-mode hard-light
+  // mix-blend-mode hard-light
   position absolute
-  width 43%
-  // max-width 14.1rem
-  left 52%
+  width 21%
+  max-width 6.8rem
+  left 50%
   top 0
-  transform translate(-50%, -64%)
+  transform translate(-50%, -71%)
+  @media $breakpoint-small
+    transform translate(-18%, -20vw)
   @media $breakpoint-medium
-    // width 36%
-    width 235px
-    left calc(52% + 12.75rem)
+    width 114px
+    left calc(50% + 12.75rem)
     top 0
-    transform translate(-50%, -39%)
+    transform translate(-50%, -41%)
   @media $breakpoint-large
-    left calc(52% + 23.5rem)
+    max-width 7.1rem
+    left calc(51% + 23.5rem)
     transform translate(-50%, -16%)
+  @media $breakpoint-xxl
+    left calc(51% + (1.57625rem * 14.85))
 
 .title-surfer-shadow
   position absolute
@@ -318,32 +324,36 @@ a.btn
   width 47%
   max-width 16.1rem
   padding-bottom 38%
-  transform translate(-45%, -92%) rotate(2deg)
+  transform translate(-46.7%, -97%) rotate(2deg)
   top 0
   left 50%
   @media $breakpoint-small
-    transform translate(-45%, -22vw) rotate(2deg)
+    transform translate(-33%, -25vw) rotate(2deg)
   @media $breakpoint-medium
     left calc(50% + 12.75rem)
-    width 255px
-    height 205px
+    width 260px
+    height 215px
     padding-bottom 0
-    transform translate(-45%, -62%) rotate(2deg)
+    transform translate(-48%, -60%) rotate(2deg)
   @media $breakpoint-large
-    top 21%
-    left calc(50% + 24rem)
+    top 20%
+    left calc(50.2% + 24rem)
+  @media $breakpoint-xxl
+    left calc(51.3% + (1.57625rem * 14.85))
   &-top
-    top -0.5%
-    left 49.1%
-    background-image url('~/assets/images/elements/frame-top.png')
+    top 1.5%
+    left 50.8%
+    background-image url('~/assets/images/elements/gold-top.png')
     @media $breakpoint-medium
-      top -1%
-      left calc(49.4% + 12.75rem)
+      top 1.5%
+      left calc(50.55% + 12.75rem)
     @media $breakpoint-large
-      top 20.2%
-      left calc(50% + 23.75rem)
+      top 21%
+      left calc(51.1% + 23.75rem)
+    @media $breakpoint-xxl
+      left calc(51.7% + (1.57625rem * 14.85))
   &-bottom
-    background-image url('~/assets/images/elements/frame-bottom.png')
+    background-image url('~/assets/images/elements/gold-bottom.png')
 
 @keyframes orb-1
   0%, 100%

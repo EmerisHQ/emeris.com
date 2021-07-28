@@ -21,7 +21,7 @@
       }"
       :position="position"
       class="tm-link"
-      :style="_styles"
+      :style="controlStyles"
     >
       <slot></slot>
     </button>

@@ -55,8 +55,8 @@
                   >
                     <span class="sr-only">Sign up</span>
                     <icon-arrow-right
-                      class="icon-arrow-right"
                       v-show="!loading"
+                      class="icon-arrow-right"
                     />
                     <icon-spinner-24 v-show="loading" />
                   </tm-button>

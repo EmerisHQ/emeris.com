@@ -89,6 +89,9 @@
         </div>
       </div>
     </div>
+    <div class="swipe-helper tm-rf-1 tm-text tm-overline tm-muted center">
+      &#8592; Swipe for more chains &#8594;
+    </div>
     <div class="bottom tm-wrapper tm-container-narrow">
       <div class="tm-grid-base">
         <div
@@ -313,6 +316,12 @@ export default {
 
 .tm-link
   color var(--secondary)
+
+.swipe-helper
+  margin-top calc(var(--spacing-8) * -1)
+  margin-bottom var(--spacing-7)
+  @media $breakpoint-medium
+    display none
 
 .bottom .left
 .bottom .right
