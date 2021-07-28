@@ -1,3 +1,5 @@
+import getRoutes from './utils/getRoutes'
+
 export default {
   /*
    ** Nuxt target
@@ -145,8 +147,11 @@ export default {
       '~/node_modules/rfs/stylus.styl',
     ],
   },
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  /*
+   ** Nuxt.js modules
+  */
+  modules: ['@nuxt/content', '@nuxtjs/sitemap'],
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     // https://nuxtjs.org/faq/postcss-plugins/#recommended-method
@@ -158,6 +163,17 @@ export default {
         // To change the postcss-preset-env settings
         autoprefixer: {},
       },
+    },
+  },
+
+  sitemap: {
+    routes() {
+      return getRoutes()
+    },
+    defaults: {
+      changefreq: 'daily',
+      priority: 1,
+      lastmod: new Date(),
     },
   },
 }
