@@ -50,13 +50,15 @@
                 class="logo"
                 :class="item.img"
                 control-styles="float: right"
+                tabindex="1"
               >
-                <span class="logo-inner" :class="item.img"></span>
-                <img
-                  :src="require(`~/assets/images/logos/${item.img}.svg`)"
-                  :alt="item.text"
-                  class="logo-item"
-                />
+                <span class="logo-inner" :class="item.img">
+                  <img
+                    :src="require(`~/assets/images/logos/${item.img}.svg`)"
+                    :alt="item.text"
+                    class="logo-item"
+                  />
+                </span>
                 <div class="logos-item__info">
                   <span class="sr-only">info</span>
                   <icon-info />
@@ -72,13 +74,15 @@
                 class="logo"
                 :class="item.img"
                 control-styles="float: right"
+                tabindex="1"
               >
-                <span class="logo-inner" :class="item.img"></span>
-                <img
-                  :src="require(`~/assets/images/logos/${item.img}.svg`)"
-                  :alt="item.text"
-                  class="logo-item"
-                />
+                <span class="logo-inner" :class="item.img">
+                  <img
+                    :src="require(`~/assets/images/logos/${item.img}.svg`)"
+                    :alt="item.text"
+                    class="logo-item"
+                  />
+                </span>
                 <div class="logos-item__info">
                   <span class="sr-only">info</span>
                   <icon-info />
@@ -188,11 +192,15 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.section-access
+  overflow hidden
+
 .logos-container
 .title
   position relative
 
 .logos-container
+  overflow hidden
   margin-top var(--spacing-7)
   @media $breakpoint-large
     margin-top var(--spacing-10)
@@ -220,17 +228,16 @@ export default {
   height 7.8125rem
   color transparent
   &:hover
+  &:focus
+  &:active
+  &:focus-visible
     .logo-inner
-    .logo-item
       transform translate(-50%, -50%) scale(1.1)
     &:before
       animation none
       opacity 0.7
-  &:focus
-  &:active
-    &:before
-      animation none
-      opacity 0.7
+  &:focus-visible
+    outline none
   &:before
     content ''
     opacity 0.5
@@ -423,7 +430,7 @@ export default {
     width 6250rem
 
   .text
-    // animation-name animation
+    animation-name animation
     animation-timing-function linear
     animation-iteration-count infinite
     animation-duration 30s
