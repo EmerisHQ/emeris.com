@@ -5,11 +5,18 @@
         <h1
           class="
             title
-            tm-rf5 tm-bold tm-lh-title tm-measure-narrower tm-title tm-serif
+            tm-rf6
+            tm-rf5-m-up
+            tm-bold
+            tm-lh-title
+            tm-measure-narrower
+            tm-title
+            tm-serif
           "
         >
           Get support<br />with Emeris
         </h1>
+        <img src="~/assets/images/elements/surfer-faq.png" class="surfer" />
 
         <div class="header-bottom tm-grid-base">
           <div class="column-emeris">
@@ -23,9 +30,9 @@
                 >
                   <tm-link
                     :href="`/faq/${item.slug}`"
-                    class="btn tm-rf0 tm-bold tm-title"
+                    class="btn tm-rf0 tm-bold tm-title tm-link-disclosure"
                   >
-                    {{ item.title }} <span class="icon__right">&rarr;</span>
+                    {{ item.title }}
                   </tm-link>
                 </div>
               </div>
@@ -33,7 +40,7 @@
           </div>
 
           <div class="column-defi">
-            <h3 class="title tm-rf2 tm-bold tm-lh-copy tm-title mt-10">
+            <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title mt-10">
               Introduction to Defi
             </h3>
 
@@ -43,9 +50,9 @@
                   <div v-if="index <= 4" class="mt-7">
                     <tm-link
                       :href="`/faq/${item.slug}`"
-                      class="btn tm-rf0 tm-muted"
+                      class="btn tm-rf0 tm-muted tm-link-disclosure"
                     >
-                      {{ item.title }} <span class="icon__right">&rarr;</span>
+                      {{ item.title }}
                     </tm-link>
                   </div>
                 </div>
@@ -55,9 +62,9 @@
                   <div v-if="index > 4" class="mt-7">
                     <tm-link
                       :href="`/faq/${item.slug}`"
-                      class="btn tm-rf0 tm-muted"
+                      class="btn tm-rf0 tm-muted tm-link-disclosure"
                     >
-                      {{ item.title }} <span class="icon__right">&rarr;</span>
+                      {{ item.title }}
                     </tm-link>
                   </div>
                 </div>
@@ -77,9 +84,7 @@
 
         <div class="tm-grid-base">
           <div class="general-column mt-9">
-            <h3 class="title tm-rf2 tm-bold tm-lh-copy tm-title">
-              Emeris Beta
-            </h3>
+            <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title">Emeris Beta</h3>
             <div class="mt-7">
               <tm-collapse accordion>
                 <div v-for="item in articles.gettingStart" :key="item.title">
@@ -93,7 +98,7 @@
           </div>
 
           <div class="general-column mt-9">
-            <h3 class="title tm-rf2 tm-bold tm-lh-copy tm-title">Swap</h3>
+            <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title">Swap</h3>
             <div class="mt-7">
               <tm-collapse accordion>
                 <div v-for="item in articles.swap" :key="item.title">
@@ -105,7 +110,7 @@
               </tm-collapse>
             </div>
 
-            <h3 class="title tm-rf2 tm-bold tm-lh-copy tm-title mt-8">
+            <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title mt-8">
               Provide liquidity
             </h3>
             <div class="mt-7">
@@ -119,9 +124,7 @@
               </tm-collapse>
             </div>
 
-            <h3 class="title tm-rf2 tm-bold tm-lh-copy tm-title mt-8">
-              Farming
-            </h3>
+            <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title mt-8">Farming</h3>
             <div class="mt-7">
               <tm-collapse accordion>
                 <div v-for="item in articles.general" :key="item.title">
@@ -136,9 +139,7 @@
         </div>
 
         <div class="mt-9">
-          <h3 class="title tm-rf2 tm-bold tm-lh-copy tm-title">
-            General questions
-          </h3>
+          <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title">General questions</h3>
           <div class="mt-7">
             <tm-collapse accordion>
               <div class="tm-grid-base">
@@ -327,12 +328,15 @@ export default {
   background-color var(--bg)
   background-clip padding-box
   border-radius 10px
+  @media $breakpoint-medium
+    max-width calc(var(--font-size-5) * 7.25)
   @media $breakpoint-large
     display flex
     flex-direction column
     align-items flex-end
     justify-content flex-end
     min-height 18rem
+    max-width none
   &:before
     content ''
     position absolute
@@ -345,4 +349,24 @@ export default {
 
 .emeris-inner
   width 100%
+
+.surfer
+  position absolute
+  top 0
+  right 0
+  width 109vw
+  max-width 41rem
+  transform translate(42%, -9.5rem)
+  @media $breakpoint-medium
+    right 22%
+    transform translate(50%, -6.3rem)
+
+.title
+  max-width 15rem
+  margin-top var(--spacing-12)
+  @media $breakpoint-small
+    margin-top var(--spacing-6)
+  @media $breakpoint-medium
+    max-width 40rem
+    margin-top 0
 </style>
