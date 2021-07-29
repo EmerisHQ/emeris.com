@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1d15132 (add privacy page)
 ---
 title: Privacy Policy
 ---
 
+<<<<<<< HEAD
 Thank you for using Emeris (the “***Application***”). Your privacy is important to us. This Privacy Policy (the “***Policy***”) describes the types of information All In Bits Inc. (the “***Company***”, “***us***”, “***we***”, or “***our***”) may collect from you when you visit the Application (the “Services”). This Policy applies to information we collect on the Application.
 
 Please review this Policy carefully. By accessing or using the Services, you agree to the terms of this Policy on behalf of yourself or the entity or organization that you represent. If you do not agree to any term in this Policy, you should refrain from further use of our Services.
@@ -27,6 +31,8 @@ The gathering of this information may be used for maintaining the quality of the
 5.  *HTML5 Local Storage*. HTML5 local storage allows data from websites to be stored or “cached” within your browser to store and retrieve data in HTML5 pages when the website is revisited.
 6.  *Resettable Device Identifiers*. Resettable device identifiers (also known as “advertising identifiers”) are similar to cookies and are found on many mobile devices and tablets (e.g., the “Identifier for Advertisers” or “IDFA” on Apple iOS devices and the “Google Advertising ID” on Android devices), and certain streaming media devices. Like cookies, resettable device identifiers are used to make online advertising more relevant.
 =======
+=======
+>>>>>>> 1d15132 (add privacy page)
 Thank you for using Emeris (the “Application”). Your privacy is important to us. This Privacy Policy (the “Policy”) describes the types of information All In Bits Inc. (the “Company”, “us”, “we”, or “our”) may collect from you when you visit the Application (the “Services”). This Policy applies to information we collect on the Application.
 
 Please review this Policy carefully. By accessing or using the Services (or by clicking on “accept” or “agree” to this Policy when prompted), you agree to the terms of this Policy on behalf of yourself or the entity or organization that you represent. If you do not agree to any term in this Policy, you should refrain from further use of our Services.
