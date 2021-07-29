@@ -48,9 +48,19 @@
       </div>
     </div>
 
-    <div class="tm-section">
+    <div class="tm-section related mobile">
       <div class="tm-wrapper tm-container">
-        <!-- <tm-cta-cards :data="ctas" /> -->
+        <div
+          class="subheading tm-rf0 tm-medium tm-lh-title tm-overline tm-muted"
+        >
+          Related questions
+        </div>
+
+        <div v-for="item in questions" :key="item.title" class="mt-7">
+          <tm-link :href="item.slug" class="tm-rf0 tm-copy gradient-text">
+            {{ item.title }}
+          </tm-link>
+        </div>
       </div>
     </div>
   </article>
@@ -75,18 +85,7 @@ export default {
   },
   data() {
     return {
-      ctas: [
-        {
-          href: 'https://discord.com/invite/vcExX9T',
-          overline: 'Discord',
-          title: 'Developer chat',
-        },
-        {
-          href: 'https://t.me/cosmosproject',
-          overline: 'Telegram',
-          title: 'Community chat',
-        },
-      ],
+      isHelpful: null,
     }
   },
   head() {
@@ -138,6 +137,10 @@ export default {
   display none
   @media $breakpoint-medium
     display block
+  &.mobile
+    display block
+    @media $breakpoint-medium
+      display none
 
 .main
   grid-column 1/-1
