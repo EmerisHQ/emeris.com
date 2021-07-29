@@ -1,3 +1,7 @@
+---
+title: Privacy Policy
+---
+
 Thank you for using Emeris (the “Application”). Your privacy is important to us. This Privacy Policy (the “Policy”) describes the types of information All In Bits Inc. (the “Company”, “us”, “we”, or “our”) may collect from you when you visit the Application (the “Services”). This Policy applies to information we collect on the Application.
 
 Please review this Policy carefully. By accessing or using the Services (or by clicking on “accept” or “agree” to this Policy when prompted), you agree to the terms of this Policy on behalf of yourself or the entity or organization that you represent. If you do not agree to any term in this Policy, you should refrain from further use of our Services.

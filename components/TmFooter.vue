@@ -12,16 +12,12 @@
             <span class="sr-only">Emeris</span>
           </nuxt-link>
           <span class="divider" />
-          <tm-link
-            href="https://v1.cosmos.network/privacy"
-            class="link-item tm-muted"
-            >Privacy</tm-link
-          >
-          <tm-link
+          <tm-link href="/privacy" class="link-item tm-muted">Privacy</tm-link>
+          <!-- <tm-link
             href="https://v1.cosmos.network/privacy"
             class="link-item tm-muted"
             >Terms of use</tm-link
-          >
+          > -->
           <tm-link
             href="https://v1.cosmos.network/privacy"
             class="link-item tm-muted"
