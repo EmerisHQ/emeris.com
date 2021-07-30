@@ -7,7 +7,7 @@
           class="nav-bottom tm-rf-1 tm-lh-copy"
           role="navigation"
         >
-          <nuxt-link to="/" class="logo">
+          <nuxt-link :to="getUtmParams('/')" class="logo">
             <logo-emeris-wordmark class="logo__emeris" />
             <span class="sr-only">Emeris</span>
           </nuxt-link>
@@ -18,17 +18,12 @@
             >Support</tm-link
           >
           <tm-link
-            href="https://v1.cosmos.network/privacy"
+            :href="getUtmParams('/privacy')"
             class="tm-rf0 tm-rf-1-m link-item tm-muted"
             >Privacy</tm-link
           >
           <tm-link
-            href="https://v1.cosmos.network/privacy"
-            class="tm-rf0 tm-rf-1-m link-item tm-muted"
-            >Terms of use</tm-link
-          >
-          <tm-link
-            href="https://v1.cosmos.network/privacy"
+            :href="getUtmParams('https://app.emeris.com/')"
             class="tm-rf0 tm-rf-1-m link-item tm-muted"
             >Get updates</tm-link
           >
@@ -65,7 +60,9 @@
       </div>
       <p class="smallprint tm-rf-1 tm-lh-copy mt-8 tm-muted">
         &copy; Emeris 2021 — Built by
-        <tm-link href="https://tendermint.com">Tendermint</tm-link>.
+        <tm-link :href="getUtmParams('https://tendermint.com')"
+          >Tendermint</tm-link
+        >.
       </p>
     </div>
   </footer>
@@ -100,9 +97,15 @@ export default {
         { title: 'Twitter', url: 'https://twitter.com/emerisHQ' },
         { title: 'Telegram', url: 'https://t.me/EmerisHQ' },
       ],
+      currentUrl: this.$route.fullPath,
     }
   },
   methods: {
+    getUtmParams(link) {
+      this.currentUrl.includes('?') &&
+        (link += `?${this.currentUrl.split('?')[1]}`)
+      return link
+    },
     url(link) {
       return link.url || link
     },

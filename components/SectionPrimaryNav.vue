@@ -2,7 +2,11 @@
   <div class="nav-container tm-wrapper tm-container">
     <nav class="nav nav-primary" role="navigation">
       <div class="nav-head center">
-        <nuxt-link to="/" class="logos-container" :class="[homePage && 'home']">
+        <nuxt-link
+          :to="getUtmParams('/')"
+          class="logos-container"
+          :class="[homePage && 'home']"
+        >
           <logo-emeris-wordmark-color class="logo" />
           <span class="sr-only">Emeris</span>
         </nuxt-link>
@@ -41,9 +45,21 @@ export default {
   components: {
     LogoEmerisWordmarkColor,
   },
+  data() {
+    return {
+      currentUrl: this.$route.fullPath,
+    }
+  },
   computed: {
     homePage() {
       return this.$route.path === '/'
+    },
+  },
+  methods: {
+    getUtmParams(link) {
+      this.currentUrl.includes('?') &&
+        (link += `?${this.currentUrl.split('?')[1]}`)
+      return link
     },
   },
 }

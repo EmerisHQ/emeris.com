@@ -9,7 +9,7 @@
         <div class="button-container">
           <tm-button
             to-link="external"
-            href="https://app.emeris.com/"
+            :href="getUtmParams('https://app.emeris.com/')"
             size="m"
             variant="outlined"
             glow
@@ -23,7 +23,20 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      currentUrl: this.$route.fullPath,
+    }
+  },
+  methods: {
+    getUtmParams(link) {
+      this.currentUrl.includes('?') &&
+        (link += `?${this.currentUrl.split('?')[1]}`)
+      return link
+    },
+  },
+}
 </script>
 
 <style lang="stylus" scoped>

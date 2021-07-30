@@ -5,7 +5,7 @@
         <tm-button
           v-if="show"
           to-link="external"
-          href="https://app.emeris.com"
+          :href="getUtmParams('https://app.emeris.com')"
           size="m"
           border-color="var(--primary)"
           variant="outlined"
@@ -40,6 +40,7 @@ export default {
   data() {
     return {
       show: true,
+      currentUrl: this.$route.fullPath,
     }
   },
 
@@ -52,6 +53,11 @@ export default {
   },
 
   methods: {
+    getUtmParams(link) {
+      this.currentUrl.includes('?') &&
+        (link += `?${this.currentUrl.split('?')[1]}`)
+      return link
+    },
     scrollHandler() {
       const ctaTop = this.$refs.cta.$el.getBoundingClientRect().top
       const buttonTop = this.$refs.button.getBoundingClientRect().top

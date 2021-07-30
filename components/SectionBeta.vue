@@ -38,7 +38,7 @@
               <tm-button
                 variant="text"
                 to-link="external"
-                href="https://app.emeris.com"
+                :href="getUtmParams('https://app.emeris.com')"
                 size="m"
                 color="var(--black)"
                 class="step-link"
@@ -58,7 +58,7 @@
         </div>
       </div>
       <div class="bottom">
-        <tm-link href="https://tutorials.cosmos.network">
+        <tm-link :href="getUtmParams('https://tutorials.cosmos.network')">
           <div class="wrapper">
             <icon-arrow-top-right-16 class="top-right" />
             <div class="logo-container">
@@ -88,6 +88,18 @@ import IconArrowTopRight16 from '~/components/icons/IconArrowTopRight16.vue'
 export default {
   components: {
     IconArrowTopRight16,
+  },
+  data() {
+    return {
+      currentUrl: this.$route.fullPath,
+    }
+  },
+  methods: {
+    getUtmParams(link) {
+      this.currentUrl.includes('?') &&
+        (link += `?${this.currentUrl.split('?')[1]}`)
+      return link
+    },
   },
 }
 </script>
