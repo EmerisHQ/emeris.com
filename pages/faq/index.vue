@@ -219,7 +219,7 @@ export default {
     return {
       ctas: [
         {
-          href: 'https://t.me/cosmosproject',
+          href: 'https://t.me/EmerisHQ',
           overline: 'Telegram',
           title: 'Community support️',
           variant: 'gradient',
