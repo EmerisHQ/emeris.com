@@ -1,5 +1,3 @@
-import getRoutes from './utils/getRoutes'
-
 export default {
   /*
    ** Nuxt target
@@ -154,7 +152,7 @@ export default {
   /*
    ** Nuxt.js modules
   */
-  modules: ['@nuxt/content', '@nuxtjs/sitemap'],
+  modules: ['@nuxt/content'],
 
 >>>>>>> 029ca1f (add support pages)
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -168,17 +166,6 @@ export default {
         // To change the postcss-preset-env settings
         autoprefixer: {},
       },
-    },
-  },
-
-  sitemap: {
-    routes() {
-      return getRoutes()
-    },
-    defaults: {
-      changefreq: 'daily',
-      priority: 1,
-      lastmod: new Date(),
     },
   },
 }
