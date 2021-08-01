@@ -168,10 +168,9 @@
 
     <div class="tm-section">
       <div class="tm-wrapper tm-container-narrow">
-        <h2 class="tm-title tm-rf3 tm-bold tm-serif">Get in touch</h2>
-        <div class="mt-9">
-          <tm-cta-cards :data="ctas" />
-        </div>
+        <!-- <h2 class="tm-title tm-rf3 tm-bold tm-serif">Get in touch</h2> -->
+        <!-- <div class="mt-9"></div> -->
+        <tm-cta-cards :data="ctas" />
       </div>
     </div>
   </main>
@@ -226,14 +225,14 @@ export default {
           graphics: 'graphics-cta-telegram',
           grafics: '~/assets/images/elements/tg-background.png',
         },
-        {
-          href: 'https://discord.com/invite/vcExX9T',
-          overline: 'Contact us',
-          title: 'Developer integrations',
-          variant: 'outlined',
-          graphics: 'graphics-cta-developers',
-          grafics: '~/assets/images/elements/cu-background.jpg',
-        },
+        // {
+        //   href: 'https://discord.com/invite/vcExX9T',
+        //   overline: 'Contact us',
+        //   title: 'Developer integrations',
+        //   variant: 'outlined',
+        //   graphics: 'graphics-cta-developers',
+        //   grafics: '~/assets/images/elements/cu-background.jpg',
+        // },
       ],
     }
   },
