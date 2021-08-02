@@ -299,7 +299,7 @@ export default {
     transition none
 
     &.tm-button__glow
-      box-shadow 3px 9px 24px rgba(0, 0, 0, 0.07)
+      box-shadow 3px 9px 24px rgba(0, 0, 0, 0.15)
     &::after,
     &.tm-button__glow::before
       border 0.0625rem solid var(--border-color)
