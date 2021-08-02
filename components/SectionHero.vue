@@ -1,9 +1,5 @@
 <template>
-  <div
-    id="homepage"
-    v-observe-visibility="onFalse"
-    class="section-hero tm-section"
-  >
+  <div v-observe-visibility="onFalse" class="section-hero tm-section">
     <div class="outer tm-wrapper tm-container">
       <div class="inner center">
         <img

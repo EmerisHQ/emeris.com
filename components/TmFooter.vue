@@ -12,16 +12,17 @@
             <span class="sr-only">Emeris</span>
           </nuxt-link>
           <span class="divider" />
-          <tm-link
+          <!-- <tm-link
             href="https://v1.cosmos.network/privacy"
             class="tm-rf0 tm-rf-1-m link-item tm-muted"
             >Support</tm-link
-          >
+          > -->
           <tm-link
             :href="getUtmParams('/privacy')"
             class="tm-rf0 tm-rf-1-m link-item tm-muted"
-            >Privacy</tm-link
           >
+            Privacy
+          </tm-link>
           <tm-link
             :href="getUtmParams('https://app.emeris.com/')"
             class="tm-rf0 tm-rf-1-m link-item tm-muted"
@@ -29,7 +30,7 @@
           >
           <span class="divider" />
           <tm-link
-            v-scroll-to="'#homepage'"
+            v-scroll-to="'#top'"
             href="#"
             class="tm-rf0 tm-rf-1-m tm-muted scrolltop"
           >

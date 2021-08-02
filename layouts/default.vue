@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="top">
     <section-primary-nav />
     <div id="content">
       <nuxt />
