@@ -23,11 +23,11 @@
           >
             Privacy
           </tm-link>
-          <tm-link
+          <!-- <tm-link
             :href="getUtmParams('https://app.emeris.com/')"
             class="tm-rf0 tm-rf-1-m link-item tm-muted"
             >Get updates</tm-link
-          >
+          > -->
           <span class="divider" />
           <tm-link
             v-scroll-to="'#top'"

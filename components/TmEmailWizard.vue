@@ -21,7 +21,7 @@
               <span class="tm-rf0 tm-lh-title text-with-gradient">
                 Get email updates
               </span>
-              <icon-arrow-right-24 class="icon" />
+              <!-- <icon-arrow-right-24 class="icon" /> -->
             </label>
           </div>
           <div v-show="step === 1" ref="step1" key="step1">
