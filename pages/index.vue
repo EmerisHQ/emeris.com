@@ -16,13 +16,14 @@
         <tm-button
           v-if="show"
           v-scroll-to="'#cta'"
+          variant="outlined"
           to-link="anchor"
           href="#"
           size="m"
           border-color="var(--primary)"
-          variant="outlined"
           glow
           class="btn"
+          @click.native="openWizard"
         >
           <icon-bell-24 class="icon icon__left" />
           <icon-bell class="icon__hover icon__left" />
@@ -95,6 +96,10 @@ export default {
 
     setupListener() {
       window.addEventListener('scroll', this.scrollHandler, false)
+    },
+
+    openWizard() {
+      this.$refs.cta.$refs.emailWizard.actionOpen()
     },
   },
 }

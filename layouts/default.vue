@@ -20,6 +20,8 @@
 .page-leave-to
   opacity 0
 
-#content
+// #content
+//   overflow hidden
+#top
   overflow hidden
 </style>

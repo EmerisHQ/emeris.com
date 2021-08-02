@@ -19,7 +19,7 @@
         </div> -->
       </div>
       <div class="cta mt-7">
-        <tm-email-wizard />
+        <tm-email-wizard ref="emailWizard" />
       </div>
     </div>
   </div>
