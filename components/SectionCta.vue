@@ -1,12 +1,15 @@
 <template>
-  <div class="section-cta tm-container tm-wrapper tm-section">
+  <div id="cta" class="section-cta tm-container tm-wrapper tm-section">
     <graphics-cta class="graphics" />
     <div class="tm-wrapper mt-11">
       <div class="tm-content center text">
         <h1 class="title tm-rf4 tm-rf5-m-up tm-bold tm-lh-title tm-serif">
           Experience a glimpse of DeFi's future today
         </h1>
-        <div class="button-container">
+        <div class="cta mt-7">
+          <tm-email-wizard />
+        </div>
+        <!-- <div class="button-container">
           <tm-button
             to-link="external"
             :href="getUtmParams('https://app.emeris.com/')"
@@ -16,7 +19,7 @@
             class="btn"
             >Get started &#8594;</tm-button
           >
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -69,4 +72,8 @@ export default {
   max-width 26rem
   @media $breakpoint-medium
     margin-top var(--spacing-6)
+
+.cta
+  width 100%
+  max-width 280px
 </style>

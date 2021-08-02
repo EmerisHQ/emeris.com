@@ -299,7 +299,9 @@ export default {
     transition none
 
     &.tm-button__glow
-      box-shadow 3px 9px 24px rgba(0, 0, 0, 0.15)
+      box-shadow 3px 9px 24px rgba(0, 0, 0, 0.07)
+      @media $breakpoint-medium
+        box-shadow 3px 9px 24px rgba(0, 0, 0, 0.32)
     &::after,
     &.tm-button__glow::before
       border 0.0625rem solid var(--border-color)
@@ -320,7 +322,8 @@ export default {
       trbl -0.0625em
       filter blur(0.4rem)
     .tm-button__content
-      display block
+      display flex
+      align-items center
       background var(--title-gradient)
       -webkit-background-clip text
       background-clip text
@@ -398,6 +401,8 @@ export default {
     margin-right 0.5em
   >>> .icon__right
     margin-left 0.5em
+  >>> .icon__hover
+    display none
   &:hover,
   &:focus
     >>> .icon__right
@@ -411,6 +416,10 @@ export default {
         transform translate(10%, -10%)
       >>> .icon__down
         transform translateY(10%)
+    >>> .icon
+      display none
+    >>> .icon__hover
+      display inline-block
 
 .tm-button + .tm-button
   margin-top var(--spacing-6)

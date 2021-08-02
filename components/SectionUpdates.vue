@@ -49,9 +49,9 @@
                 <p>Mobile wallet app</p>
               </div>
             </div>
-            <div class="cta mt-9 tm-measure-narrow">
+            <!-- <div class="cta mt-9 tm-measure-narrow">
               <tm-email-wizard />
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

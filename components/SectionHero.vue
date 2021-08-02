@@ -64,15 +64,15 @@
           y2="1"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFF0CA"/>
-          <stop offset="0.236371" stop-color="#D3AD5F"/>
-          <stop offset="0.331099" stop-color="#FFECC4"/>
-          <stop offset="0.532612" stop-color="#997736"/>
-          <stop offset="0.74446" stop-color="#FFF2C0"/>
-          <stop offset="0.970086" stop-color="#CEA851"/>
+          <stop stop-color="#FFF0CA" />
+          <stop offset="0.236371" stop-color="#D3AD5F" />
+          <stop offset="0.331099" stop-color="#FFECC4" />
+          <stop offset="0.532612" stop-color="#997736" />
+          <stop offset="0.74446" stop-color="#FFF2C0" />
+          <stop offset="0.970086" stop-color="#CEA851" />
         </linearGradient>
       </defs>
-  </svg>
+    </svg>
   </div>
 </template>
 

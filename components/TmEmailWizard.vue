@@ -54,7 +54,7 @@
                     @click="actionSubmitEmail"
                   >
                     <span class="sr-only">Sign up</span>
-                    <icon-arrow-right
+                    <icon-arrow-right-24
                       v-show="!loading"
                       class="icon-arrow-right"
                     />
@@ -122,14 +122,12 @@ import querystring from 'querystring'
 import { mixin as clickaway } from 'vue-clickaway'
 import TmButton from './TmButton.vue'
 import IconArrowRight24 from '~/components/icons/IconArrowRight24.vue'
-import IconArrowRight from '~/components/icons/IconArrowRight.vue'
 import IconSpinner24 from '~/components/icons/IconSpinner24.vue'
 import IconBell24 from '~/components/icons/IconBell24.vue'
 
 export default {
   components: {
     IconArrowRight24,
-    IconArrowRight,
     IconSpinner24,
     IconBell24,
     TmButton,
