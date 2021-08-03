@@ -17,9 +17,9 @@
             >Get started &#8594;</tm-button
           >
         </div> -->
-      </div>
-      <div class="cta mt-7">
-        <tm-email-wizard ref="emailWizard" />
+        <div class="mt-7 tm-rf-1 tm-mediumtm-lh-title tm-overline tm-muted">
+          Coming soon
+        </div>
       </div>
     </div>
   </div>
@@ -72,10 +72,4 @@ export default {
   max-width 26rem
   @media $breakpoint-medium
     margin-top var(--spacing-6)
-
-.cta
-  width 100%
-  max-width 280px
-  margin-left auto
-  margin-right auto
 </style>

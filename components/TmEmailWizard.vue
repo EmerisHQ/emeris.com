@@ -136,7 +136,6 @@ export default {
   data() {
     return {
       step: 0,
-      openWizard: false,
       loading: false,
       transition: 'forwards',
       email: null,
@@ -180,6 +179,7 @@ export default {
         .catch(() => {
           this.step = 0
           this.loading = false
+          this.email = null
         })
     },
     actionGoForwards() {
@@ -194,13 +194,6 @@ export default {
       this.transition = 'forwards'
       this.step = 0
     },
-    actionOpen() {
-      if (this.step === 0) {
-        this.transition = 'forwards'
-        this.step = 1
-      }
-      this.openWizard = true
-    },
     onKeyDown(e) {
       if (e.keyCode === 27) {
         this.actionReset()
@@ -208,11 +201,7 @@ export default {
       }
     },
     onClickOutside() {
-      if (!this.openWizard) {
-        this.step = 0
-      } else {
-        this.openWizard = false
-      }
+      !this.email && (this.step = 0)
     },
   },
 }
@@ -230,7 +219,7 @@ export default {
 
 .wizard
   @media $breakpoint-medium
-    max-height 3rem
+    // max-height 3rem
     overflow visible
   &__inner
     min-height 3rem
@@ -291,8 +280,12 @@ export default {
         color var(--muted)
   &__footnote
     padding var(--spacing-4)
+    text-align center
     a
       color var(--secondary)
+    .text-error
+      color #FF6072
+
   .btn
     padding-left var(--spacing-4)
     padding-right var(--spacing-4)

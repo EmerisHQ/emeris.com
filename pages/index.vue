@@ -13,24 +13,7 @@
           class="btn"
           >Launch app &#8594;</tm-button
         > -->
-        <tm-button
-          v-if="show"
-          v-scroll-to="'#cta'"
-          variant="outlined"
-          to-link="anchor"
-          href="#"
-          size="m"
-          border-color="var(--primary)"
-          glow
-          class="btn"
-          @click.native="openWizard"
-        >
-          <icon-bell-24 class="icon icon__left" />
-          <icon-bell class="icon__hover icon__left" />
-          <span>Get email updates</span>
-          <icon-arrow-right-24 class="icon icon__right" />
-          <icon-arrow-right class="icon__hover icon__right" />
-        </tm-button>
+        <tm-email-wizard v-if="show" class="wizard" />
       </transition>
       <tm-cookie-banner />
     </div>
@@ -42,7 +25,7 @@
     </kinesis-container>
     <section-rates />
     <section-access />
-    <section-beta />
+    <!-- <section-beta /> -->
     <section-updates />
     <section-cta ref="cta" />
   </main>
@@ -50,18 +33,18 @@
 
 <script>
 import { KinesisContainer } from 'vue-kinesis'
-import IconArrowRight from '~/components/icons/IconArrowRight.vue'
-import IconBell from '~/components/icons/IconBell.vue'
-import IconArrowRight24 from '~/components/icons/IconArrowRight24.vue'
-import IconBell24 from '~/components/icons/IconBell24.vue'
+// import IconArrowRight from '~/components/icons/IconArrowRight.vue'
+// import IconBell from '~/components/icons/IconBell.vue'
+// import IconArrowRight24 from '~/components/icons/IconArrowRight24.vue'
+// import IconBell24 from '~/components/icons/IconBell24.vue'
 
 export default {
   components: {
     KinesisContainer,
-    IconArrowRight,
-    IconBell,
-    IconArrowRight24,
-    IconBell24,
+    // IconArrowRight,
+    // IconBell,
+    // IconArrowRight24,
+    // IconBell24,
   },
   data() {
     return {
@@ -85,9 +68,10 @@ export default {
       return link
     },
     scrollHandler() {
-      const ctaTop = this.$refs.cta.$el.getBoundingClientRect().top
+      const ctaRect = this.$refs.cta.$el.getBoundingClientRect()
+      const ctaBottom = ctaRect.top + ctaRect.height - 70
       const buttonTop = this.$refs.button.getBoundingClientRect().top
-      if (ctaTop <= buttonTop) {
+      if (ctaBottom <= buttonTop) {
         this.show = false
       } else {
         this.show = true
@@ -96,10 +80,6 @@ export default {
 
     setupListener() {
       window.addEventListener('scroll', this.scrollHandler, false)
-    },
-
-    openWizard() {
-      this.$refs.cta.$refs.emailWizard.actionOpen()
     },
   },
 }
@@ -116,7 +96,7 @@ export default {
 
 .fixed-container
   position fixed
-  z-index 9
+  z-index 10
   bottom 0
   left var(--wrap-gap)
   right var(--wrap-gap)
@@ -124,9 +104,11 @@ export default {
     bottom var(--spacing-10)
     left auto
   .btn
+  .wizard
     width 100%
     margin-bottom var(--wrap-gap)
     @media $breakpoint-medium
+      width 280px
       margin-bottom 0
 
 // @media $breakpoint-large
