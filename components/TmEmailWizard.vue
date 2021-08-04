@@ -71,7 +71,7 @@
               >
                 You will receive email updates about Emeris. Unsubscribe at any
                 time.
-                <a href="https://cosmos.network/privacy">
+                <a href="/privacy">
                   Privacy policy<span class="icon__right">&#8599;</span>
                 </a>
                 <span v-if="hasError" class="wizard__error">
@@ -212,7 +212,7 @@ export default {
     isEmail() {
       const re =
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      this.hasError = !re.test(String(this.email))
+      this.hasError = !!this.email && !re.test(String(this.email))
     },
   },
 }
