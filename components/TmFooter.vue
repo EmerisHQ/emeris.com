@@ -23,6 +23,12 @@
           >
             Privacy
           </tm-link>
+          <tm-link
+            :href="getUtmParams('/terms')"
+            class="tm-rf0 tm-rf-1-m link-item tm-muted"
+          >
+            Terms of Service
+          </tm-link>
           <!-- <tm-link
             :href="getUtmParams('https://app.emeris.com/')"
             class="tm-rf0 tm-rf-1-m link-item tm-muted"
