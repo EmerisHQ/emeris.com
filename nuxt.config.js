@@ -119,6 +119,7 @@ export default {
     '~/plugins/ga.client.js',
     '~/plugins/vue-scrollto.client.js',
     '~/plugins/v-tooltip.client.js',
+    '~/plugins/vue-observe-visibility.client.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -145,7 +146,7 @@ export default {
     ],
   },
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ['@nuxt/content'],
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     // https://nuxtjs.org/faq/postcss-plugins/#recommended-method

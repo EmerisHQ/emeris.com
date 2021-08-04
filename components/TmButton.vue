@@ -293,28 +293,67 @@ export default {
 
   /* outlined variant */
   &__variant__outlined
-    --border-color var(--link)
-    --color var(--link)
+    --border-color transparent
+    --color var(--black)
+    background var(--bg)
+    transition none
 
+    &.tm-button__glow
+      box-shadow 3px 9px 24px rgba(0, 0, 0, 0.07)
+      @media $breakpoint-medium
+        box-shadow 3px 9px 24px rgba(0, 0, 0, 0.32)
     &::after,
     &.tm-button__glow::before
       border 0.0625rem solid var(--border-color)
     &::after // border
       content ''
       position absolute
+      z-index -1
       trbl 0
+      border 0
       border-radius inherit
-      opacity 0.33
+      // opacity 0.33
+      margin -0.0625rem
+      background linear-gradient(280.46deg, #FFF0CA 12.71%, #D3AD5F 33.34%, #FFECC4 41.61%, #997736 59.2%, #FFF2C0 77.69%, #CEA851 97.39%)
       transition opacity .25s $ease-out
       .light-mode &
         opacity 1
     &.tm-button__glow::before // glow
       trbl -0.0625em
       filter blur(0.4rem)
-    &:hover,
+    .tm-button__content
+      display flex
+      align-items center
+      background var(--title-gradient)
+      -webkit-background-clip text
+      background-clip text
+      -webkit-text-fill-color transparent
+      text-fill-color transparent
+      >>> span
+        background var(--title-gradient)
+        -webkit-background-clip text
+        background-clip text
+        -webkit-text-fill-color transparent
+        text-fill-color transparent
+    &:hover
+      &::after
+        background radial-gradient(144.8% 78% at 90.48% 100%, #FFFD38 25.95%, rgba(158, 255, 185, 0) 100%), linear-gradient(153.31deg, #64DAFB 5.41%, #30FFDF 30.23%, #B0FF94 54.73%)
     &:focus
       &::after
+        background linear-gradient(102.36deg, #64DBFC -2.26%, #30FFDF 34.48%, #FFFE39 92.77%)
+    &:hover,
+    &:focus
+      background transparent
+      &::after
         opacity 1
+      .tm-button__content
+        background initial
+        -webkit-background-clip initial
+        -webkit-text-fill-color initial
+        >>> span
+          background initial
+          -webkit-background-clip initial
+          -webkit-text-fill-color initial
 
   /* contained variant */
   &__variant__contained
@@ -372,6 +411,8 @@ export default {
     margin-right 0.5em
   >>> .icon__right
     margin-left 0.5em
+  >>> .icon__hover
+    display none
   &:hover,
   &:focus
     >>> .icon__right
@@ -385,6 +426,10 @@ export default {
         transform translate(10%, -10%)
       >>> .icon__down
         transform translateY(10%)
+    >>> .icon
+      display none
+    >>> .icon__hover
+      display inline-block
 
 .tm-button + .tm-button
   margin-top var(--spacing-6)

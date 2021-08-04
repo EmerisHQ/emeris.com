@@ -1,15 +1,14 @@
 <template>
-  <div>
+  <div id="top">
+    <section-primary-nav />
     <div id="content">
       <nuxt />
-      <tm-cookie-banner />
     </div>
+    <tm-footer />
   </div>
 </template>
 
-<script>
-export default {}
-</script>
+<script></script>
 
 <style lang="stylus">
 // https://nuxtjs.org/examples/transitions
@@ -17,17 +16,12 @@ export default {}
   transition opacity 0.2s $ease-out
 .page-leave-active
   transition opacity 0.2s $ease-out
-
-.page-enter,
+.page-enter
 .page-leave-to
   opacity 0
 
-#content
+// #content
+//   overflow hidden
+#top
   overflow hidden
-
-.center
-  display grid
-  place-items center
-  center()
-  width 100% // safari
 </style>

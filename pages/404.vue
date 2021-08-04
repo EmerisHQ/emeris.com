@@ -11,10 +11,10 @@
           >
             404
           </div>
-          <h1 class="title serif tm-rf6 tm-bold tm-lh-title tm-title mt-5">
+          <h1 class="title tm-serif tm-rf6 tm-bold tm-lh-title tm-title mt-5">
             Page Not Found
           </h1>
-          <tm-button to-link="internal" to="/" class="btn mt-7"
+          <tm-button to-link="internal" :to="getUtmParams('/')" class="btn mt-7"
             >&#8592; Home
           </tm-button>
         </div>
@@ -29,6 +29,18 @@ export default {
     return {
       title: '404',
     }
+  },
+  data() {
+    return {
+      currentUrl: this.$route.fullPath,
+    }
+  },
+  methods: {
+    getUtmParams(link) {
+      this.currentUrl.includes('?') &&
+        (link += `?${this.currentUrl.split('?')[1]}`)
+      return link
+    },
   },
 }
 </script>

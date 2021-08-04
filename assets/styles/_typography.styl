@@ -27,6 +27,12 @@ p + p
 .tm-text-right
   text-align right
 
+@media $breakpoint-xsmall-only
+  .tm-text-left
+  .tm-text-center
+  .tm-text-right
+    text-align unset
+
 /* Measure is limited to ~66 characters */
 .tm-measure
   max-width $measure-3
