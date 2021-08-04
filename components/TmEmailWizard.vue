@@ -44,6 +44,7 @@
                     placeholder="Your email address"
                     required="required"
                     @keyup="onKeyDown"
+                    @blur="isEmail"
                   />
                   <tm-button
                     variant="text"
@@ -70,9 +71,12 @@
               >
                 You will receive email updates about Emeris. Unsubscribe at any
                 time.
-                <a href="https://cosmos.network/privacy"
-                  >Privacy policy<span class="icon__right">&#8599;</span></a
-                >
+                <a href="https://cosmos.network/privacy">
+                  Privacy policy<span class="icon__right">&#8599;</span>
+                </a>
+                <span v-if="hasError" class="wizard__error">
+                  Please enter a valid email address
+                </span>
               </p>
             </div>
           </div>
@@ -139,6 +143,7 @@ export default {
       loading: false,
       transition: 'forwards',
       email: null,
+      hasError: false,
       url: 'https://app.mailerlite.com/webforms/submit/l9a9o3',
       formData: {
         callback: 'jQuery183034734364421503394_1625597605102',
@@ -195,6 +200,7 @@ export default {
       this.step = 0
     },
     onKeyDown(e) {
+      this.hasError = false
       if (e.keyCode === 27) {
         this.actionReset()
         e.preventDefault()
@@ -202,6 +208,11 @@ export default {
     },
     onClickOutside() {
       !this.email && (this.step = 0)
+    },
+    isEmail() {
+      const re =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      this.hasError = !re.test(String(this.email))
     },
   },
 }
@@ -222,6 +233,7 @@ export default {
     // max-height 3rem
     overflow visible
   &__inner
+    overflow hidden
     min-height 3rem
     // max-width 17.5rem
     background var(--bg)
@@ -279,12 +291,19 @@ export default {
       &:not(:focus)::placeholder
         color var(--muted)
   &__footnote
+    position relative
     padding var(--spacing-4)
     text-align center
     a
       color var(--secondary)
-    .text-error
-      color #FF6072
+  &__error
+    position absolute
+    top 0
+    bottom 0
+    left 0
+    right 0
+    background-color var(--bg)
+    color #FF6072
 
   .btn
     padding-left var(--spacing-4)

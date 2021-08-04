@@ -33,18 +33,10 @@
 
 <script>
 import { KinesisContainer } from 'vue-kinesis'
-// import IconArrowRight from '~/components/icons/IconArrowRight.vue'
-// import IconBell from '~/components/icons/IconBell.vue'
-// import IconArrowRight24 from '~/components/icons/IconArrowRight24.vue'
-// import IconBell24 from '~/components/icons/IconBell24.vue'
 
 export default {
   components: {
     KinesisContainer,
-    // IconArrowRight,
-    // IconBell,
-    // IconArrowRight24,
-    // IconBell24,
   },
   data() {
     return {
@@ -108,7 +100,7 @@ export default {
     width 100%
     margin-bottom var(--wrap-gap)
     @media $breakpoint-medium
-      width 280px
+      width 300px
       margin-bottom 0
 
 // @media $breakpoint-large
