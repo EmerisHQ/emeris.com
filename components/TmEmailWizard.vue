@@ -290,6 +290,12 @@ export default {
       background transparent
       &:not(:focus)::placeholder
         color var(--muted)
+    &:-webkit-autofill
+    &:-webkit-autofill:hover
+    &:-webkit-autofill:focus
+      -webkit-box-shadow 0 0 0 48px var(--bg) inset !important
+      -webkit-text-fill-color var(--text) !important
+      caret-color var(--text)
   &__footnote
     position relative
     padding var(--spacing-4)
@@ -308,6 +314,11 @@ export default {
   .btn
     padding-left var(--spacing-4)
     padding-right var(--spacing-4)
+
+@-webkit-keyframes autofill
+  to
+    color inherit
+    background transparent
 
 .wizard-border
   position relative
