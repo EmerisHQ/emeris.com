@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="top">
     <section-primary-nav />
     <div id="content">
       <nuxt />
@@ -20,6 +20,8 @@
 .page-leave-to
   opacity 0
 
-#content
+// #content
+//   overflow hidden
+#top
   overflow hidden
 </style>

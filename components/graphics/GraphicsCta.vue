@@ -1,13 +1,16 @@
 <template>
   <div class="canvas tm-center">
     <div class="aspect">
-      <div class="layer frame"></div>
+      <img
+        src="~/assets/images/elements/gold-door.png"
+        alt="Gold Door"
+        class="layer frame"
+      />
       <img
         src="~/assets/images/elements/surfer-swimming.png"
         alt="Interchain Surfer"
         class="layer surfer"
       />
-      <div class="layer frame frame-fg"></div>
     </div>
   </div>
 </template>
@@ -18,6 +21,18 @@
   height 0
   width 100%
   padding-bottom 70%
+  @media $breakpoint-medium
+    padding-bottom 30%
+  @media $breakpoint-xl
+    padding-bottom 33%
+  &:before
+    content ''
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 300%
+    background-color var(--bg)
 
 .layer
   position absolute
@@ -26,26 +41,45 @@
   width 100%
 
 @keyframes surfer-levitate
-  0%
-    transform translateY(5%) rotate(2deg)
-  100%
-    transform translateY(-3%) rotate(-2deg)
+  0%, 100%
+    transform translate(-50%, 5%)
+  50%
+    transform translate(-50%, -3%)
 
 .surfer
-  width 85%
-  top 12%
-  left 9%
+  mix-blend-mode hard-light
+  max-width none
+  width 130%
+  top -4%
+  left 37%
+  transform translateX(-50%)
   animation surfer-levitate 5s ease-in-out alternate infinite
+  mask-mode alpha
+  mask-repeat no-repeat
+  mask-image url('~/assets/images/elements/surfer-dive-mask.svg')
+  mask-size cover
+  backdrop-filter blur(4.7px)
+  @media $breakpoint-medium
+    width 73%
+    top -13%
+    left 52%
+  @media $breakpoint-xl
+    width 113%
+    top -21%
+    left 45.3%
 
 .frame
-  background-image url('~/assets/images/elements/gold-door.png')
-  background-size cover
-  background-repeat no-repeat
-  width 64%
-  padding-bottom 88%
-  top 2.3%
-  left 33.4%
+  width 102%
+  max-width 13.8rem
+  top -13%
+  left 53%
   transform-origin top left
-  &-fg
-    padding-bottom 3.6%
+  transform translateX(-50%)
+  @media $breakpoint-medium
+    top 0
+    left 58.2%
+  @media $breakpoint-xl
+    max-width 19.8rem
+    top -6.5%
+    left 62%
 </style>
