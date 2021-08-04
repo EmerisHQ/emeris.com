@@ -4,7 +4,7 @@
     <div class="tm-wrapper mt-11">
       <div class="tm-content center text">
         <h1 class="title tm-rf4 tm-rf5-m-up tm-bold tm-lh-title tm-serif">
-          Experience a glimpse of DeFi's future today
+          Experience a glimpse of DeFi's future
         </h1>
         <!-- <div class="button-container">
           <tm-button
@@ -17,9 +17,9 @@
             >Get started &#8594;</tm-button
           >
         </div> -->
-        <div class="mt-7 tm-rf-1 tm-mediumtm-lh-title tm-overline tm-muted">
+        <p class="mt-6 tm-rf1 tm-medium tm-lh-title tm-overline tm-muted">
           Coming soon
-        </div>
+        </p>
       </div>
     </div>
   </div>
@@ -50,7 +50,7 @@ export default {
 
 .title
   @media $breakpoint-large
-    max-width 53rem
+    max-width 54rem
 
 .text
   text-align center
