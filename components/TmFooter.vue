@@ -31,14 +31,10 @@
           </tm-link>
           <tm-link
             href="https://drive.google.com/file/d/1h4qrMWHGVLGX2vOJ-ryVmHs68Vu_6MY_/view"
-            class="link-item tm-muted"
-            >Brand assets</tm-link
-          >
-          <!-- <tm-link
-            :href="getUtmParams('https://app.emeris.com/')"
             class="tm-rf0 tm-rf-1-m link-item tm-muted"
-            >Get updates</tm-link
-          > -->
+          >
+            Brand assets
+          </tm-link>
           <span class="divider" />
           <tm-link
             v-scroll-to="'#top'"
