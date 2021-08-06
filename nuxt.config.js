@@ -145,16 +145,8 @@ export default {
       '~/node_modules/rfs/stylus.styl',
     ],
   },
-<<<<<<< HEAD
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ['@nuxt/content'],
-=======
-  /*
-   ** Nuxt.js modules
-  */
-  modules: ['@nuxt/content'],
-
->>>>>>> 029ca1f (add support pages)
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     // https://nuxtjs.org/faq/postcss-plugins/#recommended-method

@@ -1,10 +1,6 @@
 <template>
   <article>
-<<<<<<< HEAD
     <div class="tm-section mt-11">
-=======
-    <div class="tm-section">
->>>>>>> 1d15132 (add privacy page)
       <div class="tm-wrapper">
         <div class="tm-container">
           <div class="main tm-center tm-measure">
