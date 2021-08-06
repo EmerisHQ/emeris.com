@@ -1,5 +1,5 @@
 ---
-index: 12
+index: 99
 title: How long does it take for a transaction to be complete?
 tags: 
   - getting-start

@@ -1,5 +1,5 @@
 ---
-index: 4
+index: 99
 title: What projects are built on Cosmos?
 description: Developers have built hundreds of blockchain projects on Cosmos, including Binance Chain (BNB), Terra (LUNA), Crypto.com Coin (CRO), Cosmos Hub (ATOM), and more.
 alt: Article 10

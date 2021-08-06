@@ -1,5 +1,5 @@
 ---
-index: 13
+index: 99
 title: What would happen if my IBC transaction was unsuccessful?
 tags: 
   - getting-start

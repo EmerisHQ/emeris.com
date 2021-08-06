@@ -1,5 +1,5 @@
 ---
-index: 3
+index: 7
 title: What is APY
 tags: 
   - general

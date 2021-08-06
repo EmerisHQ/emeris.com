@@ -1,6 +1,6 @@
 ---
-index: 2
-title: How Is Gravity DEX Protocol Different?
+index: 5
+title: How Is the Gravity DEX Protocol Different?
 tags: 
   - defi
 ---

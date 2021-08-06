@@ -10,7 +10,7 @@
             <div class="overline tm-rf-1 tm-medium tm-overline tm-muted">
               {{ item.overline }}
             </div>
-            <div class="title tm-rf2 tm-bold tm-lh-title mt-4 tm-link">
+            <div class="title tm-rf2 tm-bold tm-lh-title mt-3 tm-link">
               {{ item.title }}
             </div>
             <icon-arrow-top-right-16 class="top-right" />
@@ -24,7 +24,7 @@
             <div class="overline tm-rf-1 tm-medium tm-overline tm-muted">
               {{ item.overline }}
             </div>
-            <div class="title tm-rf2 tm-bold tm-lh-title mt-4 tm-link">
+            <div class="title tm-rf2 tm-bold tm-lh-title mt-3 tm-link">
               {{ item.title }}
             </div>
             <icon-arrow-top-right-16

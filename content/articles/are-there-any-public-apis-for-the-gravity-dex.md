@@ -1,5 +1,5 @@
 ---
-index: 5
+index: 99
 title: Are there any public APIs for the Gravity DEX?
 tags: 
   - general

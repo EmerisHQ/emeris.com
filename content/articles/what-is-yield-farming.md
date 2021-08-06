@@ -1,5 +1,5 @@
 ---
-index: 4
+index: 8
 title: What is Yield Farming
 tags: 
   - general

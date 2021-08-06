@@ -1,10 +1,10 @@
 <template>
   <article>
-    <div class="tm-section">
+    <div class="tm-section mt-11">
       <div class="tm-wrapper">
         <div class="tm-container tm-grid-base">
           <div class="sidebar">
-            <tm-button to-link="internal" to="/faq" size="s" variant="text">
+            <tm-button to-link="internal" to="/support" size="s" variant="text">
               <span class="icon__left gradient-text">&#8592;</span>
               <span class="gradient-text">Support</span>
             </tm-button>
@@ -17,11 +17,11 @@
                   tm-rf0 tm-medium tm-lh-title tm-overline tm-muted
                 "
               >
-                Related questions
+                Related
               </div>
 
               <div v-for="item in questions" :key="item.title" class="mt-7">
-                <tm-link :href="item.slug" class="tm-rf0 tm-copy">
+                <tm-link :href="item.slug" class="tm-rf0 tm-lh-copy">
                   {{ item.title }}
                 </tm-link>
               </div>
@@ -36,11 +36,11 @@
             >
               {{ article.title }}
             </h1>
-            <p class="mt-5 tm-muted tm-copy tm-rf0 tm-measure">
-              Last updated on {{ formatDate(article.updatedAt) }}
+            <p class="mt-5 tm-muted tm-lh-copy tm-rf0 tm-measure">
+              Last updated {{ formatDate(article.updatedAt) }}
             </p>
 
-            <div class="markdown mt-9 tm-copy tm-rf1 tm-measure">
+            <div class="markdown mt-9 tm-lh-copy tm-rf1 tm-measure">
               <nuxt-content :document="article" />
             </div>
           </div>
@@ -53,11 +53,11 @@
         <div
           class="subheading tm-rf0 tm-medium tm-lh-title tm-overline tm-muted"
         >
-          Related questions
+          Related
         </div>
 
         <div v-for="item in questions" :key="item.title" class="mt-7">
-          <tm-link :href="item.slug" class="tm-rf0 tm-copy gradient-text">
+          <tm-link :href="item.slug" class="tm-rf0 tm-lh-copy gradient-text">
             {{ item.title }}
           </tm-link>
         </div>

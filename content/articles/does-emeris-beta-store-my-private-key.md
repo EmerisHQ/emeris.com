@@ -1,5 +1,5 @@
 ---
-index: 6
+index: 99
 title: Does Emeris beta store my private key?
 tags: 
   - getting-start

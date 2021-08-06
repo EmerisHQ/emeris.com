@@ -5,7 +5,7 @@ tags:
   - defi
 ---
 
-DeFi, as you probably already know by now, is the short name for “decentralized finance.” This covera wide variety of financial applications and services that use distributed ledger technology and smart contracts to remove centralized parties from all transactions.
+DeFi, as you probably already know by now, is the short name for “decentralized finance.” This covers a wide variety of financial applications and services that use distributed ledger technology and smart contracts to remove centralized parties from all transactions.
 
 You can think of DeFi as an alternative financial system to the legacy system of banks, exchanges, insurance companies, mortgage providers, etc., but reimagined from the ground up with no intermediaries in the middle. Unlike traditional finance, with no gatekeepers to turn down your application, DeFi lowers the barrier to entry, allowing more people to access financial services, take out a collateralized loan, or earn a yield on their assets.
 

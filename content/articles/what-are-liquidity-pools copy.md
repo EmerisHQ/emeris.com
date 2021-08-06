@@ -1,6 +1,6 @@
 ---
-index: 9
-title: What Are Liquidity Pools?
+index: 10
+title: What is a Liquidity Pool Asset?
 tags: 
   - liquidity
   - defi

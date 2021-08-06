@@ -1,5 +1,5 @@
 ---
-index: 7
+index: 99
 title: Is Cosmos a competitor to Ethereum?
 description: No, Cosmos embraces Ethereum and creates bridges between both ecosystems.
 alt: Article 10

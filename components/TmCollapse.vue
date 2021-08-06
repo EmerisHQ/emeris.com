@@ -109,17 +109,19 @@ export default {
 .tm-collapse-item--header
   display: block
   width 100%
+  max-width 24rem
   padding-left 2.5rem
   position relative
   transition: all .25s ease
   &:hover
   &:focus
+    color var(--white)
     .tm-collapse-item--icon-header
       fill var(--secondary)
 
 .tm-collapse-item--icon-header
   position: absolute
-  top: 50%
+  top: .96rem
   left .5rem
   margin-top -.5rem
   transition: transform .25s ease
@@ -132,6 +134,7 @@ export default {
   padding-left 2.5rem
 
 .con-content--item
+  max-width 24rem
   padding-top 1rem
   opacity .2
   transition: all .25s ease

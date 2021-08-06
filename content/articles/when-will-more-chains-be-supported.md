@@ -1,5 +1,5 @@
 ---
-index: 9
+index: 99
 title: When will more chains be supported?
 tags: 
   - getting-start

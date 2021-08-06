@@ -1,5 +1,5 @@
 ---
-index: 9
+index: 99
 title: Why did my available balance decrease even though my transaction failed?
 tags: 
   - general

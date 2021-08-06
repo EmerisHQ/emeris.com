@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="tm-section">
+    <div class="tm-section mt-11">
       <div class="tm-wrapper tm-container-narrow">
         <h1
           class="
@@ -19,37 +19,17 @@
         <img src="~/assets/images/elements/surfer-faq.png" class="surfer" />
 
         <div class="header-bottom tm-grid-base">
-          <div class="column-emeris">
-            <div class="emeris mt-10">
-              <div class="emeris-inner">
-                <div class="tm-muted">Introduction to Emeris</div>
-                <div
-                  v-for="item in articles.emeris"
-                  :key="item.title"
-                  class="mt-1"
-                >
-                  <tm-link
-                    :href="`/faq/${item.slug}`"
-                    class="btn tm-rf0 tm-bold tm-title tm-link-disclosure"
-                  >
-                    {{ item.title }}
-                  </tm-link>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div class="column-defi">
-            <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title mt-10">
-              Introduction to Defi
+            <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title mt-10 mb-2">
+              Introduction to DeFi
             </h3>
 
             <div class="tm-grid-base">
               <div class="general-column">
                 <div v-for="(item, index) in articles.defi" :key="item.title">
-                  <div v-if="index <= 4" class="mt-7">
+                  <div v-if="index <= 5" class="mt-5">
                     <tm-link
-                      :href="`/faq/${item.slug}`"
+                      :href="`/support/${item.slug}`"
                       class="btn tm-rf0 tm-muted tm-link-disclosure"
                     >
                       {{ item.title }}
@@ -59,9 +39,9 @@
               </div>
               <div class="general-column">
                 <div v-for="(item, index) in articles.defi" :key="item.title">
-                  <div v-if="index > 4" class="mt-7">
+                  <div v-if="index > 5" class="mt-5 item-link">
                     <tm-link
-                      :href="`/faq/${item.slug}`"
+                      :href="`/support/${item.slug}`"
                       class="btn tm-rf0 tm-muted tm-link-disclosure"
                     >
                       {{ item.title }}
@@ -72,8 +52,60 @@
             </div>
           </div>
         </div>
+
+        <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title mt-10 mb-2">
+          Introduction to Emeris
+        </h3>
+
+        <div class="tm-grid-base">
+          <div
+            v-for="item in articles.emeris"
+            :key="item.title"
+            class="general-column"
+          >
+            <div class="emeris mt-5">
+              <div class="emeris-inner">
+                <div class="tm-muted">{{ item.description }}</div>
+                <div class="mt-1">
+                  <tm-link
+                    :href="`/support/${item.slug}`"
+                    class="btn tm-rf1 tm-bold tm-title tm-link-disclosure"
+                  >
+                    {{ item.title }}
+                  </tm-link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tm-grid-base">
+          <div class="general-column">
+            <div v-for="(item, index) in articles.emerisMain" :key="item.title">
+              <div v-if="index <= 5" class="mt-5">
+                <tm-link
+                  :href="`/support/${item.slug}`"
+                  class="btn tm-rf0 tm-muted tm-link-disclosure"
+                >
+                  {{ item.title }}
+                </tm-link>
+              </div>
+            </div>
+          </div>
+          <div class="general-column">
+            <div v-for="(item, index) in articles.defi" :key="item.title">
+              <div v-if="index > 5" class="mt-5 item-link">
+                <tm-link
+                  :href="`/support/${item.slug}`"
+                  class="btn tm-rf0 tm-muted tm-link-disclosure"
+                >
+                  {{ item.title }}
+                </tm-link>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- <graphics-faq-hero class="graphics z-0" /> -->
     </div>
 
     <div class="tm-section">
@@ -85,7 +117,7 @@
         <div class="tm-grid-base">
           <div class="general-column mt-9">
             <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title">Emeris Beta</h3>
-            <div class="mt-7">
+            <div class="mt-5">
               <tm-collapse accordion>
                 <div v-for="item in articles.gettingStart" :key="item.title">
                   <tm-collapse-item>
@@ -99,7 +131,7 @@
 
           <div class="general-column mt-9">
             <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title">Swap</h3>
-            <div class="mt-7">
+            <div class="mt-5">
               <tm-collapse accordion>
                 <div v-for="item in articles.swap" :key="item.title">
                   <tm-collapse-item>
@@ -110,10 +142,10 @@
               </tm-collapse>
             </div>
 
-            <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title mt-8">
-              Provide liquidity
+            <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title mt-9">
+              Providing liquidity
             </h3>
-            <div class="mt-7">
+            <div class="mt-5">
               <tm-collapse accordion>
                 <div v-for="item in articles.liquidity" :key="item.title">
                   <tm-collapse-item>
@@ -125,7 +157,7 @@
             </div>
 
             <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title mt-8">Farming</h3>
-            <div class="mt-7">
+            <div class="mt-5">
               <tm-collapse accordion>
                 <div v-for="item in articles.general" :key="item.title">
                   <tm-collapse-item>
@@ -140,7 +172,7 @@
 
         <div class="mt-9">
           <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title">General questions</h3>
-          <div class="mt-7">
+          <div class="mt-5">
             <tm-collapse accordion>
               <div class="tm-grid-base">
                 <div class="general-column">
@@ -192,6 +224,9 @@ export default {
 
     const defi = content.filter((item) => item.tags.includes('defi'))
     const emeris = content.filter((item) => item.tags.includes('emeris'))
+    const emerisMain = content.filter((item) =>
+      item.tags.includes('emeris-main')
+    )
     const gettingStart = content.filter((item) =>
       item.tags.includes('getting-start')
     )
@@ -203,6 +238,7 @@ export default {
     const articles = {
       defi,
       emeris,
+      emerisMain,
       gettingStart,
       swap,
       liquidity,
@@ -313,6 +349,8 @@ export default {
     grid-area defi
 
 .general-column
+  position relative
+  z-index 1
   grid-column 1 / -1
   @media $breakpoint-medium
     grid-column span 4
@@ -334,7 +372,6 @@ export default {
     flex-direction column
     align-items flex-end
     justify-content flex-end
-    min-height 18rem
     max-width none
   &:before
     content ''
@@ -368,4 +405,7 @@ export default {
   @media $breakpoint-medium
     max-width 40rem
     margin-top 0
+
+.item-link
+  max-width 24rem
 </style>

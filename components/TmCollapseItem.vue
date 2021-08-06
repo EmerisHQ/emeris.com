@@ -1,12 +1,12 @@
 <template>
   <div
     :class="{ 'open-item': maxHeight != '0px', disabledx: disabled }"
-    class="tm-collapse-item mt-7"
+    class="tm-collapse-item mt-6"
     @mouseover="mouseover"
     @mouseout="mouseout"
   >
     <button
-      class="tm-collapse-item--header tm-rf1 tm-muted tm-medium"
+      class="tm-collapse-item--header tm-muted tm-medium"
       variant="text"
       @click="toggleContent"
     >
@@ -16,12 +16,13 @@
       <slot name="header"></slot>
     </button>
     <div ref="content" :style="styleContent" class="tm-collapse-item--content">
-      <div class="con-content--item tm-rf0 tm-copy">
+      <div class="con-content--item tm-rf0 tm-lh-copy">
         <slot />
       </div>
     </div>
   </div>
 </template>
+
 <script>
 import IconPlus16 from '~/components/icons/IconPlus16.vue'
 

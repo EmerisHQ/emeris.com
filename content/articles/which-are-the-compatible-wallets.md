@@ -1,5 +1,5 @@
 ---
-index: 3
+index: 99
 title: Which are the compatible wallets?
 tags: 
   - getting-start

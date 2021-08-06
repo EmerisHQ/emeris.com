@@ -1,5 +1,5 @@
 ---
-index: 4
+index: 11
 title: What Is Impermanent Loss?
 tags: 
   - liquidity

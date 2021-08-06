@@ -1,5 +1,5 @@
 ---
-index: 12
+index: 99
 title: How can I hard refresh Keplr?
 tags: 
   - general

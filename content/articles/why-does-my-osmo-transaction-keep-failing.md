@@ -1,5 +1,5 @@
 ---
-index: 11
+index: 99
 title: Why does my $OSMO transaction keep failing?
 tags: 
   - general

@@ -1,5 +1,5 @@
 ---
-index: 2
+index: 99
 title: Does Gravity Dex Protocol/Emeris have farming incentives?
 tags: 
   - farming

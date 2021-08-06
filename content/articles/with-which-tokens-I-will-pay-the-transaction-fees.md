@@ -1,5 +1,5 @@
 ---
-index: 11
+index: 99
 title: With which tokens I'll pay the transaction fees?
 tags: 
   - getting-start
