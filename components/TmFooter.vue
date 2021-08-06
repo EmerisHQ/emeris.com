@@ -7,37 +7,48 @@
           class="nav-bottom tm-rf-1 tm-lh-copy"
           role="navigation"
         >
-          <nuxt-link to="/" class="logo">
+          <nuxt-link :to="getUtmParams('/')" class="logo">
             <logo-emeris-wordmark class="logo__emeris" />
             <span class="sr-only">Emeris</span>
           </nuxt-link>
           <span class="divider" />
-          <tm-link
+          <!-- <tm-link
             href="https://v1.cosmos.network/privacy"
-            class="link-item tm-muted"
-            >Privacy</tm-link
-          >
+            class="tm-rf0 tm-rf-1-m link-item tm-muted"
+            >Support</tm-link
+          > -->
           <tm-link
-            href="https://v1.cosmos.network/privacy"
-            class="link-item tm-muted"
-            >Terms of use</tm-link
+            :href="getUtmParams('/privacy')"
+            class="tm-rf0 tm-rf-1-m link-item tm-muted"
           >
+            Privacy
+          </tm-link>
           <tm-link
-            href="https://v1.cosmos.network/privacy"
-            class="link-item tm-muted"
-            >Get updates</tm-link
+            :href="getUtmParams('/terms')"
+            class="tm-rf0 tm-rf-1-m link-item tm-muted"
           >
+            Terms of Service
+          </tm-link>
           <tm-link
             href="https://drive.google.com/file/d/1h4qrMWHGVLGX2vOJ-ryVmHs68Vu_6MY_/view"
             class="link-item tm-muted"
             >Brand assets</tm-link
           >
+          <!-- <tm-link
+            :href="getUtmParams('https://app.emeris.com/')"
+            class="tm-rf0 tm-rf-1-m link-item tm-muted"
+            >Get updates</tm-link
+          > -->
           <span class="divider" />
-          <tm-link v-scroll-to="'#homepage'" href="#" class="tm-muted scrolltop"
-            >Back to top &#8593;</tm-link
+          <tm-link
+            v-scroll-to="'#top'"
+            href="#"
+            class="tm-rf0 tm-rf-1-m tm-muted scrolltop"
+          >
+            Back to top &#8593;</tm-link
           >
         </nav>
-        <nav ref="links" class="social-icons mt-7" role="navigation">
+        <nav ref="links" class="social-icons mt-8" role="navigation">
           <tm-link
             v-for="link in links"
             :key="url(link)"
@@ -61,7 +72,9 @@
       </div>
       <p class="smallprint tm-rf-1 tm-lh-copy mt-8 tm-muted">
         &copy; Emeris 2021 — Built by
-        <tm-link href="https://tendermint.com">Tendermint</tm-link>.
+        <tm-link :href="getUtmParams('https://tendermint.com')"
+          >Tendermint</tm-link
+        >.
       </p>
     </div>
   </footer>
@@ -96,9 +109,15 @@ export default {
         { title: 'Twitter', url: 'https://twitter.com/emerisHQ' },
         { title: 'Telegram', url: 'https://t.me/EmerisHQ' },
       ],
+      currentUrl: this.$route.fullPath,
     }
   },
   methods: {
+    getUtmParams(link) {
+      this.currentUrl.includes('?') &&
+        (link += `?${this.currentUrl.split('?')[1]}`)
+      return link
+    },
     url(link) {
       return link.url || link
     },
@@ -120,19 +139,30 @@ export default {
 
 <style lang="stylus" scoped>
 .footer
+  padding-top var(--spacing-7)
   padding-bottom var(--spacing-9)
+  @media $breakpoint-xl
+    padding-top var(--spacing-8)
+    padding-bottom var(--spacing-8)
 
 .social-icons
-  display flex
-  flex-direction row
-  flex-wrap wrap
-  justify-content center
-  align-items center
+  display grid
+  grid-template-columns repeat(3, 1fr)
+  gap 1rem
   text-align center
 
   &__item
-    padding var(--spacing-3)
+    position relative
     opacity 0.75
+    font-size 0
+    &:before
+      content ''
+      position absolute
+      width 2.5rem
+      height 2.5rem
+      top 50%
+      left 50%
+      transform translate(-50%, -50%)
 
     &:hover
     &:focus
@@ -142,14 +172,22 @@ export default {
   display flex
   align-items center
   gap var(--spacing-4)
+  margin-bottom var(--spacing-5)
   color inherit
   transition transform .4s $ease-out, opacity .4s $ease-out, color .4s $ease-out, visibility .4s 0s
+  @media $breakpoint-medium
+    justify-content center
+    width 100%
+    margin-bottom var(--spacing-8)
+  @media $breakpoint-large
+    width auto
+    margin-bottom 0
 
   svg
     width auto
 
   &__emeris
-    height 1.125rem
+    height 1rem
 
 .divider
   margin 0 var(--spacing-6)
@@ -168,13 +206,13 @@ export default {
     margin-left 0
 
   .link-item
-    margin-top var(--spacing-6)
+    margin-top var(--spacing-7)
 
     &:first-child
       margin-top 0
 
   .scrolltop
-    margin-top var(--spacing-6)
+    margin-top var(--spacing-10)
 
   .smallprint
     text-align center
@@ -214,6 +252,9 @@ export default {
 
   .nav-bottom
     flex-direction row
+    justify-content center
+    flex-wrap wrap
+    text-align center
 
   .link-item + .link-item
     margin-left var(--spacing-6)

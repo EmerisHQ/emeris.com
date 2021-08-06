@@ -2,10 +2,10 @@
   <div id="best" class="section-updates tm-section tm-wrapper">
     <div class="tm-content">
       <div class="tm-grid-base">
-        <div class="left">
-          <h1 class="tm-rf5 tm-bold tm-lh-title tm-serif">
-            The best is yet to come.
-          </h1>
+        <div class="column left">
+          <h2 class="title tm-rf4 tm-rf5-m-up tm-bold tm-lh-title tm-serif">
+            The best is yet&nbsp;to come.
+          </h2>
           <div class="title-ephemeris">
             <div class="ephemerides">
               <img
@@ -26,15 +26,15 @@
             </div>
           </div>
         </div>
-        <div class="right">
+        <div class="column right">
           <div class="text">
-            <p class="tm-rf1 tm-lh-copy">
+            <p class="tm-rf0 tm-rf1-xl-up tm-lh-copy">
               Emeris aims to be the first one-stop portal to provide:
             </p>
-            <div class="list tm-rf1 tm-lh-copy mt-6">
+            <div class="list tm-rf0 tm-rf1-xl-up tm-lh-copy mt-6">
               <div class="list-item">
                 <span class="bullet" />
-                <p>Integrated wallet and multi-wallet support</p>
+                <p>Integrated wallet and multi&#8209;wallet support</p>
               </div>
               <div class="list-item">
                 <span class="bullet" />
@@ -49,9 +49,9 @@
                 <p>Mobile wallet app</p>
               </div>
             </div>
-            <div class="cta mt-8">
+            <!-- <div class="cta mt-9 tm-measure-narrow">
               <tm-email-wizard />
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -64,9 +64,16 @@ export default {}
 </script>
 
 <style lang="stylus" scoped>
-.left
-.right
+.column
   grid-column 1/-1
+  @media $breakpoint-medium
+    grid-column span 4
+  &:not(:first-child)
+    margin-top 12rem
+    @media $breakpoint-small
+      margin-top var(--spacing-7)
+    @media $breakpoint-medium
+      margin-top 0
 
 .list-item
   display grid
@@ -86,6 +93,11 @@ export default {}
 .list-item + .list-item
   margin-top var(--spacing-6)
 
+.title
+  text-align center
+  @media $breakpoint-medium
+    text-align left
+
 .title-ephemeris
   width 100%
   position relative
@@ -93,7 +105,13 @@ export default {}
   flex-direction column
   align-items center
   justify-content center
-  margin-top 20%
+  margin-top 50%
+  @media $breakpoint-small
+    margin 35% 0
+  @media $breakpoint-medium
+    margin 19% 0
+  @media $breakpoint-xl
+    margin 22% 0
 
 .ephemerides
   position absolute
@@ -103,23 +121,32 @@ export default {}
   display flex
   align-items center
   justify-content center
+  @media $breakpoint-xl
+    margin-left -3.5rem
 
 .ephemeris-1
   position absolute
   transform rotate(143deg)
-  width 50%
+  width 61%
   animation ephemeris-1 8s $ease-out infinite
+  @media $breakpoint-medium
+    width 51%
 
 .ephemeris-2
   position absolute
   transform rotate(150deg)
-  width 65%
+  width 80%
   animation ephemeris-2 8s $ease-out infinite
+  @media $breakpoint-medium
+    width 69%
 
 .orb
   position absolute
-  width 100%
+  width 150%
+  max-width none
   // animation orb-1 4s ease-in-out infinite
+  @media $breakpoint-medium
+    width 122%
 
 @keyframes ephemeris-1
   0%
@@ -145,25 +172,6 @@ export default {}
 //   100%
 //     transform translateY(0%) rotate(0deg)
 
-@media $breakpoint-xsmall-only
-  .right
-    margin-top var(--spacing-7)
-
-  .title-ephemeris
-    margin 50% 0
-
-@media $breakpoint-small
-  .right
-    margin-top var(--spacing-7)
-
-  .title-ephemeris
-    margin 35% 0
-
-@media $breakpoint-medium
-  .title-ephemeris
-    margin 30% 0
-
-// @media $breakpoint-large
 @media $breakpoint-xl
   .left
     grid-column 1/span 7

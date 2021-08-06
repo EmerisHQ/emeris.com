@@ -1,68 +1,107 @@
 <template>
   <main>
-    <div class="fixed-container z-max">
-      <tm-button
-        to-link="external"
-        href="https://app.emeris.com"
-        size="l"
-        border-color="var(--primary)"
-        :variant="isVisible ? 'outlined' : 'contained'"
-        glow
-        class="btn"
-        >Launch app <span class="icon__right">&#8594;</span></tm-button
-      >
+    <div ref="button" class="fixed-container">
+      <transition name="fade">
+        <!-- <tm-button
+          v-if="show"
+          to-link="external"
+          :href="getUtmParams('https://app.emeris.com')"
+          size="m"
+          border-color="var(--primary)"
+          variant="outlined"
+          glow
+          class="btn"
+          >Launch app &#8594;</tm-button
+        > -->
+        <tm-email-wizard v-if="show" class="wizard" />
+      </transition>
+      <tm-cookie-banner />
     </div>
     <section-hero />
     <section-intro />
-    <section-trading />
-    <section-protocol />
+    <kinesis-container>
+      <section-trading />
+      <section-protocol />
+    </kinesis-container>
     <section-rates />
     <section-access />
-    <section-beta />
+    <!-- <section-beta /> -->
     <section-updates />
-    <section-cta />
+    <section-cta ref="cta" />
   </main>
 </template>
 
 <script>
+import { KinesisContainer } from 'vue-kinesis'
+
 export default {
+  components: {
+    KinesisContainer,
+  },
   data() {
     return {
       show: true,
-      isVisible: false,
+      currentUrl: this.$route.fullPath,
     }
   },
+
+  mounted() {
+    this.setupListener()
+  },
+
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.scrollHandler, false)
+  },
+
   methods: {
-    visibilityChanged(isVisible, entry) {
-      this.isVisible = isVisible
+    getUtmParams(link) {
+      this.currentUrl.includes('?') &&
+        (link += `?${this.currentUrl.split('?')[1]}`)
+      return link
+    },
+    scrollHandler() {
+      const ctaRect = this.$refs.cta.$el.getBoundingClientRect()
+      const ctaBottom = ctaRect.top + ctaRect.height - 70
+      const buttonTop = this.$refs.button.getBoundingClientRect().top
+      if (ctaBottom <= buttonTop) {
+        this.show = false
+      } else {
+        this.show = true
+      }
+    },
+
+    setupListener() {
+      window.addEventListener('scroll', this.scrollHandler, false)
     },
   },
 }
 </script>
 
 <style lang="stylus" scoped>
-@media $breakpoint-xsmall-only
-  .fixed-container
-    position fixed
-    bottom 2rem
-    left 0
-    width 100%
-    text-align center
+.fade-enter-active
+.fade-leave-active
+  transition opacity .5s
 
-@media $breakpoint-small
-  .fixed-container
-    position fixed
-    bottom 2rem
-    left 0
-    width 100%
-    text-align center
+.fade-enter
+.fade-leave-to
+  opacity 0
 
-@media $breakpoint-medium
-  .fixed-container
-    left unset
-    bottom 7.9375rem
-    right 5rem
-    text-align right
+.fixed-container
+  position fixed
+  z-index 10
+  bottom 0
+  left var(--wrap-gap)
+  right var(--wrap-gap)
+  @media $breakpoint-medium
+    bottom var(--spacing-10)
+    left auto
+  .btn
+  .wizard
+    width 100%
+    margin-bottom var(--wrap-gap)
+    @media $breakpoint-medium
+      width 300px
+      margin-bottom 0
 
 // @media $breakpoint-large
 // @media $breakpoint-xl

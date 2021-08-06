@@ -9,7 +9,7 @@
               href="https://www.cookiesandyou.com"
               target="_blank"
               rel="noopener"
-              style="color: var(--link)"
+              style="color: var(--secondary)"
               >Cookie Policy</a
             >.
           </div>
@@ -115,19 +115,34 @@ export default {
   box-sizing border-box
   box-shadow 0px 24px 40px rgba(22, 25, 49, 0.1),
     0px 10px 16px rgba(22, 25, 49, 0.08), 0px 1px 0px rgba(22, 25, 49, 0.05)
-  position fixed
-  top 1rem
-  left 50%
-  transform translateX(-50%)
+  margin-left calc(var(--wrap-gap) * -1)
+  margin-right calc(var(--wrap-gap) * -1)
   background var(--fg)
   border-width 0.0625rem
   border-style solid
   border-color transparent
   border-image initial
-  border-radius $border-radius-3
+  @media $breakpoint-medium
+    position fixed
+    bottom var(--spacing-10)
+    left var(--wrap-gap)
+    border-radius $border-radius-3
+    margin-left 0
+    margin-right 0
+  @media $breakpoint-large
+    left 50%
+    transform translateX(-50%)
 
 .wrapper
   display flex
+  @media $breakpoint-small
+    align-items center
+    justify-content center
+  @media $breakpoint-medium
+    height 2.9rem
+    margin-left -1px
+    margin-top -1px
+    margin-bottom -2px
 
 .message
   color var(--muted)
@@ -163,8 +178,8 @@ export default {
   stroke var(--white)
   transition stroke 0.2s
 
-@media screen and (max-width: 435px)
-  .banner-wrapper
-    white-space normal
-    width 90%
+// @media screen and (max-width: 435px)
+//   .banner-wrapper
+//     white-space normal
+//     width auto
 </style>

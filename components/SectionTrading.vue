@@ -6,7 +6,9 @@
           <h2 class="tm-rf4 tm-bold tm-serif title">
             Discover<br />instant<br />cross-chain<br />trading
           </h2>
-          <p class="tm-rf0 tm-rf1-l-up tm-lh-copy mt-7 tm-text">
+          <p
+            class="tm-rf0 tm-rf1-l-up tm-lh-copy mt-7 tm-text tm-measure-narrow"
+          >
             Emeris beta connects you to the best cross&#8209;chain DeFi
             protocols, starting with&nbsp;Gravity DEX.
           </p>
@@ -77,7 +79,7 @@ export default {}
   &-item
     position relative
     display flex
-    margin-top var(--spacing-8)
+    margin-top var(--spacing-7)
     @media $breakpoint-xl
       margin-top var(--spacing-6)
     &:first-child
