@@ -1,9 +1,5 @@
 ---
-<<<<<<< HEAD
 index: 11
-=======
-index: 4
->>>>>>> 81155e8275b46a46f5bae9a96d528f613a94c44d
 title: What Is Impermanent Loss?
 tags: 
   - liquidity

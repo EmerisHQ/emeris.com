@@ -1,9 +1,5 @@
 ---
-<<<<<<< HEAD
 index: 99
-=======
-index: 10
->>>>>>> 81155e8275b46a46f5bae9a96d528f613a94c44d
 title: How do I check my transaction status, details, and history?
 tags: 
   - getting-start

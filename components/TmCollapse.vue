@@ -109,29 +109,19 @@ export default {
 .tm-collapse-item--header
   display: block
   width 100%
-<<<<<<< HEAD
   max-width 24rem
-=======
->>>>>>> 81155e8275b46a46f5bae9a96d528f613a94c44d
   padding-left 2.5rem
   position relative
   transition: all .25s ease
   &:hover
   &:focus
-<<<<<<< HEAD
     color var(--white)
-=======
->>>>>>> 81155e8275b46a46f5bae9a96d528f613a94c44d
     .tm-collapse-item--icon-header
       fill var(--secondary)
 
 .tm-collapse-item--icon-header
   position: absolute
-<<<<<<< HEAD
   top: .96rem
-=======
-  top: 50%
->>>>>>> 81155e8275b46a46f5bae9a96d528f613a94c44d
   left .5rem
   margin-top -.5rem
   transition: transform .25s ease
@@ -144,10 +134,7 @@ export default {
   padding-left 2.5rem
 
 .con-content--item
-<<<<<<< HEAD
   max-width 24rem
-=======
->>>>>>> 81155e8275b46a46f5bae9a96d528f613a94c44d
   padding-top 1rem
   opacity .2
   transition: all .25s ease

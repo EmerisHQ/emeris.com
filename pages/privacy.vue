@@ -1,29 +1,17 @@
 <template>
   <article>
-<<<<<<< HEAD
     <div class="tm-section mt-11">
-=======
-    <div class="tm-section">
->>>>>>> 81155e8275b46a46f5bae9a96d528f613a94c44d
       <div class="tm-wrapper">
         <div class="tm-container">
           <div class="main tm-center tm-measure">
             <h1 class="title tm-rf4 tm-bold tm-lh-title tm-title tm-serif">
               {{ article.title }}
             </h1>
-<<<<<<< HEAD
             <p class="mt-5 tm-muted tm-lh-copy tm-rf0">
               Last updated {{ formatDate(article.updatedAt) }}
             </p>
 
             <div class="markdown mt-9 tm-lh-copy tm-rf1">
-=======
-            <p class="mt-5 tm-muted tm-copy tm-rf0">
-              Last updated on {{ formatDate(article.updatedAt) }}
-            </p>
-
-            <div class="markdown mt-9 tm-copy tm-rf1">
->>>>>>> 81155e8275b46a46f5bae9a96d528f613a94c44d
               <nuxt-content :document="article" />
             </div>
           </div>

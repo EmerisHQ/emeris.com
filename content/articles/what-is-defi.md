@@ -5,11 +5,7 @@ tags:
   - defi
 ---
 
-<<<<<<< HEAD
 DeFi, as you probably already know by now, is the short name for “decentralized finance.” This covers a wide variety of financial applications and services that use distributed ledger technology and smart contracts to remove centralized parties from all transactions.
-=======
-DeFi, as you probably already know by now, is the short name for “decentralized finance.” This covera wide variety of financial applications and services that use distributed ledger technology and smart contracts to remove centralized parties from all transactions.
->>>>>>> 81155e8275b46a46f5bae9a96d528f613a94c44d
 
 You can think of DeFi as an alternative financial system to the legacy system of banks, exchanges, insurance companies, mortgage providers, etc., but reimagined from the ground up with no intermediaries in the middle. Unlike traditional finance, with no gatekeepers to turn down your application, DeFi lowers the barrier to entry, allowing more people to access financial services, take out a collateralized loan, or earn a yield on their assets.
 
@@ -21,8 +17,4 @@ DeFi may have started out as a way to democratize financial services, but it's g
 
 Cosmos aims to democratize DeFi once again and allow for its sustainable development through Emeris integrated with the Gravity DEX and the upcoming Gravity Bridge that will connect to Ethereum and allow for batched transactions and liquidity to flow back and forth from Ethereum to Cosmos.
 
-<<<<<<< HEAD
 This will slash gas costs and enrich the DeFi ecosystem on both sides of the bridge, turning Gravity DEX into a vast marketplace of digital assets, and enabling retail traders to place small transactions with Emeris and manage all their assets cross-chain with minimal fees.
-=======
-This will slash gas costs and enrich the DeFi ecosystem on both sides of the bridge, turning Gravity DEX into a vast marketplace of digital assets, and enabling retail traders to place small transactions with Emeris and manage all their assets cross-chain with minimal fees.
->>>>>>> 81155e8275b46a46f5bae9a96d528f613a94c44d

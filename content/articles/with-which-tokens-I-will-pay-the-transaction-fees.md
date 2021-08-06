@@ -1,9 +1,5 @@
 ---
-<<<<<<< HEAD
 index: 99
-=======
-index: 11
->>>>>>> 81155e8275b46a46f5bae9a96d528f613a94c44d
 title: With which tokens I'll pay the transaction fees?
 tags: 
   - getting-start

@@ -1,9 +1,5 @@
 ---
-<<<<<<< HEAD
 index: 99
-=======
-index: 13
->>>>>>> 81155e8275b46a46f5bae9a96d528f613a94c44d
 title: What would happen if my IBC transaction was unsuccessful?
 tags: 
   - getting-start

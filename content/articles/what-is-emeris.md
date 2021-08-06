@@ -1,12 +1,7 @@
 ---
-<<<<<<< HEAD
 index: 99
 title: What Is Emeris?
 description: The basics
-=======
-index: 1
-title: What Is Emeris?
->>>>>>> 81155e8275b46a46f5bae9a96d528f613a94c44d
 tags: 
   - emeris
 ---

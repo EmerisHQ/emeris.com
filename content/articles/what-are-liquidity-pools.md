@@ -1,9 +1,5 @@
 ---
-<<<<<<< HEAD
 index: 9
-=======
-index: 1
->>>>>>> 81155e8275b46a46f5bae9a96d528f613a94c44d
 title: What Are Liquidity Pools?
 tags: 
   - liquidity

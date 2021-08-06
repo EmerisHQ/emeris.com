@@ -1,9 +1,5 @@
 ---
-<<<<<<< HEAD
 index: 8
-=======
-index: 4
->>>>>>> 81155e8275b46a46f5bae9a96d528f613a94c44d
 title: What is Yield Farming
 tags: 
   - general
