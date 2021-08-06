@@ -1,7 +1,12 @@
 ---
+<<<<<<< HEAD
 index: 99
 title: Key Benefits of Emeris
 description: Using Emeris
+=======
+index: 2
+title: Key Benefits of Emeris
+>>>>>>> 81155e8275b46a46f5bae9a96d528f613a94c44d
 tags: 
   - emeris
 ---

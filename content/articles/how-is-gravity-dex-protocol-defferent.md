@@ -1,6 +1,11 @@
 ---
+<<<<<<< HEAD
 index: 5
 title: How Is the Gravity DEX Protocol Different?
+=======
+index: 2
+title: How Is Gravity DEX Protocol Different?
+>>>>>>> 81155e8275b46a46f5bae9a96d528f613a94c44d
 tags: 
   - defi
 ---

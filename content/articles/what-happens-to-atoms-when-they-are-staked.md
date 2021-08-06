@@ -1,5 +1,9 @@
 ---
+<<<<<<< HEAD
 index: 99
+=======
+index: 9
+>>>>>>> 81155e8275b46a46f5bae9a96d528f613a94c44d
 title: What happens to ATOM when they are staked?
 description: When users stake ATOM, they effectively lock them up for an indefinite period of time.
 alt: Article 10

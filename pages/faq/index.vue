@@ -1,0 +1,371 @@
+<template>
+  <main>
+    <div class="tm-section">
+      <div class="tm-wrapper tm-container-narrow">
+        <h1
+          class="
+            title
+            tm-rf6
+            tm-rf5-m-up
+            tm-bold
+            tm-lh-title
+            tm-measure-narrower
+            tm-title
+            tm-serif
+          "
+        >
+          Get support<br />with Emeris
+        </h1>
+        <img src="~/assets/images/elements/surfer-faq.png" class="surfer" />
+
+        <div class="header-bottom tm-grid-base">
+          <div class="column-emeris">
+            <div class="emeris mt-10">
+              <div class="emeris-inner">
+                <div class="tm-muted">Introduction to Emeris</div>
+                <div
+                  v-for="item in articles.emeris"
+                  :key="item.title"
+                  class="mt-1"
+                >
+                  <tm-link
+                    :href="`/faq/${item.slug}`"
+                    class="btn tm-rf0 tm-bold tm-title tm-link-disclosure"
+                  >
+                    {{ item.title }}
+                  </tm-link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column-defi">
+            <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title mt-10">
+              Introduction to Defi
+            </h3>
+
+            <div class="tm-grid-base">
+              <div class="general-column">
+                <div v-for="(item, index) in articles.defi" :key="item.title">
+                  <div v-if="index <= 4" class="mt-7">
+                    <tm-link
+                      :href="`/faq/${item.slug}`"
+                      class="btn tm-rf0 tm-muted tm-link-disclosure"
+                    >
+                      {{ item.title }}
+                    </tm-link>
+                  </div>
+                </div>
+              </div>
+              <div class="general-column">
+                <div v-for="(item, index) in articles.defi" :key="item.title">
+                  <div v-if="index > 4" class="mt-7">
+                    <tm-link
+                      :href="`/faq/${item.slug}`"
+                      class="btn tm-rf0 tm-muted tm-link-disclosure"
+                    >
+                      {{ item.title }}
+                    </tm-link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <graphics-faq-hero class="graphics z-0" /> -->
+    </div>
+
+    <div class="tm-section">
+      <div class="tm-wrapper tm-container-narrow">
+        <h2 class="tm-rf3 tm-bold tm-lh-copy tm-title tm-serif">
+          Frequently asked<br />questions
+        </h2>
+
+        <div class="tm-grid-base">
+          <div class="general-column mt-9">
+            <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title">Emeris Beta</h3>
+            <div class="mt-7">
+              <tm-collapse accordion>
+                <div v-for="item in articles.gettingStart" :key="item.title">
+                  <tm-collapse-item>
+                    <div slot="header">{{ item.title }}</div>
+                    <nuxt-content :document="item" />
+                  </tm-collapse-item>
+                </div>
+              </tm-collapse>
+            </div>
+          </div>
+
+          <div class="general-column mt-9">
+            <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title">Swap</h3>
+            <div class="mt-7">
+              <tm-collapse accordion>
+                <div v-for="item in articles.swap" :key="item.title">
+                  <tm-collapse-item>
+                    <div slot="header">{{ item.title }}</div>
+                    <nuxt-content :document="item" />
+                  </tm-collapse-item>
+                </div>
+              </tm-collapse>
+            </div>
+
+            <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title mt-8">
+              Provide liquidity
+            </h3>
+            <div class="mt-7">
+              <tm-collapse accordion>
+                <div v-for="item in articles.liquidity" :key="item.title">
+                  <tm-collapse-item>
+                    <div slot="header">{{ item.title }}</div>
+                    <nuxt-content :document="item" />
+                  </tm-collapse-item>
+                </div>
+              </tm-collapse>
+            </div>
+
+            <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title mt-8">Farming</h3>
+            <div class="mt-7">
+              <tm-collapse accordion>
+                <div v-for="item in articles.general" :key="item.title">
+                  <tm-collapse-item>
+                    <div slot="header">{{ item.title }}</div>
+                    <nuxt-content :document="item" />
+                  </tm-collapse-item>
+                </div>
+              </tm-collapse>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-9">
+          <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title">General questions</h3>
+          <div class="mt-7">
+            <tm-collapse accordion>
+              <div class="tm-grid-base">
+                <div class="general-column">
+                  <div v-for="item in articles.general" :key="item.title">
+                    <tm-collapse-item v-if="item.index <= 7">
+                      <div slot="header">{{ item.title }}</div>
+                      <nuxt-content :document="item" />
+                    </tm-collapse-item>
+                  </div>
+                </div>
+                <div class="general-column">
+                  <div v-for="item in articles.general" :key="item.title">
+                    <tm-collapse-item v-if="item.index > 7">
+                      <div slot="header">{{ item.title }}</div>
+                      <nuxt-content :document="item" />
+                    </tm-collapse-item>
+                  </div>
+                </div>
+              </div>
+            </tm-collapse>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tm-section">
+      <div class="tm-wrapper tm-container-narrow">
+        <!-- <h2 class="tm-title tm-rf3 tm-bold tm-serif">Get in touch</h2> -->
+        <!-- <div class="mt-9"></div> -->
+        <tm-cta-cards :data="ctas" />
+      </div>
+    </div>
+  </main>
+</template>
+
+<script>
+import TmCollapse from '~/components/TmCollapse.vue'
+import TmCollapseItem from '~/components/TmCollapseItem.vue'
+
+export default {
+  components: {
+    TmCollapse,
+    TmCollapseItem,
+  },
+  async asyncData({ $content, params }) {
+    const content = await $content('articles', params.slug)
+      .sortBy('index', 'asc')
+      .fetch()
+
+    const defi = content.filter((item) => item.tags.includes('defi'))
+    const emeris = content.filter((item) => item.tags.includes('emeris'))
+    const gettingStart = content.filter((item) =>
+      item.tags.includes('getting-start')
+    )
+    const swap = content.filter((item) => item.tags.includes('swap'))
+    const liquidity = content.filter((item) => item.tags.includes('liquidity'))
+    const farming = content.filter((item) => item.tags.includes('farming'))
+    const general = content.filter((item) => item.tags.includes('general'))
+
+    const articles = {
+      defi,
+      emeris,
+      gettingStart,
+      swap,
+      liquidity,
+      farming,
+      general,
+    }
+
+    return {
+      articles,
+    }
+  },
+  data() {
+    return {
+      ctas: [
+        {
+          href: 'https://t.me/EmerisHQ',
+          overline: 'Telegram',
+          title: 'Community support️',
+          variant: 'gradient',
+          graphics: 'graphics-cta-telegram',
+          grafics: '~/assets/images/elements/tg-background.png',
+        },
+        // {
+        //   href: 'https://discord.com/invite/vcExX9T',
+        //   overline: 'Contact us',
+        //   title: 'Developer integrations',
+        //   variant: 'outlined',
+        //   graphics: 'graphics-cta-developers',
+        //   grafics: '~/assets/images/elements/cu-background.jpg',
+        // },
+      ],
+    }
+  },
+  head() {
+    return {
+      title: 'FAQ',
+    }
+  },
+}
+</script>
+
+<style lang="stylus" scoped>
+.section-hero
+  text-align left
+  position relative
+
+.section-hero .text
+  grid-column span 4
+
+.section-hero .graphics
+  position unset
+  height 100%
+  width 170%
+  margin-top -20%
+  margin-left 0%
+  margin-bottom -90%
+  overflow visible
+
+// Content
+.content
+  grid-column span 4
+
+.item + .item
+  margin-top var(--spacing-8)
+
+@media $breakpoint-medium
+  // Hero
+  .section-hero .text
+    grid-column span 8
+
+  // Content
+  .content
+    grid-column span 8
+
+@media $breakpoint-xl
+  // Hero
+  .section-hero .text
+    grid-column 6/ 12
+
+  .section-hero .graphics
+    position absolute
+    top 0
+    height auto
+    width auto
+    margin 0
+
+  // Content
+  .content
+    grid-column 6/ 12
+
+.header-bottom
+  @media $breakpoint-large
+    grid-template-columns repeat(3, 1fr)
+    grid-template-areas "defi defi emeris"
+
+.column-emeris
+  grid-column 1 / -1
+  position relative
+  z-index 1
+  @media $breakpoint-large
+    grid-area emeris
+    display flex
+    align-items flex-end
+
+.column-defi
+  grid-column 1 / -1
+  @media $breakpoint-large
+    grid-area defi
+
+.general-column
+  grid-column 1 / -1
+  @media $breakpoint-medium
+    grid-column span 4
+  @media $breakpoint-xl
+    grid-column span 6
+
+.emeris
+  position relative
+  width 100%
+  padding var(--spacing-7)
+  border 0.0625rem solid transparent
+  background-color var(--bg)
+  background-clip padding-box
+  border-radius 10px
+  @media $breakpoint-medium
+    max-width calc(var(--font-size-5) * 7.25)
+  @media $breakpoint-large
+    display flex
+    flex-direction column
+    align-items flex-end
+    justify-content flex-end
+    min-height 18rem
+    max-width none
+  &:before
+    content ''
+    position absolute
+    z-index -1
+    trbl 0
+    border 0
+    border-radius inherit
+    margin -0.0625rem
+    background linear-gradient(280.46deg, #FFF0CA 12.71%, #D3AD5F 33.34%, #FFECC4 41.61%, #997736 59.2%, #FFF2C0 77.69%, #CEA851 97.39%)
+
+.emeris-inner
+  width 100%
+
+.surfer
+  position absolute
+  top 0
+  right 0
+  width 109vw
+  max-width 41rem
+  transform translate(42%, -9.5rem)
+  @media $breakpoint-medium
+    right 22%
+    transform translate(50%, -6.3rem)
+
+.title
+  max-width 15rem
+  margin-top var(--spacing-12)
+  @media $breakpoint-small
+    margin-top var(--spacing-6)
+  @media $breakpoint-medium
+    max-width 40rem
+    margin-top 0
+</style>

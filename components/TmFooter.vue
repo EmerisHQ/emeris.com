@@ -12,6 +12,7 @@
             <span class="sr-only">Emeris</span>
           </nuxt-link>
           <span class="divider" />
+<<<<<<< HEAD
           <tm-link
             :href="getUtmParams('/support')"
             class="tm-rf0 tm-rf-1-m link-item tm-muted"
@@ -23,6 +24,14 @@
           >
             Privacy
           </tm-link>
+=======
+          <tm-link href="/privacy" class="link-item tm-muted">Privacy</tm-link>
+          <!-- <tm-link
+            href="https://v1.cosmos.network/privacy"
+            class="link-item tm-muted"
+            >Terms of use</tm-link
+          > -->
+>>>>>>> 81155e8275b46a46f5bae9a96d528f613a94c44d
           <tm-link
             :href="getUtmParams('/terms')"
             class="tm-rf0 tm-rf-1-m link-item tm-muted"

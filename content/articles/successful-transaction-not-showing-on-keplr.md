@@ -1,5 +1,9 @@
 ---
+<<<<<<< HEAD
 index: 99
+=======
+index: 8
+>>>>>>> 81155e8275b46a46f5bae9a96d528f613a94c44d
 title: Successful Transaction not showing on Keplr
 tags: 
   - general

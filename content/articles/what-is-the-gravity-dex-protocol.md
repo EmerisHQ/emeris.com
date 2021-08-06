@@ -1,5 +1,9 @@
 ---
+<<<<<<< HEAD
 index: 4
+=======
+index: 2
+>>>>>>> 81155e8275b46a46f5bae9a96d528f613a94c44d
 title: What Is the Gravity DEX Protocol?
 tags: 
   - defi
