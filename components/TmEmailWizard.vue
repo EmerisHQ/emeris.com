@@ -27,6 +27,7 @@
           <div v-show="step === 1" ref="step1" key="step1">
             <div class="form-wrapper__action">
               <form
+                id="signUp"
                 :action="url"
                 method="POST"
                 target="_blank"
