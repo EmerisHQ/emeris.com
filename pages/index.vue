@@ -2,7 +2,7 @@
   <main>
     <div ref="button" class="fixed-container">
       <transition name="fade">
-        <!-- <tm-button
+        <tm-button
           v-if="show"
           to-link="external"
           :href="getUtmParams('https://app.emeris.com')"
@@ -12,8 +12,7 @@
           glow
           class="btn"
           >Launch app &#8594;</tm-button
-        > -->
-        <tm-email-wizard v-if="show" class="wizard" />
+        >
       </transition>
       <tm-cookie-banner />
     </div>
@@ -25,7 +24,7 @@
     </kinesis-container>
     <section-rates />
     <section-access />
-    <!-- <section-beta /> -->
+    <section-beta />
     <section-updates />
     <section-cta ref="cta" />
   </main>
@@ -100,7 +99,6 @@ export default {
     width 100%
     margin-bottom var(--wrap-gap)
     @media $breakpoint-medium
-      width 300px
       margin-bottom 0
 
 // @media $breakpoint-large
