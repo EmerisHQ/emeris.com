@@ -357,8 +357,8 @@ export default {
   max-width 41rem
   transform translate(42%, -9.5rem)
   @media $breakpoint-medium
-    right 22%
-    transform translate(50%, -6.3rem)
+    right 20%
+    transform translate(50%, 0)
 
 .title
   max-width 15rem

@@ -2,7 +2,6 @@
 index: 5
 title: What is the mnemonic/seed phrase, why is it so important, and how should it be kept?
 tags: 
-  - general
   - defi
 ---
 

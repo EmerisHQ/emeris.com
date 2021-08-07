@@ -2,7 +2,6 @@
 index: 8
 title: What is Yield Farming
 tags: 
-  - general
   - defi
 ---
 

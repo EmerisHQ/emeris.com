@@ -1,5 +1,5 @@
 ---
-index: 99
+index: 13
 title: How do I check my transaction status, details, and history?
 tags: 
   - getting-start

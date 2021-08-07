@@ -1,5 +1,5 @@
 ---
-index: 99
+index: 5
 title: Does Emeris beta support Ledger?
 tags: 
   - getting-start

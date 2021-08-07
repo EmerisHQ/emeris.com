@@ -121,7 +121,7 @@ export default {
 
 .tm-collapse-item--icon-header
   position: absolute
-  top: .96rem
+  top: .77rem
   left .5rem
   margin-top -.5rem
   transition: transform .25s ease

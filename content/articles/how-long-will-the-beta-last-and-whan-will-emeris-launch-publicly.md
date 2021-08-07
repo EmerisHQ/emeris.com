@@ -1,5 +1,5 @@
 ---
-index: 99
+index: 2
 title: How long will the Beta last and when will Emeris launch publicly?
 tags: 
   - getting-start

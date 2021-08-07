@@ -2,7 +2,6 @@
 index: 7
 title: What is APY
 tags: 
-  - general
   - defi
 ---
 

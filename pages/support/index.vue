@@ -27,7 +27,7 @@
             <div class="tm-grid-base">
               <div class="general-column">
                 <div v-for="(item, index) in articles.defi" :key="item.title">
-                  <div v-if="index <= 5" class="mt-5">
+                  <div v-if="index <= 5" class="mt-5 item-link">
                     <tm-link
                       :href="`/support/${item.slug}`"
                       class="btn tm-rf0 tm-muted tm-link-disclosure"
@@ -53,17 +53,17 @@
           </div>
         </div>
 
-        <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title mt-10 mb-2">
+        <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title mt-10 mb-3">
           Introduction to Emeris
         </h3>
 
-        <div class="tm-grid-base">
+        <div class="tm-grid-base mb-4">
           <div
             v-for="item in articles.emeris"
             :key="item.title"
             class="general-column"
           >
-            <div class="emeris mt-5">
+            <div class="emeris mt-6">
               <div class="emeris-inner">
                 <div class="tm-muted">{{ item.description }}</div>
                 <div class="mt-1">
@@ -82,7 +82,7 @@
         <div class="tm-grid-base">
           <div class="general-column">
             <div v-for="(item, index) in articles.emerisMain" :key="item.title">
-              <div v-if="index <= 5" class="mt-5">
+              <div v-if="index <= 3" class="mt-5 item-link">
                 <tm-link
                   :href="`/support/${item.slug}`"
                   class="btn tm-rf0 tm-muted tm-link-disclosure"
@@ -93,8 +93,8 @@
             </div>
           </div>
           <div class="general-column">
-            <div v-for="(item, index) in articles.defi" :key="item.title">
-              <div v-if="index > 5" class="mt-5 item-link">
+            <div v-for="(item, index) in articles.emerisMain" :key="item.title">
+              <div v-if="index > 3" class="mt-5 item-link">
                 <tm-link
                   :href="`/support/${item.slug}`"
                   class="btn tm-rf0 tm-muted tm-link-disclosure"
@@ -130,7 +130,19 @@
           </div>
 
           <div class="general-column mt-9">
-            <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title">Swap</h3>
+            <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title">Farming</h3>
+            <div class="mt-5">
+              <tm-collapse accordion>
+                <div v-for="item in articles.general" :key="item.title">
+                  <tm-collapse-item>
+                    <div slot="header">{{ item.title }}</div>
+                    <nuxt-content :document="item" />
+                  </tm-collapse-item>
+                </div>
+              </tm-collapse>
+            </div>
+
+            <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title mt-8">Swap</h3>
             <div class="mt-5">
               <tm-collapse accordion>
                 <div v-for="item in articles.swap" :key="item.title">
@@ -156,10 +168,10 @@
               </tm-collapse>
             </div>
 
-            <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title mt-8">Farming</h3>
+            <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title mt-9">Moonpay</h3>
             <div class="mt-5">
               <tm-collapse accordion>
-                <div v-for="item in articles.general" :key="item.title">
+                <div v-for="item in articles.moonpay" :key="item.title">
                   <tm-collapse-item>
                     <div slot="header">{{ item.title }}</div>
                     <nuxt-content :document="item" />
@@ -200,6 +212,31 @@
 
     <div class="tm-section">
       <div class="tm-wrapper tm-container-narrow">
+        <h2 class="tm-rf3 tm-bold tm-lh-copy tm-title tm-serif">
+          Common issues
+        </h2>
+
+        <div class="mt-5">
+          <div class="tm-grid-base">
+            <div class="general-column">
+              <div v-for="item in articles.common" :key="item.title">
+                <div class="mt-5 item-link">
+                  <tm-link
+                    :href="`/support/${item.slug}`"
+                    class="btn tm-rf0 tm-muted tm-link-disclosure"
+                  >
+                    {{ item.title }}
+                  </tm-link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tm-section">
+      <div class="tm-wrapper tm-container-narrow">
         <!-- <h2 class="tm-title tm-rf3 tm-bold tm-serif">Get in touch</h2> -->
         <!-- <div class="mt-9"></div> -->
         <tm-cta-cards :data="ctas" />
@@ -233,7 +270,9 @@ export default {
     const swap = content.filter((item) => item.tags.includes('swap'))
     const liquidity = content.filter((item) => item.tags.includes('liquidity'))
     const farming = content.filter((item) => item.tags.includes('farming'))
+    const moonpay = content.filter((item) => item.tags.includes('moonpay'))
     const general = content.filter((item) => item.tags.includes('general'))
+    const common = content.filter((item) => item.tags.includes('common'))
 
     const articles = {
       defi,
@@ -243,7 +282,9 @@ export default {
       swap,
       liquidity,
       farming,
+      moonpay,
       general,
+      common,
     }
 
     return {

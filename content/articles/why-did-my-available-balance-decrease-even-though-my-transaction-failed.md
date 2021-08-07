@@ -1,8 +1,8 @@
 ---
-index: 99
+index: 1
 title: Why did my available balance decrease even though my transaction failed?
 tags: 
-  - general
+  - common
 ---
 
 Most standard transactions that fail do so because the fees you select are too low and do not cover the fees required by the chain or the validator that processes it.

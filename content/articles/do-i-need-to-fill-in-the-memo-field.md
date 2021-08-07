@@ -1,5 +1,5 @@
 ---
-index: 99
+index: 3
 title: Do I need to fill in the 'memo' field?
 tags: 
   - general

@@ -1,8 +1,7 @@
 ---
 index: 6
-title: What is swap?
+title: What is a Swap?
 tags: 
-  - swap
   - defi
 ---
 

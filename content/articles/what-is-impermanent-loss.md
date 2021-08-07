@@ -2,7 +2,6 @@
 index: 11
 title: What Is Impermanent Loss?
 tags: 
-  - liquidity
   - defi
 ---
 
@@ -10,4 +9,4 @@ Impermanent loss happens after providing liquidity to a liquidity pool when the 
 
 So, if you are losing money that won't be returned, why is it called “impermanent”? Because there is always the possibility that the price of the assets returns to its original state and your loss disappears. However, keep in mind that this is rare and that most often impermanent loss results in a permanent loss.
 
-Just like providing liquidity on any decentralized exchange, there is a possibility of experiencing impermanent loss on Gravity DEX.
+Just like providing liquidity on any decentralized exchange, there is a possibility of experiencing impermanent loss on the Gravity DEX protocol.

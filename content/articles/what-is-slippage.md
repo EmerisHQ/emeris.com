@@ -1,5 +1,5 @@
 ---
-index: 99
+index: 9
 title: What is slippage?
 tags: 
   - swap
