@@ -236,6 +236,7 @@ a.btn
   top 40%
   left 50%
   transform translate(-66%, 0%) rotate(14deg)
+  animation hero-hand 4s ease-in-out infinite
   @media $breakpoint-medium
     width 62vw
     top 66%
@@ -371,6 +372,12 @@ a.btn
     transform translateX(-50%) translateY(0%) scale(1)
   50%
     transform translateX(-50%) translateY(-12%) scale(.98)
+
+@keyframes hero-hand
+  0%, 100%
+    transform translate(-66%, 0%) rotate(14deg)
+  50%
+    transform translate(-66%, -2%) rotate(16deg)
 
 // @media $breakpoint-small
 // @media $breakpoint-medium

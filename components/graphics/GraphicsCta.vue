@@ -42,7 +42,7 @@
 
 @keyframes surfer-levitate
   0%, 100%
-    transform translate(-50%, 5%)
+    transform translate(-50%, 5%) rotate(4deg)
   50%
     transform translate(-50%, -3%)
 
