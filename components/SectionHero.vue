@@ -43,7 +43,7 @@
             tm-rf-1 tm-rf1-m-up tm-medium tm-lh-title tm-overline tm-muted
           "
         >
-          Coming soon
+          Coming Aug 17
         </p>
       </div>
     </div>
