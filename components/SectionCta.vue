@@ -14,11 +14,11 @@
             variant="outlined"
             glow
             class="btn"
-            >Get started &#8594;</tm-button
+            >Dive in &#8594;</tm-button
           >
         </div> -->
         <p class="mt-6 tm-rf1 tm-medium tm-lh-title tm-overline tm-muted">
-          Coming soon
+          Coming Aug 17, 2PM UTC
         </p>
       </div>
     </div>
