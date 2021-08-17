@@ -37,14 +37,6 @@
           <span class="tm-text-center">the power of</span>
           <span class="tm-text-right">cross-chain DeFi</span>
         </h1>
-        <p
-          class="
-            overline
-            tm-rf-1 tm-rf1-m-up tm-medium tm-lh-title tm-overline tm-muted
-          "
-        >
-          Coming soon
-        </p>
       </div>
     </div>
     <svg
@@ -320,13 +312,6 @@ a.btn
   @media $breakpoint-large
     left calc(52% + 18.5rem)
     transform translate(-50%, -16%)
-
-.overline
-  width 100%
-  max-width calc((1.401125rem + 3.7441666666666666vw) * 8)
-  @media $breakpoint-small
-    max-width none
-    text-align right
 
 .frame
   position absolute

@@ -14,8 +14,8 @@
               <div class="tm-rf2 tm-rf1-xl-up tm-bold tm-lh-title step-name">
                 Download Keplr
               </div>
-              <div class="tm-rf0 tm-lh-copy step-info">
-                For its beta version, Emeris requires you to use it.
+              <div class="tm-rf0 tm-lh-copy step-info tm-measure-narrower">
+                For its beta version,<br />Emeris requires you to use it.
               </div>
               <tm-button
                 variant="text"
@@ -32,7 +32,7 @@
               <div class="tm-rf2 tm-rf1-xl-up tm-bold tm-lh-title step-name">
                 Connect Keplr to Emeris
               </div>
-              <div class="tm-rf0 tm-lh-copy step-info">
+              <div class="tm-rf0 tm-lh-copy step-info tm-measure-narrower">
                 Go to the Emeris app and connect your Keplr wallet.
               </div>
               <tm-button
@@ -50,7 +50,7 @@
               <div class="tm-rf2 tm-rf1-xl-up tm-bold tm-lh-title step-name">
                 Experience cross-chain DeFi
               </div>
-              <div class="tm-rf0 tm-lh-copy step-info">
+              <div class="tm-rf0 tm-lh-copy step-info tm-measure-narrower">
                 Trade, swap, pool and visualize all your assets in one place.
               </div>
             </div>
@@ -58,7 +58,7 @@
         </div>
       </div>
       <div class="bottom">
-        <tm-link :href="getUtmParams('https://tutorials.cosmos.network')">
+        <tm-link href="https://medium.com/emeris-blog">
           <div class="wrapper">
             <icon-arrow-top-right-16 class="top-right" />
             <div class="logo-container">
@@ -69,10 +69,12 @@
               />
             </div>
             <div class="text">
-              <h2 class="tm-rf0 tm-lh-title tm-bold">New to DeFi?</h2>
+              <h2 class="tm-rf0 tm-lh-title tm-bold">
+                Follow the step-by-step guide
+              </h2>
               <p class="tm-rf-1 tm-lh-copy mt-2 tm-measure-narrow">
-                Don’t be afraid. Follow the simple tutorial to learn how to swap
-                your first coins.
+                Learn how to install and connect your wallet, deposit assets,
+                make your first swap and more.
               </p>
             </div>
           </div>
