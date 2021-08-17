@@ -17,17 +17,22 @@
             >Get started &#8594;</tm-button
           >
         </div>
-        <div class="tm-rf-1 tm-muted mt-4 center">Requires Google Chrome</div>
+        <div class="tm-rf-1 tm-muted mt-4 center">{{ appNotification }}</div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { isMobile } from 'mobile-device-detect'
+
 export default {
   data() {
     return {
       currentUrl: this.$route.fullPath,
+      appNotification: isMobile
+        ? 'Mobile not supported yet'
+        : 'Requires Google Chrome',
     }
   },
   methods: {
