@@ -17,6 +17,7 @@
             >Get started &#8594;</tm-button
           >
         </div>
+        <div class="tm-rf-1 tm-muted mt-4 center">Requires Google Chrome</div>
       </div>
     </div>
   </div>

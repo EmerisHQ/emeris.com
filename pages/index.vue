@@ -2,17 +2,19 @@
   <main>
     <div ref="button" class="fixed-container">
       <transition name="fade">
-        <tm-button
-          v-if="show"
-          to-link="external"
-          :href="getUtmParams('https://app.emeris.com')"
-          size="m"
-          border-color="var(--primary)"
-          variant="outlined"
-          glow
-          class="btn"
-          >Launch app &#8594;</tm-button
-        >
+        <div v-if="show">
+          <tm-button
+            to-link="external"
+            :href="getUtmParams('https://app.emeris.com')"
+            size="m"
+            border-color="var(--primary)"
+            variant="outlined"
+            glow
+            class="btn"
+            >Launch app &#8594;</tm-button
+          >
+          <div class="tm-rf-1 tm-muted mt-4 center">Requires Google Chrome</div>
+        </div>
       </transition>
       <tm-cookie-banner />
     </div>
@@ -60,9 +62,9 @@ export default {
     },
     scrollHandler() {
       const ctaRect = this.$refs.cta.$el.getBoundingClientRect()
-      const ctaBottom = ctaRect.top + ctaRect.height - 70
+      const ctaTop = ctaRect.top + 100
       const buttonTop = this.$refs.button.getBoundingClientRect().top
-      if (ctaBottom <= buttonTop) {
+      if (ctaTop <= buttonTop) {
         this.show = false
       } else {
         this.show = true
@@ -92,7 +94,7 @@ export default {
   left var(--wrap-gap)
   right var(--wrap-gap)
   @media $breakpoint-medium
-    bottom var(--spacing-10)
+    bottom var(--spacing-9)
     left auto
   .btn
   .wizard
@@ -100,6 +102,9 @@ export default {
     margin-bottom var(--wrap-gap)
     @media $breakpoint-medium
       margin-bottom 0
+
+.center
+  text-align center
 
 // @media $breakpoint-large
 // @media $breakpoint-xl
