@@ -4,6 +4,16 @@
       <transition name="fade">
         <div v-if="show">
           <tm-button
+            v-if="isMobile"
+            size="m"
+            variant="outlined"
+            glow
+            class="btn"
+            disabled
+            >Mobile not supported yet</tm-button
+          >
+          <tm-button
+            v-else
             to-link="external"
             :href="getUtmParams('https://app.emeris.com')"
             size="m"
@@ -45,8 +55,9 @@ export default {
       show: true,
       currentUrl: this.$route.fullPath,
       appNotification: isMobile
-        ? 'Mobile not supported yet'
+        ? 'Use the app on a desktop device'
         : 'Requires Google Chrome',
+      isMobile,
     }
   },
 
