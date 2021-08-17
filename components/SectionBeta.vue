@@ -58,7 +58,7 @@
         </div>
       </div>
       <div class="bottom">
-        <tm-link :href="getUtmParams('https://tutorials.cosmos.network')">
+        <tm-link href="https://medium.com/emeris-blog">
           <div class="wrapper">
             <icon-arrow-top-right-16 class="top-right" />
             <div class="logo-container">

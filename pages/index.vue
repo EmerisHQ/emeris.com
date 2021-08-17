@@ -104,6 +104,10 @@ export default {
     width 100%
     margin-bottom var(--spacing-4)
   .notification
+    width 100%
+    margin-bottom var(--spacing-4)
+    @media $breakpoint-medium
+      margin-bottom 0
   .wizard
     width 100%
     margin-bottom var(--wrap-gap)
