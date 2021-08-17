@@ -14,7 +14,7 @@
             variant="outlined"
             glow
             class="btn"
-            >Get started &#8594;</tm-button
+            >Dive in &#8594;</tm-button
           >
         </div>
         <div class="tm-rf-1 tm-muted mt-4 center">{{ appNotification }}</div>

@@ -41,4 +41,8 @@ export default ({ app }) => {
     ga("set", "page", to.fullPath);
     ga("send", "pageview");
   });
+
+  document.querySelector('#signUp').addEventListener('submit', function() {
+    ga('send', 'event', 'form', 'conversion', 'wizard-sing-up', '50');
+  });
 };
