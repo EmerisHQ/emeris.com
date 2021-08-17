@@ -4,9 +4,9 @@
     <div class="tm-wrapper mt-11">
       <div class="tm-content center text">
         <h1 class="title tm-rf4 tm-rf5-m-up tm-bold tm-lh-title tm-serif">
-          Experience a glimpse of DeFi's future
+          Experience a glimpse of DeFi's future today
         </h1>
-        <!-- <div class="button-container">
+        <div class="button-container">
           <tm-button
             to-link="external"
             :href="getUtmParams('https://app.emeris.com/')"
@@ -16,20 +16,23 @@
             class="btn"
             >Dive in &#8594;</tm-button
           >
-        </div> -->
-        <p class="mt-6 tm-rf1 tm-medium tm-lh-title tm-overline tm-muted">
-          Coming Aug 17, 2PM UTC
-        </p>
+        </div>
+        <div class="tm-rf-1 tm-muted mt-4 center">{{ appNotification }}</div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { isMobile } from 'mobile-device-detect'
+
 export default {
   data() {
     return {
       currentUrl: this.$route.fullPath,
+      appNotification: isMobile
+        ? 'Mobile not supported yet'
+        : 'Requires Google Chrome',
     }
   },
   methods: {
@@ -50,7 +53,7 @@ export default {
 
 .title
   @media $breakpoint-large
-    max-width 54rem
+    max-width 53rem
 
 .text
   text-align center
