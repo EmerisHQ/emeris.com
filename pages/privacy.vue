@@ -7,11 +7,11 @@
             <h1 class="title tm-rf4 tm-bold tm-lh-title tm-title tm-serif">
               {{ article.title }}
             </h1>
-            <p class="mt-5 tm-muted tm-copy tm-rf0">
-              Last updated on {{ formatDate(article.updatedAt) }}
+            <p class="mt-5 tm-muted tm-lh-copy tm-rf0">
+              Last updated {{ formatDate(article.updatedAt) }}
             </p>
 
-            <div class="markdown mt-9 tm-copy tm-rf1">
+            <div class="markdown mt-9 tm-lh-copy tm-rf1">
               <nuxt-content :document="article" />
             </div>
           </div>

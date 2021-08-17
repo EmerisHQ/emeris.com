@@ -12,11 +12,11 @@
             <span class="sr-only">Emeris</span>
           </nuxt-link>
           <span class="divider" />
-          <!-- <tm-link
-            href="https://v1.cosmos.network/privacy"
+          <tm-link
+            :href="getUtmParams('/support')"
             class="tm-rf0 tm-rf-1-m link-item tm-muted"
             >Support</tm-link
-          > -->
+          >
           <tm-link
             :href="getUtmParams('/privacy')"
             class="tm-rf0 tm-rf-1-m link-item tm-muted"
