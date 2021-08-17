@@ -1,7 +1,7 @@
 <template>
   <div class="nav-container tm-wrapper tm-container">
     <nav class="nav nav-primary" role="navigation">
-      <div class="nav-head center">
+      <div class="nav-head" :class="[homePage && 'center']">
         <nuxt-link
           :to="getUtmParams('/')"
           class="logos-container"
