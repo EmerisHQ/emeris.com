@@ -2,7 +2,7 @@
 index: 2
 title: How can I send mainnet tokens via Emeris?
 tags: 
-  - emeris-main
+  - hide
 ---
 
 You have two options:

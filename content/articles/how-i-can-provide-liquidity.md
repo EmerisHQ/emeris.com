@@ -2,7 +2,7 @@
 index: 5
 title: How can I provide liquidity?
 tags: 
-  - emeris-main
+  - hide
 ---
 
 In order to provide liquidity, you will need to have both sides of the pair.

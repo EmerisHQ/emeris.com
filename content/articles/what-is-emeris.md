@@ -1,7 +1,7 @@
 ---
 index: 1
 title: What Is Emeris?
-description: The basics
+description: Introduction
 tags: 
   - emeris
 ---

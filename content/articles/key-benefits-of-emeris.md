@@ -3,7 +3,7 @@ index: 2
 title: Key Benefits of Emeris
 description: Using Emeris
 tags: 
-  - emeris
+  - hide
 ---
 
 -  Trade and swap coins from Cosmos-based chains (Ethereum and other chains coming soon!) with substantially lower fees

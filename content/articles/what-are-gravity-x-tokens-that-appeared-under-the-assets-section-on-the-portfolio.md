@@ -1,6 +1,6 @@
 ---
 index: 1
-title: What are [Gravity X] tokens that appeared under the [Assets] section on the Portfolio page?
+title: What are Gravity X tokens that appeared under the Assets section on the Portfolio page?
 tags: 
   - emeris-main
 ---

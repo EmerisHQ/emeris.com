@@ -1,6 +1,6 @@
 ---
-index: 7
-title: How do I choose between [slow], [normal] and [fast] fees?
+index: 3
+title: How do I choose between slow, normal and fast fees?
 tags: 
   - emeris-main
 ---

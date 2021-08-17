@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="tm-section mt-11">
+    <div class="tm-section mt-10">
       <div class="tm-wrapper tm-container-narrow">
         <h1
           class="
@@ -18,10 +18,82 @@
         </h1>
         <img src="~/assets/images/elements/surfer-faq.png" class="surfer" />
 
+        <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title mt-10 mb-3">
+          Get started with Emeris
+        </h3>
+
+        <div class="tm-grid-base mb-7">
+          <div
+            v-for="item in articles.emeris"
+            :key="item.title"
+            class="general-column"
+          >
+            <div class="emeris mt-6">
+              <div class="emeris-inner">
+                <div class="tm-muted">{{ item.description }}</div>
+                <div class="mt-1">
+                  <tm-link
+                    :href="`/support/${item.slug}`"
+                    class="btn tm-rf1 tm-bold tm-title tm-link-disclosure"
+                  >
+                    {{ item.title }}
+                  </tm-link>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="general-column">
+            <div class="emeris mt-6">
+              <div class="emeris-inner">
+                <div class="tm-muted">Using Emeris</div>
+                <div class="mt-1">
+                  <tm-link
+                    href="https://medium.com/p/7baace4ecbd4/"
+                    class="btn tm-rf1 tm-bold tm-title tm-link-external"
+                  >
+                    Step by step guide
+                  </tm-link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tm-grid-base">
+          <div class="general-column">
+            <div
+              v-for="item in startedLinks"
+              :key="item.title"
+              class="mt-5 item-link"
+            >
+              <tm-link
+                :href="`https://catdotfish.medium.com/7baace4ecbd4#${item.link}`"
+                class="btn tm-rf0 tm-muted tm-link-disclosure"
+              >
+                {{ item.title }}
+              </tm-link>
+            </div>
+          </div>
+          <div class="general-column">
+            <div
+              v-for="item in articles.emerisMain"
+              :key="item.title"
+              class="mt-5 item-link"
+            >
+              <tm-link
+                :href="`/support/${item.slug}`"
+                class="btn tm-rf0 tm-muted tm-link-disclosure"
+              >
+                {{ item.title }}
+              </tm-link>
+            </div>
+          </div>
+        </div>
+
         <div class="header-bottom tm-grid-base">
           <div class="column-defi">
             <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title mt-10 mb-2">
-              Introduction to DeFi
+              New to DeFi?
             </h3>
 
             <div class="tm-grid-base">
@@ -52,65 +124,12 @@
             </div>
           </div>
         </div>
-
-        <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title mt-10 mb-3">
-          Introduction to Emeris
-        </h3>
-
-        <div class="tm-grid-base mb-4">
-          <div
-            v-for="item in articles.emeris"
-            :key="item.title"
-            class="general-column"
-          >
-            <div class="emeris mt-6">
-              <div class="emeris-inner">
-                <div class="tm-muted">{{ item.description }}</div>
-                <div class="mt-1">
-                  <tm-link
-                    :href="`/support/${item.slug}`"
-                    class="btn tm-rf1 tm-bold tm-title tm-link-disclosure"
-                  >
-                    {{ item.title }}
-                  </tm-link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="tm-grid-base">
-          <div class="general-column">
-            <div v-for="(item, index) in articles.emerisMain" :key="item.title">
-              <div v-if="index <= 3" class="mt-5 item-link">
-                <tm-link
-                  :href="`/support/${item.slug}`"
-                  class="btn tm-rf0 tm-muted tm-link-disclosure"
-                >
-                  {{ item.title }}
-                </tm-link>
-              </div>
-            </div>
-          </div>
-          <div class="general-column">
-            <div v-for="(item, index) in articles.emerisMain" :key="item.title">
-              <div v-if="index > 3" class="mt-5 item-link">
-                <tm-link
-                  :href="`/support/${item.slug}`"
-                  class="btn tm-rf0 tm-muted tm-link-disclosure"
-                >
-                  {{ item.title }}
-                </tm-link>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
 
     <div class="tm-section">
       <div class="tm-wrapper tm-container-narrow">
-        <h2 class="tm-rf3 tm-bold tm-lh-copy tm-title tm-serif">
+        <h2 class="tm-rf3 tm-bold tm-lh-title tm-title tm-serif">
           Frequently asked<br />questions
         </h2>
 
@@ -293,6 +312,40 @@ export default {
   },
   data() {
     return {
+      startedLinks: [
+        {
+          title: 'How import a Keplr account',
+          link: '',
+        },
+        {
+          title: 'How to import Ledger account',
+          link: '',
+        },
+        {
+          title: 'How to create a new Keplr account',
+          link: '',
+        },
+        {
+          title: 'How to Connect Keplr to Emeris',
+          link: '',
+        },
+        {
+          title: 'How to use Moonpay',
+          link: '',
+        },
+        {
+          title: 'How to send tokens',
+          link: '',
+        },
+        {
+          title: 'How to swap tokens',
+          link: '',
+        },
+        {
+          title: 'How can I provide liquidity?',
+          link: '',
+        },
+      ],
       ctas: [
         {
           href: 'https://t.me/EmerisHQ',
@@ -372,8 +425,8 @@ export default {
 
 .header-bottom
   @media $breakpoint-large
-    grid-template-columns repeat(3, 1fr)
-    grid-template-areas "defi defi emeris"
+    grid-template-columns repeat(2, 1fr)
+    grid-template-areas "defi defi"
 
 .column-emeris
   grid-column 1 / -1
@@ -436,7 +489,7 @@ export default {
   transform translate(42%, -9.5rem)
   @media $breakpoint-medium
     right 22%
-    transform translate(50%, -6.3rem)
+    transform translate(50%, -8.3rem)
 
 .title
   max-width 15rem

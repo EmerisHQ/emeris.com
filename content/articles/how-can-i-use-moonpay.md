@@ -2,7 +2,7 @@
 index: 6
 title: How can I use Moonpay?
 tags: 
-  - emeris-main
+  - hide
 ---
 
 Go to [Assets]

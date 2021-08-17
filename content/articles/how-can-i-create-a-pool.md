@@ -1,5 +1,5 @@
 ---
-index: 4
+index: 2
 title: How can I create a pool?
 tags: 
   - emeris-main
