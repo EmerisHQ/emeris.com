@@ -5,4 +5,4 @@ tags:
   - getting-start
 ---
 
-This depends on the type of transaction you are about to make, but we strongly recommend that you keep enough tokens in the [ available scales ] to cover at least 2-3 transactions.
+This depends on the type of transaction you are about to make, but we strongly recommend that you keep enough tokens in the [available] to cover at least 2-3 transactions per each mainnet

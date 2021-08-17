@@ -2,7 +2,7 @@
 index: 6
 title: What is the gas fee?
 tags: 
-  - common
+  - hide
 ---
 
 The transaction fee is a fee that goes to the validators of the network to process your transaction. Each validator sets the minimum fees it accepts between [Low] [Average] and [High] (on Emeris called [slow], [normal], [fast].)

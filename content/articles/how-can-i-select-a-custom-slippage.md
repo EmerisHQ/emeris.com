@@ -2,7 +2,7 @@
 index: 10
 title: How can I select a custom slippage?
 tags: 
-  - swap
+  - hide
 ---
 
 Click on your account on the top-right > settings > click on [allow custom slippage] > [proceed]

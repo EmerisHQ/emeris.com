@@ -152,7 +152,7 @@
             <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title">Farming</h3>
             <div class="mt-5">
               <tm-collapse accordion>
-                <div v-for="item in articles.general" :key="item.title">
+                <div v-for="item in articles.farming" :key="item.title">
                   <tm-collapse-item>
                     <div slot="header">{{ item.title }}</div>
                     <nuxt-content :document="item" />
@@ -203,12 +203,12 @@
 
         <div class="mt-9">
           <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title">General questions</h3>
-          <div class="mt-5">
+          <div class="mt-2">
             <tm-collapse accordion>
               <div class="tm-grid-base">
                 <div class="general-column">
                   <div v-for="item in articles.general" :key="item.title">
-                    <tm-collapse-item v-if="item.index <= 7">
+                    <tm-collapse-item v-if="item.index <= 4">
                       <div slot="header">{{ item.title }}</div>
                       <nuxt-content :document="item" />
                     </tm-collapse-item>
@@ -216,7 +216,7 @@
                 </div>
                 <div class="general-column">
                   <div v-for="item in articles.general" :key="item.title">
-                    <tm-collapse-item v-if="item.index > 7">
+                    <tm-collapse-item v-if="item.index > 4">
                       <div slot="header">{{ item.title }}</div>
                       <nuxt-content :document="item" />
                     </tm-collapse-item>
@@ -235,11 +235,11 @@
           Common issues
         </h2>
 
-        <div class="mt-5">
+        <div class="mt-6">
           <div class="tm-grid-base">
             <div class="general-column">
               <div v-for="item in articles.common" :key="item.title">
-                <div class="mt-5 item-link">
+                <div class="mt-6 item-link">
                   <tm-link
                     :href="`/support/${item.slug}`"
                     class="btn tm-rf0 tm-muted tm-link-disclosure"

@@ -2,7 +2,7 @@
 index: 1
 title: What is Moonpay?
 tags: 
-  - moonpay
+  - hide
 ---
 
 MoonPay powers the world's leading cryptocurrency wallets, applications, and websites with a total on-and-off-ramp FIAT solution.

@@ -95,9 +95,12 @@ export default {
       opacity 1
     .tm-collapse-item--header
       color var(--secondary)
+      font-size var(--font-size-1)
+      font-weight var(--font-weight-bold-1)
     .tm-collapse-item--icon-header
       transform rotate(45deg)
       fill var(--secondary)
+      top 1rem
   &.disabledx
     opacity: $tm-disabled-opacity
     cursor: default
@@ -121,10 +124,10 @@ export default {
 
 .tm-collapse-item--icon-header
   position: absolute
-  top: .77rem
+  top .77rem
   left .5rem
   margin-top -.5rem
-  transition: transform .25s ease
+  transition: transform .25s ease, top .25s ease
   font-size 0
   fill var(--tertiary)
 
@@ -138,4 +141,6 @@ export default {
   padding-top 1rem
   opacity .2
   transition: all .25s ease
+  > div
+    padding-bottom 1.5rem
 </style>
