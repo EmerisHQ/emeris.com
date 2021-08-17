@@ -62,12 +62,12 @@
         <div class="tm-grid-base">
           <div class="general-column">
             <div
-              v-for="item in startedLinks"
+              v-for="item in article.stepByStep"
               :key="item.title"
               class="mt-5 item-link"
             >
               <tm-link
-                :href="`https://catdotfish.medium.com/7baace4ecbd4#${item.link}`"
+                :href="`/support/${item.slug}`"
                 class="btn tm-rf0 tm-muted tm-link-disclosure"
               >
                 {{ item.title }}
@@ -283,6 +283,9 @@ export default {
     const emerisMain = content.filter((item) =>
       item.tags.includes('emeris-main')
     )
+    const stepByStep = content.filter((item) =>
+      item.tags.includes('step-by-step')
+    )
     const gettingStart = content.filter((item) =>
       item.tags.includes('getting-start')
     )
@@ -297,6 +300,7 @@ export default {
       defi,
       emeris,
       emerisMain,
+      stepByStep,
       gettingStart,
       swap,
       liquidity,
