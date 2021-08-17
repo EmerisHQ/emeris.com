@@ -61,31 +61,27 @@
 
         <div class="tm-grid-base">
           <div class="general-column">
-            <div
-              v-for="item in article.stepByStep"
-              :key="item.title"
-              class="mt-5 item-link"
-            >
-              <tm-link
-                :href="`/support/${item.slug}`"
-                class="btn tm-rf0 tm-muted tm-link-disclosure"
-              >
-                {{ item.title }}
-              </tm-link>
+            <div v-for="(item, index) in articles.emerisMain" :key="item.title">
+              <div v-if="index <= 7" class="mt-5 item-link">
+                <tm-link
+                  :href="`/support/${item.slug}`"
+                  class="btn tm-rf0 tm-muted tm-link-disclosure"
+                >
+                  {{ item.title }}
+                </tm-link>
+              </div>
             </div>
           </div>
           <div class="general-column">
-            <div
-              v-for="item in articles.emerisMain"
-              :key="item.title"
-              class="mt-5 item-link"
-            >
-              <tm-link
-                :href="`/support/${item.slug}`"
-                class="btn tm-rf0 tm-muted tm-link-disclosure"
-              >
-                {{ item.title }}
-              </tm-link>
+            <div v-for="(item, index) in articles.emerisMain" :key="item.title">
+              <div v-if="index > 7" class="mt-5 item-link">
+                <tm-link
+                  :href="`/support/${item.slug}`"
+                  class="btn tm-rf0 tm-muted tm-link-disclosure"
+                >
+                  {{ item.title }}
+                </tm-link>
+              </div>
             </div>
           </div>
         </div>
@@ -283,9 +279,6 @@ export default {
     const emerisMain = content.filter((item) =>
       item.tags.includes('emeris-main')
     )
-    const stepByStep = content.filter((item) =>
-      item.tags.includes('step-by-step')
-    )
     const gettingStart = content.filter((item) =>
       item.tags.includes('getting-start')
     )
@@ -300,7 +293,6 @@ export default {
       defi,
       emeris,
       emerisMain,
-      stepByStep,
       gettingStart,
       swap,
       liquidity,
@@ -316,40 +308,6 @@ export default {
   },
   data() {
     return {
-      startedLinks: [
-        {
-          title: 'How import a Keplr account',
-          link: '',
-        },
-        {
-          title: 'How to import Ledger account',
-          link: '',
-        },
-        {
-          title: 'How to create a new Keplr account',
-          link: '',
-        },
-        {
-          title: 'How to Connect Keplr to Emeris',
-          link: '',
-        },
-        {
-          title: 'How to use Moonpay',
-          link: '',
-        },
-        {
-          title: 'How to send tokens',
-          link: '',
-        },
-        {
-          title: 'How to swap tokens',
-          link: '',
-        },
-        {
-          title: 'How can I provide liquidity?',
-          link: '',
-        },
-      ],
       ctas: [
         {
           href: 'https://t.me/EmerisHQ',

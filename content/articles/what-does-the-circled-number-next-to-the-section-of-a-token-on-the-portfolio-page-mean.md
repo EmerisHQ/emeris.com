@@ -1,5 +1,5 @@
 ---
-index: 4
+index: 13
 title: What does the circled number next to the section of a token on the [portfolio] page mean?
 tags: 
   - emeris-main
