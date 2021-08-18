@@ -11,9 +11,12 @@
             variant="outlined"
             glow
             class="btn"
-            >Launch app &#8594;</tm-button
+            disabled
+            >Mobile not supported yet</tm-button
           >
-          <div class="notification tm-rf-1 tm-muted">{{ appNotification }}</div>
+          <div class="notification tm-rf-1 tm-muted">
+            Use the app on a desktop device
+          </div>
         </div>
       </transition>
       <tm-cookie-banner />
@@ -34,7 +37,6 @@
 
 <script>
 import { KinesisContainer } from 'vue-kinesis'
-import { isMobile } from 'mobile-device-detect'
 
 export default {
   components: {
@@ -44,9 +46,6 @@ export default {
     return {
       show: true,
       currentUrl: this.$route.fullPath,
-      appNotification: isMobile
-        ? 'Mobile not supported yet'
-        : 'Requires Google Chrome',
     }
   },
 
@@ -101,13 +100,11 @@ export default {
     bottom var(--spacing-9)
     left auto
   .btn
-    width 100%
-    margin-bottom var(--spacing-4)
   .notification
     width 100%
     margin-bottom var(--spacing-4)
     @media $breakpoint-medium
-      margin-bottom 0
+      display none
   .wizard
     width 100%
     margin-bottom var(--wrap-gap)

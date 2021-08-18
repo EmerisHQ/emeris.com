@@ -1,13 +1,16 @@
 <template>
-  <div class="nav-container tm-wrapper tm-container">
-    <nav class="nav nav-primary" role="navigation">
-      <div class="nav-head center">
+  <div
+    class="nav-container tm-wrapper tm-container z-max"
+    v-on-clickaway="closeNav"
+  >
+    <nav class="nav" role="navigation">
+      <div class="nav-head z-1" :class="isOpen && 'opened'">
         <nuxt-link
           :to="getUtmParams('/')"
           class="logos-container"
           :class="[homePage && 'home']"
         >
-          <logo-emeris-wordmark-color class="logo" />
+          <logo-emeris-wordmark-color class="logo" :gradient="!isOpen" />
           <span class="sr-only">Emeris</span>
         </nuxt-link>
         <span
@@ -16,38 +19,73 @@
           Beta
         </span>
       </div>
-      <!-- <div class="nav-tail">
+      <div class="nav-tail" :class="isOpen && 'opened'">
         <ul>
           <li>
             <tm-link
-              href="https://medium.com/emeris-blog"
+              :href="getUtmParams('/support')"
               class="tm-rf0 tm-medium tm-lh-title"
-              >Blog &#8599;</tm-link
+              >Support</tm-link
             >
           </li>
-          <li>
+          <li class="mobile">
             <tm-link
-              href="https://cosmos.network"
+              :href="getUtmParams('/sing-up')"
               class="tm-rf0 tm-medium tm-lh-title"
-              >Get Started &#8594;</tm-link
+              >Get updates</tm-link
             >
+          </li>
+          <li class="tm-rf-1 tm-medium text-gray mobile">
+            App currently only supported on a desktop device, using Google
+            Chrome.
+          </li>
+          <li class="tablet">
+            <tm-tooltip text="Requires Google Chrome">
+              <tm-button
+                to-link="external"
+                :href="getUtmParams('https://app.emeris.com')"
+                size="m"
+                border-color="var(--primary)"
+                variant="outlined"
+                glow
+                class="btn"
+                >Launch app &#8594;</tm-button
+              >
+            </tm-tooltip>
           </li>
         </ul>
-      </div> -->
+      </div>
+      <button
+        class="burger"
+        :class="isOpen && 'opened'"
+        variant="text"
+        @click="toggleNav"
+      >
+        <i />
+        <i />
+        <i />
+        <i />
+        <span class="sr-only">Toggle nav</span>
+      </button>
     </nav>
   </div>
 </template>
 
 <script>
+import { isMobile } from 'mobile-device-detect'
+import { mixin as clickaway } from 'vue-clickaway'
 import LogoEmerisWordmarkColor from '~/components/logos/LogoEmerisWordmarkColor.vue'
 
 export default {
   components: {
     LogoEmerisWordmarkColor,
   },
+  mixins: [clickaway],
   data() {
     return {
+      isOpen: false,
       currentUrl: this.$route.fullPath,
+      isMobile,
     }
   },
   computed: {
@@ -55,11 +93,26 @@ export default {
       return this.$route.path === '/'
     },
   },
+  mounted() {
+    window.addEventListener('resize', this.checkMobile)
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.checkMobile)
+  },
   methods: {
     getUtmParams(link) {
       this.currentUrl.includes('?') &&
         (link += `?${this.currentUrl.split('?')[1]}`)
       return link
+    },
+    toggleNav() {
+      this.isOpen = !this.isOpen
+    },
+    closeNav() {
+      this.isOpen = false
+    },
+    checkMobile() {
+      window.innerWidth >= 768 && this.closeNav()
     },
   },
 }
@@ -68,10 +121,10 @@ export default {
 <style lang="stylus" scoped>
 .nav-container
   position absolute
-  z-index 9
   top 0
   left 0
   right 0
+  max-width 86rem
   padding-top var(--spacing-7)
 
 .nav-container > *
@@ -80,10 +133,10 @@ export default {
 .nav-head
   display flex
   flex-direction row
-  align-items center
+  align-items end
   justify-content space-between
-  @media $breakpoint-medium
-    flex-direction column
+//   @media $breakpoint-medium
+//     flex-direction column
 
 .logos-container
   position relative
@@ -93,17 +146,27 @@ export default {
   height 1.2rem
   @media $breakpoint-medium
     center()
-    margin-bottom var(--spacing-4)
     height 1.5rem
   &.home
     pointer-events none
+
+.smallprint
+  margin-left var(--spacing-2)
 
 .nav
   /* if no secondary nav, create similar space */
   // &:first-child:last-child
   //   margin-bottom var(--spacing-9)
+  display flex
+  flex-direction row
+  justify-content space-between
+  align-items end
+  @media $breakpoint-medium
+    align-items center
+  &.center
+    align-items center
+    text-align center
 
-  &-primary,
   ul
     display flex
     align-items center
@@ -113,6 +176,14 @@ export default {
   li
     list-style-type none
     display inline-block
+    &.mobile
+      @media $breakpoint-medium
+        display none
+    &.tablet
+      display none
+      @media $breakpoint-medium
+        display inline-block
+
     + li
       margin-left var(--spacing-7)
 
@@ -137,26 +208,89 @@ export default {
     color var(--gray-600)
     opacity 1
 
-@media $breakpoint-xsmall-only
-  .nav-primary
-    justify-content center
-    flex-direction column
+.burger
+  position relative
+  width 1.25rem
+  height 1.25rem
+  padding 0
+  flex-shrink 0
+  -webkit-tap-highlight-color transparent
+  @media $breakpoint-medium
+    display none
+  i
+    position absolute
+    width 100%
+    height 1px
+    left 50%
+    top 50%
+    background-color var(--link)
+    transform translate(-50%, 0)
+    transition transform .25s $ease-out, opacity .2s $ease-out, color .2s $ease-out
+    &:nth-child(1)
+      transform translate(-50%, -4px)
+    &:nth-child(2)
+      transform translate(-50%, 4px)
+    &:nth-child(3)
+    &:nth-child(4)
+      opacity 0
+  &.opened
+    i
+      background-color var(--black)
+      &:nth-child(1)
+      &:nth-child(2)
+        opacity 0
+        transform translate(-50%, 0)
+      &:nth-child(3)
+      &:nth-child(4)
+        opacity 1
+      &:nth-child(3)
+        transform translate(-50%, 0) rotate(45deg)
+      &:nth-child(4)
+        transform translate(-50%, 0) rotate(-45deg)
+
+.text-gray
+  color rgba(24, 24, 24, 0.67)
+  text-align left
+
+@media $breakpoint-medium-max
+  .nav-head
+    position relative
+    .smallprint
+      transition color .2s $ease-out
+    &.opened
+      .smallprint
+        color rgba(24, 24, 24, 0.67)
 
   .nav-tail
-    margin-left calc(-1 * var(--spacing-7))
-    margin-right calc(-1 * var(--spacing-7))
-    overflow-x auto
+    opacity .2
+    position absolute
+    top 0
+    left 0
+    right 0
     text-align center
     scrollbar-width none
+    transform translateY(-20px) scaleY(0) scaleX(1)
+    transform-origin 0 0
+    transition transform .25s $ease-out, opacity .2s $ease-out
+    filter drop-shadow(0px 34px 64px rgba(230, 254, 88, 0.5))
     &::-webkit-scrollbar
       display none
-
-  .nav ul
-    padding-left var(--spacing-7)
-    padding-right var(--spacing-7)
-    display inline-flex
-    justify-content center
-    align-items center
+    &.opened
+      opacity 1
+      transform translateY(0) scaleY(1) scaleX(1)
+    ul
+      padding 5.3rem var(--spacing-7) var(--spacing-12)
+      display flex
+      justify-content center
+      align-items flex-start
+      flex-direction column
+      background var(--primary-gradient-complex)
+      clip-path polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%)
+      li + li
+        margin 0
+        margin-top var(--spacing-5)
+    .tm-link
+      color var(--black)
 
 @media $breakpoint-small
   .logos-container

@@ -18,6 +18,12 @@
             >Support</tm-link
           >
           <tm-link
+            href="https://drive.google.com/drive/folders/18PKVjLL53WqapZDLMtm7sdpxl7JSrjBT?usp=sharing"
+            class="tm-rf0 tm-rf-1-m link-item tm-muted"
+          >
+            Press-Kit
+          </tm-link>
+          <tm-link
             :href="getUtmParams('/privacy')"
             class="tm-rf0 tm-rf-1-m link-item tm-muted"
           >
