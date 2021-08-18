@@ -1,5 +1,5 @@
 <template>
-  <div v-on-clickaway="closeNav" class="nav-container tm-wrapper z-max">
+  <div v-on-clickaway="closeNav" class="nav-container tm-wrapper">
     <div class="tm-container">
       <nav class="nav" role="navigation">
         <div class="nav-head z-1" :class="isOpen && 'opened'">
@@ -47,7 +47,7 @@
                   variant="outlined"
                   glow
                   class="btn"
-                  >Launch app &#8594;</tm-button
+                  ><span>Launch app &#8594;</span></tm-button
                 >
               </tm-tooltip>
             </li>
@@ -141,11 +141,6 @@ export default {
 .headroom
   will-change transform
   transition transform .2s linear
-  padding-top var(--spacing-4)
-  padding-bottom var(--spacing-4)
-  &.headroom--top
-    padding-top var(--spacing-7)
-    padding-bottom var(--spacing-7)
 
 .headroom--pinned
   transform translateY(0%)
@@ -155,12 +150,22 @@ export default {
 
 .nav-container
   position fixed
+  z-index 20
   top 0
   left 0
   right 0
-  // padding-top var(--spacing-7)
-  background rgba(0, 0, 0, 0.7)
-  backdrop-filter blur(9.6px)
+  padding-top var(--spacing-7)
+  padding-bottom var(--spacing-7)
+  background rgba(0, 0, 0, 1)
+  @supports ((-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em)))
+    background rgba(0, 0, 0, 0.7)
+    backdrop-filter blur(9.6px)
+  &.headroom--not-top
+    padding-top var(--spacing-4)
+    padding-bottom var(--spacing-4)
+  &.headroom--top
+    padding-top var(--spacing-7)
+    padding-bottom var(--spacing-7)
   .tm-container
     max-width 86rem
 

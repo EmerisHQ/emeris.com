@@ -330,6 +330,7 @@ export default {
       -webkit-text-fill-color transparent
       text-fill-color transparent
       >>> span
+        display block
         background var(--title-gradient)
         -webkit-background-clip text
         background-clip text

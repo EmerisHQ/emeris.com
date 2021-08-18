@@ -12,7 +12,7 @@
             glow
             class="btn"
             disabled
-            >Mobile not supported yet</tm-button
+            ><span>Mobile not supported yet</span></tm-button
           >
           <div class="notification tm-rf-1 tm-muted">
             Use the app on a desktop device
