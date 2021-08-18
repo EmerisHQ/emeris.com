@@ -1,5 +1,5 @@
 <template>
-  <div v-on-clickaway="closeNav" class="nav-container tm-wrapper">
+  <div v-on-clickaway="closeNav" class="nav-container tm-wrapper headroom">
     <div class="tm-container">
       <nav class="nav" role="navigation">
         <div class="nav-head z-1" :class="isOpen && 'opened'">
