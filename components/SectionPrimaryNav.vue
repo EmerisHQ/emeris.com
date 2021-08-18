@@ -1,79 +1,79 @@
 <template>
-  <div
-    class="nav-container tm-wrapper tm-container z-max"
-    v-on-clickaway="closeNav"
-  >
-    <nav class="nav" role="navigation">
-      <div class="nav-head z-1" :class="isOpen && 'opened'">
-        <nuxt-link
-          :to="getUtmParams('/')"
-          class="logos-container"
-          :class="[homePage && 'home']"
-        >
-          <logo-emeris-wordmark-color class="logo" :gradient="!isOpen" />
-          <span class="sr-only">Emeris</span>
-        </nuxt-link>
-        <span
-          class="smallprint tm-rf-1 tm-mediumtm-lh-title tm-overline tm-muted"
-        >
-          Beta
-        </span>
-      </div>
-      <div class="nav-tail" :class="isOpen && 'opened'">
-        <ul>
-          <li>
-            <tm-link
-              :href="getUtmParams('/support')"
-              class="tm-rf0 tm-medium tm-lh-title"
-              >Support</tm-link
-            >
-          </li>
-          <li class="mobile">
-            <tm-link
-              :href="getUtmParams('/sing-up')"
-              class="tm-rf0 tm-medium tm-lh-title"
-              >Get updates</tm-link
-            >
-          </li>
-          <li class="tm-rf-1 tm-medium text-gray mobile">
-            App currently only supported on a desktop device, using Google
-            Chrome.
-          </li>
-          <li class="tablet">
-            <tm-tooltip text="Requires Google Chrome">
-              <tm-button
-                to-link="external"
-                :href="getUtmParams('https://app.emeris.com')"
-                size="m"
-                border-color="var(--primary)"
-                variant="outlined"
-                glow
-                class="btn"
-                >Launch app &#8594;</tm-button
+  <div v-on-clickaway="closeNav" class="nav-container tm-wrapper z-max">
+    <div class="tm-container">
+      <nav class="nav" role="navigation">
+        <div class="nav-head z-1" :class="isOpen && 'opened'">
+          <nuxt-link
+            :to="getUtmParams('/')"
+            class="logos-container"
+            :class="[homePage && 'home']"
+          >
+            <logo-emeris-wordmark-color class="logo" :gradient="!isOpen" />
+            <span class="sr-only">Emeris</span>
+          </nuxt-link>
+          <span
+            class="smallprint tm-rf-1 tm-mediumtm-lh-title tm-overline tm-muted"
+          >
+            Beta
+          </span>
+        </div>
+        <div class="nav-tail" :class="isOpen && 'opened'">
+          <ul>
+            <li>
+              <tm-link
+                :href="getUtmParams('/support')"
+                class="tm-rf0 tm-medium tm-lh-title"
+                >Support</tm-link
               >
-            </tm-tooltip>
-          </li>
-        </ul>
-      </div>
-      <button
-        class="burger"
-        :class="isOpen && 'opened'"
-        variant="text"
-        @click="toggleNav"
-      >
-        <i />
-        <i />
-        <i />
-        <i />
-        <span class="sr-only">Toggle nav</span>
-      </button>
-    </nav>
+            </li>
+            <li class="mobile">
+              <tm-link
+                :href="getUtmParams('/sing-up')"
+                class="tm-rf0 tm-medium tm-lh-title"
+                >Get updates</tm-link
+              >
+            </li>
+            <li class="tm-rf-1 tm-medium text-gray mobile">
+              App currently only supported on a desktop device, using Google
+              Chrome.
+            </li>
+            <li class="tablet">
+              <tm-tooltip text="Requires Google Chrome">
+                <tm-button
+                  to-link="external"
+                  :href="getUtmParams('https://app.emeris.com')"
+                  size="m"
+                  border-color="var(--primary)"
+                  variant="outlined"
+                  glow
+                  class="btn"
+                  >Launch app &#8594;</tm-button
+                >
+              </tm-tooltip>
+            </li>
+          </ul>
+        </div>
+        <button
+          class="burger"
+          :class="isOpen && 'opened'"
+          variant="text"
+          @click="toggleNav"
+        >
+          <i />
+          <i />
+          <i />
+          <i />
+          <span class="sr-only">Toggle nav</span>
+        </button>
+      </nav>
+    </div>
   </div>
 </template>
 
 <script>
 import { isMobile } from 'mobile-device-detect'
 import { mixin as clickaway } from 'vue-clickaway'
+import Headroom from 'headroom.js'
 import LogoEmerisWordmarkColor from '~/components/logos/LogoEmerisWordmarkColor.vue'
 
 export default {
@@ -86,6 +86,7 @@ export default {
       isOpen: false,
       currentUrl: this.$route.fullPath,
       isMobile,
+      headroom: null,
     }
   },
   computed: {
@@ -95,9 +96,11 @@ export default {
   },
   mounted() {
     window.addEventListener('resize', this.checkMobile)
+    this.enableHeadroom()
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.checkMobile)
+    this.disableHeadroom()
   },
   methods: {
     getUtmParams(link) {
@@ -114,18 +117,52 @@ export default {
     checkMobile() {
       window.innerWidth >= 768 && this.closeNav()
     },
+    disableHeadroom() {
+      if (this.headroom) {
+        this.headroom.destroy()
+        this.headroom = null
+      }
+    },
+    enableHeadroom() {
+      if (!this.headroom) {
+        const options = {
+          offset: 100,
+          onUnpin: () => this.closeNav(),
+        }
+        this.headroom = new Headroom(this.$el, options)
+        this.headroom.init()
+      }
+    },
   },
 }
 </script>
 
 <style lang="stylus" scoped>
+.headroom
+  will-change transform
+  transition transform .2s linear
+  padding-top var(--spacing-4)
+  padding-bottom var(--spacing-4)
+  &.headroom--top
+    padding-top var(--spacing-7)
+    padding-bottom var(--spacing-7)
+
+.headroom--pinned
+  transform translateY(0%)
+
+.headroom--unpinned
+  transform translateY(-100%)
+
 .nav-container
-  position absolute
+  position fixed
   top 0
   left 0
   right 0
-  max-width 86rem
-  padding-top var(--spacing-7)
+  // padding-top var(--spacing-7)
+  background rgba(0, 0, 0, 0.7)
+  backdrop-filter blur(9.6px)
+  .tm-container
+    max-width 86rem
 
 .nav-container > *
   grid-column 1/-1
@@ -264,15 +301,17 @@ export default {
   .nav-tail
     opacity .2
     position absolute
-    top 0
-    left 0
-    right 0
+    top calc(-1 * var(--spacing-4))
+    left calc(-1 * var(--wrap-gap))
+    right calc(-1 * var(--wrap-gap))
     text-align center
     scrollbar-width none
     transform translateY(-20px) scaleY(0) scaleX(1)
     transform-origin 0 0
     transition transform .25s $ease-out, opacity .2s $ease-out
     filter drop-shadow(0px 34px 64px rgba(230, 254, 88, 0.5))
+    .headroom--top &
+      top calc(-1 * var(--spacing-7))
     &::-webkit-scrollbar
       display none
     &.opened
