@@ -109,7 +109,7 @@ export default {
 .fade-enter
 .fade-leave-to
   opacity 0
-  transform translate(-50%, -100%)
+  transform translate(0, 100%)
 
 .banner-wrapper
   position relative

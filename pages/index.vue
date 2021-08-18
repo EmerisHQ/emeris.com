@@ -5,7 +5,6 @@
         <div v-if="show">
           <tm-button
             to-link="external"
-            :href="getUtmParams('https://app.emeris.com')"
             size="m"
             border-color="var(--primary)"
             variant="outlined"

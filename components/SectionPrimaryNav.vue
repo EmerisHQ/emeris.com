@@ -159,7 +159,7 @@ export default {
   background rgba(0, 0, 0, 1)
   @supports ((-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em)))
     background rgba(0, 0, 0, 0.7)
-    backdrop-filter blur(9.6px)
+    backdrop-filter blur(20px)
   &.headroom--not-top
     padding-top var(--spacing-4)
     padding-bottom var(--spacing-4)
@@ -175,7 +175,7 @@ export default {
 .nav-head
   display flex
   flex-direction row
-  align-items end
+  align-items baseline
   justify-content space-between
 //   @media $breakpoint-medium
 //     flex-direction column
@@ -225,7 +225,6 @@ export default {
       display none
       @media $breakpoint-medium
         display inline-block
-
     + li
       margin-left var(--spacing-7)
 
@@ -323,18 +322,26 @@ export default {
       opacity 1
       transform translateY(0) scaleY(1) scaleX(1)
     ul
-      padding 5.3rem var(--spacing-7) var(--spacing-12)
+      padding 4.7rem var(--spacing-7) var(--spacing-12)
       display flex
       justify-content center
       align-items flex-start
       flex-direction column
       background var(--primary-gradient-complex)
       clip-path polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%)
+      text-align left
+      li
+        width 100%
       li + li
         margin 0
-        margin-top var(--spacing-5)
     .tm-link
+      position relative
+      display block
+      width 100%
+      padding var(--spacing-4) 0
       color var(--black)
+    .text-gray
+      margin-top var(--spacing-4)
 
 @media $breakpoint-small
   .logos-container
