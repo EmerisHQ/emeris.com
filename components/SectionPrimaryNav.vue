@@ -40,6 +40,7 @@
             <li class="tablet">
               <tm-tooltip text="Requires Google Chrome">
                 <tm-button
+                  id="launchApp"
                   to-link="external"
                   :href="getUtmParams('https://app.emeris.com')"
                   size="m"

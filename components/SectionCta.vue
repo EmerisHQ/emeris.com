@@ -8,6 +8,7 @@
         </h1>
         <div class="button-container">
           <tm-button
+            id="diveIn"
             to-link="external"
             :href="getUtmParams('https://app.emeris.com/')"
             size="m"
