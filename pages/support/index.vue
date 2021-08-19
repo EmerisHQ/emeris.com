@@ -19,7 +19,7 @@
         <img src="~/assets/images/elements/surfer-faq.png" class="surfer" />
 
         <h3 class="tm-rf2 tm-bold tm-lh-copy tm-title mt-10 mb-3">
-          Get started with Emeris
+          Get started
         </h3>
 
         <div class="tm-grid-base mb-7">
@@ -28,34 +28,31 @@
             :key="item.title"
             class="general-column"
           >
-            <div class="emeris mt-6">
+            <tm-link :href="`/support/${item.slug}`" class="emeris mt-6">
               <div class="emeris-inner">
                 <div class="tm-muted">{{ item.description }}</div>
                 <div class="mt-1">
-                  <tm-link
-                    :href="`/support/${item.slug}`"
-                    class="btn tm-rf1 tm-bold tm-title tm-link-disclosure"
-                  >
+                  <span class="btn tm-rf1 tm-bold tm-title tm-link-disclosure">
                     {{ item.title }}
-                  </tm-link>
+                  </span>
                 </div>
               </div>
-            </div>
+            </tm-link>
           </div>
           <div class="general-column">
-            <div class="emeris mt-6">
+            <tm-link
+              href="https://medium.com/p/7baace4ecbd4/"
+              class="emeris mt-6"
+            >
               <div class="emeris-inner">
                 <div class="tm-muted">Using Emeris</div>
                 <div class="mt-1">
-                  <tm-link
-                    href="https://medium.com/p/7baace4ecbd4/"
-                    class="btn tm-rf1 tm-bold tm-title tm-link-external"
-                  >
+                  <span class="btn tm-rf1 tm-bold tm-title tm-link-external">
                     Step by step guide
-                  </tm-link>
+                  </span>
                 </div>
               </div>
-            </div>
+            </tm-link>
           </div>
         </div>
 
@@ -438,6 +435,12 @@ export default {
     border-radius inherit
     margin -0.0625rem
     background linear-gradient(280.46deg, #FFF0CA 12.71%, #D3AD5F 33.34%, #FFECC4 41.61%, #997736 59.2%, #FFF2C0 77.69%, #CEA851 97.39%)
+  &:hover
+  &:focus
+    .tm-link-disclosure:after
+      transform translate(4px, 0)
+    .tm-link-external:after
+      transform translate(4px, -4px)
 
 .emeris-inner
   width 100%

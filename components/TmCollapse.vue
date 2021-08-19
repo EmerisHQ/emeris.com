@@ -88,7 +88,6 @@ export default {
 
 .tm-collapse-item
   border-bottom: 1px solid rgba(0,0,0,.04)
-  cursor: pointer;
   transition: all .25s ease
   &.open-item
     .con-content--item
