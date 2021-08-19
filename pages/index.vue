@@ -13,9 +13,6 @@
             disabled
             ><span>Mobile not supported yet</span></tm-button
           >
-          <div class="notification tm-rf-1 tm-muted">
-            Use the app on a desktop device
-          </div>
         </div>
       </transition>
       <tm-cookie-banner />
@@ -99,21 +96,9 @@ export default {
     bottom var(--spacing-9)
     left auto
   .btn
-  .notification
-    width 100%
-    margin-bottom var(--spacing-4)
-    @media $breakpoint-medium
-      display none
   .wizard
     width 100%
     margin-bottom var(--wrap-gap)
     @media $breakpoint-medium
       margin-bottom 0
-
-.notification
-  text-align center
-
-// @media $breakpoint-large
-// @media $breakpoint-xl
-// @media $breakpoint-xxl
 </style>

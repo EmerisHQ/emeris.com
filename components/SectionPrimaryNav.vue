@@ -19,38 +19,32 @@
         </div>
         <div class="nav-tail" :class="isOpen && 'opened'">
           <ul>
-            <li>
+            <li @click="closeNav">
               <tm-link
                 :href="getUtmParams('/support')"
                 class="tm-rf0 tm-medium tm-lh-title"
                 >Support</tm-link
               >
             </li>
-            <li class="mobile">
+            <li class="mobile" @click="closeNav">
               <tm-link
-                :href="getUtmParams('/sing-up')"
+                href="https://app.emeris.com/"
                 class="tm-rf0 tm-medium tm-lh-title"
                 >Get updates</tm-link
               >
             </li>
-            <li class="tm-rf-1 tm-medium text-gray mobile">
-              App currently only supported on a desktop device, using Google
-              Chrome.
-            </li>
             <li class="tablet">
-              <tm-tooltip text="Requires Google Chrome">
-                <tm-button
-                  id="launchApp"
-                  to-link="external"
-                  :href="getUtmParams('https://app.emeris.com')"
-                  size="m"
-                  border-color="var(--primary)"
-                  variant="outlined"
-                  glow
-                  class="btn"
-                  ><span>Launch app &#8594;</span></tm-button
-                >
-              </tm-tooltip>
+              <tm-button
+                id="launchApp"
+                to-link="external"
+                :href="getUtmParams('https://app.emeris.com')"
+                size="m"
+                border-color="var(--primary)"
+                variant="outlined"
+                glow
+                class="btn"
+                ><span>Launch app &#8594;</span></tm-button
+              >
             </li>
           </ul>
         </div>
@@ -290,10 +284,6 @@ export default {
       &:nth-child(4)
         transform translate(-50%, 0) rotate(-45deg)
 
-.text-gray
-  color rgba(24, 24, 24, 0.67)
-  text-align left
-
 @media $breakpoint-medium-max
   .nav-head
     position relative
@@ -341,17 +331,12 @@ export default {
       width 100%
       padding var(--spacing-4) 0
       color var(--black)
-    .text-gray
-      margin-top var(--spacing-4)
 
 @media $breakpoint-small
   .logos-container
     align-items start
 
-// @media $breakpoint-medium
-// @media $breakpoint-large
 @media $breakpoint-xl
   .nav-container > *
     grid-column 2/span 10
-// @media $breakpoint-xxl
 </style>
