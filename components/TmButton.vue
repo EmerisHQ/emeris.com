@@ -322,35 +322,40 @@ export default {
       trbl -0.0625em
       filter blur(0.4rem)
     .tm-button__content
-      display flex
-      align-items center
+      display block // fix weird bug with text gradients on safari
+      color var(--color)
       background var(--title-gradient)
       -webkit-background-clip text
       background-clip text
       -webkit-text-fill-color transparent
       text-fill-color transparent
       >>> span
+        color var(--color)
         background var(--title-gradient)
         -webkit-background-clip text
         background-clip text
         -webkit-text-fill-color transparent
         text-fill-color transparent
-    &:hover
+    &:hover,
+    &:active
       &::after
         background radial-gradient(144.8% 78% at 90.48% 100%, #FFFD38 25.95%, rgba(158, 255, 185, 0) 100%), linear-gradient(153.31deg, #64DAFB 5.41%, #30FFDF 30.23%, #B0FF94 54.73%)
     &:focus
       &::after
         background linear-gradient(102.36deg, #64DBFC -2.26%, #30FFDF 34.48%, #FFFE39 92.77%)
     &:hover,
-    &:focus
+    &:focus,
+    &:active
       background transparent
       &::after
         opacity 1
       .tm-button__content
+        color initial
         background initial
         -webkit-background-clip initial
         -webkit-text-fill-color initial
         >>> span
+          color initial
           background initial
           -webkit-background-clip initial
           -webkit-text-fill-color initial

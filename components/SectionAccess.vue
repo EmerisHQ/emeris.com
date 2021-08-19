@@ -229,15 +229,18 @@ export default {
   color transparent
   &:hover
   &:focus
-  &:active
   &:focus-visible
     .logo-inner
       transform translate(-50%, -50%) scale(1.1)
     &:before
       animation none
       opacity 0.7
+  &:active .logo-inner
+    transform translate(-50%, -50%)
   &:focus-visible
     outline none
+  >>> .tm-link:active
+    opacity 1
   &:before
     content ''
     opacity 0.5
