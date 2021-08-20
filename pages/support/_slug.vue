@@ -20,8 +20,11 @@
                 Related
               </div>
 
-              <div v-for="item in questions" :key="item.title" class="mt-7">
-                <tm-link :href="item.slug" class="tm-rf0 tm-lh-copy">
+              <div v-for="item in questions" :key="item.title" class="mt-5">
+                <tm-link
+                  :href="`/support/${item.slug}`"
+                  class="tm-rf0 tm-lh-copy"
+                >
                   {{ item.title }}
                 </tm-link>
               </div>
@@ -56,8 +59,8 @@
           Related
         </div>
 
-        <div v-for="item in questions" :key="item.title" class="mt-7">
-          <tm-link :href="item.slug" class="tm-rf0 tm-lh-copy gradient-text">
+        <div v-for="item in questions" :key="item.title" class="mt-5">
+          <tm-link :href="`/support/${item.slug}`" class="tm-rf0 tm-lh-copy">
             {{ item.title }}
           </tm-link>
         </div>
