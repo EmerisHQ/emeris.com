@@ -28,7 +28,7 @@
             </li>
             <li class="mobile" @click="closeNav">
               <tm-link
-                href="https://app.emeris.com/"
+                :href="getUtmParams('/signup')"
                 class="tm-rf0 tm-medium tm-lh-title"
                 >Get updates</tm-link
               >
