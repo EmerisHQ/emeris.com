@@ -168,7 +168,7 @@ img
   bottom var(--spacing-10)
   left var(--spacing-10)
   transform translateX(-1rem)
-  @media $breakpoint-large
+  @media $breakpoint-medium
     display block
     transform translateX(-50%)
     animation levitate 1.8s ease-in-out alternate infinite

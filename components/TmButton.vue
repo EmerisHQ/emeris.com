@@ -330,6 +330,7 @@ export default {
       -webkit-text-fill-color transparent
       text-fill-color transparent
       >>> span
+        display block
         color var(--color)
         background var(--title-gradient)
         -webkit-background-clip text
@@ -373,6 +374,8 @@ export default {
       filter blur(1.25rem) brightness(1.5)
 
   /* disabled state */
+  &[disabled]
+    pointer-events none
   &[disabled] .tm-button__content
     opacity 0.44
 
