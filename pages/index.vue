@@ -4,14 +4,13 @@
       <transition name="fade">
         <div v-if="show">
           <tm-button
-            to-link="external"
+            v-if="isMobile"
             size="m"
-            border-color="var(--primary)"
             variant="outlined"
             glow
             class="btn"
             disabled
-            ><span>Mobile not supported yet</span></tm-button
+            >Mobile not supported yet</tm-button
           >
         </div>
       </transition>

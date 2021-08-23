@@ -42,9 +42,10 @@ export default ({ app }) => {
     ga("send", "pageview");
   });
 
-  document.querySelector('#signUp').addEventListener('submit', function() {
-    ga('send', 'event', 'form', 'conversion', 'wizard-sing-up', '50');
-  });
+  !!document.querySelector('#signUp') &&
+    document.querySelector('#signUp').addEventListener('submit', function() {
+      ga('send', 'event', 'form', 'conversion', 'wizard-sing-up', '50');
+    });
 
   !!document.querySelector('#launchApp') &&
     document.querySelector('#launchApp').addEventListener('click', function() {

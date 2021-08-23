@@ -8,6 +8,16 @@
         </h1>
         <div class="button-container">
           <tm-button
+            v-if="isMobile"
+            size="m"
+            variant="outlined"
+            glow
+            class="btn"
+            disabled
+            >Mobile not supported yet</tm-button
+          >
+          <tm-button
+            v-else
             id="diveIn"
             to-link="external"
             :href="getUtmParams('https://app.emeris.com/')"
@@ -18,7 +28,9 @@
             ><span>Dive in &#8594;</span></tm-button
           >
         </div>
-        <div class="tm-rf-1 tm-muted mt-4 center">{{ appNotification }}</div>
+        <div class="tm-rf-1 tm-muted mt-4 center">
+          {{ appNotification }}
+        </div>
       </div>
     </div>
   </div>
@@ -32,8 +44,9 @@ export default {
     return {
       currentUrl: this.$route.fullPath,
       appNotification: isMobile
-        ? 'Mobile not supported yet'
+        ? 'Use the app on a desktop device'
         : 'Requires Google Chrome',
+      isMobile,
     }
   },
   methods: {
