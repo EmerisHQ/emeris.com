@@ -14,7 +14,7 @@
           <div class="wizard mt-7 tm-measure-narrow">
             <tm-email-wizard />
           </div>
-          <p class="center mt-4 tm-text tm-muted">
+          <p class="text-center mt-4 tm-text tm-muted">
             Unsubscribe at any time.<br />
             <tm-link href="/privacy" class="tm-link-external">
               Privacy policy
@@ -46,6 +46,9 @@ export default {
 
 .wizard
   width 100%
+
+.text-center
+  text-align center
 
 // @media $breakpoint-xsmall-only
 // @media $breakpoint-small
