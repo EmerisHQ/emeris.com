@@ -231,7 +231,7 @@ export default {
 
 .wizard
   @media $breakpoint-medium
-    // max-height 3rem
+    max-height 3rem
     overflow visible
   &__inner
     overflow hidden
