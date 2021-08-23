@@ -3,27 +3,9 @@
     <div ref="button" class="fixed-container">
       <transition name="fade">
         <div v-if="show">
-          <tm-button
-            v-if="isMobile"
-            size="m"
-            variant="outlined"
-            glow
-            class="btn"
-            disabled
-            >Mobile not supported yet</tm-button
-          >
-          <tm-button
-            v-else
-            to-link="external"
-            :href="getUtmParams('https://app.emeris.com')"
-            size="m"
-            border-color="var(--primary)"
-            variant="outlined"
-            glow
-            class="btn"
-            >Launch app &#8594;</tm-button
-          >
-          <div class="notification tm-rf-1 tm-muted">{{ appNotification }}</div>
+          <tm-button size="m" variant="outlined" glow class="btn" disabled>
+            Mobile not supported yet
+          </tm-button>
         </div>
       </transition>
       <tm-cookie-banner />
@@ -38,13 +20,14 @@
     <section-access />
     <section-beta />
     <section-updates />
-    <section-cta ref="cta" />
+    <div ref="cta">
+      <section-cta />
+    </div>
   </main>
 </template>
 
 <script>
 import { KinesisContainer } from 'vue-kinesis'
-import { isMobile } from 'mobile-device-detect'
 
 export default {
   components: {
@@ -54,10 +37,6 @@ export default {
     return {
       show: true,
       currentUrl: this.$route.fullPath,
-      appNotification: isMobile
-        ? 'Use the app on a desktop device'
-        : 'Requires Google Chrome',
-      isMobile,
     }
   },
 
@@ -76,7 +55,7 @@ export default {
       return link
     },
     scrollHandler() {
-      const ctaRect = this.$refs.cta.$el.getBoundingClientRect()
+      const ctaRect = this.$refs.cta.getBoundingClientRect()
       const ctaTop = ctaRect.top + 100
       const buttonTop = this.$refs.button.getBoundingClientRect().top
       if (ctaTop <= buttonTop) {
@@ -112,23 +91,12 @@ export default {
     bottom var(--spacing-9)
     left auto
   .btn
-    width 100%
-    margin-bottom var(--spacing-4)
-  .notification
-    width 100%
-    margin-bottom var(--spacing-4)
-    @media $breakpoint-medium
-      margin-bottom 0
   .wizard
     width 100%
     margin-bottom var(--wrap-gap)
     @media $breakpoint-medium
       margin-bottom 0
-
-.notification
-  text-align center
-
-// @media $breakpoint-large
-// @media $breakpoint-xl
-// @media $breakpoint-xxl
+  .btn
+    @media $breakpoint-medium
+      display none
 </style>
