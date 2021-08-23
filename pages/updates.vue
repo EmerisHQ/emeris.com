@@ -14,7 +14,7 @@
           <div class="wizard mt-7 tm-measure-narrow">
             <tm-email-wizard />
           </div>
-          <p class="text-center mt-4 tm-text tm-muted">
+          <p class="text-center mt-4 tm-text tm-muted tm-rf-1">
             Unsubscribe at any time.<br />
             <tm-link href="/privacy" class="tm-link-external">
               Privacy policy
