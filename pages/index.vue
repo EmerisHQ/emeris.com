@@ -3,15 +3,9 @@
     <div ref="button" class="fixed-container">
       <transition name="fade">
         <div v-if="show">
-          <tm-button
-            v-if="isMobile"
-            size="m"
-            variant="outlined"
-            glow
-            class="btn"
-            disabled
-            >Mobile not supported yet</tm-button
-          >
+          <tm-button size="m" variant="outlined" glow class="btn" disabled>
+            Mobile not supported yet
+          </tm-button>
         </div>
       </transition>
       <tm-cookie-banner />
@@ -26,7 +20,9 @@
     <section-access />
     <section-beta />
     <section-updates />
-    <section-cta ref="cta" />
+    <div ref="cta">
+      <section-cta />
+    </div>
   </main>
 </template>
 
@@ -59,7 +55,7 @@ export default {
       return link
     },
     scrollHandler() {
-      const ctaRect = this.$refs.cta.$el.getBoundingClientRect()
+      const ctaRect = this.$refs.cta.getBoundingClientRect()
       const ctaTop = ctaRect.top + 100
       const buttonTop = this.$refs.button.getBoundingClientRect().top
       if (ctaTop <= buttonTop) {
@@ -100,4 +96,7 @@ export default {
     margin-bottom var(--wrap-gap)
     @media $breakpoint-medium
       margin-bottom 0
+  .btn
+    @media $breakpoint-medium
+      display none
 </style>

@@ -8,16 +8,14 @@
         </h1>
         <div class="button-container">
           <tm-button
-            v-if="isMobile"
             size="m"
             variant="outlined"
             glow
-            class="btn"
+            class="btn mobile"
             disabled
             >Mobile not supported yet</tm-button
           >
           <tm-button
-            v-else
             id="diveIn"
             to-link="external"
             :href="getUtmParams('https://app.emeris.com/')"
@@ -28,8 +26,8 @@
             ><span>Dive in &#8594;</span></tm-button
           >
         </div>
-        <div class="tm-rf-1 tm-muted mt-4 center">
-          {{ appNotification }}
+        <div class="tm-rf-1 tm-muted mt-4 center mobile-text">
+          Use the app on a desktop device
         </div>
       </div>
     </div>
@@ -37,16 +35,10 @@
 </template>
 
 <script>
-import { isMobile } from 'mobile-device-detect'
-
 export default {
   data() {
     return {
       currentUrl: this.$route.fullPath,
-      appNotification: isMobile
-        ? 'Use the app on a desktop device'
-        : 'Requires Google Chrome',
-      isMobile,
     }
   },
   methods: {
@@ -77,11 +69,17 @@ export default {
   z-index 1
   width 100%
   .btn
+    display none
     width 100%
     margin-top var(--spacing-10)
     @media $breakpoint-medium
+      display inline-flex
       width auto
       margin-top var(--spacing-7)
+    &.mobile
+      display inline-flex
+      @media $breakpoint-medium
+        display none
 
 .graphics
   flex 1 0 73%
@@ -89,4 +87,8 @@ export default {
   max-width 26rem
   @media $breakpoint-medium
     margin-top var(--spacing-6)
+
+.mobile-text
+  @media $breakpoint-medium
+    display none
 </style>

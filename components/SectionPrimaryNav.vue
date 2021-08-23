@@ -66,7 +66,6 @@
 </template>
 
 <script>
-import { isMobile } from 'mobile-device-detect'
 import { mixin as clickaway } from 'vue-clickaway'
 import Headroom from 'headroom.js'
 import LogoEmerisWordmarkColor from '~/components/logos/LogoEmerisWordmarkColor.vue'
@@ -80,7 +79,6 @@ export default {
     return {
       isOpen: false,
       currentUrl: this.$route.fullPath,
-      isMobile,
       headroom: null,
     }
   },

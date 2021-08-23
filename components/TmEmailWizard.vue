@@ -72,9 +72,7 @@
               >
                 You will receive email updates about Emeris. Unsubscribe at any
                 time.
-                <a href="/privacy">
-                  Privacy policy<span class="icon__right">&#8599;</span>
-                </a>
+                <a href="/privacy">Privacy policy</a>
                 <span v-if="hasError" class="wizard__error">
                   Please enter a valid email address
                 </span>

@@ -16,9 +16,7 @@
           </div>
           <p class="text-center mt-4 tm-text tm-muted tm-rf-1">
             Unsubscribe at any time.<br />
-            <tm-link href="/privacy" class="tm-link-external">
-              Privacy policy
-            </tm-link>
+            <tm-link href="/privacy">Privacy policy</tm-link>
           </p>
         </div>
       </div>
