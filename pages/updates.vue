@@ -8,9 +8,7 @@
             src="~/assets/images/elements/surfer.png"
             alt="Interchain Surfer Shadow"
           />
-          <h1 class="tm-rf4 tm-bold tm-lh-title tm-serif">
-            Get Emeris updates
-          </h1>
+          <h1 class="tm-rf4 tm-bold tm-lh-title tm-serif">Get updates</h1>
           <div class="wizard mt-7 tm-measure-narrow">
             <tm-email-wizard />
           </div>

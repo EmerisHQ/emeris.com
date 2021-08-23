@@ -115,17 +115,17 @@ export default {
       pageHasScroll: false,
     }
   },
+  watch: {
+    $route() {
+      setTimeout(this.checkHeight, 600)
+    },
+  },
   mounted() {
     this.checkHeight()
     window.addEventListener('resize', this.checkHeight)
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.checkHeight)
-  },
-  watch: {
-    $route() {
-      setTimeout(this.checkHeight, 600)
-    },
   },
   methods: {
     getUtmParams(link) {
