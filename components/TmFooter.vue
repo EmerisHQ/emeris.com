@@ -12,11 +12,17 @@
             <span class="sr-only">Emeris</span>
           </nuxt-link>
           <span class="divider" />
-          <!-- <tm-link
-            href="https://v1.cosmos.network/privacy"
+          <tm-link
+            :href="getUtmParams('/support')"
             class="tm-rf0 tm-rf-1-m link-item tm-muted"
             >Support</tm-link
-          > -->
+          >
+          <tm-link
+            href="https://drive.google.com/drive/folders/18PKVjLL53WqapZDLMtm7sdpxl7JSrjBT?usp=sharing"
+            class="tm-rf0 tm-rf-1-m link-item tm-muted"
+          >
+            Press Kit
+          </tm-link>
           <tm-link
             :href="getUtmParams('/privacy')"
             class="tm-rf0 tm-rf-1-m link-item tm-muted"
@@ -35,8 +41,14 @@
           >
             Brand assets
           </tm-link>
+          <tm-link
+            :href="getUtmParams('/updates')"
+            class="tm-rf0 tm-rf-1-m link-item tm-muted"
+            >Get updates</tm-link
+          >
           <span class="divider" />
           <tm-link
+            v-show="pageHasScroll"
             v-scroll-to="'#top'"
             href="#"
             class="tm-rf0 tm-rf-1-m tm-muted scrolltop"
@@ -106,7 +118,20 @@ export default {
         { title: 'Telegram', url: 'https://t.me/EmerisHQ' },
       ],
       currentUrl: this.$route.fullPath,
+      pageHasScroll: false,
     }
+  },
+  watch: {
+    $route() {
+      setTimeout(this.checkHeight, 600)
+    },
+  },
+  mounted() {
+    this.checkHeight()
+    window.addEventListener('resize', this.checkHeight)
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.checkHeight)
   },
   methods: {
     getUtmParams(link) {
@@ -128,6 +153,9 @@ export default {
         }
       })
       return iconPath
+    },
+    checkHeight() {
+      this.pageHasScroll = window.innerHeight !== document.body.clientHeight
     },
   },
 }

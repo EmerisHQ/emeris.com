@@ -3,7 +3,7 @@
     <transition name="fade" appear>
       <div v-if="show" class="banner-wrapper z-banner">
         <div class="wrapper">
-          <div class="message tm-rf-1 tm-lh-title">
+          <div class="message tm-rf-1">
             By using this website, you agree to our
             <a
               href="https://www.cookiesandyou.com"
@@ -109,14 +109,17 @@ export default {
 .fade-enter
 .fade-leave-to
   opacity 0
-  transform translate(-50%, -100%)
+  transform translate(0, 100%)
 
 .banner-wrapper
+  position relative
+  z-index 1
   box-sizing border-box
   box-shadow 0px 24px 40px rgba(22, 25, 49, 0.1),
     0px 10px 16px rgba(22, 25, 49, 0.08), 0px 1px 0px rgba(22, 25, 49, 0.05)
   margin-left calc(var(--wrap-gap) * -1)
   margin-right calc(var(--wrap-gap) * -1)
+  margin-top -1.9rem
   background var(--fg)
   border-width 0.0625rem
   border-style solid
@@ -125,12 +128,10 @@ export default {
   @media $breakpoint-medium
     position fixed
     bottom var(--spacing-10)
-    left var(--wrap-gap)
+    left 50%
     border-radius $border-radius-3
     margin-left 0
     margin-right 0
-  @media $breakpoint-large
-    left 50%
     transform translateX(-50%)
 
 .wrapper
@@ -148,7 +149,7 @@ export default {
   color var(--muted)
   align-items stretch
   justify-content center
-  padding var(--spacing-4) 0 var(--spacing-4) var(--spacing-4)
+  padding var(--spacing-4) 0 var(--spacing-4) var(--spacing-6)
   position relative
 
 .box

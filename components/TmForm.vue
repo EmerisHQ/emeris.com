@@ -70,9 +70,7 @@
             </form>
             <p class="bottom__footnote tm-rf-1 tm-lh-copy tm-text-center">
               You can unsubscribe at any time.
-              <a href="https://cosmos.network/privacy"
-                >Privacy policy<span class="icon__right">&#8599;</span></a
-              >
+              <a href="https://cosmos.network/privacy">Privacy policy</a>
             </p>
           </div>
         </transition>

@@ -37,14 +37,6 @@
           <span class="tm-text-center">the power of</span>
           <span class="tm-text-right">cross-chain DeFi</span>
         </h1>
-        <p
-          class="
-            overline
-            tm-rf-1 tm-rf1-m-up tm-medium tm-lh-title tm-overline tm-muted
-          "
-        >
-          Coming soon
-        </p>
       </div>
     </div>
     <svg
@@ -176,7 +168,7 @@ img
   bottom var(--spacing-10)
   left var(--spacing-10)
   transform translateX(-1rem)
-  @media $breakpoint-large
+  @media $breakpoint-medium
     display block
     transform translateX(-50%)
     animation levitate 1.8s ease-in-out alternate infinite
@@ -236,6 +228,7 @@ a.btn
   top 40%
   left 50%
   transform translate(-66%, 0%) rotate(14deg)
+  animation hero-hand 4s ease-in-out infinite
   @media $breakpoint-medium
     width 62vw
     top 66%
@@ -321,13 +314,6 @@ a.btn
     left calc(52% + 18.5rem)
     transform translate(-50%, -16%)
 
-.overline
-  width 100%
-  max-width calc((1.401125rem + 3.7441666666666666vw) * 8)
-  @media $breakpoint-small
-    max-width none
-    text-align right
-
 .frame
   position absolute
   background-size cover
@@ -371,6 +357,12 @@ a.btn
     transform translateX(-50%) translateY(0%) scale(1)
   50%
     transform translateX(-50%) translateY(-12%) scale(.98)
+
+@keyframes hero-hand
+  0%, 100%
+    transform translate(-66%, 0%) rotate(14deg)
+  50%
+    transform translate(-66%, -2%) rotate(16deg)
 
 // @media $breakpoint-small
 // @media $breakpoint-medium

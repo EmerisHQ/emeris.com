@@ -1,5 +1,5 @@
 <template>
-  <div id="top">
+  <div id="top" class="main-wrapper">
     <section-primary-nav />
     <div id="content">
       <nuxt />
@@ -24,4 +24,12 @@
 //   overflow hidden
 #top
   overflow hidden
+
+.main-wrapper
+  display flex
+  flex-direction column
+  justify-content space-between
+  min-height 100vh
+  &:before
+    content ''
 </style>

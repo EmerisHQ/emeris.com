@@ -41,4 +41,18 @@ export default ({ app }) => {
     ga("set", "page", to.fullPath);
     ga("send", "pageview");
   });
+
+  !!document.querySelector('#signUp') &&
+    document.querySelector('#signUp').addEventListener('submit', function() {
+      ga('send', 'event', 'form', 'conversion', 'wizard-sing-up', '50');
+    });
+
+  !!document.querySelector('#launchApp') &&
+    document.querySelector('#launchApp').addEventListener('click', function() {
+      ga('send', 'event', 'click', 'launch', 'top-cta', '100');
+    });
+  !!document.querySelector('#diveIn') &&
+    document.querySelector('#diveIn').addEventListener('click', function() {
+      ga('send', 'event', 'click', 'launch', 'bottom-cta', '100');
+    });
 };

@@ -2,18 +2,11 @@
   <main>
     <div ref="button" class="fixed-container">
       <transition name="fade">
-        <!-- <tm-button
-          v-if="show"
-          to-link="external"
-          :href="getUtmParams('https://app.emeris.com')"
-          size="m"
-          border-color="var(--primary)"
-          variant="outlined"
-          glow
-          class="btn"
-          >Launch app &#8594;</tm-button
-        > -->
-        <tm-email-wizard v-if="show" class="wizard" />
+        <div v-if="show">
+          <tm-button size="m" variant="outlined" glow class="btn" disabled>
+            Mobile not supported yet
+          </tm-button>
+        </div>
       </transition>
       <tm-cookie-banner />
     </div>
@@ -25,9 +18,11 @@
     </kinesis-container>
     <section-rates />
     <section-access />
-    <!-- <section-beta /> -->
+    <section-beta />
     <section-updates />
-    <section-cta ref="cta" />
+    <div ref="cta">
+      <section-cta />
+    </div>
   </main>
 </template>
 
@@ -60,10 +55,10 @@ export default {
       return link
     },
     scrollHandler() {
-      const ctaRect = this.$refs.cta.$el.getBoundingClientRect()
-      const ctaBottom = ctaRect.top + ctaRect.height - 70
+      const ctaRect = this.$refs.cta.getBoundingClientRect()
+      const ctaTop = ctaRect.top + 100
       const buttonTop = this.$refs.button.getBoundingClientRect().top
-      if (ctaBottom <= buttonTop) {
+      if (ctaTop <= buttonTop) {
         this.show = false
       } else {
         this.show = true
@@ -93,17 +88,15 @@ export default {
   left var(--wrap-gap)
   right var(--wrap-gap)
   @media $breakpoint-medium
-    bottom var(--spacing-10)
+    bottom var(--spacing-9)
     left auto
   .btn
   .wizard
     width 100%
     margin-bottom var(--wrap-gap)
     @media $breakpoint-medium
-      width 300px
       margin-bottom 0
-
-// @media $breakpoint-large
-// @media $breakpoint-xl
-// @media $breakpoint-xxl
+  .btn
+    @media $breakpoint-medium
+      display none
 </style>

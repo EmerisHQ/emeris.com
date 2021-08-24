@@ -4,22 +4,31 @@
     <div class="tm-wrapper mt-11">
       <div class="tm-content center text">
         <h1 class="title tm-rf4 tm-rf5-m-up tm-bold tm-lh-title tm-serif">
-          Experience a glimpse of DeFi's future
+          Experience a glimpse of DeFi's future today
         </h1>
-        <!-- <div class="button-container">
+        <div class="button-container">
           <tm-button
+            size="m"
+            variant="outlined"
+            glow
+            class="btn mobile"
+            disabled
+            >Mobile not supported yet</tm-button
+          >
+          <tm-button
+            id="diveIn"
             to-link="external"
             :href="getUtmParams('https://app.emeris.com/')"
             size="m"
             variant="outlined"
             glow
             class="btn"
-            >Get started &#8594;</tm-button
+            ><span>Dive in &#8594;</span></tm-button
           >
-        </div> -->
-        <p class="mt-6 tm-rf1 tm-medium tm-lh-title tm-overline tm-muted">
-          Coming soon
-        </p>
+        </div>
+        <div class="tm-rf-1 tm-muted mt-4 center mobile-text">
+          Use the app on a desktop device
+        </div>
       </div>
     </div>
   </div>
@@ -50,7 +59,7 @@ export default {
 
 .title
   @media $breakpoint-large
-    max-width 54rem
+    max-width 53rem
 
 .text
   text-align center
@@ -60,11 +69,17 @@ export default {
   z-index 1
   width 100%
   .btn
+    display none
     width 100%
     margin-top var(--spacing-10)
     @media $breakpoint-medium
+      display inline-flex
       width auto
       margin-top var(--spacing-7)
+    &.mobile
+      display inline-flex
+      @media $breakpoint-medium
+        display none
 
 .graphics
   flex 1 0 73%
@@ -72,4 +87,8 @@ export default {
   max-width 26rem
   @media $breakpoint-medium
     margin-top var(--spacing-6)
+
+.mobile-text
+  @media $breakpoint-medium
+    display none
 </style>
