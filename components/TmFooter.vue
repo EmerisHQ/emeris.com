@@ -36,6 +36,12 @@
             Terms of Service
           </tm-link>
           <tm-link
+            href="https://drive.google.com/file/d/1h4qrMWHGVLGX2vOJ-ryVmHs68Vu_6MY_/view"
+            class="tm-rf0 tm-rf-1-m link-item tm-muted"
+          >
+            Brand assets
+          </tm-link>
+          <tm-link
             :href="getUtmParams('/updates')"
             class="tm-rf0 tm-rf-1-m link-item tm-muted"
             >Get updates</tm-link
