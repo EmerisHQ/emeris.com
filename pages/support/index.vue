@@ -249,9 +249,10 @@
 
     <div class="tm-section">
       <div class="tm-wrapper tm-container-narrow">
-        <!-- <h2 class="tm-title tm-rf3 tm-bold tm-serif">Get in touch</h2> -->
-        <!-- <div class="mt-9"></div> -->
-        <tm-cta-cards :data="ctas" />
+        <h2 class="tm-title tm-rf3 tm-bold tm-serif">Still have a question?</h2>
+        <div class="mt-9">
+          <tm-cta-cards :data="ctas" />
+        </div>
       </div>
     </div>
   </main>
