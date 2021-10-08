@@ -10,9 +10,10 @@
             <div class="overline tm-rf-1 tm-medium tm-overline tm-muted">
               {{ item.overline }}
             </div>
-            <div class="title tm-rf2 tm-bold tm-lh-title mt-3 tm-link">
-              {{ item.title }}
-            </div>
+            <div
+              class="title tm-rf2 tm-bold tm-lh-title mt-3 tm-link"
+              v-html="item.title"
+            />
             <icon-arrow-top-right-16 class="top-right" />
           </div>
         </nuxt-link>
@@ -24,9 +25,10 @@
             <div class="overline tm-rf-1 tm-medium tm-overline tm-muted">
               {{ item.overline }}
             </div>
-            <div class="title tm-rf2 tm-bold tm-lh-title mt-3 tm-link">
-              {{ item.title }}
-            </div>
+            <div
+              class="title tm-rf2 tm-bold tm-lh-title mt-3 tm-link"
+              v-html="item.title"
+            />
             <icon-arrow-top-right-16
               class="top-right"
               :gradient="item.variant !== 'gradient'"
@@ -139,7 +141,7 @@ export default {
 
 .overline
 .title
-  width 10rem
+  width 14rem
 
 .top-right
   position absolute

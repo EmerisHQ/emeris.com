@@ -307,21 +307,21 @@ export default {
     return {
       ctas: [
         {
-          href: 'https://t.me/EmerisHQ',
-          overline: 'Telegram',
-          title: 'Community support️',
+          href: 'http://emeris.tendermint.happyfox.com/new/',
+          overline: 'Contact us',
+          title: 'Submit a&nbsp;ticket',
           variant: 'gradient',
           graphics: 'graphics-cta-telegram',
           grafics: '~/assets/images/elements/tg-background.png',
         },
-        // {
-        //   href: 'https://discord.com/invite/vcExX9T',
-        //   overline: 'Contact us',
-        //   title: 'Developer integrations',
-        //   variant: 'outlined',
-        //   graphics: 'graphics-cta-developers',
-        //   grafics: '~/assets/images/elements/cu-background.jpg',
-        // },
+        {
+          href: 'https://t.me/EmerisHQ',
+          overline: 'Telegram',
+          title: 'Community support️',
+          variant: 'outlined',
+          graphics: 'graphics-cta-developers',
+          grafics: '~/assets/images/elements/cu-background.jpg',
+        },
       ],
     }
   },
@@ -412,6 +412,7 @@ export default {
 
 .emeris
   position relative
+  display block
   width 100%
   padding var(--spacing-7)
   border 0.0625rem solid transparent
