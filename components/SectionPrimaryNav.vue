@@ -21,15 +21,6 @@
           <ul>
             <li @click="closeNav">
               <tm-link
-                v-show="supportPage"
-                href="http://emeris.tendermint.happyfox.com/new/"
-                class="tm-rf0 tm-medium tm-lh-title"
-                >Submit a ticket</tm-link
-              >
-            </li>
-
-            <li @click="closeNav">
-              <tm-link
                 :href="getUtmParams('/support')"
                 class="tm-rf0 tm-medium tm-lh-title"
                 >Support</tm-link
@@ -94,9 +85,6 @@ export default {
   computed: {
     homePage() {
       return this.$route.path === '/'
-    },
-    supportPage() {
-      return this.$route.path === '/support'
     },
   },
   mounted() {
