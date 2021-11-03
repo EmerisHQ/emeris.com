@@ -111,7 +111,10 @@ export default {
     ],
     script: [
       {
-        innerHTML: `window.intercomSettings = {app_id: 'zgyyxzmt'};`,
+        innerHTML: `
+          var APP_ID = window.location.pathname === '/support' ? 'zgyyxzmt' : false;
+          window.intercomSettings = {app_id: APP_ID};
+        `,
         type: 'text/javascript',
         charset: 'utf-8',
       },
