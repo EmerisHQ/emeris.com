@@ -22,7 +22,7 @@
                   Transfer and trade assets
                 </div>
                 <div class="tm-rf-1 tm-rf0-l-up tm-text mt-1 text-light">
-                  Between 5 different chains for the first time
+                  Between 12 different chains for the first time
                 </div>
               </div>
             </li>
