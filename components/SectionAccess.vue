@@ -185,6 +185,42 @@ export default {
           info: 'The Sentinel Network hosts open-source distributed and decentralized VPN applications that provide users with assurance that their session information is not being logged.',
           img: 'sentinel',
         },
+        {
+          url: 'https://www.starname.me/',
+          text: 'Starname',
+          info: 'Starname is a decentralized digital identity platform that allows users to create and assume custom immutable blockchain profiles.',
+          img: 'starname',
+        },
+        {
+          url: 'https://ionomy.com/',
+          text: 'Ion',
+          info: 'Ion is a utility token on Osmosis designed with no specific use case until the Osmosis community votes on its utility.',
+          img: 'ion',
+        },
+        {
+          url: 'https://www.e-money.com/',
+          text: 'e-Money',
+          info: 'e-Money is an electronic payment system and cross-chain platform developing advanced stablecoins to transcend money within Web 3.0.',
+          img: 'e-money',
+        },
+        {
+          url: 'https://www.ixo.world/',
+          text: 'Ixo',
+          info: 'Ixo, blockchain for impact, is a protocol that allows users to create verifiable claims of how people and companies change the world.',
+          img: 'ixo',
+        },
+        {
+          url: 'https://junochain.com/',
+          text: 'Juno',
+          info: 'Juno is a sovereign public blockchain in Cosmos that aims to provide an environment for the deployment of interoperable smart contracts.',
+          img: 'juno',
+        },
+        {
+          url: 'https://mikrotik.com/',
+          text: 'Microtik',
+          info: 'Microtik is a decentralized price oracle and marketplace for any asset that can be exchanged, hedged, and leveraged for arbitrage opportunities.',
+          img: 'mikrotik',
+        },
       ],
     }
   },
@@ -277,6 +313,24 @@ export default {
   &.sentinel
     &:before
       background radial-gradient(50% 50% at 50% 50%, #506AFF 35.94%, rgba(124, 138, 255, 0) 100%)
+  &.starname
+    &:before
+      background radial-gradient(50% 50% at 50% 50%, rgba(171, 182, 255, .7) 35.94%, rgba(171, 182, 255, 0) 100%)
+  &.ion
+    &:before
+      background radial-gradient(50% 50% at 50% 50%, #506AFF 35.94%, rgba(124, 138, 255, 0) 100%)
+  &.e-money
+    &:before
+      background radial-gradient(50% 50% at 50% 50%, #7C7A7A 35.94%, rgba(52, 52, 52, 0) 100%)
+  &.ixo
+    &:before
+      background radial-gradient(50% 50% at 50% 50%, #506AFF 35.94%, rgba(124, 138, 255, 0) 100%)
+  &.juno
+    &:before
+      background radial-gradient(50% 50% at 50% 50%, #FF6940 35.94%, rgba(230, 98, 98, 0) 100%)
+  &.mikrotik
+    &:before
+      background radial-gradient(50% 50% at 50% 50%, #57B17C 35.94%, rgba(136, 206, 200, 0) 100%)
 
 .logo-inner
   position absolute
@@ -310,6 +364,18 @@ export default {
     background-image url('~/assets/images/logos/orb-regen-network.jpg')
   &.sentinel
     background-image url('~/assets/images/logos/orb-sentinel.jpg')
+  &.starname
+    background-image url('~/assets/images/logos/orb-starname.jpg')
+  &.ion
+    background-image url('~/assets/images/logos/orb-ion.jpg')
+  &.e-money
+    background-image url('~/assets/images/logos/orb-e-money.jpg')
+  &.ixo
+    background-image url('~/assets/images/logos/orb-ixo.jpg')
+  &.juno
+    background-image url('~/assets/images/logos/orb-juno.jpg')
+  &.mikrotik
+    background-image url('~/assets/images/logos/orb-mikrotik.jpg')
 
 @keyframes fading-orb
   0%, 100%
@@ -436,7 +502,7 @@ export default {
     animation-name animation
     animation-timing-function linear
     animation-iteration-count infinite
-    animation-duration 30s
+    animation-duration 50s
     float left
 
 // @media $breakpoint-large
