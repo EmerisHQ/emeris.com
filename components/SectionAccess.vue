@@ -209,18 +209,18 @@ export default {
           info: 'Ixo, blockchain for impact, is a protocol that allows users to create verifiable claims of how people and companies change the world.',
           img: 'ixo',
         },
-        {
-          url: 'https://junochain.com/',
-          text: 'Juno',
-          info: 'Juno is a sovereign public blockchain in Cosmos that aims to provide an environment for the deployment of interoperable smart contracts.',
-          img: 'juno',
-        },
-        {
-          url: 'https://mikrotik.com/',
-          text: 'Microtik',
-          info: 'Microtik is a decentralized price oracle and marketplace for any asset that can be exchanged, hedged, and leveraged for arbitrage opportunities.',
-          img: 'mikrotik',
-        },
+        // {
+        //   url: 'https://junochain.com/',
+        //   text: 'Juno',
+        //   info: 'Juno is a sovereign public blockchain in Cosmos that aims to provide an environment for the deployment of interoperable smart contracts.',
+        //   img: 'juno',
+        // },
+        // {
+        //   url: 'https://mikrotik.com/',
+        //   text: 'Microtick',
+        //   info: 'Microtick is a decentralized price oracle and marketplace for any asset that can be exchanged, hedged, and leveraged for arbitrage opportunities.',
+        //   img: 'mikrotik',
+        // },
       ],
     }
   },

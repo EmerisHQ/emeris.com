@@ -51,7 +51,7 @@
               <div
                 class="tm-rf0 tm-rf-1-m tm-bold tm-lh-title tm-overline tm-text"
               >
-                +0.3% SWAP FEE
+                +0.15% SWAP FEE
               </div>
             </div>
           </div>
