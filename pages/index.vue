@@ -2,7 +2,7 @@
   <main>
     <div ref="button" class="fixed-container">
       <transition name="fade">
-        <div v-if="show">
+        <div v-if="showButton">
           <tm-button size="m" variant="outlined" glow class="btn" disabled>
             Mobile not supported yet
           </tm-button>
@@ -10,32 +10,28 @@
       </transition>
       <tm-cookie-banner />
     </div>
-    <section-hero />
+    <section-hero :open-video="openVideo" />
     <section-intro />
-    <kinesis-container>
-      <section-trading />
-      <section-protocol />
-    </kinesis-container>
+    <section-trading />
     <section-rates />
     <section-access />
     <section-beta />
     <section-updates />
+
     <div ref="cta">
       <section-cta />
     </div>
+
+    <modal-video :visible="showVideo" :close-modal="closeVideo" />
   </main>
 </template>
 
 <script>
-import { KinesisContainer } from 'vue-kinesis'
-
 export default {
-  components: {
-    KinesisContainer,
-  },
   data() {
     return {
-      show: true,
+      showButton: true,
+      showVideo: false,
       currentUrl: this.$route.fullPath,
     }
   },
@@ -59,10 +55,19 @@ export default {
       const ctaTop = ctaRect.top + 100
       const buttonTop = this.$refs.button.getBoundingClientRect().top
       if (ctaTop <= buttonTop) {
-        this.show = false
+        this.showButton = false
       } else {
-        this.show = true
+        this.showButton = true
       }
+    },
+
+    openVideo() {
+      this.showVideo = true
+    },
+
+    closeVideo(player) {
+      !!player && player.pauseVideo()
+      this.showVideo = false
     },
 
     setupListener() {

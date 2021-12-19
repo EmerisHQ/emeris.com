@@ -1,10 +1,9 @@
 <template>
-  <div id="cta" class="section-cta tm-container tm-wrapper tm-section">
-    <graphics-cta class="graphics" />
-    <div class="tm-wrapper mt-11">
-      <div class="tm-content center text">
-        <h1 class="title tm-rf4 tm-rf5-m-up tm-bold tm-lh-title tm-serif">
-          Experience a glimpse of DeFi's future today
+  <div id="cta" class="section-cta tm-section">
+    <div class="tm-wrapper tm-container">
+      <div class="tm-center text">
+        <h1 class="tm-title tm-lh-title tm-serif tm-rf5 tm-bold">
+          Experience a&nbsp;glimpse of&nbsp;DeFi's future today
         </h1>
         <div class="button-container">
           <tm-button
@@ -20,11 +19,12 @@
             to-link="external"
             :href="getUtmParams('https://app.emeris.com/')"
             size="m"
-            variant="outlined"
+            variant="gradient"
             glow
             class="btn"
-            ><span>Dive in &#8594;</span></tm-button
           >
+            Dive into the app <span class="icon__right">&rarr;</span>
+          </tm-button>
         </div>
         <div class="tm-rf-1 tm-muted mt-4 center mobile-text">
           Use the app on a desktop device
@@ -52,16 +52,13 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.section-cta
-  padding var(--spacing-11) 0
-  @media $breakpoint-xl
-    padding var(--spacing-11) 0 var(--spacing-10)
-
-.title
-  @media $breakpoint-large
-    max-width 53rem
+// .section-cta
+//   padding var(--spacing-11) 0
+//   @media $breakpoint-xl
+//     padding var(--spacing-11) 0 var(--spacing-10)
 
 .text
+  max-width: 42.625rem
   text-align center
 
 .button-container
@@ -72,6 +69,7 @@ export default {
     display none
     width 100%
     margin-top var(--spacing-10)
+    margin-left 0
     @media $breakpoint-medium
       display inline-flex
       width auto

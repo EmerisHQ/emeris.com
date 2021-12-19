@@ -22,8 +22,8 @@
 
 // #content
 //   overflow hidden
-#top
-  overflow hidden
+// #top
+//   overflow hidden
 
 .main-wrapper
   display flex

@@ -33,19 +33,6 @@
                 >Get updates</tm-link
               >
             </li>
-            <li class="tablet">
-              <tm-button
-                id="launchApp"
-                to-link="external"
-                :href="getUtmParams('https://app.emeris.com')"
-                size="m"
-                border-color="var(--primary)"
-                variant="outlined"
-                glow
-                class="btn"
-                ><span>Launch app &#8594;</span></tm-button
-              >
-            </li>
           </ul>
         </div>
         <button

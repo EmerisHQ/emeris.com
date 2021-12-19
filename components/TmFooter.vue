@@ -2,16 +2,15 @@
   <footer class="footer tm-wrapper">
     <div class="tm-container">
       <div class="row">
+        <nuxt-link :to="getUtmParams('/')" class="logo">
+          <logo-emeris-wordmark class="logo__emeris" />
+          <span class="sr-only">Emeris</span>
+        </nuxt-link>
         <nav
           ref="links"
           class="nav-bottom tm-rf-1 tm-lh-copy"
           role="navigation"
         >
-          <nuxt-link :to="getUtmParams('/')" class="logo">
-            <logo-emeris-wordmark class="logo__emeris" />
-            <span class="sr-only">Emeris</span>
-          </nuxt-link>
-          <span class="divider" />
           <tm-link
             :href="getUtmParams('/support')"
             class="tm-rf0 tm-rf-1-m link-item tm-muted"
@@ -46,16 +45,9 @@
             class="tm-rf0 tm-rf-1-m link-item tm-muted"
             >Get updates</tm-link
           >
-          <span class="divider" />
-          <tm-link
-            v-show="pageHasScroll"
-            v-scroll-to="'#top'"
-            href="#"
-            class="tm-rf0 tm-rf-1-m tm-muted scrolltop"
-          >
-            Back to top &#8593;</tm-link
-          >
         </nav>
+      </div>
+      <div class="row mt-7">
         <nav ref="links" class="social-icons mt-8" role="navigation">
           <tm-link
             v-for="link in links"
@@ -78,12 +70,23 @@
           </tm-link>
         </nav>
       </div>
-      <p class="smallprint tm-rf-1 tm-lh-copy mt-8 tm-muted">
-        &copy; Emeris 2021 — Built by
-        <tm-link :href="getUtmParams('https://tendermint.com')"
-          >Tendermint</tm-link
-        >.
-      </p>
+      <div class="row _bottom">
+        <tm-link
+          v-show="pageHasScroll"
+          v-scroll-to="'#top'"
+          href="#"
+          class="tm-rf0 scrolltop"
+        >
+          Back to top
+          <span class="icon__top">&#8593;</span>
+        </tm-link>
+        <p class="smallprint tm-rf-1 tm-lh-copy tm-muted">
+          &copy; Emeris 2021 — Built by
+          <tm-link :href="getUtmParams('https://tendermint.com')"
+            >Tendermint</tm-link
+          >.
+        </p>
+      </div>
     </div>
   </footer>
 </template>
@@ -163,11 +166,8 @@ export default {
 
 <style lang="stylus" scoped>
 .footer
-  padding-top var(--spacing-7)
-  padding-bottom var(--spacing-9)
-  @media $breakpoint-xl
-    padding-top var(--spacing-8)
-    padding-bottom var(--spacing-8)
+  padding-top var(--spacing-6)
+  padding-bottom var(--spacing-8)
 
 .social-icons
   display grid
@@ -213,14 +213,27 @@ export default {
   &__emeris
     height 1rem
 
-.divider
-  margin 0 var(--spacing-6)
-  border-right 1px solid var(--white-100)
+.row
+  @media $breakpoint-xsmall-only
+    flex-direction row
+  @media $breakpoint-small
+    display flex
+    flex-direction column
+    align-items center
+    justify-content space-between
+  @media $breakpoint-large
+    flex-direction row
+  &._bottom
+    margin-top var(--spacing-7)
+    @media $breakpoint-medium
+      margin-top var(--spacing-8)
+    @media $breakpoint-large
+      flex-direction: row-reverse
+
+.scrolltop
+  color var(--quaternary)
 
 @media $breakpoint-xsmall-only
-  .row
-    flex-direction row
-
   .nav-bottom
     display flex
     flex-direction column
@@ -242,12 +255,6 @@ export default {
     text-align center
 
 @media $breakpoint-small
-  .row
-    display flex
-    flex-direction column
-    align-items center
-    justify-content space-between
-
   .nav-bottom
     display flex
     flex-direction column
@@ -286,9 +293,6 @@ export default {
 @media $breakpoint-large
   .social-icons
     margin-top 0
-
-  .row
-    flex-direction row
 
   .smallprint
     text-align left

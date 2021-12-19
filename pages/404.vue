@@ -25,14 +25,14 @@
 
 <script>
 export default {
-  head() {
-    return {
-      title: '404',
-    }
-  },
   data() {
     return {
       currentUrl: this.$route.fullPath,
+    }
+  },
+  head() {
+    return {
+      title: '404',
     }
   },
   methods: {

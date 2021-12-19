@@ -1,48 +1,42 @@
 <template>
   <div class="section-trading tm-section">
-    <div class="tm-wrapper tm-container-narrow">
+    <div class="tm-wrapper tm-container">
       <div class="tm-grid-base">
-        <div class="column">
-          <h2 class="tm-rf4 tm-bold tm-serif title">
+        <div class="column-header">
+          <h2 class="tm-rf4 tm-bold tm-serif tm-title tm-lh-title title">
             Discover<br />instant<br />cross-chain<br />trading
           </h2>
-          <p
-            class="tm-rf0 tm-rf1-l-up tm-lh-copy mt-7 tm-text tm-measure-narrow"
-          >
-            Emeris beta connects you to the best cross&#8209;chain DeFi
-            protocols, starting with&nbsp;Gravity DEX.
+          <p class="tm-rf0 tm-lh-copy mt-7 tm-text tm-measure-narrow">
+            Emeris beta connects you to the best cross-chain DeFi protocols,
+            starting with Gravity DEX.
           </p>
         </div>
 
-        <div class="column">
+        <div class="column-content">
           <ul class="list">
-            <li class="list-item">
+            <li v-for="item in items" :key="item.title" class="list-item">
               <div class="list-info">
-                <div class="tm-rf0 tm-rf1-l-up tm-bold tm-lh-title tm-text">
-                  Transfer and trade assets
+                <div class="cover-container">
+                  <img
+                    :src="require(`~/assets/images/elements/${item.img}`)"
+                    class="cover"
+                  />
+                  <img
+                    v-if="item.img === 'scene-01.jpg'"
+                    :src="require(`~/assets/images/elements/orb.png`)"
+                    class="orbit"
+                  />
                 </div>
-                <div class="tm-rf-1 tm-rf0-l-up tm-text mt-1 text-light">
-                  Between 12 different chains for the first time
+                <div
+                  class="
+                    mt-6
+                    tm-measure-wide tm-rf1 tm-bold tm-lh-title tm-title
+                  "
+                >
+                  {{ item.title }}
                 </div>
-              </div>
-            </li>
-            <li class="list-item">
-              <div class="list-info">
-                <div class="tm-rf0 tm-rf1-l-up tm-bold tm-lh-title tm-text">
-                  Access a decentralized exchange
-                </div>
-                <div class="tm-rf-1 tm-rf0-l-up tm-text mt-1 text-light">
-                  With a trusted, stable and audited DEX protocol
-                </div>
-              </div>
-            </li>
-            <li class="list-item">
-              <div class="list-info">
-                <div class="tm-rf0 tm-rf1-l-up tm-bold tm-lh-title tm-text">
-                  Earn competitive yield
-                </div>
-                <div class="tm-rf-1 tm-rf0-l-up tm-text mt-1 text-light">
-                  By participating in liquidity pools
+                <div class="mt-1 tm-measure-wide tm-rf0 tm-text mt-1">
+                  {{ item.info }}
                 </div>
               </div>
             </li>
@@ -54,16 +48,48 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      items: [
+        {
+          img: 'scene-01.jpg',
+          title: 'Transfer and trade assets',
+          info: 'Between 12 different chains for the first time',
+        },
+        {
+          img: 'scene-02.jpg',
+          title: 'Access a decentralized exchange',
+          info: 'With a trusted, stable and audited DEX protocol',
+        },
+        {
+          img: 'scene-03.jpg',
+          title: 'Earn competitive yield',
+          info: 'By participating in liquidity pools.',
+        },
+      ],
+    }
+  },
+}
 </script>
 
 <style lang="stylus" scoped>
-.column
-  grid-column span 4
+.column-header
+  grid-column 1 / -1
+  @media $breakpoint-medium
+    grid-column span 3
   @media $breakpoint-xl
-    grid-column span 5
-    &:nth-child(2n)
-      grid-column 7 / span 5
+    grid-column 2 / span 4
+    position: sticky
+    top: 3.5rem
+    align-self: start
+
+.column-content
+  grid-column 1 / -1
+  @media $breakpoint-medium
+    grid-column span 3
+  @media $breakpoint-xl
+    grid-column span 6
 
 .title
   line-height 1.3
@@ -76,28 +102,30 @@ export default {}
   margin-top var(--spacing-11)
   @media $breakpoint-medium
     margin-top 0
+  @media $breakpoint-xl
+    display: grid
+    grid-template-columns repeat(2, 1fr)
+    gap 0 var(--grid-gap-x)
   &-item
     position relative
     display flex
-    margin-top var(--spacing-7)
-    @media $breakpoint-xl
-      margin-top var(--spacing-6)
-    &:first-child
-      margin-top 0
-    &:before
-      content ''
-      display inline-block
-      flex-shrink 0
-      width 1rem
-      height 1rem
-      margin-top var(--spacing-1)
-      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)
-      background: conic-gradient(from 180deg at 50% 50%, #CEA851 -41.21deg, #FFF1C3 0.05deg, #9B7C3A 74.45deg, #FFF0CA 115.85deg, #D3AD5F 143.94deg, #FFECC4 176.48deg, #997736 232.74deg, #FFF2C0 284.83deg, #CEA851 318.79deg, #FFF1C3 360.05deg)
+    &:nth-child(2n)
+      transform: translateY(50%)
+    &:nth-child(2n + 1)
       @media $breakpoint-xl
-        margin-left -1rem
-  &-info
-    margin-left var(--spacing-6)
+        margin-top var(--spacing-9)
+    &:first-child
+      @media $breakpoint-xl
+        margin-top 0
 
-.text-light
-  color var(--white-700)
+.cover-container
+  position relative
+
+.cover
+  width 100%
+
+.orbit
+  position absolute
+  left -7.4rem
+  bottom 0.5rem
 </style>
