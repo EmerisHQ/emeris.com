@@ -74,6 +74,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.section-trading
+  padding-top var(--spacing-8)
+
 .column-header
   grid-column 1 / -1
   @media $breakpoint-medium
@@ -126,6 +129,8 @@ export default {
 
 .orbit
   position absolute
-  left -7.4rem
-  bottom 0.5rem
+  left -8.9rem
+  bottom -1.1rem
+  width 21.8rem
+  max-width: none
 </style>

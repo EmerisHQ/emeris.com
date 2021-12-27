@@ -1,5 +1,6 @@
 <template>
-  <div id="cta" class="section-cta tm-section">
+  <div id="cta" class="section-cta tm-section mt-9">
+    <graphics-cta class="graphics" />
     <div class="tm-wrapper tm-container">
       <div class="tm-center text">
         <h1 class="tm-title tm-lh-title tm-serif tm-rf5 tm-bold">
@@ -52,10 +53,22 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-// .section-cta
+.section-cta
+  position relative
+  min-height: 90vh
+  display flex
+  align-items center
 //   padding var(--spacing-11) 0
 //   @media $breakpoint-xl
 //     padding var(--spacing-11) 0 var(--spacing-10)
+
+.graphics
+  position absolute
+  top 50%
+  left: 50%
+  width 73%
+  max-width 26rem
+  transform: translate(-50%, -50%)
 
 .text
   max-width: 42.625rem
@@ -78,13 +91,6 @@ export default {
       display inline-flex
       @media $breakpoint-medium
         display none
-
-.graphics
-  flex 1 0 73%
-  width 73%
-  max-width 26rem
-  @media $breakpoint-medium
-    margin-top var(--spacing-6)
 
 .mobile-text
   @media $breakpoint-medium

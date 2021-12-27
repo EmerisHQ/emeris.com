@@ -1,5 +1,5 @@
 <template>
-  <div class="tm-section">
+  <div class="tm-section mt-8">
     <div class="tm-wrapper tm-container-narrow">
       <div class="tm-grid-base">
         <div class="column-header">

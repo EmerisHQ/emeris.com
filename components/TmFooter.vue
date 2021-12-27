@@ -166,13 +166,12 @@ export default {
 
 <style lang="stylus" scoped>
 .footer
-  padding-top var(--spacing-6)
   padding-bottom var(--spacing-8)
 
 .social-icons
   display grid
   grid-template-columns repeat(3, 1fr)
-  gap 1rem
+  gap 1.5rem
   text-align center
 
   &__item
@@ -211,7 +210,7 @@ export default {
     width auto
 
   &__emeris
-    height 1rem
+    height 1.35rem
 
 .row
   @media $breakpoint-xsmall-only
@@ -228,6 +227,7 @@ export default {
     @media $breakpoint-medium
       margin-top var(--spacing-8)
     @media $breakpoint-large
+      margin-top var(--spacing-9)
       flex-direction: row-reverse
 
 .scrolltop

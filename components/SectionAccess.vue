@@ -23,7 +23,7 @@
           </div>
         </div>
       </div>
-      <div class="mt-8">
+      <div class="mt-9">
         <div class="info tm-copy tm-rf0 tm-normal tm-text">
           <p>
             Access cutting-edge decentralized exchanges, allowing you to obtain

@@ -12,7 +12,7 @@
           </div>
         </div>
         <div class="column-info">
-          <p class="mt-5 tm-rf0 tm-lh-copy tm-text tm-measure-narrow">
+          <p class="mt-6 tm-rf0 tm-lh-copy tm-text tm-measure-narrow">
             Emeris beta allows you to swap coins with substantially lower fees
             than typical DeFi exchanges by connecting you to the best
             cross-chain DeFi protocols, starting with Gravity DEX.
@@ -69,7 +69,7 @@ export default {
 
 .section-defi
   @media $breakpoint-xl
-    margin-bottom var(--spacing-9)
+    margin-bottom var(--spacing-11)
 
 .graphics-container
   position absolute

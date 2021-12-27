@@ -12,10 +12,10 @@
 <style lang="stylus" scoped>
 .ephemeris
   position absolute
-  top: 115%
+  top: 121%
   left 50%
   max-width: none
-  width: 285%
+  width: 282%
   transform: translate(-50%, -50%)
 
 .defi
