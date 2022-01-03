@@ -1,7 +1,10 @@
 <template>
-  <div id="best" class="tm-section mt-6">
+  <div id="best" class="tm-section section-updates mt-6">
     <div class="tm-wrapper tm-container-narrow">
       <div class="tm-grid-base">
+        <div class="column right">
+          <graphics-updates class="graphics" />
+        </div>
         <div class="column left">
           <h2 class="tm-title tm-lh-title tm-serif tm-rf4 tm-bold">
             The best is yet&nbsp;to come
@@ -10,7 +13,7 @@
             <p class="tm-rf0 tm-lh-copy tm-measure-narrower">
               Emeris aims to be the first one-stop portal to provide:
             </p>
-            <ul class="list tm-rf0 tm-rf1-xl-up tm-lh-copy mt-8">
+            <ul class="list tm-rf0 tm-rf1-xl-up tm-lh-copy">
               <li
                 v-for="item in items"
                 :key="item"
@@ -19,13 +22,10 @@
                 {{ item }}
               </li>
             </ul>
-            <div class="cta mt-8 tm-measure-narrower">
+            <div class="cta tm-measure-narrower">
               <tm-email-wizard />
             </div>
           </div>
-        </div>
-        <div class="column right">
-          <graphics-updates class="graphics" />
         </div>
       </div>
     </div>
@@ -48,26 +48,43 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.section-updates
+  @media $breakpoint-xsmall-only
+    padding-top 0
+  @media $breakpoint-small-only
+    padding-top 0
+
+.graphics
+  max-width: 17rem
+  margin-inline: auto
+
 .column
   grid-column 1/-1
   @media $breakpoint-medium
     grid-column span 4
   &:not(:first-child)
-    margin-top 12rem
+    margin-top 5.5rem
     @media $breakpoint-small
       margin-top var(--spacing-7)
     @media $breakpoint-medium
       margin-top 0
 
 .list
+  margin-top var(--spacing-10)
   padding-left 0
   list-style: none
+  @media $breakpoint-medium
+    margin-top var(--spacing-8)
 
 .list-item
   position relative
-  padding-left var(--spacing-7)
+  padding-left var(--spacing-9)
+  @media $breakpoint-medium
+    padding-left var(--spacing-7)
   & + &
-    margin-top var(--spacing-6)
+    margin-top var(--spacing-9)
+    @media $breakpoint-medium
+      margin-top var(--spacing-6)
   &:before
     content: ''
     position absolute
@@ -78,6 +95,11 @@ export default {
     background var(--gold-material-gradient)
     transform rotate(45deg)
     margin-top var(--spacing-3)
+
+.cta
+  margin-top var(--spacing-10)
+  @media $breakpoint-medium
+    margin-top var(--spacing-8)
 
 @media $breakpoint-xl
   .left

@@ -5,7 +5,7 @@
         <div class="column-title">
           <div class="text z-2">
             <h2
-              class="tm-title tm-rf5 tm-rf6-m-up tm-bold tm-lh-title tm-serif"
+              class="tm-title tm-rf7 tm-rf6-m-up tm-bold tm-lh-title tm-serif"
             >
               DeFi<br />for all
             </h2>
@@ -72,13 +72,16 @@ export default {
     margin-bottom var(--spacing-11)
 
 .graphics-container
-  position absolute
-  left 50%
-  top 1.5rem
-  bottom: 1.5rem
-  width 100%
-  max-width: 21.6875rem
-  transform: translateX(-50%)
+  max-width: 17rem
+  margin-inline: auto
+  @media $breakpoint-xl
+    position absolute
+    left 50%
+    top 1.5rem
+    bottom: 1.5rem
+    width 100%
+    max-width: 21.6875rem
+    transform: translateX(-50%)
 
 .column-title
   grid-column 1/-1
@@ -87,9 +90,11 @@ export default {
 
 .column-info
   grid-column 1/-1
+  margin-bottom var(--spacing-9)
   @media $breakpoint-xl
     grid-column 9 / span 3
     margin-top var(--spacing-9)
+    margin-bottom 0
 
 .column-stats
   grid-column 1/-1
@@ -101,9 +106,12 @@ export default {
   max-width 23.375rem
 
 .stats-item
-  margin-bottom var(--spacing-7)
+  margin-bottom var(--spacing-9)
+  @media $breakpoint-xl
+    margin-bottom var(--spacing-7)
   &:last-child
-    margin-bottom 0
+    @media $breakpoint-xl
+      margin-bottom 0
 
 @media $breakpoint-xsmall-only
   .section-rates

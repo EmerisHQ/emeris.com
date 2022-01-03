@@ -1,13 +1,6 @@
 <template>
   <main>
     <div ref="button" class="fixed-container">
-      <transition name="fade">
-        <div v-if="showButton">
-          <tm-button size="m" variant="outlined" glow class="btn" disabled>
-            Mobile not supported yet
-          </tm-button>
-        </div>
-      </transition>
       <tm-cookie-banner />
     </div>
     <section-hero :open-video="openVideo" />
@@ -34,10 +27,6 @@ export default {
       showVideo: false,
       currentUrl: this.$route.fullPath,
     }
-  },
-
-  mounted() {
-    this.setupListener()
   },
 
   beforeDestroy() {

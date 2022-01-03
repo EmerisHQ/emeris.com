@@ -36,7 +36,8 @@
     "rfs": "^9.0.3",
     "v-tooltip": "^2.1.3",
     "vue-kinesis": "^1.3.3",
-    "vue-scrollto": "^2.20.0"
+    "vue-scrollto": "^2.20.0",
+    "vue-youtube": "^1.4.0"
   },
   "devDependencies": {
     "@aceforth/nuxt-optimized-images": "^1.4.0",

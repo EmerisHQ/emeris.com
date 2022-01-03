@@ -8,7 +8,10 @@
             class="logos-container"
             :class="[homePage && 'home']"
           >
-            <logo-emeris-wordmark-color class="logo" :gradient="!isOpen" />
+            <logo-emeris-wordmark-color
+              class="logo"
+              :gradient="!isOpen && !isTop"
+            />
             <span class="sr-only">Emeris</span>
           </nuxt-link>
           <span
@@ -65,6 +68,7 @@ export default {
   data() {
     return {
       isOpen: false,
+      isTop: false,
       currentUrl: this.$route.fullPath,
       headroom: null,
     }
@@ -108,6 +112,8 @@ export default {
         const options = {
           offset: 100,
           onUnpin: () => this.closeNav(),
+          onTop: () => (this.isTop = true),
+          onNotTop: () => (this.isTop = false),
         }
         this.headroom = new Headroom(this.$el, options)
         this.headroom.init()
@@ -145,7 +151,11 @@ export default {
         background rgba(0, 0, 0, 0.7)
         backdrop-filter blur(20px)
   &.headroom--top
-    padding-block 2.75rem
+    padding-block var(--spacing-7)
+    @media $breakpoint-medium
+      padding-block var(--spacing-4)
+    @media $breakpoint-xl
+      padding-block 2.75rem
   .tm-container
     max-width 86rem
 
@@ -174,6 +184,8 @@ export default {
 
 .smallprint
   margin-left var(--spacing-5)
+  .headroom--top &
+    color rgba(24,24,24,0.67)
 
 .nav
   /* if no secondary nav, create similar space */
@@ -254,6 +266,9 @@ export default {
     &:nth-child(3)
     &:nth-child(4)
       opacity 0
+  .headroom--top &
+    i
+      background-color var(--black)
   &.opened
     i
       background-color var(--black)

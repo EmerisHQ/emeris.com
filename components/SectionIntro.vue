@@ -3,28 +3,38 @@
     <div class="tm-wrapper tm-container center">
       <div class="tm-grid-base">
         <div class="information">
-          <p class="tm-lh-copy">
+          <p class="tm-rf-1 tm-rf0-m-up tm-lh-copy">
             Emeris is a one-stop portal for all crypto apps, no matter what
             blockchain they run on.<br />
             Try the beta today.
           </p>
 
-          <div class="btn mt-7 z-1">
-            <tm-button
-              id="launchApp"
-              to-link="external"
-              :href="getUtmParams('https://app.emeris.com')"
-              size="m"
-              border-color="var(--primary)"
-              glow
-              variant="gradient"
-            >
-              <span>Launch app</span>
-              <span class="icon__right">&rarr;</span>
-            </tm-button>
+          <div class="btn z-1">
+            <div class="show-desktop">
+              <tm-button
+                id="launchApp"
+                to-link="external"
+                :href="getUtmParams('https://app.emeris.com')"
+                size="m"
+                border-color="var(--primary)"
+                glow
+                variant="gradient"
+              >
+                <span>Launch app</span>
+                <span class="icon__right">&rarr;</span>
+              </tm-button>
+            </div>
+            <div class="show-mobile">
+              <tm-button size="m" variant="outlined" disabled class="button">
+                <span>Mobile app coming soon</span>
+              </tm-button>
+              <p class="mt-5 tm-lh-solid tm-rf-1 tm-medium text-center">
+                Use Emeris on a desktop device.
+              </p>
+            </div>
           </div>
         </div>
-        <div class="intro mt-9">
+        <div class="intro">
           <kinesis-element :strength="15" type="depth">
             <img
               src="~/assets/images/elements/portfolio.png"
@@ -78,8 +88,36 @@ export default {
 
 .intro
   grid-column 1 / -1
+  margin-top var(--spacing-11)
   @media $breakpoint-xl
     grid-column 2 / span 10
+    margin-top var(--spacing-9)
   img
-    border-radius: .75rem
+    min-width: 33.6rem
+    border-radius: .35rem
+    transform: matrix(1, -0.04, -0.1, 1, 0, 0)
+    @media $breakpoint-medium
+      border-radius: .75rem
+      transform: none
+
+.show-mobile
+  max-width: 17rem
+  margin-inline: auto
+  @media $breakpoint-xl
+    display none
+  .button
+    width 100%
+
+.show-desktop
+  display none
+  @media $breakpoint-xl
+    display block
+
+.btn
+  margin-top var(--spacing-9)
+  @media $breakpoint-medium
+    margin-top var(--spacing-7)
+
+.text-center
+  text-align center
 </style>

@@ -360,6 +360,11 @@ export default {
           background initial
           -webkit-background-clip initial
           -webkit-text-fill-color initial
+    &[disabled]
+      .tm-button__content
+        opacity 1 !important
+      &:after
+        background: rgba(255, 255, 255, 0.44)
 
   /* gradient variant */
   &__variant__gradient

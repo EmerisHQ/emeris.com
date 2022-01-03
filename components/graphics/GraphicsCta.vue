@@ -22,9 +22,9 @@
   position absolute
   top 0
   left 50%
-  width 195%
+  width 133%
   max-width 100rem
-  transform translate(-50%, -22.5%)
+  transform translate(-50%, -27.5%)
   @media $breakpoint-medium
     width 240%
     transform translate(-50%, -26%)

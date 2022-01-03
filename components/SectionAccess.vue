@@ -2,7 +2,7 @@
   <div class="tm-section">
     <div class="tm-wrapper tm-container-narrow">
       <h2 class="tm-rf4 tm-bold tm-serif tm-lh-title tm-title title">
-        Early access to innovative blockchains
+        Early access to&nbsp;innovative blockchains
       </h2>
       <div class="mt-8 logos-container">
         <div v-for="item in list" :key="item.name" class="logos-item">
@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="mt-9">
-        <div class="info tm-copy tm-rf0 tm-normal tm-text">
+        <div class="info tm-lh-copy tm-rf0 tm-normal tm-text">
           <p>
             Access cutting-edge decentralized exchanges, allowing you to obtain
             experimental or alternative coins that may be difficult or
@@ -140,12 +140,16 @@ export default {
   position relative
   display inline-flex
   align-items center
-  justify-content center
+  width 50%
   padding-block calc(var(--spacing-7) / 2)
   padding-inline calc(var(--spacing-8) / 2)
+  @media $breakpoint-medium
+    width auto
+    justify-content center
 
 .logo
   position relative
+  flex-shrink: 0
   width 2rem
   height 2rem
   margin-right var(--spacing-5)
@@ -164,7 +168,8 @@ export default {
 .title
   max-width 22rem
   center()
-  text-align center
+  @media $breakpoint-medium
+    text-align center
   @media $breakpoint-large
     max-width 42.5rem
 

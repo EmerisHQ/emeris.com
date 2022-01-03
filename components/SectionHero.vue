@@ -15,7 +15,7 @@
           <span class="tm-text-right">cross-chain DeFi</span>
         </h1>
 
-        <div class="button-container mt-9">
+        <div class="button-container">
           <tm-button class="btn" @click.native="openVideo">
             Watch trailer
           </tm-button>
@@ -104,11 +104,21 @@ img
   grid-column 1 / -1
   display flex
   justify-content center
+  margin-top var(--spacing-12)
+  max-width: 17.25rem
+  @media $breakpoint-xl
+    margin-top var(--spacing-9)
+  .tm-button
+    &:not(:first-child)
+      flex-shrink: 0
+    &:first-child
+      width 100%
   .tm-button + .tm-button
+    margin-top 0
     margin-left var(--spacing-5)
 
 .scroll-down
-  border-radius: 100%
+  border-radius: 100% !important
   font-size 0
   width 3rem
   height: 3rem
@@ -119,10 +129,13 @@ img
 
 .section-hero
   display flex
-  align-items center
+  align-items flex-end
   justify-content center
-  min-height: 90vh
+  min-height: 100vh
   padding-top var(--spacing-12)
+  @media $breakpoint-xl
+    align-items center
+    min-height: 90vh
 
 .title span
   display block

@@ -11,12 +11,15 @@
 
 <style lang="stylus" scoped>
 .ephemeris
+  display none
   position absolute
   top: 121%
   left 50%
   max-width: none
   width: 282%
   transform: translate(-50%, -50%)
+  @media $breakpoint-xl
+    display block
 
 .defi
   position relative

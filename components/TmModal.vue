@@ -372,8 +372,8 @@ export default {
 .sidebar__content.sidebar__content__side__center {
   pointer-events: all;
   position: absolute;
-  width: var(--sidebar-width, 600px);
-  max-width: var(--sidebar-max-width, 90%);
+  /* width: var(--sidebar-width, 600px);
+  max-width: var(--sidebar-max-width, 90%); */
   height: auto;
   top: 0;
   bottom: 0;

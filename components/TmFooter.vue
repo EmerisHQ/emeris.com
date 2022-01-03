@@ -48,7 +48,7 @@
         </nav>
       </div>
       <div class="row mt-7">
-        <nav ref="links" class="social-icons mt-8" role="navigation">
+        <nav ref="links" class="social-icons" role="navigation">
           <tm-link
             v-for="link in links"
             :key="url(link)"
@@ -171,8 +171,16 @@ export default {
 .social-icons
   display grid
   grid-template-columns repeat(3, 1fr)
-  gap 1.5rem
+  gap 1rem
+  max-width: 6.5rem
+  margin-top var(--spacing-11)
+  margin-inline: auto
   text-align center
+  @media $breakpoint-medium
+    margin-top var(--spacing-8)
+  @media $breakpoint-large
+    gap 1.5rem
+    margin-top 0
 
   &__item
     position relative
@@ -194,8 +202,9 @@ export default {
 .logo
   display flex
   align-items center
+  justify-content center
   gap var(--spacing-4)
-  margin-bottom var(--spacing-5)
+  margin-bottom var(--spacing-9)
   color inherit
   transition transform .4s $ease-out, opacity .4s $ease-out, color .4s $ease-out, visibility .4s 0s
   @media $breakpoint-medium
@@ -210,7 +219,9 @@ export default {
     width auto
 
   &__emeris
-    height 1.35rem
+    height 1rem
+    @media $breakpoint-medium
+      height 1.35rem
 
 .row
   @media $breakpoint-xsmall-only
@@ -223,15 +234,22 @@ export default {
   @media $breakpoint-large
     flex-direction row
   &._bottom
-    margin-top var(--spacing-7)
+    margin-top var(--spacing-9)
+    text-align center
     @media $breakpoint-medium
       margin-top var(--spacing-8)
     @media $breakpoint-large
       margin-top var(--spacing-9)
       flex-direction: row-reverse
+      text-align left
 
 .scrolltop
   color var(--quaternary)
+
+.smallprint
+  margin-top var(--spacing-10)
+  @media $breakpoint-large
+    margin-top 0
 
 @media $breakpoint-xsmall-only
   .nav-bottom
@@ -251,8 +269,6 @@ export default {
   .scrolltop
     margin-top var(--spacing-10)
 
-  .smallprint
-    text-align center
 
 @media $breakpoint-small
   .nav-bottom
@@ -273,9 +289,6 @@ export default {
     margin-top var(--spacing-6)
     text-align center
 
-  .smallprint
-    text-align center
-
 @media $breakpoint-medium
   .link-item
   .scrolltop
@@ -289,11 +302,4 @@ export default {
 
   .link-item + .link-item
     margin-left var(--spacing-6)
-
-@media $breakpoint-large
-  .social-icons
-    margin-top 0
-
-  .smallprint
-    text-align left
 </style>

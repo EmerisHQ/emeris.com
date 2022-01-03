@@ -1,10 +1,12 @@
 <template>
   <div class="canvas">
-    <img
-      src="~/assets/images/elements/beta.jpg"
-      alt="Gold Ephemeris"
-      class="layer ephemeris"
-    />
+    <div class="layer__container">
+      <img
+        src="~/assets/images/elements/beta.jpg"
+        alt="Gold Ephemeris"
+        class="layer"
+      />
+    </div>
     <!-- <div class="hand-container"> -->
     <img
       class="hand"
@@ -20,16 +22,31 @@
 .canvas
   position relative
 
+.layer
+  position absolute
+  top 0
+  left 50%
+  max-width: none
+  transform: translateX(-50%)
+  width auto
+  height 100%
+  &__container
+    overflow hidden
+    position relative
+    height 0
+    padding-bottom 89%
+
 .hand-container
   transform translate(-50%, 0%) rotate(14deg) scale(-1, -1)
 
 .hand
   position absolute
   mix-blend-mode hard-light
-  width 52vw
+  min-width: 27rem
+  width 27rem
   max-width 43rem
-  top 40%
-  left 50%
+  top -13.5rem
+  left 52%
   transform translate(-50%, 0%) scale(-1, -1)
   // animation hero-hand 4s ease-in-out infinite
   mask-mode alpha
@@ -48,11 +65,11 @@
 .orb
   position absolute
   z-index 9
-  width 22vw
-  height 22vw
+  width 26vw
+  height 26vw
   max-width 11.25rem
   max-height 11.25rem
-  top 38%
+  top 8.5%
   left 50%
   transform translateX(-50%)
   // animation orb-1 4s ease-in-out infinite
