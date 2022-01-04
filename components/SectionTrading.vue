@@ -85,11 +85,17 @@ export default {
 <style lang="stylus" scoped>
 .section-trading
   padding-top var(--spacing-8)
+  @media $breakpoint-medium
+    margin-top var(--spacing-6)
+  @media $breakpoint-xl
+    margin-top 0
+  .tm-grid-base
+    position relative
 
 .column-header
   grid-column 1 / -1
   @media $breakpoint-medium
-    grid-column span 3
+    grid-column span 4
   @media $breakpoint-xl
     grid-column 2 / span 4
     position: sticky
@@ -99,7 +105,7 @@ export default {
 .column-content
   grid-column 1 / -1
   @media $breakpoint-medium
-    grid-column span 3
+    grid-column span 4
   @media $breakpoint-xl
     grid-column span 6
 
@@ -112,7 +118,7 @@ export default {
   margin-top var(--spacing-11)
   margin-inline: calc(-1 * var(--wrap-gap))
   @media $breakpoint-medium
-    margin-top 0
+    margin 0
   &-inner
     overflow auto
     display flex
@@ -120,6 +126,10 @@ export default {
     padding-left 0
     padding-inline: var(--wrap-gap)
     padding-bottom var(--grid-gap-x)
+    @media $breakpoint-medium
+      overflow initial
+      display block
+      padding 0
     @media $breakpoint-xl
       display: grid
       grid-template-columns repeat(2, 1fr)
@@ -132,24 +142,46 @@ export default {
     margin-left calc(2 * var(--grid-gap-x))
     @media $breakpoint-medium
       max-width: 100%
+      width 100%
+      margin-left 0
     &:nth-child(2n)
       @media $breakpoint-medium
-        transform: translateY(50%)
+        position absolute
+        top 24rem
+        left 0
+        max-width: calc(50% - var(--grid-gap-x) / 2)
+      @media $breakpoint-xl
+        position relative
+        top auto
+        left auto
+        max-width 100%
+        margin-top 0
+        transform: translateY(45%)
     &:nth-child(2n + 1)
+      @media $breakpoint-medium
+        margin-top var(--spacing-10)
       @media $breakpoint-xl
         margin-top var(--spacing-9)
     &:first-child
       margin-left 0
-      @media $breakpoint-xl
+      @media $breakpoint-medium
         margin-top 0
+
+.list-info
+  width 100%
 
 .cover-container
   position relative
   &__inner
+    overflow hidden
     position relative
     width 100%
     height 0
     padding-bottom 187%
+    @media $breakpoint-medium
+      padding-bottom 122%
+    @media $breakpoint-xl
+      padding-bottom 155%
 
 .cover
   position absolute
@@ -159,6 +191,9 @@ export default {
   height 100%
   width auto
   transform: translate(-50%)
+  @media $breakpoint-medium
+    height: auto
+    width 100%
 
 .orbit
   position absolute
@@ -167,6 +202,9 @@ export default {
   width 21.8rem
   max-width: none
   @media $breakpoint-medium
+    left -7.8rem
+    bottom -6rem
+  @media $breakpoint-xl
     left -8.9rem
     bottom -1.1rem
     width 21.8rem

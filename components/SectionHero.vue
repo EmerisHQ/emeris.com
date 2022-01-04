@@ -106,6 +106,9 @@ img
   justify-content center
   margin-top var(--spacing-12)
   max-width: 17.25rem
+  @media $breakpoint-medium
+    margin-inline: auto
+    min-width 16rem
   @media $breakpoint-xl
     margin-top var(--spacing-9)
   .tm-button

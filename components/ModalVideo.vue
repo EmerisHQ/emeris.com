@@ -78,6 +78,8 @@ export default {
   padding-block: var(--spacing-9)
   padding-inline: 0
   text-align center
+  @media $breakpoint-xl
+    padding-inline: var(--wrap-gap)
   &:before
     content: ''
 </style>
@@ -88,6 +90,8 @@ export default {
   width 100%
   height 0
   padding-bottom 64%
+  @media $breakpoint-xl
+    padding-bottom 56.25%
   &:before
     content: ''
     position absolute

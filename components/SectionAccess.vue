@@ -1,5 +1,5 @@
 <template>
-  <div class="tm-section">
+  <div class="tm-section z-1">
     <div class="tm-wrapper tm-container-narrow">
       <h2 class="tm-rf4 tm-bold tm-serif tm-lh-title tm-title title">
         Early access to&nbsp;innovative blockchains
@@ -169,9 +169,10 @@ export default {
   max-width 22rem
   center()
   @media $breakpoint-medium
+    max-width 38rem
     text-align center
   @media $breakpoint-large
-    max-width 42.5rem
+    max-width 47.5rem
 
 .info
   max-width: 26.25rem

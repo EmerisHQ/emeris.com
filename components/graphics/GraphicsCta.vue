@@ -26,6 +26,9 @@
   max-width 100rem
   transform translate(-50%, -27.5%)
   @media $breakpoint-medium
+    width 170%
+    transform translate(-50%, -33%)
+  @media $breakpoint-xl
     width 240%
-    transform translate(-50%, -26%)
+    transform translate(-50%, -33%)
 </style>

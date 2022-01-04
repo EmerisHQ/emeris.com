@@ -167,6 +167,8 @@ export default {
 <style lang="stylus" scoped>
 .footer
   padding-bottom var(--spacing-8)
+  @media $breakpoint-medium
+    margin-top var(--spacing-5)
 
 .social-icons
   display grid
@@ -177,10 +179,11 @@ export default {
   margin-inline: auto
   text-align center
   @media $breakpoint-medium
-    margin-top var(--spacing-8)
+    margin-top 0
   @media $breakpoint-large
     gap 1.5rem
     margin-top 0
+    margin-inline 0
 
   &__item
     position relative
@@ -220,7 +223,7 @@ export default {
 
   &__emeris
     height 1rem
-    @media $breakpoint-medium
+    @media $breakpoint-xl
       height 1.35rem
 
 .row
@@ -236,8 +239,6 @@ export default {
   &._bottom
     margin-top var(--spacing-9)
     text-align center
-    @media $breakpoint-medium
-      margin-top var(--spacing-8)
     @media $breakpoint-large
       margin-top var(--spacing-9)
       flex-direction: row-reverse
@@ -248,6 +249,8 @@ export default {
 
 .smallprint
   margin-top var(--spacing-10)
+  @media $breakpoint-medium
+    margin-top var(--spacing-9)
   @media $breakpoint-large
     margin-top 0
 

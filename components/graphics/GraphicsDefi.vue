@@ -12,15 +12,24 @@
 <style lang="stylus" scoped>
 .ephemeris
   display none
-  position absolute
-  top: 121%
-  left 50%
-  max-width: none
-  width: 282%
-  transform: translate(-50%, -50%)
-  @media $breakpoint-xl
+  @media $breakpoint-medium
     display block
+    position absolute
+    top: 95%
+    left 50%
+    max-width: none
+    width: 350%
+    transform: translate(-35%, -50%)
+  @media $breakpoint-xl
+    top: 102%
+    left 50%
+    max-width: none
+    width: 282%
+    transform: translate(-50%, -50%)
 
 .defi
   position relative
+  @media $breakpoint-medium
+    height: 100%
+    width auto
 </style>

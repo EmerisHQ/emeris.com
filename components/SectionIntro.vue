@@ -82,7 +82,7 @@ export default {
 .information
   grid-column 1 / -1
   @media $breakpoint-medium
-    grid-column 4 / span 3
+    grid-column 5 / span 4
   @media $breakpoint-xl
     grid-column 7 / span 4
 
@@ -98,19 +98,20 @@ export default {
     transform: matrix(1, -0.04, -0.1, 1, 0, 0)
     @media $breakpoint-medium
       border-radius: .75rem
+    @media $breakpoint-large
       transform: none
 
 .show-mobile
   max-width: 17rem
   margin-inline: auto
-  @media $breakpoint-xl
+  @media $breakpoint-medium
     display none
   .button
     width 100%
 
 .show-desktop
   display none
-  @media $breakpoint-xl
+  @media $breakpoint-medium
     display block
 
 .btn

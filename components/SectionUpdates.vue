@@ -1,5 +1,5 @@
 <template>
-  <div id="best" class="tm-section section-updates mt-6">
+  <div id="best" class="tm-section section-updates">
     <div class="tm-wrapper tm-container-narrow">
       <div class="tm-grid-base">
         <div class="column right">
@@ -49,19 +49,34 @@ export default {
 
 <style lang="stylus" scoped>
 .section-updates
+  margin-top var(--spacing-6)
   @media $breakpoint-xsmall-only
     padding-top 0
   @media $breakpoint-small-only
     padding-top 0
+  @media $breakpoint-medium
+    margin-top 0
+  @media $breakpoint-xl
+    margin-top var(--spacing-6)
 
 .graphics
   max-width: 17rem
   margin-inline: auto
+  @media $breakpoint-medium
+    max-width: 100%
+
+.tm-grid-base
+  grid-auto-flow: row dense
 
 .column
   grid-column 1/-1
   @media $breakpoint-medium
     grid-column span 4
+  &.right
+    @media $breakpoint-medium
+      grid-column 5 / span 4
+    @media $breakpoint-xl
+      grid-column 7 / span 6
   &:not(:first-child)
     margin-top 5.5rem
     @media $breakpoint-small
@@ -84,6 +99,8 @@ export default {
   & + &
     margin-top var(--spacing-9)
     @media $breakpoint-medium
+      margin-top var(--spacing-7)
+    @media $breakpoint-xl
       margin-top var(--spacing-6)
   &:before
     content: ''
@@ -99,6 +116,8 @@ export default {
 .cta
   margin-top var(--spacing-10)
   @media $breakpoint-medium
+    margin-top var(--spacing-9)
+  @media $breakpoint-xl
     margin-top var(--spacing-8)
 
 @media $breakpoint-xl

@@ -153,7 +153,7 @@ export default {
   &.headroom--top
     padding-block var(--spacing-7)
     @media $breakpoint-medium
-      padding-block var(--spacing-4)
+      padding-block var(--spacing-8)
     @media $breakpoint-xl
       padding-block 2.75rem
   .tm-container
@@ -240,6 +240,13 @@ export default {
     cursor default
     color var(--gray-600)
     opacity 1
+
+.nav-tail
+  .headroom--top &
+    .tm-link
+      color var(--black)
+      &:hover
+        opacity .65
 
 .burger
   position relative

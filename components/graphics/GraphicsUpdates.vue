@@ -27,12 +27,19 @@
   width auto
   max-width: none
   transform: translate(-50%, -50%)
+  @media $breakpoint-xl
+    height 100%
+    top 50%
   &__container
     overflow hidden
     position relative
     width 100%
     height 0
     padding-bottom 155%
+    @media $breakpoint-medium
+      padding-bottom 158%
+    @media $breakpoint-xl
+      padding-bottom 119%
 
 .surfer
   mix-blend-mode hard-light
@@ -48,8 +55,11 @@
   mask-size cover
   backdrop-filter blur(4.7px)
   @media $breakpoint-medium
+   left 53%
+  @media $breakpoint-xl
     width 21%
     bottom -13%
+    left 50%
 
 @keyframes surfer-levitate
   0%, 100%

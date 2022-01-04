@@ -68,29 +68,44 @@ export default {
   position relative
 
 .section-defi
+  @media $breakpoint-medium
+    margin-bottom var(--spacing-10)
   @media $breakpoint-xl
     margin-bottom var(--spacing-11)
 
 .graphics-container
   max-width: 17rem
   margin-inline: auto
-  @media $breakpoint-xl
+  @media $breakpoint-medium
     position absolute
+    left var(--wrap-gap)
+    top 1rem
+    bottom: -1rem
+    width 100%
+    max-width: calc(50% - var(--grid-gap-x) / 2 - var(--wrap-gap))
+  @media $breakpoint-xl
     left 50%
     top 1.5rem
-    bottom: 1.5rem
+    bottom: -4.5rem
     width 100%
     max-width: 21.6875rem
     transform: translateX(-50%)
 
 .column-title
   grid-column 1/-1
+  @media $breakpoint-medium
+    grid-column 5 / span 4
+    margin-top var(--spacing-9)
   @media $breakpoint-xl
     grid-column 2 / span 10
+    margin-top 0
 
 .column-info
   grid-column 1/-1
   margin-bottom var(--spacing-9)
+  @media $breakpoint-medium
+    grid-column 5 / span 4
+    margin-bottom var(--spacing-8)
   @media $breakpoint-xl
     grid-column 9 / span 3
     margin-top var(--spacing-9)
@@ -98,6 +113,8 @@ export default {
 
 .column-stats
   grid-column 1/-1
+  @media $breakpoint-medium
+    grid-column 5 / span 4
   @media $breakpoint-xl
     grid-column 2 / span 4
     margin-top calc(-1 * var(--spacing-7))
@@ -107,6 +124,8 @@ export default {
 
 .stats-item
   margin-bottom var(--spacing-9)
+  @media $breakpoint-medium
+    margin-bottom var(--spacing-8)
   @media $breakpoint-xl
     margin-bottom var(--spacing-7)
   &:last-child

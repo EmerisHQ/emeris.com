@@ -6,7 +6,7 @@
           <graphics-cta class="graphics" />
           <h1 class="tm-title tm-lh-title tm-serif tm-rf4 tm-rf5-m-up tm-bold">
             <span>
-              Experience a&nbsp;glimpse of&nbsp;DeFi's future&nbsp;today
+              Experience a&nbsp;glimpse<br />of&nbsp;DeFi's future today
             </span>
           </h1>
         </div>
@@ -64,6 +64,9 @@ export default {
   align-items center
   margin-top 10vh
   @media $breakpoint-medium
+    min-height: 0
+    margin-top var(--spacing-10)
+  @media $breakpoint-xl
     min-height: 90vh
     margin-top var(--spacing-9)
 //   padding var(--spacing-11) 0
@@ -94,15 +97,19 @@ export default {
   position relative
   z-index 1
   width 100%
+  @media $breakpoint-medium
+    margin-top var(--spacing-8)
+  @media $breakpoint-xl
+    margin-top var(--spacing-6)
   .btn
     display none
     width 100%
     margin-top var(--spacing-9)
-    margin-left 0
+    margin-left 0 !important
     @media $breakpoint-medium
       display inline-flex
       width auto
-      margin-top var(--spacing-7)
+      margin-top 0
     &.mobile
       display inline-flex
       @media $breakpoint-medium

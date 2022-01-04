@@ -30,11 +30,16 @@
   transform: translateX(-50%)
   width auto
   height 100%
+  @media $breakpoint-large
+    width 100%
+    height auto
   &__container
     overflow hidden
     position relative
-    height 0
-    padding-bottom 89%
+    height 15.5625rem
+    @media $breakpoint-xl
+      height 0
+      padding-bottom 39%
 
 .hand-container
   transform translate(-50%, 0%) rotate(14deg) scale(-1, -1)
@@ -55,12 +60,11 @@
   mask-size cover
   backdrop-filter blur(4.7px)
   @media $breakpoint-medium
-    width 62vw
-    top 66%
-    left 53%
-  @media $breakpoint-large
-    top -78%
-    left 54.5%
+    left 50%
+  @media $breakpoint-xl
+    width 45rem
+    top -82%
+    left 50.5%
 
 .orb
   position absolute
@@ -74,15 +78,15 @@
   transform translateX(-50%)
   // animation orb-1 4s ease-in-out infinite
   @media $breakpoint-medium
-    width 25vw
-    height 25vw
-    top 72%
-    left 54%
-  @media $breakpoint-large
+    width 11vw
+    height 11vw
+    top 9%
+    left 50%
+  @media $breakpoint-xl
     width 9.5vw
     height 9.5vw
-    top 12%
-    left 54%
+    top 9.7%
+    left 50%
   &:before
     content ''
     position absolute

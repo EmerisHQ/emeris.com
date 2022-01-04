@@ -103,8 +103,8 @@ export default {
   z-index 1
   grid-column 1/-1
   @media $breakpoint-medium
-    grid-column span 4
-  @media $breakpoint-large
+    grid-column span 5
+  @media $breakpoint-xl
     grid-column span 7
 
 .column
@@ -113,6 +113,8 @@ export default {
 .graphics
   margin-top 5rem
   @media $breakpoint-medium
+    margin-top -1.5rem
+  @media $breakpoint-xl
     margin-top -2rem
 
 .section-beta
@@ -124,26 +126,34 @@ export default {
   gap 0 var(--grid-gap-x)
   @media $breakpoint-medium
     grid-template-columns repeat(8, 1fr)
-  @media $breakpoint-large
+  @media $breakpoint-xl
     grid-template-columns repeat(12, 1fr)
 
 .steps-list
   margin-inline calc(-1 * var(--wrap-gap))
+  @media $breakpoint-medium
+    margin-inline 0
   &__inner
     overflow auto
     display flex
     padding-inline: var(--wrap-gap)
     padding-bottom var(--spacing-7)
+    @media $breakpoint-medium
+      overflow initial
+      display grid
+      padding 0
+      grid-template-columns: repeat(3, 1fr)
+      gap: 0 var(--grid-gap-x)
 
 .step-item
   flex-shrink: 0
   grid-column 1/-1
   margin-left calc(2 * var(--grid-gap-x))
   @media $breakpoint-medium
-    grid-column span 2
-    padding-inline calc(var(--spacing-8) / 2)
+    grid-column span 1
+    margin-left 0
   @media $breakpoint-xl
-    grid-column span 4
+    padding-inline 0
   &:first-child
     margin-left 0
 
