@@ -190,6 +190,7 @@ export default {
   left 50%
   height 100%
   width auto
+  max-width: none
   transform: translate(-50%)
   @media $breakpoint-medium
     height: auto

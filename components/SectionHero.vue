@@ -15,7 +15,7 @@
           <span class="tm-text-right">cross-chain DeFi</span>
         </h1>
 
-        <div class="button-container">
+        <!-- <div class="button-container">
           <tm-button class="btn" @click.native="openVideo">
             Watch trailer
           </tm-button>
@@ -27,6 +27,49 @@
           >
             <icon-arrow-down />
           </tm-button>
+        </div> -->
+      </div>
+      <div class="tm-grid-base">
+        <div class="information">
+          <p class="tm-rf-1 tm-rf0-m-up tm-lh-copy">
+            Emeris is a one-stop portal for all crypto apps, no matter what
+            blockchain they run on.<br />
+            Try the beta today.
+          </p>
+
+          <div class="btn z-1">
+            <div class="btn-container">
+              <div class="show-desktop">
+                <tm-button
+                  id="launchApp"
+                  to-link="external"
+                  :href="getUtmParams('https://app.emeris.com')"
+                  size="m"
+                  border-color="var(--primary)"
+                  glow
+                  variant="gradient"
+                >
+                  <span>Launch app</span>
+                  <span class="icon__right">&rarr;</span>
+                </tm-button>
+              </div>
+              <tm-button
+                variant="text"
+                class="btn-play"
+                @click.native="openVideo"
+              >
+                <span class="text-gradient">▶&ensp;Play Trailer</span>
+              </tm-button>
+            </div>
+            <div class="show-mobile">
+              <tm-button size="m" variant="outlined" disabled class="button">
+                <span>Mobile app coming soon</span>
+              </tm-button>
+              <p class="mt-5 tm-lh-solid tm-rf-1 tm-medium text-center">
+                Use Emeris on a desktop device.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -34,11 +77,11 @@
 </template>
 
 <script>
-import IconArrowDown from '~/components/icons/IconArrowDown.vue'
+// import IconArrowDown from '~/components/icons/IconArrowDown.vue'
 
 export default {
   components: {
-    IconArrowDown,
+    // IconArrowDown,
   },
   props: {
     openVideo: {
@@ -85,11 +128,26 @@ img
 
 .background
   position absolute
-  trbl 0
+  top -6.5vw
+  left: 50%
+  width 37vw
+  height 89.5vw
+  opacity 0.6
+  background-color: #C4C4C4
   background-image url('~/assets/images/elements/hero.jpg')
-  background-size cover
+  background-size 800%
   background-position center
   background-repeat no-repeat
+  transform: translateX(-50%)
+  @media $breakpoint-medium
+    top 0
+    width 12rem
+    height 27.7rem
+  @media $breakpoint-xl
+    top -7.2rem
+    left: 50.7%
+    width 15rem
+    height 35.4rem
 
 .tm-container
   width 100%
@@ -97,8 +155,15 @@ img
 .title
   width 100%
   grid-column 1 / -1
+  max-width: 52rem
+  margin-top 54vw
+  @media $breakpoint-medium
+    margin-top var(--spacing-11)
   @media $breakpoint-xl
     grid-column 3 / span 8
+    margin-top var(--spacing-5)
+  span
+    display block
 
 .button-container
   grid-column 1 / -1
@@ -134,14 +199,77 @@ img
   display flex
   align-items flex-end
   justify-content center
-  min-height: 100vh
+  // min-height: 100vh
   padding-top var(--spacing-12)
-  @media $breakpoint-xl
+  @media $breakpoint-medium
     align-items center
-    min-height: 90vh
+    min-height: 0
+    padding-bottom 0
 
-.title span
-  display block
+.information
+  grid-column 1 / -1
+  margin-top var(--spacing-9)
+  @media $breakpoint-medium
+    grid-column 5 / span 4
+    margin-top var(--spacing-9)
+  @media $breakpoint-xl
+    grid-column 7 / span 4
+    margin-top var(--spacing-6)
+
+.btn-container
+  display flex
+  align-items center
+
+.btn-play
+  width 100%
+  margin-bottom var(--spacing-7)
+  @media $breakpoint-medium
+    width auto
+    margin-left var(--spacing-7)
+    margin-bottom 0
+
+.intro
+  grid-column 1 / -1
+  margin-top var(--spacing-11)
+  @media $breakpoint-xl
+    grid-column 2 / span 10
+    margin-top var(--spacing-9)
+  img
+    min-width: 33.6rem
+    border-radius: .35rem
+    transform: matrix(1, -0.04, -0.1, 1, 0, 0)
+    @media $breakpoint-medium
+      border-radius: .75rem
+    @media $breakpoint-large
+      transform: none
+
+.show-mobile
+  max-width: 17rem
+  margin-inline: auto
+  @media $breakpoint-medium
+    display none
+  .button
+    width 100%
+
+.show-desktop
+  display none
+  @media $breakpoint-medium
+    display block
+
+.btn
+  margin-top var(--spacing-6)
+  @media $breakpoint-medium
+    margin-top var(--spacing-7)
+
+.text-center
+  text-align center
+
+.text-gradient
+  background var(--title-gradient)
+  -webkit-background-clip text
+  background-clip text
+  -webkit-text-fill-color transparent
+  text-fill-color transparent
 
 // @media $breakpoint-small
 // @media $breakpoint-medium

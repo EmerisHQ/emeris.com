@@ -1,5 +1,5 @@
 <template>
-  <div class="tm-section mt-8">
+  <div class="tm-section section-beta mt-8">
     <div class="tm-wrapper tm-container-narrow">
       <div class="tm-grid-base">
         <div class="column-header">
@@ -18,7 +18,7 @@
                 <div class="mt-5 tm-rf1 tm-lh-title tm-title tm-bold">
                   Download Keplr
                 </div>
-                <div class="mt-5 tm-rf0 tm-lh-copy step-info">
+                <div class="mt-5 tm-text tm-rf0 tm-lh-copy step-info">
                   For its beta version,<br />Emeris requires you to use it.
                 </div>
                 <tm-button
@@ -34,7 +34,7 @@
                 <div class="mt-5 tm-rf1 tm-lh-title tm-title tm-bold">
                   Connect to Emeris
                 </div>
-                <div class="mt-5 tm-rf0 tm-lh-copy step-info">
+                <div class="mt-5 tm-text tm-rf0 tm-lh-copy step-info">
                   Launch the Emeris app and connect your Keplr wallet.
                 </div>
                 <tm-button
@@ -52,7 +52,7 @@
                 <div class="mt-5 tm-rf1 tm-lh-title tm-title tm-bold">
                   Trade. Swap. Pool.
                 </div>
-                <div class="mt-5 tm-rf0 tm-lh-copy step-info">
+                <div class="mt-5 tm-text tm-rf0 tm-lh-copy step-info">
                   Experience cross-chain DeFi with all your assets in one place.
                 </div>
                 <tm-button
@@ -91,6 +91,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.section-beta
+  overflow hidden
+
 .title
   color var(--trans-gray-300)
   @media $breakpoint-large

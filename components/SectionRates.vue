@@ -61,6 +61,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.tm-section
+  overflow hidden
+
 .section-defi
 .text
 .stats
@@ -74,7 +77,7 @@ export default {
     margin-bottom var(--spacing-11)
 
 .graphics-container
-  max-width: 17rem
+  // max-width: 17rem
   margin-inline: auto
   @media $breakpoint-medium
     position absolute

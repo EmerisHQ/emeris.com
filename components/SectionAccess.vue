@@ -4,8 +4,57 @@
       <h2 class="tm-rf4 tm-bold tm-serif tm-lh-title tm-title title">
         Early access to&nbsp;innovative blockchains
       </h2>
-      <div class="mt-8 logos-container">
-        <div v-for="item in list" :key="item.name" class="logos-item">
+      <div class="mt-8 marquee__container">
+        <div
+          v-for="(path, key) in list"
+          :key="`marquee_${key}`"
+          class="marquee"
+        >
+          <span class="marquee__item" aria-hidden="true">
+            <div class="logos-container">
+              <div v-for="item in path" :key="item.name" class="logos-item">
+                <div class="logo">
+                  <img
+                    :src="require(`~/assets/images/logos/${item.img}.png`)"
+                    :alt="item.name"
+                    class="logo-item"
+                  />
+                </div>
+                <div class="content">
+                  <div class="tm-lh-copy tm-rf-1 tm-bold tm-title">
+                    {{ item.name }}
+                  </div>
+                  <div class="tm-lh-copy tm-rf-1 tm-normal tm-title">
+                    {{ item.token }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </span>
+          <span class="marquee__item" aria-hidden="true">
+            <div class="logos-container">
+              <div v-for="item in path" :key="item.name" class="logos-item">
+                <div class="logo">
+                  <img
+                    :src="require(`~/assets/images/logos/${item.img}.png`)"
+                    :alt="item.name"
+                    class="logo-item"
+                  />
+                </div>
+                <div class="content">
+                  <div class="tm-lh-copy tm-rf-1 tm-bold tm-title">
+                    {{ item.name }}
+                  </div>
+                  <div class="tm-lh-copy tm-rf-1 tm-normal tm-title">
+                    {{ item.token }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </span>
+        </div>
+
+        <!-- <div v-for="item in list" :key="item.name" class="logos-item">
           <div class="logo">
             <img
               :src="require(`~/assets/images/logos/${item.img}.png`)"
@@ -21,7 +70,7 @@
               {{ item.token }}
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="mt-9">
         <div class="info tm-lh-copy tm-rf0 tm-normal tm-text">
@@ -47,78 +96,82 @@ export default {
   data() {
     return {
       list: [
-        {
-          url: 'https://cosmos.network',
-          name: 'Cosmos Hub',
-          token: 'ATOM',
-          img: 'cosmos',
-        },
-        {
-          url: 'https://crypto.com',
-          name: 'Crypto.org chain',
-          token: 'CRO',
-          img: 'crypto-org',
-        },
-        {
-          url: 'https://irisnet.org',
-          name: 'IRIS Network',
-          token: 'IRIS',
-          img: 'irisnet',
-        },
-        {
-          url: 'https://osmosis.zone',
-          name: 'Osmosis',
-          token: 'OSMO, ION',
-          img: 'osmosis',
-        },
-        {
-          url: 'https://persistence.one',
-          name: 'Persistence',
-          token: 'XPRT',
-          img: 'persistence',
-        },
-        {
-          url: 'https://www.regen.network',
-          name: 'Regen',
-          token: 'REGEN',
-          img: 'regen',
-        },
-        {
-          url: 'https://sentinel.co',
-          name: 'Sentinel',
-          token: 'DVPN',
-          img: 'sentinel',
-        },
-        {
-          url: '',
-          name: 'Starname',
-          token: 'IOV',
-          img: 'starname',
-        },
-        {
-          url: '',
-          name: 'e-money',
-          token: 'NGM',
-          img: 'e-money',
-        },
-        {
-          url: '',
-          name: 'ixo',
-          token: 'IXO',
-          img: 'ixo',
-        },
-        {
-          url: 'https://akash.network',
-          name: 'Akash',
-          token: 'AKT',
-          img: 'akash',
-        },
-        {
-          url: '',
-          name: 'More chains',
-          token: 'Coming soon',
-          img: 'more-chains',
-        },
+        [
+          {
+            url: 'https://cosmos.network',
+            name: 'Cosmos Hub',
+            token: 'ATOM',
+            img: 'cosmos',
+          },
+          {
+            url: 'https://crypto.com',
+            name: 'Crypto.org chain',
+            token: 'CRO',
+            img: 'crypto-org',
+          },
+          {
+            url: 'https://irisnet.org',
+            name: 'IRIS Network',
+            token: 'IRIS',
+            img: 'irisnet',
+          },
+          {
+            url: 'https://osmosis.zone',
+            name: 'Osmosis',
+            token: 'OSMO, ION',
+            img: 'osmosis',
+          },
+          {
+            url: 'https://persistence.one',
+            name: 'Persistence',
+            token: 'XPRT',
+            img: 'persistence',
+          },
+          {
+            url: 'https://www.regen.network',
+            name: 'Regen',
+            token: 'REGEN',
+            img: 'regen',
+          },
+        ],
+        [
+          {
+            url: 'https://sentinel.co',
+            name: 'Sentinel',
+            token: 'DVPN',
+            img: 'sentinel',
+          },
+          {
+            url: '',
+            name: 'Starname',
+            token: 'IOV',
+            img: 'starname',
+          },
+          {
+            url: '',
+            name: 'e-money',
+            token: 'NGM',
+            img: 'e-money',
+          },
+          {
+            url: '',
+            name: 'ixo',
+            token: 'IXO',
+            img: 'ixo',
+          },
+          {
+            url: 'https://akash.network',
+            name: 'Akash',
+            token: 'AKT',
+            img: 'akash',
+          },
+          {
+            url: '',
+            name: 'More chains',
+            token: 'Coming soon',
+            img: 'more-chains',
+          },
+        ],
       ],
     }
   },
@@ -132,7 +185,7 @@ export default {
 
 .logos-container
   display flex
-  flex-wrap: wrap
+  // flex-wrap: wrap
   justify-content center
   margin-inline calc(-1 * var(--spacing-8) / 2)
 
@@ -179,4 +232,36 @@ export default {
   margin-inline: auto
   @media $breakpoint-medium
     text-align center
+
+@keyframes marquee
+  from
+    transform: translateX(0)
+  to
+    transform: translateX(-100%)
+
+.marquee
+  position relative
+  overflow: hidden
+  white-space: nowrap
+  margin-inline: calc(-1 * var(--wrap-gap))
+  // padding-inline: var(--wrap-gap)
+  @media screen and (min-width: 1120px)
+    overflow: initial
+  &:hover
+    .marquee
+      &__item
+        animation-play-state: paused
+  // &__container
+  //   margin-inline: calc(-1 * var(--wrap-gap))
+  &__item
+    animation: marquee 15s linear infinite
+    display: inline-block
+    margin-left var(--spacing-7)
+    @media screen and (min-width: 1120px)
+      animation none
+      display none
+    &:first-child
+      margin-left 0
+      @media screen and (min-width: 1120px)
+        display block
 </style>

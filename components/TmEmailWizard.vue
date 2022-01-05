@@ -1,7 +1,11 @@
 <template>
   <div class="wizard">
     <div class="wizard-border">
-      <div v-on-clickaway="onClickOutside" class="wizard__inner">
+      <div
+        v-on-clickaway="onClickOutside"
+        class="wizard__inner"
+        :class="step !== 0 && '_light'"
+      >
         <transition-group :name="transition">
           <div
             v-show="step === 0"
@@ -235,9 +239,12 @@ export default {
     overflow hidden
     min-height 3rem
     // max-width 17.5rem
-    background var(--bg)
+    // background var(--bg)
+    background #171717
     border-radius $border-radius-3
     box-shadow 8px 16px 48px rgba(0, 0, 0, 0.21)
+    &._light
+      background #262626
   &__step0
     position absolute
     top 0
@@ -278,7 +285,7 @@ export default {
     height auto
     background transparent
     border none
-    border-radius $border-radius-3
+    border-radius 0
     padding var(--spacing-4) var(--spacing-6)
     color inherit
     transition color 0.15s ease-out, background 0.15s ease-out
@@ -292,7 +299,7 @@ export default {
     &:-webkit-autofill
     &:-webkit-autofill:hover
     &:-webkit-autofill:focus
-      -webkit-box-shadow 0 0 0 48px var(--bg) inset !important
+      -webkit-box-shadow 0 0 0 48px #262626 inset !important
       -webkit-text-fill-color var(--text) !important
       caret-color var(--text)
   &__footnote
@@ -307,7 +314,8 @@ export default {
     bottom 0
     left 0
     right 0
-    background-color var(--bg)
+    padding-top 0.6rem
+    background-color #262626
     color #FF6072
 
   .btn
@@ -330,7 +338,7 @@ export default {
     position absolute
     trbl -1px
     border-radius inherit
-    background linear-gradient(280.46deg, #FFF0CA 12.71%, #D3AD5F 33.34%, #FFECC4 41.61%, #997736 59.2%, #FFF2C0 77.69%, #CEA851 97.39%)
+    // background linear-gradient(280.46deg, #FFF0CA 12.71%, #D3AD5F 33.34%, #FFECC4 41.61%, #997736 59.2%, #FFF2C0 77.69%, #CEA851 97.39%)
 
 .text-with-gradient
   display block

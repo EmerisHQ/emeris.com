@@ -58,17 +58,19 @@ export default {
 
 <style lang="stylus" scoped>
 .section-cta
+  overflow hidden
   position relative
   min-height: 80vh
   display flex
   align-items center
-  margin-top 10vh
+  // margin-top 10vh
   @media $breakpoint-medium
+    overflow initial
     min-height: 0
-    margin-top var(--spacing-10)
+    // margin-top var(--spacing-10)
   @media $breakpoint-xl
     min-height: 90vh
-    margin-top var(--spacing-9)
+    // margin-top var(--spacing-9)
 //   padding var(--spacing-11) 0
 //   @media $breakpoint-xl
 //     padding var(--spacing-11) 0 var(--spacing-10)

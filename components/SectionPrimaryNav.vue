@@ -8,10 +8,7 @@
             class="logos-container"
             :class="[homePage && 'home']"
           >
-            <logo-emeris-wordmark-color
-              class="logo"
-              :gradient="!isOpen && !isTop"
-            />
+            <logo-emeris-wordmark-color class="logo" :gradient="!isOpen" />
             <span class="sr-only">Emeris</span>
           </nuxt-link>
           <span
@@ -27,6 +24,13 @@
                 :href="getUtmParams('/support')"
                 class="tm-rf0 tm-medium tm-lh-title"
                 >Support</tm-link
+              >
+            </li>
+            <li @click="closeNav">
+              <tm-link
+                :href="getUtmParams('https://app.emeris.com/')"
+                class="tm-rf0 tm-medium tm-lh-title tm-link-disclosure"
+                >Launch app</tm-link
               >
             </li>
             <li class="mobile" @click="closeNav">
@@ -68,7 +72,7 @@ export default {
   data() {
     return {
       isOpen: false,
-      isTop: false,
+      // isTop: false,
       currentUrl: this.$route.fullPath,
       headroom: null,
     }
@@ -112,8 +116,8 @@ export default {
         const options = {
           offset: 100,
           onUnpin: () => this.closeNav(),
-          onTop: () => (this.isTop = true),
-          onNotTop: () => (this.isTop = false),
+          // onTop: () => (this.isTop = true),
+          // onNotTop: () => (this.isTop = false),
         }
         this.headroom = new Headroom(this.$el, options)
         this.headroom.init()
@@ -184,8 +188,8 @@ export default {
 
 .smallprint
   margin-left var(--spacing-5)
-  .headroom--top &
-    color rgba(24,24,24,0.67)
+  // .headroom--top &
+  //   color rgba(24,24,24,0.67)
 
 .nav
   /* if no secondary nav, create similar space */
@@ -241,12 +245,12 @@ export default {
     color var(--gray-600)
     opacity 1
 
-.nav-tail
-  .headroom--top &
-    .tm-link
-      color var(--black)
-      &:hover
-        opacity .65
+// .nav-tail
+//   .headroom--top &
+//     .tm-link
+//       color var(--black)
+//       &:hover
+//         opacity .65
 
 .burger
   position relative
@@ -273,9 +277,9 @@ export default {
     &:nth-child(3)
     &:nth-child(4)
       opacity 0
-  .headroom--top &
-    i
-      background-color var(--black)
+  // .headroom--top &
+  //   i
+  //     background-color var(--black)
   &.opened
     i
       background-color var(--black)
@@ -312,8 +316,8 @@ export default {
     transform-origin 0 0
     transition transform .25s $ease-out, opacity .2s $ease-out
     filter drop-shadow(0px 34px 64px rgba(230, 254, 88, 0.5))
-    .headroom--top &
-      top calc(-1 * var(--spacing-7))
+    // .headroom--top &
+    //   top calc(-1 * var(--spacing-7))
     &::-webkit-scrollbar
       display none
     &.opened

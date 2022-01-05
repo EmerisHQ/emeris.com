@@ -1,39 +1,7 @@
 <template>
-  <kinesis-container id="intro" class="tm-section">
+  <kinesis-container id="intro" class="tm-section intro-section">
     <div class="tm-wrapper tm-container center">
       <div class="tm-grid-base">
-        <div class="information">
-          <p class="tm-rf-1 tm-rf0-m-up tm-lh-copy">
-            Emeris is a one-stop portal for all crypto apps, no matter what
-            blockchain they run on.<br />
-            Try the beta today.
-          </p>
-
-          <div class="btn z-1">
-            <div class="show-desktop">
-              <tm-button
-                id="launchApp"
-                to-link="external"
-                :href="getUtmParams('https://app.emeris.com')"
-                size="m"
-                border-color="var(--primary)"
-                glow
-                variant="gradient"
-              >
-                <span>Launch app</span>
-                <span class="icon__right">&rarr;</span>
-              </tm-button>
-            </div>
-            <div class="show-mobile">
-              <tm-button size="m" variant="outlined" disabled class="button">
-                <span>Mobile app coming soon</span>
-              </tm-button>
-              <p class="mt-5 tm-lh-solid tm-rf-1 tm-medium text-center">
-                Use Emeris on a desktop device.
-              </p>
-            </div>
-          </div>
-        </div>
         <div class="intro">
           <kinesis-element :strength="15" type="depth">
             <img
@@ -71,6 +39,10 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.intro-section
+  overflow hidden
+  padding-top var(--spacing-6)
+
 .title
   margin-bottom var(--spacing-11)
   text-align center
