@@ -57,6 +57,7 @@ export default {
       playerVars: {
         rel: 0,
         enablejsapi: 1,
+        autoplay: 1,
       },
     }
   },

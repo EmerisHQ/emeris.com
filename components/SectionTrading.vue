@@ -64,7 +64,7 @@ export default {
         {
           img: 'scene-01.jpg',
           title: 'Transfer and trade assets',
-          info: 'Between 12 different chains for the first time',
+          info: 'Between 14 different chains for the first time',
         },
         {
           img: 'scene-02.jpg',

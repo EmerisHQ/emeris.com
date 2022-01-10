@@ -149,7 +149,7 @@ export default {
           },
           {
             url: '',
-            name: 'e-money',
+            name: 'e-Money',
             token: 'NGM',
             img: 'e-money',
           },

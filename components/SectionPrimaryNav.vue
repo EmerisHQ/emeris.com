@@ -26,7 +26,7 @@
                 >Support</tm-link
               >
             </li>
-            <li @click="closeNav">
+            <li class="not-top" @click="closeNav">
               <tm-link
                 :href="getUtmParams('https://app.emeris.com/')"
                 class="tm-rf0 tm-medium tm-lh-title tm-link-disclosure"
@@ -214,6 +214,10 @@ export default {
   li
     list-style-type none
     display inline-block
+    &.not-top
+      display none
+      .headroom--not-top &
+        display inline-block
     &.mobile
       @media $breakpoint-medium
         display none
