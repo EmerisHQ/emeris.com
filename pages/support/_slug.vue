@@ -4,7 +4,12 @@
       <div class="tm-wrapper">
         <div class="tm-container tm-grid-base">
           <div class="sidebar">
-            <tm-button to-link="internal" to="/support" size="s" variant="text">
+            <tm-button
+              to-link="internal"
+              to="http://support.emeris.com/"
+              size="s"
+              variant="text"
+            >
               <span class="icon__left gradient-text">&#8592;</span>
               <span class="gradient-text">Support</span>
             </tm-button>
