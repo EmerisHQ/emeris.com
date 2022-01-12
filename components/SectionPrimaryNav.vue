@@ -21,7 +21,7 @@
           <ul>
             <li @click="closeNav">
               <tm-link
-                :href="getUtmParams('/support')"
+                :href="getUtmParams('http://support.emeris.com/')"
                 class="tm-rf0 tm-medium tm-lh-title"
                 >Support</tm-link
               >
