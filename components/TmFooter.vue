@@ -13,7 +13,7 @@
           </nuxt-link>
           <span class="divider" />
           <tm-link
-            :href="getUtmParams('/support')"
+            :href="getUtmParams('http://support.emeris.com/')"
             class="tm-rf0 tm-rf-1-m link-item tm-muted"
             >Support</tm-link
           >
