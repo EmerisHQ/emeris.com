@@ -215,9 +215,12 @@ export default {
     list-style-type none
     display inline-block
     &.not-top
-      display none
-      .headroom--not-top &
-        display inline-block
+      order -1
+      @media $breakpoint-medium
+        order initial
+        display none
+        .headroom--not-top &
+          display inline-block
     &.mobile
       @media $breakpoint-medium
         display none
@@ -311,7 +314,7 @@ export default {
   .nav-tail
     opacity .2
     position absolute
-    top calc(-1 * var(--spacing-4))
+    top calc(-1 * var(--spacing-7))
     left calc(-1 * var(--wrap-gap))
     right calc(-1 * var(--wrap-gap))
     text-align center
@@ -338,13 +341,13 @@ export default {
       text-align left
       li
         width 100%
+        padding var(--spacing-4) 0
       li + li
         margin 0
     .tm-link
       position relative
       display block
       width 100%
-      padding var(--spacing-4) 0
       color var(--black)
 
 @media $breakpoint-small

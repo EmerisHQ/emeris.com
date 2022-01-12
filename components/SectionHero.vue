@@ -33,8 +33,7 @@
         <div class="information">
           <p class="tm-rf-1 tm-rf0-m-up tm-lh-copy">
             Emeris is a one-stop portal for all crypto apps, no matter what
-            blockchain they run on.<br />
-            Try the beta today.
+            blockchain they run on. Try the beta today.
           </p>
 
           <div class="btn z-1">
