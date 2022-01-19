@@ -18,6 +18,7 @@
                     :src="require(`~/assets/images/logos/${item.img}.png`)"
                     :alt="item.name"
                     class="logo-item"
+                    :class="item.img"
                   />
                 </div>
                 <div class="content">
@@ -39,6 +40,7 @@
                     :src="require(`~/assets/images/logos/${item.img}.png`)"
                     :alt="item.name"
                     class="logo-item"
+                    :class="item.img"
                   />
                 </div>
                 <div class="content">
@@ -53,24 +55,6 @@
             </div>
           </span>
         </div>
-
-        <!-- <div v-for="item in list" :key="item.name" class="logos-item">
-          <div class="logo">
-            <img
-              :src="require(`~/assets/images/logos/${item.img}.png`)"
-              :alt="item.name"
-              class="logo-item"
-            />
-          </div>
-          <div class="content">
-            <div class="tm-lh-copy tm-rf-1 tm-bold tm-title">
-              {{ item.name }}
-            </div>
-            <div class="tm-lh-copy tm-rf-1 tm-normal tm-title">
-              {{ item.token }}
-            </div>
-          </div>
-        </div> -->
       </div>
       <div class="mt-9">
         <div class="info tm-lh-copy tm-rf0 tm-normal tm-text">
@@ -166,6 +150,24 @@ export default {
             img: 'akash',
           },
           {
+            url: '#',
+            name: 'Juno',
+            token: 'JUNO',
+            img: 'juno',
+          },
+          {
+            url: '#',
+            name: 'Microtick',
+            token: 'TICK',
+            img: 'microtick',
+          },
+          {
+            url: '#',
+            name: 'LikeCoin',
+            token: 'LIKE',
+            img: 'likecoin',
+          },
+          {
             url: '',
             name: 'More chains',
             token: 'Coming soon',
@@ -185,9 +187,13 @@ export default {
 
 .logos-container
   display flex
-  // flex-wrap: wrap
   justify-content center
   margin-inline calc(-1 * var(--spacing-8) / 2)
+  .marquee:last-child &
+    @media screen and (min-width: 1120px)
+      flex-wrap: wrap
+      max-width: 60rem
+      margin-inline auto
 
 .logos-item
   position relative
@@ -214,6 +220,9 @@ export default {
   width 3.25rem
   max-width none
   transform translate(-51.2%, -42.3%)
+  &.likecoin
+    width 2rem
+    transform translate(-50, -50%)
 
 .tm-link
   color var(--quaternary)
