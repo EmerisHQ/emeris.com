@@ -19,6 +19,13 @@
         </div>
         <div class="nav-tail" :class="isOpen && 'opened'">
           <ul>
+            <li class="not-top mobile" @click="closeNav">
+              <tm-link
+                :href="getUtmParams('https://app.emeris.com/')"
+                class="tm-rf0 tm-medium tm-lh-title tm-link-disclosure"
+                >Launch app</tm-link
+              >
+            </li>
             <li @click="closeNav">
               <tm-link
                 :href="getUtmParams('/support')"
@@ -26,11 +33,17 @@
                 >Support</tm-link
               >
             </li>
-            <li class="not-top" @click="closeNav">
-              <tm-link
-                :href="getUtmParams('https://app.emeris.com/')"
-                class="tm-rf0 tm-medium tm-lh-title tm-link-disclosure"
-                >Launch app</tm-link
+            <li class="not-top tablet" @click="closeNav">
+              <tm-button
+                id="launchApp"
+                to-link="external"
+                :href="getUtmParams('https://app.emeris.com')"
+                size="m"
+                border-color="var(--primary)"
+                variant="gradient"
+                glow
+                class="btn"
+                ><span>Launch app &#8594;</span></tm-button
               >
             </li>
             <li class="mobile" @click="closeNav">
@@ -223,7 +236,7 @@ export default {
           display inline-block
     &.mobile
       @media $breakpoint-medium
-        display none
+        display none !important
     &.tablet
       display none
       @media $breakpoint-medium
