@@ -5,7 +5,7 @@
         <div class="intro">
           <kinesis-element :strength="15" type="depth">
             <img
-              src="~/assets/images/elements/portfolio.png"
+              src="~/assets/images/elements/portfolio.jpg"
               alt="Emeris intro"
             />
           </kinesis-element>
