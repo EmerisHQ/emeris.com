@@ -1,11 +1,15 @@
 <template>
-  <div id="cta" class="section-cta tm-container tm-wrapper tm-section">
-    <graphics-cta class="graphics" />
-    <div class="tm-wrapper mt-11">
-      <div class="tm-content center text">
-        <h1 class="title tm-rf4 tm-rf5-m-up tm-bold tm-lh-title tm-serif">
-          Experience a glimpse of DeFi's future today
-        </h1>
+  <div id="cta" class="section-cta tm-section">
+    <div class="tm-wrapper tm-container">
+      <div class="tm-center text">
+        <div class="title">
+          <graphics-cta class="graphics" />
+          <h1 class="tm-title tm-lh-title tm-serif tm-rf4 tm-rf5-m-up tm-bold">
+            <span>
+              Experience a&nbsp;glimpse<br />of&nbsp;DeFi's future today
+            </span>
+          </h1>
+        </div>
         <div class="button-container">
           <tm-button
             size="m"
@@ -20,11 +24,12 @@
             to-link="external"
             :href="getUtmParams('https://app.emeris.com/')"
             size="m"
-            variant="outlined"
+            variant="gradient"
             glow
             class="btn"
-            ><span>Dive in &#8594;</span></tm-button
           >
+            Dive into the app <span class="icon__right">&rarr;</span>
+          </tm-button>
         </div>
         <div class="tm-rf-1 tm-muted mt-4 center mobile-text">
           Use the app on a desktop device
@@ -53,40 +58,58 @@ export default {
 
 <style lang="stylus" scoped>
 .section-cta
-  padding var(--spacing-11) 0
+  overflow hidden
+  position relative
+  min-height: 80vh
+  display flex
+  align-items center
+  @media $breakpoint-medium
+    overflow initial
+    min-height: 0
   @media $breakpoint-xl
-    padding var(--spacing-11) 0 var(--spacing-10)
+    min-height: 90vh
 
 .title
-  @media $breakpoint-large
-    max-width 53rem
+  position relative
+
+.graphics
+  position absolute
+  top 50%
+  left: 50%
+  width 100%
+  max-width 26rem
+  transform: translate(-50%, -50%)
 
 .text
+  max-width: 42.625rem
   text-align center
+
+.button-container
+.mobile-text
+  max-width: 17rem
+  margin-inline: auto
 
 .button-container
   position relative
   z-index 1
   width 100%
+  @media $breakpoint-medium
+    margin-top var(--spacing-8)
+  @media $breakpoint-xl
+    margin-top var(--spacing-6)
   .btn
     display none
     width 100%
-    margin-top var(--spacing-10)
+    margin-top var(--spacing-9)
+    margin-left 0 !important
     @media $breakpoint-medium
       display inline-flex
       width auto
-      margin-top var(--spacing-7)
+      margin-top 0
     &.mobile
       display inline-flex
       @media $breakpoint-medium
         display none
-
-.graphics
-  flex 1 0 73%
-  width 73%
-  max-width 26rem
-  @media $breakpoint-medium
-    margin-top var(--spacing-6)
 
 .mobile-text
   @media $breakpoint-medium

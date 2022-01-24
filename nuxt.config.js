@@ -120,6 +120,7 @@ export default {
     '~/plugins/vue-scrollto.client.js',
     '~/plugins/v-tooltip.client.js',
     '~/plugins/vue-observe-visibility.client.js',
+    '~/plugins/vue-youtube.client.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
