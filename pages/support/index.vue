@@ -267,23 +267,6 @@ export default {
     TmCollapse,
     TmCollapseItem,
   },
-  head() {
-    return {
-      title: 'FAQ',
-      script: [
-        {
-          innerHTML: `
-            var APP_ID = 'zgyyxzmt';
-            window.intercomSettings = {app_id: APP_ID};
-          `,
-          type: 'text/javascript',
-          charset: 'utf-8',
-          body: true,
-        },
-      ],
-      __dangerouslyDisableSanitizers: ['script', 'innerHTML'],
-    }
-  },
   async asyncData({ $content, params }) {
     const content = await $content('articles', params.slug)
       .sortBy('index', 'asc')
@@ -341,6 +324,23 @@ export default {
           grafics: '~/assets/images/elements/cu-background.jpg',
         },
       ],
+    }
+  },
+  head() {
+    return {
+      title: 'FAQ',
+      script: [
+        {
+          innerHTML: `
+            var APP_ID = 'zgyyxzmt';
+            window.intercomSettings = {app_id: APP_ID};
+          `,
+          type: 'text/javascript',
+          charset: 'utf-8',
+          body: true,
+        },
+      ],
+      __dangerouslyDisableSanitizers: ['script', 'innerHTML'],
     }
   },
   mounted() {

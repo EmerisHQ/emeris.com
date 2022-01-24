@@ -96,7 +96,7 @@ export default {
       default: 'm',
     },
     /**
-     * Variant: `text` | `outlined` | `contained`
+     * Variant: `text` | `outlined` | `contained` | `gradient`
      */
     variant: {
       type: String,
@@ -360,18 +360,81 @@ export default {
           background initial
           -webkit-background-clip initial
           -webkit-text-fill-color initial
+    &[disabled]
+      .tm-button__content
+        opacity 1 !important
+      &:after
+        background: rgba(255, 255, 255, 0.44)
+
+  /* gradient variant */
+  &__variant__gradient
+    --border-color transparent
+    --color var(--black)
+    position relative
+    transition none
+
+    &::after,
+    &.tm-button__glow::before
+      border 0.0625rem solid var(--border-color)
+    &::after // border
+      content ''
+      position absolute
+      z-index -1
+      trbl 0
+      border 0
+      border-radius inherit
+      margin -0.0625rem
+      background: linear-gradient(102.36deg, #64DBFC -2.26%, #30FFDF 34.48%, #FFFE39 92.77%);
+      transition opacity .25s $ease-out
+      .light-mode &
+        opacity 1
+    &.tm-button__glow::before // glow
+      trbl -0.0625em
+      filter blur(0.4rem)
+    .tm-button__content
+      display block // fix weird bug with text gradients on safari
+      color var(--color)
+    &:hover,
+    &:active
+      &::after
+        background radial-gradient(144.8% 78% at 90.48% 100%, #FFFD38 25.95%, rgba(158, 255, 185, 0) 100%), linear-gradient(153.31deg, #64DAFB 5.41%, #30FFDF 30.23%, #B0FF94 54.73%)
+    &:focus
+      &::after
+        background linear-gradient(102.36deg, #64DBFC -2.26%, #30FFDF 34.48%, #FFFE39 92.77%)
+    &:hover,
+    &:focus,
+    &:active
+      background transparent
+      &::after
+        opacity 1
+      .tm-button__content
+        color initial
+        background initial
+        -webkit-background-clip initial
+        -webkit-text-fill-color initial
+        >>> span
+          color initial
+          background initial
+          -webkit-background-clip initial
+          -webkit-text-fill-color initial
 
   /* contained variant */
   &__variant__contained
     background var(--bg-color)
     background-size 200% auto
     box-shadow var(--elevation-4)
-    hover-raise -1px
     hover-elevation(16, $active-opacity:0.4)
     &::before // glow
       trbl 0.125em 1em 0
       background inherit
       filter blur(1.25rem) brightness(1.5)
+    &:after
+      transition opacity .25s $ease-out
+    &:hover,
+    &:active
+      &:after
+        opacity 1
+        background radial-gradient(144.8% 78% at 90.48% 100%, #FFFD38 25.95%, rgba(158, 255, 185, 0) 100%), linear-gradient(153.31deg, #64DAFB 5.41%, #30FFDF 30.23%, #B0FF94 54.73%)
 
   /* disabled state */
   &[disabled]
@@ -384,23 +447,27 @@ export default {
     padding-top var(--spacing-3)
     padding-bottom var(--spacing-3)
     &.tm-button__variant__contained,
-    &.tm-button__variant__outlined
-       padding-left var(--spacing-5)
-       padding-right var(--spacing-5)
+    &.tm-button__variant__outlined,
+    &.tm-button__variant__gradient
+      padding-left var(--spacing-5)
+      padding-right var(--spacing-5)
   &__size__m
+    height: 3rem
     padding-top var(--spacing-4)
     padding-bottom var(--spacing-4)
     &.tm-button__variant__contained,
-    &.tm-button__variant__outlined
-       padding-left var(--spacing-7)
-       padding-right var(--spacing-7)
+    &.tm-button__variant__outlined,
+    &.tm-button__variant__gradient
+      padding-left var(--spacing-7)
+      padding-right var(--spacing-7)
   &__size__l
     padding-top var(--spacing-5)
     padding-bottom var(--spacing-5)
     &.tm-button__variant__contained,
-    &.tm-button__variant__outlined
-       padding-left var(--spacing-8)
-       padding-right var(--spacing-8)
+    &.tm-button__variant__outlined,
+    &.tm-button__variant__gradient
+      padding-left var(--spacing-8)
+      padding-right var(--spacing-8)
 
   &__content
     position relative
@@ -414,6 +481,7 @@ export default {
   >>> .icon__right
   >>> .icon__left
     transform-fix()
+    display inline-block
     transition transform 0.25s $ease-out
   >>> .icon__left
     margin-right 0.5em
@@ -425,6 +493,8 @@ export default {
   &:focus
     >>> .icon__right
       transform translateX(10%)
+      &._external
+        transform translate(10%, -10%)
     >>> .icon__left
       transform translateX(-10%)
     >>> .icon__down

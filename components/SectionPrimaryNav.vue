@@ -19,6 +19,13 @@
         </div>
         <div class="nav-tail" :class="isOpen && 'opened'">
           <ul>
+            <li class="not-top mobile" @click="closeNav">
+              <tm-link
+                :href="getUtmParams('https://app.emeris.com/')"
+                class="tm-rf0 tm-medium tm-lh-title tm-link-disclosure"
+                >Launch app</tm-link
+              >
+            </li>
             <li @click="closeNav">
               <tm-link
                 :href="getUtmParams('http://support.emeris.com/')"
@@ -26,24 +33,24 @@
                 >Support</tm-link
               >
             </li>
-            <li class="mobile" @click="closeNav">
-              <tm-link
-                :href="getUtmParams('/updates')"
-                class="tm-rf0 tm-medium tm-lh-title"
-                >Get updates</tm-link
-              >
-            </li>
-            <li class="tablet">
+            <li class="not-top tablet" @click="closeNav">
               <tm-button
                 id="launchApp"
                 to-link="external"
                 :href="getUtmParams('https://app.emeris.com')"
                 size="m"
                 border-color="var(--primary)"
-                variant="outlined"
+                variant="gradient"
                 glow
                 class="btn"
                 ><span>Launch app &#8594;</span></tm-button
+              >
+            </li>
+            <li class="mobile" @click="closeNav">
+              <tm-link
+                :href="getUtmParams('/updates')"
+                class="tm-rf0 tm-medium tm-lh-title"
+                >Get updates</tm-link
               >
             </li>
           </ul>
@@ -78,6 +85,7 @@ export default {
   data() {
     return {
       isOpen: false,
+      // isTop: false,
       currentUrl: this.$route.fullPath,
       headroom: null,
     }
@@ -121,6 +129,8 @@ export default {
         const options = {
           offset: 100,
           onUnpin: () => this.closeNav(),
+          // onTop: () => (this.isTop = true),
+          // onNotTop: () => (this.isTop = false),
         }
         this.headroom = new Headroom(this.$el, options)
         this.headroom.init()
@@ -133,7 +143,7 @@ export default {
 <style lang="stylus" scoped>
 .headroom
   will-change transform
-  transition transform .2s linear
+  transition transform .2s linear, background .2s linear
 
 .headroom--pinned
   transform translateY(0%)
@@ -147,18 +157,22 @@ export default {
   top 0
   left 0
   right 0
-  padding-top var(--spacing-7)
-  padding-bottom var(--spacing-7)
-  background rgba(0, 0, 0, 1)
-  @supports ((-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em)))
-    background rgba(0, 0, 0, 0.7)
-    backdrop-filter blur(20px)
+  padding-block 2.75rem
+  background rgba(0, 0, 0, 0)
   &.headroom--not-top
     padding-top var(--spacing-4)
     padding-bottom var(--spacing-4)
+    &.headroom--pinned
+      background rgba(0, 0, 0, 1)
+      @supports ((-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em)))
+        background rgba(0, 0, 0, 0.7)
+        backdrop-filter blur(20px)
   &.headroom--top
-    padding-top var(--spacing-7)
-    padding-bottom var(--spacing-7)
+    padding-block var(--spacing-7)
+    @media $breakpoint-medium
+      padding-block var(--spacing-8)
+    @media $breakpoint-xl
+      padding-block 2.75rem
   .tm-container
     max-width 86rem
 
@@ -186,7 +200,9 @@ export default {
     pointer-events none
 
 .smallprint
-  margin-left var(--spacing-2)
+  margin-left var(--spacing-5)
+  // .headroom--top &
+  //   color rgba(24,24,24,0.67)
 
 .nav
   /* if no secondary nav, create similar space */
@@ -211,9 +227,16 @@ export default {
   li
     list-style-type none
     display inline-block
+    &.not-top
+      order -1
+      @media $breakpoint-medium
+        order initial
+        display none
+        .headroom--not-top &
+          display inline-block
     &.mobile
       @media $breakpoint-medium
-        display none
+        display none !important
     &.tablet
       display none
       @media $breakpoint-medium
@@ -242,6 +265,13 @@ export default {
     color var(--gray-600)
     opacity 1
 
+// .nav-tail
+//   .headroom--top &
+//     .tm-link
+//       color var(--black)
+//       &:hover
+//         opacity .65
+
 .burger
   position relative
   width 1.25rem
@@ -267,6 +297,9 @@ export default {
     &:nth-child(3)
     &:nth-child(4)
       opacity 0
+  // .headroom--top &
+  //   i
+  //     background-color var(--black)
   &.opened
     i
       background-color var(--black)
@@ -294,7 +327,7 @@ export default {
   .nav-tail
     opacity .2
     position absolute
-    top calc(-1 * var(--spacing-4))
+    top calc(-1 * var(--spacing-7))
     left calc(-1 * var(--wrap-gap))
     right calc(-1 * var(--wrap-gap))
     text-align center
@@ -303,8 +336,8 @@ export default {
     transform-origin 0 0
     transition transform .25s $ease-out, opacity .2s $ease-out
     filter drop-shadow(0px 34px 64px rgba(230, 254, 88, 0.5))
-    .headroom--top &
-      top calc(-1 * var(--spacing-7))
+    // .headroom--top &
+    //   top calc(-1 * var(--spacing-7))
     &::-webkit-scrollbar
       display none
     &.opened
@@ -321,13 +354,13 @@ export default {
       text-align left
       li
         width 100%
+        padding var(--spacing-4) 0
       li + li
         margin 0
     .tm-link
       position relative
       display block
       width 100%
-      padding var(--spacing-4) 0
       color var(--black)
 
 @media $breakpoint-small
