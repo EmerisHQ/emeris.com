@@ -13,42 +13,27 @@
         </div>
 
         <div class="column-content">
-          <div class="list">
-            <ul class="list-inner">
-              <li v-for="item in items" :key="item.title" class="list-item">
-                <div class="list-info">
-                  <div class="cover-container">
-                    <div class="cover-container__inner">
-                      <img
-                        :src="require(`~/assets/images/elements/${item.img}`)"
-                        class="cover"
-                      />
-                    </div>
-                    <img
-                      v-if="item.img === 'scene-01.jpg'"
-                      :src="require(`~/assets/images/elements/orb.png`)"
-                      class="orbit"
-                    />
-                  </div>
-                  <div
-                    class="
-                      mt-6
-                      tm-measure-wide
-                      tm-rf2
-                      tm-rf1-m-up
-                      tm-bold
-                      tm-lh-title
-                      tm-title
-                    "
-                  >
-                    {{ item.title }}
-                  </div>
-                  <div class="mt-1 tm-measure-wide tm-rf0 tm-text mt-1">
-                    {{ item.info }}
-                  </div>
-                </div>
-              </li>
-            </ul>
+          <div class="list tablet">
+            <div class="list-inner">
+              <content-trading-item
+                v-for="(item, key) in items"
+                :key="item.title"
+                :count="key"
+                :item="item"
+              />
+            </div>
+          </div>
+
+          <div class="mobile">
+            <swiper :options="swiperOption">
+              <swiper-slide
+                v-for="(item, key) in items"
+                :key="item.title"
+                class="list-slide"
+              >
+                <content-trading-item :count="key" :item="item" />
+              </swiper-slide>
+            </swiper>
           </div>
         </div>
       </div>
@@ -57,9 +42,20 @@
 </template>
 
 <script>
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+import 'swiper/css/swiper.css'
+
 export default {
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
   data() {
     return {
+      swiperOption: {
+        slidesPerView: 'auto',
+        spaceBetween: 32,
+      },
       items: [
         {
           img: 'scene-01.jpg',
@@ -99,7 +95,7 @@ export default {
   @media $breakpoint-xl
     grid-column 2 / span 4
     position: sticky
-    top: 3.5rem
+    top: 4rem
     align-self: start
 
 .column-content
@@ -113,6 +109,15 @@ export default {
   line-height 1.3
   @media $breakpoint-medium
     line-height 1.2
+
+.tablet
+  display none
+  @media $breakpoint-medium
+    display block
+
+.mobile
+  @media $breakpoint-medium
+    display none
 
 .list
   margin-top var(--spacing-11)
@@ -134,79 +139,14 @@ export default {
       display: grid
       grid-template-columns repeat(2, 1fr)
       gap 0 var(--grid-gap-x)
-  &-item
-    position relative
-    display flex
-    max-width: 12.25rem
-    flex-shrink: 0
-    margin-left calc(2 * var(--grid-gap-x))
-    @media $breakpoint-medium
-      max-width: 100%
-      width 100%
-      margin-left 0
-    &:nth-child(2n)
-      @media $breakpoint-medium
-        position absolute
-        top 24rem
-        left 0
-        max-width: calc(50% - var(--grid-gap-x) / 2)
-      @media $breakpoint-xl
-        position relative
-        top auto
-        left auto
-        max-width 100%
-        margin-top 0
-        transform: translateY(45%)
-    &:nth-child(2n + 1)
-      @media $breakpoint-medium
-        margin-top var(--spacing-10)
-      @media $breakpoint-xl
-        margin-top var(--spacing-9)
-    &:first-child
-      margin-left 0
-      @media $breakpoint-medium
-        margin-top 0
 
-.list-info
-  width 100%
-
-.cover-container
-  position relative
-  &__inner
-    overflow hidden
-    position relative
-    width 100%
-    height 0
-    padding-bottom 187%
-    @media $breakpoint-medium
-      padding-bottom 122%
-    @media $breakpoint-xl
-      padding-bottom 155%
-
-.cover
-  position absolute
-  top 0
-  bottom 0
-  left 50%
-  height 100%
-  width auto
-  max-width: none
-  transform: translate(-50%)
+.swiper-container
+  margin-top var(--spacing-11)
+  margin-inline: calc(-1 * var(--wrap-gap))
+  padding-inline: var(--wrap-gap)
   @media $breakpoint-medium
-    height: auto
-    width 100%
+    margin 0
 
-.orbit
-  position absolute
-  left -7.8rem
-  bottom -6rem
-  width 21.8rem
-  max-width: none
-  @media $breakpoint-medium
-    left -7.8rem
-    bottom -6rem
-  @media $breakpoint-xl
-    left -8.9rem
-    bottom -1.1rem
-    width 21.8rem
+.swiper-slide
+  width: 12.25rem
 </style>
