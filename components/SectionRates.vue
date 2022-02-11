@@ -47,7 +47,7 @@ export default {
         {
           overline: 'Average transaction fee',
           num: '$0.08',
-          info: '+0.15% swap fee',
+          info: '+0.3% swap fee',
         },
         {
           overline: 'Average swap speed',
