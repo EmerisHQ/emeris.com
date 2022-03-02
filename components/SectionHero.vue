@@ -76,24 +76,30 @@ export default {
   },
 
   mounted() {
-    window.addEventListener('scroll', this.animation, false)
-
-    gsap.from(['.title span'], {
-      y: 50,
-      opacity: 0,
-      duration: 1.5,
-      ease: 'expo.out',
-      stagger: 0.2,
-      delay: 0,
-    })
-    gsap.to(['.background', '.section-hero .button-container'], {
-      opacity: 1,
-      pointerEvents: 'all',
-      duration: 2,
-      ease: 'expo.out',
-      delay: 2,
-      onComplete: () => (this.dataLoaded = true),
-    })
+    if (window.top.scrollY > 0) {
+      gsap.set('.section-hero .button-container', { autoAlpha: 0 })
+      gsap.set('.section-hero', { minHeight: 0 })
+      gsap.set('.background', { '--imageBorder': 1, autoAlpha: 1 })
+      gsap.set('.background__img', { scale: 0.8, yPercent: -54 })
+      gsap.set(['.title span'], { y: 0, opacity: 1 })
+      this.dataLoaded = true
+    } else {
+      window.addEventListener('scroll', this.animation, false)
+      gsap.to(['.title span'], {
+        y: 0,
+        opacity: 1,
+        duration: 1.5,
+        ease: 'expo.out',
+        stagger: 0.1,
+        onComplete: () => (this.dataLoaded = true),
+      })
+      gsap.to(['.background', '.section-hero .button-container'], {
+        autoAlpha: 1,
+        duration: 2,
+        ease: 'expo.out',
+        delay: 1,
+      })
+    }
   },
 
   beforeDestroy() {
@@ -108,51 +114,30 @@ export default {
     },
 
     animation() {
-      if (window.top.scrollY > 100) {
-        window.removeEventListener('scroll', this.animation, false)
+      window.removeEventListener('scroll', this.animation, false)
 
-        const duration = 0.8
-        const baseEase = 'expo.out'
+      const duration = 0.8
+      const baseEase = 'expo.out'
 
-        gsap.to(['.section-hero .button-container'], {
-          opacity: 0,
-          display: 'none',
-          pointerEvents: 'none',
-          duration: 0,
-          ease: baseEase,
-        })
-        gsap.to(['.section-hero'], {
-          minHeight: 0,
-          duration: duration * 1.5,
-          ease: baseEase,
-        })
+      gsap.killTweensOf('.section-hero .button-container')
+      gsap.to('.section-hero .button-container', {
+        autoAlpha: 0,
+      })
+      gsap.to('.section-hero', {
+        minHeight: 0,
+        duration: duration * 1.5,
+        ease: baseEase,
+      })
 
-        const title = this.$refs.title.getBoundingClientRect()
-
-        const windowWidth = window.innerWidth
-        const windowHeight = window.innerHeight
-        const scaleX = (windowWidth < 570 ? 120 : 242) / windowWidth
-        const scaleY =
-          ((title.top + title.height) * (windowWidth < 570 ? 1.25 : 1.4)) /
-          windowHeight
-        const invScaleX = 1 / scaleX
-        const invScaleY = 1 / scaleY
-
-        gsap.to('.background', {
-          opacity: 0.6,
-          yPercent: windowWidth < 570 ? -50 : -54,
-          xPercent: -50,
-          scaleX,
-          scaleY,
-          duration,
-        })
-
-        gsap.to('.background__img', {
-          scaleX: invScaleX,
-          scaleY: invScaleY,
-          duration,
-        })
-      }
+      gsap.to('.background', {
+        '--imageBorder': 1,
+        duration,
+      })
+      gsap.to('.background__img', {
+        scale: 0.8,
+        yPercent: -54,
+        duration,
+      })
     },
   },
 }
@@ -170,25 +155,38 @@ img
 .background
   position absolute
   overflow hidden
-  // top -6.5vw
-  // left: 50%
-  // width 37vw
-  // height 89.5vw
   opacity 0
-  // opacity 0.6
-  // background-color: #C4C4C4
-  background-color: #000
-  // background-image url('~/assets/images/elements/hero.jpg')
-  // background-size 800%
-  // background-position center
-  // background-repeat no-repeat
-  // transform: translateX(-50%)
   top 50%
   left: 50%
   width 100%
   height 100vh
   transform-origin: top
   transform: translate(-50%, -50%) scale(1)
+
+  --imageBorder 0
+
+  &::before,
+  &::after
+    content: ''
+    position absolute
+    display: block
+    background: var(--bg)
+    height: 100%
+    width: 30%
+    top: 0
+    left: 0
+    z-index: 1
+    transform-origin: left
+    transform: scaleX(var(--imageBorder))
+
+    @media $breakpoint-medium
+      width: 40%
+
+  &::after
+    left: initial
+    transform-origin: right
+    right: 0
+
   @media $breakpoint-medium
     top 50%
     left: 50%
@@ -200,7 +198,7 @@ img
     position absolute
     top 50%
     left 50%
-    width 100vw
+    width 100%
     height 100vh
     object-fit: cover
     transform: translate(-50%, -50%) scale(1)
@@ -220,6 +218,9 @@ img
     grid-column 3 / span 8
     padding-top 3rem
   span
+    opacity: 0
+    transform: translate(0, 50px)
+    will-change: transform, opacity
     position relative
     display inline-block
 
@@ -229,9 +230,10 @@ img
   justify-content center
   align-items center
   opacity 0
+  visibility: hidden
   margin-top var(--spacing-10)
   max-width: 17.25rem
-  pointer-events none
+
   @media $breakpoint-medium
     margin-inline: auto
     min-width 16rem
