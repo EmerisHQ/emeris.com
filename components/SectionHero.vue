@@ -64,6 +64,14 @@ export default {
       throttle: 0,
       threshold: 0,
       currentUrl: this.$route.fullPath,
+      dataLoaded: false,
+    }
+  },
+  head() {
+    return {
+      bodyAttrs: {
+        class: !this.dataLoaded ? 'block-Visibility' : '',
+      },
     }
   },
 
@@ -84,6 +92,7 @@ export default {
       duration: 2,
       ease: 'expo.out',
       delay: 2,
+      onComplete: () => (this.dataLoaded = true),
     })
   },
 
