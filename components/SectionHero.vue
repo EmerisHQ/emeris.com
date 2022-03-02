@@ -79,9 +79,14 @@ export default {
     if (window.top.scrollY > 0) {
       gsap.set('.section-hero .button-container', { autoAlpha: 0 })
       gsap.set('.section-hero', { minHeight: 0 })
-      gsap.set('.background', { '--imageBorder': 1, autoAlpha: 1 })
-      gsap.set('.background__img', { scale: 0.8, yPercent: -54 })
-      gsap.set(['.title span'], { y: 0, opacity: 1 })
+      gsap.set('.title span', { y: 0, opacity: 1 })
+      gsap.set('.background', {
+        '--imageBorder': 1,
+        autoAlpha: 1,
+        scale: 0.81,
+        yPercent: -65,
+      })
+
       this.dataLoaded = true
     } else {
       window.addEventListener('scroll', this.animation, false)
@@ -91,13 +96,13 @@ export default {
         duration: 1.5,
         ease: 'expo.out',
         stagger: 0.1,
-        onComplete: () => (this.dataLoaded = true),
       })
       gsap.to(['.background', '.section-hero .button-container'], {
         autoAlpha: 1,
         duration: 2,
-        ease: 'expo.out',
+        ease: 'ease2.out',
         delay: 1,
+        onComplete: () => (this.dataLoaded = true),
       })
     }
   },
@@ -116,27 +121,17 @@ export default {
     animation() {
       window.removeEventListener('scroll', this.animation, false)
 
-      const duration = 0.8
-      const baseEase = 'expo.out'
-
       gsap.killTweensOf('.section-hero .button-container')
-      gsap.to('.section-hero .button-container', {
+      gsap.set('.section-hero .button-container', {
         autoAlpha: 0,
-      })
-      gsap.to('.section-hero', {
-        minHeight: 0,
-        duration: duration * 1.5,
-        ease: baseEase,
       })
 
       gsap.to('.background', {
         '--imageBorder': 1,
-        duration,
-      })
-      gsap.to('.background__img', {
-        scale: 0.8,
-        yPercent: -54,
-        duration,
+        scale: 0.81,
+        yPercent: -65,
+        duration: 1.4,
+        ease: 'power3.out',
       })
     },
   },
@@ -154,54 +149,46 @@ img
 
 .background
   position absolute
-  overflow hidden
+  //overflow hidden
   opacity 0
-  top 50%
+  top 50vh
   left: 50%
   width 100%
   height 100vh
-  transform-origin: top
-  transform: translate(-50%, -50%) scale(1)
+  transform-origin top
+  transform translate(-50%, -50%) scale(1)
+  will-change: transform
 
   --imageBorder 0
 
   &::before,
   &::after
-    content: ''
+    content ''
     position absolute
-    display: block
-    background: var(--bg)
-    height: 100%
-    width: 30%
-    top: 0
-    left: 0
-    z-index: 1
-    transform-origin: left
-    transform: scaleX(var(--imageBorder))
+    display block
+    background var(--bg)
+    height calc(100%+4px)
+    width 30%
+    top -2px
+    left -2px
+    z-index 1
+    transform-origin left
+    transform scaleX(var(--imageBorder))
+    will-change transform
 
     @media $breakpoint-medium
-      width: 40%
+      width 40%
 
   &::after
-    left: initial
-    transform-origin: right
-    right: 0
+    left initial
+    transform-origin right
+    right -2px
 
-  @media $breakpoint-medium
-    top 50%
-    left: 50%
-    width 100%
-    height 100vh
-    transform-origin: center
-    transform: translate(-50%, -50%) scale(1)
   &__img
     position absolute
-    top 50%
-    left 50%
     width 100%
     height 100vh
     object-fit: cover
-    transform: translate(-50%, -50%) scale(1)
 
 .tm-container
   width 100%
@@ -218,9 +205,8 @@ img
     grid-column 3 / span 8
     padding-top 3rem
   span
-    opacity: 0
-    transform: translate(0, 50px)
-    will-change: transform, opacity
+    opacity 0
+    transform translate(0, 50px)
     position relative
     display inline-block
 
@@ -260,7 +246,7 @@ img
   display flex
   align-items flex-start
   justify-content center
-  min-height: 100vh
+  //   min-height: 100vh
   padding-top var(--spacing-12)
   padding-bottom 0
   @media $breakpoint-medium

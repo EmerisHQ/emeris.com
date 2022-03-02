@@ -1,5 +1,5 @@
 <template>
-  <div class="tm-section">
+  <div class="tm-section js-launch">
     <div class="tm-wrapper tm-container">
       <div class="tm-grid-base">
         <div class="information">
@@ -48,6 +48,8 @@
 </template>
 
 <script>
+import { gsap } from 'gsap'
+
 export default {
   props: {
     openVideo: {
@@ -60,11 +62,26 @@ export default {
       currentUrl: this.$route.fullPath,
     }
   },
+  mounted() {
+    if (window.top.scrollY > 0) {
+      gsap.set('.js-launch', { y: 0 })
+    } else {
+      window.addEventListener('scroll', this.animation, false)
+    }
+  },
+
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.animation, false)
+  },
   methods: {
     getUtmParams(link) {
       this.currentUrl.includes('?') &&
         (link += `?${this.currentUrl.split('?')[1]}`)
       return link
+    },
+    animation() {
+      window.removeEventListener('scroll', this.animation, false)
+      gsap.to('.js-launch', { y: 0 })
     },
   },
 }
@@ -73,6 +90,7 @@ export default {
 <style lang="stylus" scoped>
 .tm-section
   padding-bottom 0
+  transform translate3D(0,25vh, 0)
   @media $breakpoint-xl
     padding-top var(--spacing-7)
 
