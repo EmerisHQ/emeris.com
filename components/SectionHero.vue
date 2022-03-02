@@ -1,74 +1,40 @@
 <template>
-  <div v-observe-visibility="onFalse" class="section-hero tm-section">
-    <div class="background" />
+  <div class="section-hero tm-section">
+    <div class="background">
+      <img src="~/assets/images/elements/hero.jpg" class="background__img" />
+    </div>
     <div class="tm-wrapper tm-container">
       <div class="tm-grid-base">
         <h1
+          id="hero-title"
+          ref="title"
           class="
             title
             tm-content tm-serif tm-rf5 tm-bold tm-lh-title tm-title
             z-2
           "
         >
-          <span class="tm-text-center">Experience</span>
-          <span class="tm-text-left">the power of</span>
-          <span class="tm-text-right">cross-chain DeFi</span>
+          <div class="tm-text-center"><span>Experience</span></div>
+          <div class="tm-text-left">
+            <span>the</span> <span>power</span> <span>of</span>
+          </div>
+          <div class="tm-text-right">
+            <span>cross-</span><span>chain</span> <span>DeFi</span>
+          </div>
         </h1>
 
-        <!-- <div class="button-container">
+        <div class="button-container">
           <tm-button class="btn" @click.native="openVideo">
             Watch trailer
           </tm-button>
           <tm-button
-            v-scroll-to="'#intro'"
+            v-scroll-to="'#hero-title'"
             variant="gradient"
             href="#"
             class="scroll-down z-1"
           >
             <icon-arrow-down />
           </tm-button>
-        </div> -->
-      </div>
-      <div class="tm-grid-base">
-        <div class="information">
-          <p class="tm-rf-1 tm-rf0-m-up tm-lh-copy">
-            Emeris is a one-stop portal for all crypto apps, no matter what
-            blockchain they run on. Try the beta today.
-          </p>
-
-          <div class="btn z-1">
-            <div class="btn-container">
-              <div class="show-desktop">
-                <tm-button
-                  id="launchApp"
-                  to-link="external"
-                  :href="getUtmParams('https://app.emeris.com')"
-                  size="m"
-                  border-color="var(--primary)"
-                  glow
-                  variant="gradient"
-                >
-                  <span>Launch app</span>
-                  <span class="icon__right">&rarr;</span>
-                </tm-button>
-              </div>
-              <tm-button
-                variant="text"
-                class="btn-play"
-                @click.native="openVideo"
-              >
-                <span class="text-gradient">▶&ensp;Play Trailer</span>
-              </tm-button>
-            </div>
-            <div class="show-mobile">
-              <tm-button size="m" variant="outlined" disabled class="button">
-                <span>Mobile app coming soon</span>
-              </tm-button>
-              <p class="mt-5 tm-lh-solid tm-rf-1 tm-medium text-center">
-                Use Emeris on a desktop device.
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -76,18 +42,21 @@
 </template>
 
 <script>
-// import IconArrowDown from '~/components/icons/IconArrowDown.vue'
+import { gsap } from 'gsap'
+import IconArrowDown from '~/components/icons/IconArrowDown.vue'
 
 export default {
   components: {
-    // IconArrowDown,
+    IconArrowDown,
   },
+
   props: {
     openVideo: {
       type: Function,
       default: () => {},
     },
   },
+
   data() {
     return {
       show: true,
@@ -97,20 +66,84 @@ export default {
       currentUrl: this.$route.fullPath,
     }
   },
+
+  mounted() {
+    window.addEventListener('scroll', this.animation, false)
+
+    gsap.from(['.title span'], {
+      y: 50,
+      opacity: 0,
+      duration: 1.5,
+      ease: 'expo.out',
+      stagger: 0.2,
+      delay: 0,
+    })
+    gsap.to(['.background', '.section-hero .button-container'], {
+      opacity: 1,
+      pointerEvents: 'all',
+      duration: 2,
+      ease: 'expo.out',
+      delay: 2,
+    })
+  },
+
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.animation, false)
+  },
+
   methods: {
     getUtmParams(link) {
       this.currentUrl.includes('?') &&
         (link += `?${this.currentUrl.split('?')[1]}`)
       return link
     },
-    visibilityChanged(isVisible) {
-      this.isVisible = isVisible
-    },
-    onTrue() {
-      this.isVisible = true
-    },
-    onFalse() {
-      this.isVisible = false
+
+    animation() {
+      if (window.top.scrollY > 100) {
+        window.removeEventListener('scroll', this.animation, false)
+
+        const duration = 0.8
+        const baseEase = 'expo.out'
+
+        gsap.to(['.section-hero .button-container'], {
+          opacity: 0,
+          display: 'none',
+          pointerEvents: 'none',
+          duration: 0,
+          ease: baseEase,
+        })
+        gsap.to(['.section-hero'], {
+          minHeight: 0,
+          duration: duration * 1.5,
+          ease: baseEase,
+        })
+
+        const title = this.$refs.title.getBoundingClientRect()
+
+        const windowWidth = window.innerWidth
+        const windowHeight = window.innerHeight
+        const scaleX = (windowWidth < 570 ? 120 : 242) / windowWidth
+        const scaleY =
+          ((title.top + title.height) * (windowWidth < 570 ? 1.25 : 1.4)) /
+          windowHeight
+        const invScaleX = 1 / scaleX
+        const invScaleY = 1 / scaleY
+
+        gsap.to('.background', {
+          opacity: 0.6,
+          yPercent: windowWidth < 570 ? -50 : -54,
+          xPercent: -50,
+          scaleX,
+          scaleY,
+          duration,
+        })
+
+        gsap.to('.background__img', {
+          scaleX: invScaleX,
+          scaleY: invScaleY,
+          duration,
+        })
+      }
     },
   },
 }
@@ -127,26 +160,41 @@ img
 
 .background
   position absolute
-  top -6.5vw
+  overflow hidden
+  // top -6.5vw
+  // left: 50%
+  // width 37vw
+  // height 89.5vw
+  opacity 0
+  // opacity 0.6
+  // background-color: #C4C4C4
+  background-color: #000
+  // background-image url('~/assets/images/elements/hero.jpg')
+  // background-size 800%
+  // background-position center
+  // background-repeat no-repeat
+  // transform: translateX(-50%)
+  top 50%
   left: 50%
-  width 37vw
-  height 89.5vw
-  opacity 0.6
-  background-color: #C4C4C4
-  background-image url('~/assets/images/elements/hero.jpg')
-  background-size 800%
-  background-position center
-  background-repeat no-repeat
-  transform: translateX(-50%)
+  width 100%
+  height 100vh
+  transform-origin: top
+  transform: translate(-50%, -50%) scale(1)
   @media $breakpoint-medium
-    top 0
-    width 12rem
-    height 27.7rem
-  @media $breakpoint-xl
-    top -7.2rem
-    left: 50.7%
-    width 15rem
-    height 35.4rem
+    top 50%
+    left: 50%
+    width 100%
+    height 100vh
+    transform-origin: center
+    transform: translate(-50%, -50%) scale(1)
+  &__img
+    position absolute
+    top 50%
+    left 50%
+    width 100vw
+    height 100vh
+    object-fit: cover
+    transform: translate(-50%, -50%) scale(1)
 
 .tm-container
   width 100%
@@ -157,24 +205,27 @@ img
   max-width: 52rem
   margin-top 54vw
   @media $breakpoint-medium
-    margin-top var(--spacing-11)
+    margin-top 0
+    padding-top 5rem
   @media $breakpoint-xl
     grid-column 3 / span 8
-    margin-top var(--spacing-5)
+    padding-top 3rem
   span
-    display block
+    position relative
+    display inline-block
 
 .button-container
   grid-column 1 / -1
   display flex
   justify-content center
-  margin-top var(--spacing-12)
+  align-items center
+  opacity 0
+  margin-top var(--spacing-10)
   max-width: 17.25rem
+  pointer-events none
   @media $breakpoint-medium
     margin-inline: auto
     min-width 16rem
-  @media $breakpoint-xl
-    margin-top var(--spacing-9)
   .tm-button
     &:not(:first-child)
       flex-shrink: 0
@@ -196,83 +247,15 @@ img
 
 .section-hero
   display flex
-  align-items flex-end
+  align-items flex-start
   justify-content center
-  // min-height: 100vh
+  min-height: 100vh
   padding-top var(--spacing-12)
+  padding-bottom 0
   @media $breakpoint-medium
-    align-items center
-    min-height: 0
-    padding-bottom 0
-
-.information
-  grid-column 1 / -1
-  margin-top var(--spacing-9)
-  @media $breakpoint-medium
-    grid-column 5 / span 4
-    margin-top var(--spacing-9)
-  @media $breakpoint-xl
-    grid-column 7 / span 4
-    margin-top var(--spacing-6)
-
-.btn-container
-  display flex
-  align-items center
-
-.btn-play
-  width 100%
-  margin-bottom var(--spacing-7)
-  @media $breakpoint-medium
-    width auto
-    margin-left var(--spacing-7)
-    margin-bottom 0
-
-.intro
-  grid-column 1 / -1
-  margin-top var(--spacing-11)
-  @media $breakpoint-xl
-    grid-column 2 / span 10
-    margin-top var(--spacing-9)
-  img
-    min-width: 33.6rem
-    border-radius: .35rem
-    transform: matrix(1, -0.04, -0.1, 1, 0, 0)
-    @media $breakpoint-medium
-      border-radius: .75rem
-    @media $breakpoint-large
-      transform: none
-
-.show-mobile
-  max-width: 17rem
-  margin-inline: auto
-  @media $breakpoint-medium
-    display none
-  .button
-    width 100%
-
-.show-desktop
-  display none
-  @media $breakpoint-medium
-    display block
-
-.btn
-  margin-top var(--spacing-6)
-  @media $breakpoint-medium
-    margin-top var(--spacing-7)
+    align-items start
+    padding-top calc(50vh - 11.5rem)
 
 .text-center
   text-align center
-
-.text-gradient
-  background var(--title-gradient)
-  -webkit-background-clip text
-  background-clip text
-  -webkit-text-fill-color transparent
-  text-fill-color transparent
-
-// @media $breakpoint-small
-// @media $breakpoint-medium
-// @media $breakpoint-large
-// @media $breakpoint-xl
-// @media $breakpoint-xxl
 </style>
