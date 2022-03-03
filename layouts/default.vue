@@ -1,6 +1,6 @@
 <template>
   <div id="top" class="main-wrapper">
-    <section-primary-nav />
+    <!-- <section-primary-nav /> -->
     <div id="content">
       <nuxt />
     </div>

@@ -1,11 +1,12 @@
 <template>
   <div class="canvas">
     <div class="layer__container">
-      <img
+      <!-- <img
         src="~/assets/images/elements/beta.jpg"
         alt="Gold Ephemeris"
         class="layer"
-      />
+      /> -->
+      <canvas ref="canvas" class="layer"></canvas>
     </div>
     <!-- <div class="hand-container"> -->
     <img
@@ -18,21 +19,86 @@
   </div>
 </template>
 
+<script>
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+export default {
+  mounted() {
+    gsap.registerPlugin(ScrollTrigger)
+    this.$nextTick(() => {
+      const rows = 6
+      const columns = 5
+      const missingImages = 1 // The number of missing images in the last row
+      const frameCount = rows * columns - missingImages - 1
+
+      const imageWidth = 4000
+      const imageHeight = 2050
+      const horizDiff = imageWidth / columns
+      const vertDiff = imageHeight / rows
+
+      const viewer = this.$refs.canvas
+      const ctx = viewer.getContext('2d')
+      viewer.width = horizDiff
+      viewer.height = vertDiff
+
+      const image = new Image()
+      image.src = require('~/assets/images/elements/beta-sprite2.jpg')
+      image.onload = () => onUpdate()
+
+      const obj = { num: 0 }
+      gsap.to(obj, {
+        num: frameCount,
+        ease: 'steps(' + frameCount + ')',
+        scrollTrigger: {
+          trigger: viewer,
+          markers: true,
+          start: 'top bottom',
+          end: 'bottom top',
+          anticipatePin: 1,
+          scrub: 1,
+        },
+        onUpdate,
+      })
+
+      function onUpdate() {
+        ctx.clearRect(0, 0, horizDiff, vertDiff)
+        const x = Math.round((obj.num % columns) * horizDiff)
+        const y = Math.round(Math.floor(obj.num / columns) * vertDiff)
+        ctx.drawImage(
+          image,
+          x,
+          y,
+          horizDiff,
+          vertDiff,
+          0,
+          0,
+          horizDiff,
+          vertDiff
+        )
+      }
+    })
+  },
+}
+</script>
+
 <style lang="stylus" scoped>
 .canvas
   position relative
+
 
 .layer
   position absolute
   top 0
   left 50%
   max-width: none
+  object-fit: contain;
   transform: translateX(-50%)
   width auto
   height 100%
   @media $breakpoint-large
     width 100%
-    height auto
+    height 100%
   &__container
     overflow hidden
     position relative

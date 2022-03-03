@@ -62,7 +62,8 @@ export default {
 
 <style lang="stylus" scoped>
 .tm-section
-  overflow hidden
+  height 2000px
+//   overflow hidden
 
 .section-defi
 .text
@@ -71,6 +72,8 @@ export default {
   position relative
 
 .section-defi
+  position sticky
+  top 4rem
   @media $breakpoint-medium
     margin-bottom var(--spacing-10)
   @media $breakpoint-xl
