@@ -1,5 +1,5 @@
 <template>
-  <div class="tm-section section-beta mt-8">
+  <div class="tm-section section-beta mt-8 js-section-beta">
     <div class="tm-wrapper tm-container-narrow">
       <div class="tm-grid-base">
         <div class="column-header">
@@ -92,7 +92,7 @@ export default {
 
 <style lang="stylus" scoped>
 .section-beta
-  overflow hidden
+  contain style
 
 .title
   color var(--trans-gray-300)
