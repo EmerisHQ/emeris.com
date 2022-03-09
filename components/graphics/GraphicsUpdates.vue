@@ -1,11 +1,19 @@
 <template>
   <div class="canvas">
     <div class="layer__container">
-      <img
+      <!-- <img
         src="~/assets/images/elements/updates.jpg"
         alt="Gold Gate"
         class="layer"
-      />
+      /> -->
+      <client-only
+        ><tm-sprite
+          :src="'/images/elements/sprite-update/Emeris_Master_'"
+          :ext="'jpg'"
+          :frame-count="37"
+          class="layer"
+        ></tm-sprite
+      ></client-only>
     </div>
     <img
       class="surfer z-2"
@@ -24,7 +32,7 @@
   left: 50%
   top 58%
   height 128%
-  width auto
+  width 100% //auto
   max-width: none
   transform: translate(-50%, -50%)
   @media $breakpoint-xl

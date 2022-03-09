@@ -244,6 +244,7 @@ img
 
 .section-hero
   display flex
+  contain: style;
   align-items flex-start
   justify-content center
   //   min-height: 100vh

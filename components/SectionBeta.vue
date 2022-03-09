@@ -8,7 +8,7 @@
           </h1>
         </div>
         <div class="column">
-          <client-only><graphics-beta class="graphics" /></client-only>
+          <graphics-beta class="graphics" />
         </div>
         <div class="column mt-9">
           <div class="steps-list">
