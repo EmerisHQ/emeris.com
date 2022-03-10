@@ -1,5 +1,5 @@
 <template>
-  <div class="tm-section">
+  <div class="tm-section js-section-defi">
     <div class="tm-wrapper tm-container section-defi">
       <div class="tm-grid-base">
         <div class="column-title">
@@ -34,12 +34,15 @@
           </div>
         </div>
       </div>
-      <graphics-defi class="graphics-container" />
+      <graphics-defi class="graphics-container js-graphics-container" />
     </div>
   </div>
 </template>
 
 <script>
+// import { gsap } from 'gsap/dist/gsap'
+// import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+
 export default {
   data() {
     return {
@@ -57,13 +60,34 @@ export default {
       ],
     }
   },
+  mounted() {
+    // 1 size ecran selon nombre de photo + hauteur sticky
+    // 2 les placer une au dessus des autres
+
+    // gsap.registerPlugin(ScrollTrigger)
+
+    // scroll animation
+    this.$nextTick(() => {
+      //   gsap.to('.js-hand', {
+      //     y: 0,
+      //     scrollTrigger: {
+      //       scrub: 1,
+      //       trigger: '.js-section-beta',
+      //       endTrigger: '#betacanvas',
+      //       start: 'top bottom',
+      //       end: 'bottom top',
+      //     },
+      //   })
+    })
+  },
 }
 </script>
 
 <style lang="stylus" scoped>
 .tm-section
-  height 2000px
-//   overflow hidden
+  @media $breakpoint-medium
+    height 300vh
+  //overflow hidden
 
 .section-defi
 .text
@@ -72,17 +96,20 @@ export default {
   position relative
 
 .section-defi
-  position sticky
+
   top 4rem
   @media $breakpoint-medium
+    position sticky
     margin-bottom var(--spacing-10)
   @media $breakpoint-xl
     margin-bottom var(--spacing-11)
 
 .graphics-container
-  max-width: 20rem
   margin-inline: auto
+  width 100%
+  height 300vh
   @media $breakpoint-medium
+    height auto
     position absolute
     left var(--wrap-gap)
     top 1rem
