@@ -87,11 +87,11 @@ export default {
 .hand
   position absolute
   //mix-blend-mode hard-light
-  min-width: 27rem
-  height 27rem
+  min-width: 14rem
+  height 17rem
   max-width 43rem
-  top -13.5rem
-  //left 52%
+  top -7.5rem
+  z-index 0
   display: flex;
   justify-content: center;
   //transform translate(-50%, 0%) scale(-1, -1)
@@ -102,7 +102,10 @@ export default {
   //mask-size cover
   //backdrop-filter blur(4.7px)
   @media $breakpoint-medium
-    //left 50%
+    min-width: 27rem
+    height 27rem
+    top -13.5rem
+    //left 20%
   @media $breakpoint-xl
     width 45rem
     //top -82%
@@ -111,11 +114,14 @@ export default {
   &__lay
     position absolute
     top 0
-    left 21%
+    left 12%
     max-width 100%
     height 100%
     opacity .8
     transform: translate(0,-30%)
+
+    @media $breakpoint-medium
+      left 20%
 
     @media $breakpoint-xl
       left 30%
@@ -126,8 +132,8 @@ export default {
 .orb
   position absolute
   z-index 9
-  width 26vw
-  height 26vw
+  width 6rem
+  height 6rem
   max-width 11.25rem
   max-height 11.25rem
   top 45%
@@ -135,8 +141,8 @@ export default {
   transform translateX(-50%)
   // animation orb-1 4s ease-in-out infinite
   @media $breakpoint-medium
-    width 11vw
-    height 11vw
+    width 9rem
+    height 9rem
     top 49%
     left 50%
   @media $breakpoint-xl
