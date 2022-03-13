@@ -5,14 +5,25 @@
         <div class="column-title">
           <div class="text z-2">
             <h2
-              class="tm-title tm-rf7 tm-rf6-m-up tm-bold tm-lh-title tm-serif"
+              class="
+                tm-title tm-rf7 tm-rf6-m-up tm-bold tm-lh-title tm-serif
+                rate-title
+                js-rate-title
+              "
             >
-              DeFi<br />for all
+              <span>DeFi</span><br /><span>for</span> <span>all</span>
             </h2>
           </div>
         </div>
         <div class="column-info">
-          <p class="mt-6 tm-rf0 tm-lh-copy tm-text tm-measure-narrow">
+          <p
+            class="
+              mt-6
+              tm-rf0 tm-lh-copy tm-text tm-measure-narrow
+              rate-text
+              js-rate-text
+            "
+          >
             Emeris beta allows you to swap coins with substantially lower fees
             than typical DeFi exchanges by connecting you to the best
             cross-chain DeFi protocols, starting with Gravity DEX.
@@ -20,7 +31,11 @@
         </div>
         <div class="column-stats">
           <div class="stats z-2">
-            <div v-for="item in items" :key="item.overline" class="stats-item">
+            <div
+              v-for="item in items"
+              :key="item.overline"
+              class="stats-item js-rate-stat"
+            >
               <div class="tm-rf-1 tm-medium tm-lh-title tm-overline tm-muted">
                 {{ item.overline }}
               </div>
@@ -40,8 +55,8 @@
 </template>
 
 <script>
-// import { gsap } from 'gsap/dist/gsap'
-// import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { gsap } from 'gsap/dist/gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
 export default {
   data() {
@@ -61,29 +76,59 @@ export default {
     }
   },
   mounted() {
-    // 1 size ecran selon nombre de photo + hauteur sticky
-    // 2 les placer une au dessus des autres
+    gsap.registerPlugin(ScrollTrigger)
+    ScrollTrigger.saveStyles(
+      '.js-rate-title > span, .js-rate-text,.js-rate-stat '
+    )
 
-    // gsap.registerPlugin(ScrollTrigger)
-
-    // scroll animation
     this.$nextTick(() => {
-      //   gsap.to('.js-hand', {
-      //     y: 0,
-      //     scrollTrigger: {
-      //       scrub: 1,
-      //       trigger: '.js-section-beta',
-      //       endTrigger: '#betacanvas',
-      //       start: 'top bottom',
-      //       end: 'bottom top',
-      //     },
-      //   })
+      ScrollTrigger.matchMedia({
+        '(min-width: 768px)': () => {
+          // scroll animation
+          gsap.to('.js-rate-title > span', {
+            y: 0,
+            opacity: 1,
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: '.js-section-defi',
+              start: '25% bottom',
+            },
+          })
+
+          gsap.to('.js-rate-text', {
+            opacity: 1,
+            scrollTrigger: {
+              trigger: '.js-section-defi',
+              start: '43% bottom',
+            },
+          })
+
+          gsap.to('.js-rate-stat', {
+            y: 0,
+            opacity: 1,
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: '.js-section-defi',
+              start: '75% bottom',
+            },
+          })
+        },
+      })
     })
   },
 }
 </script>
 
 <style lang="stylus" scoped>
+.rate-title
+  & > span
+    @media $breakpoint-medium
+      display inline-block
+      opacity 0
+      transform translate(0, 80px)
+.rate-text
+  @media $breakpoint-medium
+    opacity 0
 .tm-section
   @media $breakpoint-medium
     height 300vh
@@ -159,6 +204,8 @@ export default {
   margin-bottom var(--spacing-9)
   @media $breakpoint-medium
     margin-bottom var(--spacing-8)
+    opacity 0
+    transform translate(0, 80px)
   @media $breakpoint-xl
     margin-bottom var(--spacing-7)
   &:last-child

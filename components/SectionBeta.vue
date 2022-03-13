@@ -139,6 +139,7 @@ export default {
   &__inner
     overflow auto
     display flex
+    scroll-snap-type: x mandatory
     padding-inline: var(--wrap-gap)
     padding-bottom var(--spacing-7)
     @media $breakpoint-medium
@@ -151,6 +152,7 @@ export default {
 .step-item
   flex-shrink: 0
   grid-column 1/-1
+  scroll-snap-align center
   margin-left calc(2 * var(--grid-gap-x))
   @media $breakpoint-medium
     grid-column span 1
