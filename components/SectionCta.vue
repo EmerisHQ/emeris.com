@@ -77,7 +77,7 @@ export default {
   top 50%
   left: 50%
   width 100%
-  max-width 26rem
+  //max-width 26rem
   transform: translate(-50%, -50%)
 
 .text
