@@ -12,6 +12,7 @@
             title
             tm-content tm-serif tm-rf5 tm-bold tm-lh-title tm-title
             z-2
+            js-hero-title
           "
         >
           <div class="tm-text-center"><span>Experience</span></div>
@@ -79,7 +80,7 @@ export default {
     if (window.top.scrollY > 0) {
       gsap.set('.section-hero .button-container', { autoAlpha: 0 })
       gsap.set('.section-hero', { minHeight: 0 })
-      gsap.set('.title span', { y: 0, opacity: 1 })
+      gsap.set('.js-hero-title span', { y: 0, opacity: 1 })
       gsap.set('.background', {
         '--imageBorder': 1,
         autoAlpha: 1,
