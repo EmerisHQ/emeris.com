@@ -1,7 +1,17 @@
 <template>
   <div class="section-hero tm-section">
     <div class="background">
-      <img src="~/assets/images/elements/hero.jpg" class="background__img" />
+      <video
+        autoplay="autoplay"
+        muted="muted"
+        poster="~/assets/images/elements/hero.jpg"
+        playsinline=""
+        loop="loop"
+        class="background__img"
+      >
+        <source src="~/assets/videos/emeris-loop-xs.mp4" type="video/mp4" />
+      </video>
+      <div class="background__veil"></div>
     </div>
     <div class="tm-wrapper tm-container">
       <div class="tm-grid-base">
@@ -24,7 +34,7 @@
           </div>
         </h1>
 
-        <div class="button-container">
+        <div class="button-container js-full-button">
           <tm-button class="btn" @click.native="openVideo">
             Watch trailer
           </tm-button>
@@ -37,6 +47,11 @@
             <icon-arrow-down />
           </tm-button>
         </div>
+
+        <content-hero-buttons
+          class="hero-intro-btn js-launch"
+          :open-video="openVideo"
+        ></content-hero-buttons>
       </div>
     </div>
   </div>
@@ -78,14 +93,13 @@ export default {
 
   mounted() {
     if (window.top.scrollY > 0) {
-      gsap.set('.section-hero .button-container', { autoAlpha: 0 })
-      gsap.set('.section-hero', { minHeight: 0 })
+      gsap.set('.section-hero .js-full-button', { autoAlpha: 0 })
+      gsap.set('.js-launch', { y: 0, autoAlpha: 1 })
       gsap.set('.js-hero-title span', { y: 0, opacity: 1 })
       gsap.set('.background', {
         '--imageBorder': 1,
         autoAlpha: 1,
         scale: 0.81,
-        yPercent: -65,
       })
 
       this.dataLoaded = true
@@ -98,7 +112,7 @@ export default {
         ease: 'expo.out',
         stagger: 0.1,
       })
-      gsap.to(['.background', '.section-hero .button-container'], {
+      gsap.to(['.background', '.section-hero .js-full-button'], {
         autoAlpha: 1,
         duration: 2,
         ease: 'ease2.out',
@@ -118,19 +132,23 @@ export default {
         (link += `?${this.currentUrl.split('?')[1]}`)
       return link
     },
-
     animation() {
       window.removeEventListener('scroll', this.animation, false)
 
-      gsap.killTweensOf('.section-hero .button-container')
-      gsap.set('.section-hero .button-container', {
+      gsap.killTweensOf('.section-hero .js-full-button')
+      gsap.set('.section-hero .js-full-button', {
         autoAlpha: 0,
       })
 
       gsap.to('.background', {
         '--imageBorder': 1,
         scale: 0.81,
-        yPercent: -65,
+        duration: 1.4,
+        ease: 'power3.out',
+      })
+      gsap.to('.js-launch', {
+        y: 0,
+        autoAlpha: 1,
         duration: 1.4,
         ease: 'power3.out',
       })
@@ -152,11 +170,10 @@ img
   position absolute
   //overflow hidden
   opacity 0
-  top 50vh
+  top 50%
   left: 50%
   width 100%
   height 100vh
-  transform-origin top
   transform translate(-50%, -50%) scale(1)
   will-change: transform
 
@@ -191,12 +208,19 @@ img
     height 100vh
     object-fit: cover
 
+  &__veil
+    position absolute
+    width 100%
+    height 100%
+    transform: scale(1.0)
+    background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(255,255,255,0) 100%);
 .tm-container
   width 100%
 
 .title
   width 100%
   grid-column 1 / -1
+  grid-row 1 / 2
   max-width: 52rem
   margin-top 54vw
   @media $breakpoint-medium
@@ -211,8 +235,14 @@ img
     position relative
     display inline-block
 
+.hero-intro-btn
+  transform translate3D(0,25vh, 0)
+  opacity 0
+  visibility hidden
+
 .button-container
   grid-column 1 / -1
+  grid-row 2 / 3
   display flex
   justify-content center
   align-items center
@@ -246,14 +276,15 @@ img
 .section-hero
   display flex
   contain: style;
-  align-items flex-start
+  align-items center
   justify-content center
-  //   min-height: 100vh
-  padding-top var(--spacing-12)
+  min-height: 100vh
+  //padding-top var(--spacing-12)
+  padding-top 0
   padding-bottom 0
   @media $breakpoint-medium
-    align-items start
-    padding-top calc(50vh - 11.5rem)
+    //align-items start
+    //padding-top calc(50vh - 11.5rem)
 
 .text-center
   text-align center

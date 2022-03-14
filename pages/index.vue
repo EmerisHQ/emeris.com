@@ -4,7 +4,6 @@
       <tm-cookie-banner />
     </div>
     <section-hero :open-video="openVideo" />
-    <section-launch id="launch-app" :open-video="openVideo" />
     <section-intro />
     <section-trading />
     <section-rates />
