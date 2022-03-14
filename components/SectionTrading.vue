@@ -1,6 +1,6 @@
 <template>
   <div class="section-trading tm-section">
-    <div class="tm-wrapper tm-container">
+    <div class="tm-wrapper tm-container js-section-trading">
       <div class="tm-grid-base">
         <div class="column-header">
           <h2 class="tm-rf4 tm-bold tm-serif tm-title tm-lh-title title">
@@ -13,7 +13,7 @@
         </div>
 
         <div class="column-content">
-          <div class="list tablet">
+          <div ref="trade-item-list" class="list tablet">
             <div class="list-inner">
               <content-trading-item
                 v-for="(item, key) in items"

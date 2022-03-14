@@ -1,5 +1,5 @@
 <template>
-  <li ref="item" class="list-item" :class="isVisible && '_active'">
+  <li ref="item" class="list-item" style="opacity: 0.4">
     <div class="list-info">
       <div class="cover-container">
         <div class="cover-container__inner">
@@ -30,6 +30,9 @@
 </template>
 
 <script>
+import { gsap } from 'gsap/dist/gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+
 export default {
   props: {
     item: {
@@ -41,33 +44,27 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {
-      isVisible: false,
-    }
-  },
   mounted() {
-    window.addEventListener('scroll', this.isInViewport)
+    gsap.registerPlugin(ScrollTrigger)
+    console.log(this.count)
+
+    this.$nextTick(() => {
+      ScrollTrigger.matchMedia({
+        '(min-width: 768px)': () => {
+          gsap.to(this.$refs.item, {
+            opacity: 1,
+            scrollTrigger: {
+              trigger: '.js-section-trading',
+              start: `${this.count * 33.333}% 40%`,
+              end: `${(this.count + 1) * 33.333}% 40%`,
+              toggleActions: 'play reverse play reverse',
+            },
+          })
+        },
+      })
+    })
   },
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.isInViewport)
-  },
-  methods: {
-    isInViewport() {
-      const rect = this.$refs.item.getBoundingClientRect()
-      const result =
-        (this.count === 0 && rect.top >= 0) ||
-        (this.count === 2 && rect.top < 0) ||
-        (rect.top >= 0 &&
-          rect.left >= 0 &&
-          rect.bottom <=
-            (window.innerHeight || document.documentElement.clientHeight) *
-              1.15 &&
-          rect.right <=
-            (window.innerWidth || document.documentElement.clientWidth))
-      this.isVisible !== result && (this.isVisible = result)
-    },
-  },
+  beforeDestroy() {},
 }
 </script>
 
@@ -79,7 +76,7 @@ export default {
     max-width: 12.25rem
     flex-shrink: 0
     margin-left calc(2 * var(--grid-gap-x))
-    transition opacity .35s $ease-out
+    //transition opacity .35s $ease-out
     @media $breakpoint-medium
       opacity .4
       max-width: 100%
