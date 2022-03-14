@@ -1,6 +1,5 @@
 <template>
   <div v-observe-visibility="onFalse" class="section-hero tm-section">
-    <div class="background" />
     <div class="tm-wrapper tm-container">
       <div class="tm-grid-base">
         <h1
