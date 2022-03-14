@@ -158,15 +158,16 @@ export default {
   left 0
   right 0
   padding-block 2.75rem
-  background rgba(0, 0, 0, 0)
+  //   background rgba(0, 0, 0, 0)
+  transition .6s ease all
   &.headroom--not-top
     padding-top var(--spacing-4)
     padding-bottom var(--spacing-4)
     &.headroom--pinned
-      background rgba(0, 0, 0, 1)
-      @supports ((-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em)))
-        background rgba(0, 0, 0, 0.7)
-        backdrop-filter blur(20px)
+      //   background rgba(0, 0, 0, 0.7)
+      //   @supports ((-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em)))
+      //     background rgba(0, 0, 0, 0.7)
+      //     // backdrop-filter blur(20px)
   &.headroom--top
     padding-block var(--spacing-7)
     @media $breakpoint-medium
