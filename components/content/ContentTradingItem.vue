@@ -46,7 +46,6 @@ export default {
   },
   mounted() {
     gsap.registerPlugin(ScrollTrigger)
-    console.log(this.count)
 
     this.$nextTick(() => {
       ScrollTrigger.matchMedia({
