@@ -89,7 +89,7 @@
             key="step2"
             class="wizard__state tm-rf0 tm-lh-copy"
           >
-            <div class="form-wrapper__success">
+            <div class="form-wrapper__success" id="signUpSuccess">
               <img
                 class="surfer-graphics"
                 src="~/assets/images/elements/surfer-flying.png"

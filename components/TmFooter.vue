@@ -81,10 +81,8 @@
           <span class="icon__top">&#8593;</span>
         </tm-link>
         <p class="smallprint tm-rf-1 tm-lh-copy tm-muted">
-          &copy; Emeris 2021 — Built by
-          <tm-link :href="getUtmParams('https://tendermint.com')"
-            >Tendermint</tm-link
-          >.
+          &copy; Emeris {{ getYearDate }} — Built by
+          <tm-link :href="getUtmParams('https://ignt.com')">Ignite</tm-link>.
         </p>
       </div>
     </div>
@@ -127,6 +125,11 @@ export default {
   watch: {
     $route() {
       setTimeout(this.checkHeight, 600)
+    },
+  },
+  computed: {
+    getYearDate() {
+      return new Date().getUTCFullYear()
     },
   },
   mounted() {

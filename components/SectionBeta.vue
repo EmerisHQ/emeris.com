@@ -19,7 +19,8 @@
                   Download Keplr
                 </div>
                 <div class="mt-5 tm-text tm-rf0 tm-lh-copy step-info">
-                  For its beta version,<br />Emeris requires you to use it.
+                  Emeris beta version requires the Keplr browser extension
+                  wallet.
                 </div>
                 <tm-button
                   to-link="external"
@@ -58,7 +59,7 @@
                 <tm-button
                   variant="text"
                   to-link="external"
-                  href="https://medium.com/emeris-blog/emeris-beta-step-by-step-tutorial-7baace4ecbd4"
+                  href=" https://support.emeris.com/en/articles/6007062-how-to-use-emeris-step-by-step-guide"
                   class="mt-7"
                 >
                   <span class="text-gradient">Step-by-step guide</span>
