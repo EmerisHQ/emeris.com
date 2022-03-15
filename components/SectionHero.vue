@@ -4,7 +4,6 @@
       <video
         autoplay="autoplay"
         muted="muted"
-        poster="~/assets/images/elements/hero.jpg"
         playsinline=""
         loop="loop"
         class="background__img"
