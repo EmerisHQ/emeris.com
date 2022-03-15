@@ -14,6 +14,8 @@
             class="
               tm-title tm-lh-title tm-serif tm-rf4 tm-rf5-m-up tm-bold
               js-cta-title
+              cta-title
+              z-2
             "
           >
             <span>Experience</span> <span>a</span>&nbsp;<span>glimpse</span>
@@ -167,7 +169,7 @@ export default {
 
 .canvas
   position absolute
-  z-index -1
+  z-index 1
   opacity var(--eph-opacity)
   --eph-rotate 0deg
   --eph-opacity 0
@@ -186,6 +188,9 @@ export default {
     left 0
     transform: scale(1.1) rotate(var(--eph-rotate))
     background: conic-gradient(from 92.69deg at 46.93% 37.4%, transparent -48.83deg, #000 37deg, #000 112.69deg, transparent 140.54deg, transparent 167.19deg, #000 260.85deg, transparent 281deg, #000 425deg);
+
+.cta-title
+  position relative
 
 .ephemeris-item
   position relative
