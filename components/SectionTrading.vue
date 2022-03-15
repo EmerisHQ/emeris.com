@@ -25,15 +25,17 @@
           </div>
 
           <div class="mobile">
-            <swiper :options="swiperOption">
-              <swiper-slide
-                v-for="(item, key) in items"
-                :key="item.title"
-                class="list-slide"
-              >
-                <content-trading-item :count="key" :item="item" />
-              </swiper-slide>
-            </swiper>
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <div
+                  v-for="(item, key) in items"
+                  :key="item.title"
+                  class="list-slide swiper-slide"
+                >
+                  <content-trading-item :count="key" :item="item" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -42,20 +44,9 @@
 </template>
 
 <script>
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-import 'swiper/css/swiper.css'
-
 export default {
-  components: {
-    Swiper,
-    SwiperSlide,
-  },
   data() {
     return {
-      swiperOption: {
-        slidesPerView: 'auto',
-        spaceBetween: 32,
-      },
       items: [
         {
           img: 'scene-01.jpg',
@@ -144,9 +135,35 @@ export default {
   margin-top var(--spacing-11)
   margin-inline: calc(-1 * var(--wrap-gap))
   padding-inline: var(--wrap-gap)
+  overflow auto
+  scroll-snap-type: x mandatory
+  scrollbar-width none
+  &::-webkit-scrollbar
+      display none
   @media $breakpoint-medium
     margin 0
 
+
+.swiper-wrapper
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  transition-property: transform;
+  box-sizing: content-box;
+
 .swiper-slide
+  flex-shrink: 0;
+  height: 100%;
+  position: relative;
+  // transition-property: transform;
   width: 12.25rem
+  margin-right: 32px
+  &:last-child
+    width calc(12.25rem + var(--wrap-gap))
+    padding-right var(--wrap-gap)
+
+.list-slide
+  scroll-snap-align center
 </style>
