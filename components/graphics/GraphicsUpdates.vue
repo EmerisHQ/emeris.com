@@ -8,9 +8,9 @@
       /> -->
       <client-only
         ><tm-sprite
-          :src="'/images/elements/sprite-update/Emeris_Master_'"
+          :src="'/images/elements/sprite-update/gate-'"
           :ext="'jpg'"
-          :frame-count="37"
+          :frame-count="57"
           class="layer"
         ></tm-sprite
       ></client-only>
