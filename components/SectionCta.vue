@@ -87,6 +87,9 @@ export default {
       })
     })
   },
+  beforeDestroy() {
+    ScrollTrigger.kill()
+  },
   methods: {
     getUtmParams(link) {
       this.currentUrl.includes('?') &&

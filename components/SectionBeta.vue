@@ -142,12 +142,18 @@ export default {
     scroll-snap-type: x mandatory
     padding-inline: var(--wrap-gap)
     padding-bottom var(--spacing-7)
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
     @media $breakpoint-medium
       overflow initial
       display grid
       padding 0
       grid-template-columns: repeat(3, 1fr)
       gap: 0 var(--grid-gap-x)
+
+.steps-list__inner::-webkit-scrollbar {
+  display: none;
+}
 
 .step-item
   flex-shrink: 0

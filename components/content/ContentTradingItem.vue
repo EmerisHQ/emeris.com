@@ -44,6 +44,9 @@ export default {
       required: true,
     },
   },
+  beforeDestroy() {
+    ScrollTrigger.kill()
+  },
   mounted() {
     gsap.registerPlugin(ScrollTrigger)
 
@@ -63,7 +66,6 @@ export default {
       })
     })
   },
-  beforeDestroy() {},
 }
 </script>
 

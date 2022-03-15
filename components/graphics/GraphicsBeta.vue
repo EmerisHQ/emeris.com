@@ -39,7 +39,7 @@ export default {
     // scroll animation
     this.$nextTick(() => {
       gsap.to('.js-hand', {
-        y: 0,
+        y: -30,
         scrollTrigger: {
           scrub: 1,
           trigger: '.js-section-beta',
@@ -49,6 +49,9 @@ export default {
         },
       })
     })
+  },
+  beforeDestroy() {
+    ScrollTrigger.kill()
   },
 }
 </script>

@@ -75,6 +75,9 @@ export default {
       ],
     }
   },
+  beforeDestroy() {
+    ScrollTrigger.kill()
+  },
   mounted() {
     gsap.registerPlugin(ScrollTrigger)
     ScrollTrigger.saveStyles(
@@ -88,7 +91,9 @@ export default {
           gsap.to('.js-rate-title > span', {
             y: 0,
             opacity: 1,
+            duration: 1.2,
             stagger: 0.1,
+            ease: 'ease2.out',
             scrollTrigger: {
               trigger: '.js-section-defi',
               start: '25% bottom',
@@ -97,6 +102,8 @@ export default {
 
           gsap.to('.js-rate-text', {
             opacity: 1,
+            duration: 1.2,
+            ease: 'ease2.out',
             scrollTrigger: {
               trigger: '.js-section-defi',
               start: '43% bottom',
@@ -107,6 +114,8 @@ export default {
             y: 0,
             opacity: 1,
             stagger: 0.1,
+            duration: 1.2,
+            ease: 'ease4.out',
             scrollTrigger: {
               trigger: '.js-section-defi',
               start: '75% bottom',
@@ -152,7 +161,7 @@ export default {
 .graphics-container
   margin-inline: auto
   width 100%
-  height 300vh
+  //height 300vh
   @media $breakpoint-medium
     height auto
     position absolute

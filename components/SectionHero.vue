@@ -105,7 +105,7 @@ export default {
       this.dataLoaded = true
     } else {
       window.addEventListener('scroll', this.animation, false)
-      gsap.to(['.title span'], {
+      gsap.to('.js-hero-title span', {
         y: 0,
         opacity: 1,
         duration: 1.5,

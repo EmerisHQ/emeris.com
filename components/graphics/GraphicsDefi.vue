@@ -1,19 +1,25 @@
 <template>
-  <div class="canvas">
+  <div ref="defiCanvas" class="canvas">
     <img
       src="~/assets/images/elements/gold-ephemeris-defi.png"
       alt="Gold Ephemeris"
       class="layer ephemeris"
     />
-    <div class="layer-container">
+    <div class="layer-container js-defi-container">
       <div class="layer defi-3">
-        <img src="~/assets/images/elements/defi-01.jpg" class="defi z-1" />
+        <div class="layer__zone">
+          <img src="~/assets/images/elements/defi-01.jpg" class="defi z-1" />
+        </div>
       </div>
       <div class="layer defi-2">
-        <img src="~/assets/images/elements/defi-02.jpg" class="defi z-1" />
+        <div class="layer__zone">
+          <img src="~/assets/images/elements/defi-02.jpg" class="defi z-1" />
+        </div>
       </div>
       <div class="layer defi-1">
-        <img src="~/assets/images/elements/defi-03.jpg" class="defi z-1" />
+        <div class="layer__zone">
+          <img src="~/assets/images/elements/defi-03.jpg" class="defi z-1" />
+        </div>
       </div>
     </div>
   </div>
@@ -23,7 +29,12 @@ import { gsap } from 'gsap/dist/gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
 export default {
+  beforeDestroy() {
+    window.removeEventListener('resize', this.sizeImages)
+    ScrollTrigger.kill()
+  },
   mounted() {
+    window.addEventListener('resize', this.sizeImages)
     gsap.registerPlugin(ScrollTrigger)
 
     ScrollTrigger.saveStyles('.defi-1, .defi-2')
@@ -34,6 +45,8 @@ export default {
 
     // scroll animation
     this.$nextTick(() => {
+      this.sizeImages()
+
       ScrollTrigger.matchMedia({
         '(min-width: 768px)': () => {
           this.scrollTrigger(tl, '.js-section-defi')
@@ -45,6 +58,16 @@ export default {
     })
   },
   methods: {
+    sizeImages() {
+      const containerH = this.$refs.defiCanvas
+        .querySelector('.js-defi-container')
+        .getBoundingClientRect().height
+      const defiH = this.$refs.defiCanvas
+        .querySelector('.defi')
+        .getBoundingClientRect().height
+
+      gsap.set('.defi', { y: containerH - defiH })
+    },
     scrollTrigger(tl, trigger) {
       ScrollTrigger.create({
         animation: tl,
@@ -65,14 +88,19 @@ export default {
   width: 100%
   overflow: hidden
 
+  &__zone
+    height 100%
+    width: 100%
+
   &-container
     position sticky
     top 12.5%
-    height 75vh
-    width 100%
+    height 90vh
+    //width 100%
     @media $breakpoint-medium
       position relative
       height 100%
+      top 0
 
 .ephemeris
   display none
@@ -97,5 +125,8 @@ export default {
   width 100%
   aspect-ratio: 0.54;
   @media $breakpoint-medium
+    transform translateY(-25%)
     aspect-ratio unset
+  @media $breakpoint-xl
+    transform none
 </style>
