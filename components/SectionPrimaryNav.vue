@@ -19,11 +19,18 @@
         </div>
         <div class="nav-tail" :class="isOpen && 'opened'">
           <ul>
-            <li class="not-top mobile" @click="closeNav">
+            <!-- <li class="not-top mobile" @click="closeNav">
               <tm-link
                 :href="getUtmParams('https://app.emeris.com/')"
                 class="tm-rf0 tm-medium tm-lh-title tm-link-disclosure"
                 >Launch app</tm-link
+              >
+            </li> -->
+            <li @click="closeNav">
+              <tm-link
+                :href="getUtmParams('https://medium.com/emeris-blog')"
+                class="tm-rf0 tm-medium tm-lh-title tm-link-external"
+                >Blog</tm-link
               >
             </li>
             <li @click="closeNav">
@@ -52,6 +59,10 @@
                 class="tm-rf0 tm-medium tm-lh-title"
                 >Get updates</tm-link
               >
+            </li>
+            <li class="mobile tm-rf-1 tm-info">
+              App currently only supported on a desktop device, using Google
+              Chrome.
             </li>
           </ul>
         </div>
@@ -344,7 +355,7 @@ export default {
       opacity 1
       transform translateY(0) scaleY(1) scaleX(1)
     ul
-      padding 4.7rem var(--spacing-7) var(--spacing-12)
+      padding 4.7rem var(--spacing-10) var(--spacing-12) var(--spacing-7)
       display flex
       justify-content center
       align-items flex-start
