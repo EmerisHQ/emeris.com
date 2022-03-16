@@ -5,10 +5,14 @@
       alt="Gold Ephemeris"
       class="layer ephemeris"
     />
-    <div class="layer-container js-defi-container">
+    <div ref="container" class="layer-container js-defi-container">
       <div class="layer defi-3">
         <div class="layer__zone">
-          <img src="~/assets/images/elements/defi-01.jpg" class="defi z-1" />
+          <img
+            ref="defi"
+            src="~/assets/images/elements/defi-01.jpg"
+            class="defi z-1"
+          />
         </div>
       </div>
       <div class="layer defi-2">
@@ -45,7 +49,9 @@ export default {
 
     // scroll animation
     this.$nextTick(() => {
-      this.sizeImages()
+      const img = new Image()
+      img.src = this.$refs.defi.src
+      img.onload = () => this.sizeImages()
 
       ScrollTrigger.matchMedia({
         '(min-width: 768px)': () => {
@@ -59,12 +65,8 @@ export default {
   },
   methods: {
     sizeImages() {
-      const containerH = this.$refs.defiCanvas
-        .querySelector('.js-defi-container')
-        .getBoundingClientRect().height
-      const defiH = this.$refs.defiCanvas
-        .querySelector('.defi')
-        .getBoundingClientRect().height
+      const containerH = this.$ref.container.getBoundingClientRect().height
+      const defiH = this.$refs.defi.getBoundingClientRect().height
 
       gsap.set('.defi', { y: containerH - defiH })
     },

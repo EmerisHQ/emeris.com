@@ -102,6 +102,7 @@ export default {
 
           gsap.to('.js-rate-text', {
             opacity: 1,
+            y: 0,
             duration: 1.2,
             ease: 'ease2.out',
             scrollTrigger: {
@@ -138,6 +139,7 @@ export default {
 .rate-text
   @media $breakpoint-medium
     opacity 0
+    transform translate(0, 80px)
 .tm-section
   @media $breakpoint-medium
     height 300vh
