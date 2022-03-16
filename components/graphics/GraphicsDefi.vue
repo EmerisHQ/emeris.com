@@ -4,6 +4,7 @@
       src="~/assets/images/elements/gold-ephemeris-defi.png"
       alt="Gold Ephemeris"
       class="layer ephemeris"
+      loading="lazy"
     />
     <div ref="container" class="layer-container js-defi-container">
       <div class="layer defi-3">

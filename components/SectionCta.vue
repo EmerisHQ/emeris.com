@@ -8,6 +8,7 @@
               class="ephemeris ephemeris-item"
               src="~/assets/images/elements/ephemeris.png"
               alt="Gold ephemeris ring"
+              loading="lazy"
             />
           </div>
           <h1

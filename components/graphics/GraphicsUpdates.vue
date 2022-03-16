@@ -19,10 +19,11 @@
       class="surfer z-2"
       src="~/assets/images/elements/surfer-controlling.png"
       alt="Interchain Surfer Controlling"
+      loading="lazy"
     />
   </div>
 </template>
-
+gsap
 <style lang="stylus" scoped>
 .canvas
   position relative

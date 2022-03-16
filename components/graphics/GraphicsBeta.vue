@@ -17,12 +17,14 @@
         src="~/assets/images/elements/hand-z1.png"
         class="hand__lay js-hand"
         alt="Glass hand"
+        loading="lazy"
       />
       <div class="orb" />
       <img
         src="~/assets/images/elements/hand-z2.png"
         class="hand__lay hand__lay--over js-hand"
         alt="Glass hand"
+        loading="lazy"
       />
     </div>
   </div>

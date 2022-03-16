@@ -89,11 +89,12 @@
             key="step2"
             class="wizard__state tm-rf0 tm-lh-copy"
           >
-            <div class="form-wrapper__success" id="signUpSuccess">
+            <div id="signUpSuccess" class="form-wrapper__success">
               <img
                 class="surfer-graphics"
                 src="~/assets/images/elements/surfer-flying.png"
                 alt=""
+                loading="lazy"
               />
               <div class="wizard__title tm-rf1 tm-bold tm-lh-title tm-serif">
                 Almost there

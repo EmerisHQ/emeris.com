@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div ref="sprite">
     <canvas ref="canvas" class="tm-sprite-canvas"></canvas>
   </div>
 </template>
@@ -46,16 +46,25 @@ export default {
     // load all images and save them in array (avoid img source modification)
     const currentFrame = (index) =>
       require(`~/assets${this.src + index.toString()}.${this.ext}`)
-    for (let i = 0; i < this.frameCount; i++) {
-      const img = new Image()
-      const size = {}
-      img.src = currentFrame(i)
-      img.onload = () => {
-        size.width = img.width
-        size.height = img.height
-      }
-      images.push({ img, size })
-    }
+
+    ScrollTrigger.create({
+      trigger: this.$refs.sprite,
+      start: '-2200px bottom',
+      once: true,
+      onEnter: () => {
+        console.log('on')
+        for (let i = 0; i < this.frameCount; i++) {
+          const img = new Image()
+          const size = {}
+          img.src = currentFrame(i)
+          img.onload = () => {
+            size.width = img.width
+            size.height = img.height
+          }
+          images.push({ img, size })
+        }
+      },
+    })
 
     // scroll animation
     gsap.to(animation, {

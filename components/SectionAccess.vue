@@ -19,6 +19,7 @@
                     :alt="item.name"
                     class="logo-item"
                     :class="item.img"
+                    loading="lazy"
                   />
                 </div>
                 <div class="content">
@@ -41,6 +42,7 @@
                     :alt="item.name"
                     class="logo-item"
                     :class="item.img"
+                    loading="lazy"
                   />
                 </div>
                 <div class="content">

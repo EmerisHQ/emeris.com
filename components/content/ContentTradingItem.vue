@@ -6,12 +6,14 @@
           <img
             :src="require(`~/assets/images/elements/${item.img}`)"
             class="cover"
+            loading="lazy"
           />
         </div>
         <img
           v-if="item.img === 'scene-01.jpg'"
           :src="require(`~/assets/images/elements/orb.png`)"
           class="orbit"
+          loading="lazy"
         />
       </div>
       <div
