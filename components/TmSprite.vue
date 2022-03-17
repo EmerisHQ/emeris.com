@@ -52,7 +52,6 @@ export default {
       start: '-2200px bottom',
       once: true,
       onEnter: () => {
-        console.log('on')
         for (let i = 0; i < this.frameCount; i++) {
           const img = new Image()
           const size = {}
