@@ -29,7 +29,7 @@
             <li @click="closeNav">
               <tm-link
                 :href="getUtmParams('https://medium.com/emeris-blog')"
-                class="tm-rf0 tm-medium tm-lh-title tm-link-external"
+                class="tm-rf0 tm-medium tm-lh-title"
                 >Blog</tm-link
               >
             </li>
