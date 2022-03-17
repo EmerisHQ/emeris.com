@@ -30,21 +30,23 @@ gsap
 
 .layer
   position absolute
-  left: 50%
-  top 58%
-  height 128%
+  left 0
+  top 0
+  height 100% //128%
   width 100% //auto
   max-width: none
-  transform: translate(-50%, -50%)
+
   @media $breakpoint-xl
     height 100%
     top 50%
+    left: 50%
+    transform: translate(-50%, -50%)
   &__container
     overflow hidden
     position relative
     width 100%
     height 0
-    padding-bottom 155%
+    padding-bottom 119% //155%
     @media $breakpoint-medium
       padding-bottom 158%
     @media $breakpoint-xl
