@@ -75,7 +75,7 @@ export default {
   },
   methods: {
     sizeImages() {
-      const containerH = this.$ref.container.getBoundingClientRect().height
+      const containerH = this.$refs.container.getBoundingClientRect().height
       const defiH = this.$refs.defi.getBoundingClientRect().height
 
       gsap.set('.defi', { y: containerH - defiH })
