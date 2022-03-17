@@ -15,7 +15,7 @@
             </h2>
           </div>
         </div>
-        <div class="column-info">
+        <div class="column-info z-2">
           <p
             class="
               mt-6

@@ -107,9 +107,11 @@ export default {
   &-container
     position sticky
     top 12.5%
-    height 90vh
+    //height 90vh
     //width 100%
+    aspect-ratio 0.5587761675
     @media $breakpoint-medium
+      aspect-ratio none
       position relative
       height 100%
       top 0
@@ -135,10 +137,10 @@ export default {
   position relative
   height: auto
   width 100%
-  aspect-ratio: 0.54;
+
   @media $breakpoint-medium
     transform translateY(-25%)
-    aspect-ratio unset
+
   @media $breakpoint-xl
     transform none
 </style>
