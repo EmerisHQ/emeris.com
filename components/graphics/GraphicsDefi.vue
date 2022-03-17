@@ -9,30 +9,60 @@
     <div ref="container" class="layer-container js-defi-container">
       <div class="layer defi-3">
         <div class="layer__zone">
-          <img
-            ref="defi"
-            src="~/assets/images/elements/defi-01.jpg"
-            class="defi z-1"
-            alt=""
-          />
+          <picture>
+            <source
+              srcset="~/assets/images/elements/defi-01.avif"
+              type="image/avif"
+            />
+            <source
+              srcset="~/assets/images/elements/defi-01.webp"
+              type="image/webp"
+            />
+            <img
+              ref="defi"
+              src="~/assets/images/elements/defi-01.jpg"
+              class="defi z-1"
+              alt=""
+            />
+          </picture>
         </div>
       </div>
       <div class="layer defi-2">
         <div class="layer__zone">
-          <img
-            src="~/assets/images/elements/defi-02.jpg"
-            class="defi z-1"
-            alt=""
-          />
+          <picture>
+            <source
+              srcset="~/assets/images/elements/defi-02.avif"
+              type="image/avif"
+            />
+            <source
+              srcset="~/assets/images/elements/defi-02.webp"
+              type="image/webp"
+            />
+            <img
+              src="~/assets/images/elements/defi-02.jpg"
+              class="defi z-1"
+              alt=""
+            />
+          </picture>
         </div>
       </div>
       <div class="layer defi-1">
         <div class="layer__zone">
-          <img
-            src="~/assets/images/elements/defi-03.jpg"
-            class="defi z-1"
-            alt=""
-          />
+          <picture>
+            <source
+              srcset="~/assets/images/elements/defi-03.avif"
+              type="image/avif"
+            />
+            <source
+              srcset="~/assets/images/elements/defi-03.webp"
+              type="image/webp"
+            />
+            <img
+              src="~/assets/images/elements/defi-03.jpg"
+              class="defi z-1"
+              alt=""
+            />
+          </picture>
         </div>
       </div>
     </div>

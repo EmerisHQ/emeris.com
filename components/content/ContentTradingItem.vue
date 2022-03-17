@@ -10,13 +10,23 @@
             :alt="item.title"
           />
         </div>
-        <img
-          v-if="item.img === 'scene-01.jpg'"
-          :src="require(`~/assets/images/elements/orb.png`)"
-          class="orbit"
-          loading="lazy"
-          alt=""
-        />
+        <picture>
+          <source
+            srcset="~/assets/images/elements/orb.avif"
+            type="image/avif"
+          />
+          <source
+            srcset="~/assets/images/elements/orb.webp"
+            type="image/webp"
+          />
+          <img
+            v-if="item.img === 'scene-01.jpg'"
+            :src="require(`~/assets/images/elements/orb.png`)"
+            class="orbit"
+            loading="lazy"
+            alt=""
+          />
+        </picture>
       </div>
       <div
         class="
