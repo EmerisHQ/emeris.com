@@ -4,6 +4,7 @@
     :href="href"
     target="_blank"
     rel="noopener noreferrer"
+    :aria-label="label"
     :class="['tm-link', hoverUnderline && 'tm-link-underline-hover']"
   >
     <slot></slot>
@@ -12,6 +13,7 @@
     v-else-if="checkLink === 'internal'"
     :to="href"
     :href="href"
+    :aria-label="label"
     :class="['tm-link', hoverUnderline && 'tm-link-underline-hover']"
   >
     <slot></slot>
@@ -20,6 +22,7 @@
     v-else-if="checkLink === 'anchor'"
     :v-scroll-to="href"
     :href="href"
+    :aria-label="label"
     :class="['tm-link', hoverUnderline && 'tm-link-underline-hover']"
   >
     <slot></slot>
@@ -27,6 +30,7 @@
   <a
     v-else
     :href="href"
+    :aria-label="label"
     :class="['tm-link', hoverUnderline && 'tm-link-underline-hover']"
   >
     <slot></slot>
@@ -48,6 +52,10 @@ export default {
     hoverUnderline: {
       type: Boolean,
       default: false,
+    },
+    label: {
+      type: String,
+      default: null,
     },
   },
   computed: {

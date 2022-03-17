@@ -14,26 +14,26 @@
 
         <div class="column-content">
           <div ref="trade-item-list" class="list tablet">
-            <div class="list-inner">
+            <ul class="list-inner">
               <content-trading-item
                 v-for="(item, key) in items"
                 :key="item.title"
                 :count="key"
                 :item="item"
               />
-            </div>
+            </ul>
           </div>
 
           <div class="mobile">
             <div class="swiper-container">
               <div class="swiper-wrapper">
-                <div
+                <ul
                   v-for="(item, key) in items"
                   :key="item.title"
                   class="list-slide swiper-slide"
                 >
                   <content-trading-item :count="key" :item="item" />
-                </div>
+                </ul>
               </div>
             </div>
           </div>

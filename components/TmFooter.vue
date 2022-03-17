@@ -54,6 +54,7 @@
             :key="url(link)"
             :href="url(link)"
             class="social-icons__item"
+            :label="link.title"
           >
             <tm-tooltip :text="link.title" position="top-center">
               <svg
@@ -122,14 +123,14 @@ export default {
       pageHasScroll: false,
     }
   },
-  watch: {
-    $route() {
-      setTimeout(this.checkHeight, 600)
-    },
-  },
   computed: {
     getYearDate() {
       return new Date().getUTCFullYear()
+    },
+  },
+  watch: {
+    $route() {
+      setTimeout(this.checkHeight, 600)
     },
   },
   mounted() {

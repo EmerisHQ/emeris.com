@@ -9,7 +9,6 @@
       <div class="button-container">
         <div class="show-desktop">
           <tm-button
-            id="launchApp"
             to-link="external"
             :href="getUtmParams('https://app.emeris.com')"
             size="m"

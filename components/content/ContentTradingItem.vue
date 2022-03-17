@@ -7,6 +7,7 @@
             :src="require(`~/assets/images/elements/${item.img}`)"
             class="cover"
             loading="lazy"
+            :alt="item.title"
           />
         </div>
         <img
@@ -14,6 +15,7 @@
           :src="require(`~/assets/images/elements/orb.png`)"
           class="orbit"
           loading="lazy"
+          alt=""
         />
       </div>
       <div

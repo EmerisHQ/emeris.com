@@ -13,17 +13,26 @@
             ref="defi"
             src="~/assets/images/elements/defi-01.jpg"
             class="defi z-1"
+            alt=""
           />
         </div>
       </div>
       <div class="layer defi-2">
         <div class="layer__zone">
-          <img src="~/assets/images/elements/defi-02.jpg" class="defi z-1" />
+          <img
+            src="~/assets/images/elements/defi-02.jpg"
+            class="defi z-1"
+            alt=""
+          />
         </div>
       </div>
       <div class="layer defi-1">
         <div class="layer__zone">
-          <img src="~/assets/images/elements/defi-03.jpg" class="defi z-1" />
+          <img
+            src="~/assets/images/elements/defi-03.jpg"
+            class="defi z-1"
+            alt=""
+          />
         </div>
       </div>
     </div>
