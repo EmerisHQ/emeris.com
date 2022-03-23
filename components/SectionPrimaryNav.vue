@@ -136,7 +136,7 @@ export default {
           // onNotTop: () => (this.isTop = false),
         }
         this.headroom = new Headroom(this.$el, options)
-        setTimeout(() => this.headroom.init(), 650) // Should be sync with hero anim (dynamically)
+        setTimeout(() => this.headroom.init(), 500) // Should be sync with hero anim (dynamically)
       }
     },
   },
@@ -146,7 +146,7 @@ export default {
 <style lang="stylus" scoped>
 .headroom
   will-change transform
-  transition transform .2s linear, background .2s linear
+  transition transform .4s linear, background .2s linear
 
 .headroom--pinned
   transform translateY(0%)
@@ -162,7 +162,7 @@ export default {
   right 0
   padding-block 2.75rem
   //   background rgba(0, 0, 0, 0)
-  transition .6s ease all
+  transition .8s ease all
   &.headroom--not-top
     padding-top var(--spacing-4)
     padding-bottom var(--spacing-4)
