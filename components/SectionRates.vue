@@ -114,7 +114,7 @@ export default {
           gsap.to('.js-rate-stat', {
             y: 0,
             opacity: 1,
-            stagger: 0.1,
+            stagger: 0.2,
             duration: 1.2,
             ease: 'ease4.out',
             scrollTrigger: {
