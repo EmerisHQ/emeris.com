@@ -3,8 +3,15 @@
     <div class="tm-wrapper tm-container-narrow">
       <div class="tm-grid-base">
         <div class="column-header">
-          <h1 class="tm-rf6 tm-rf5-m-up tm-bold tm-lh-title tm-serif tm-title">
-            Try the beta today
+          <h1
+            class="
+              tm-rf6 tm-rf5-m-up tm-bold tm-lh-title tm-serif tm-title
+              title
+              js-beta-title
+            "
+          >
+            <span>Try</span> <span>the</span> <span>beta</span>
+            <span>today</span>
           </h1>
         </div>
         <div class="column">
@@ -75,11 +82,34 @@
 </template>
 
 <script>
+import { gsap } from 'gsap/dist/gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+
 export default {
   data() {
     return {
       currentUrl: this.$route.fullPath,
     }
+  },
+  beforeDestroy() {
+    ScrollTrigger.kill()
+  },
+  mounted() {
+    gsap.registerPlugin(ScrollTrigger)
+    const tl = gsap.timeline()
+    tl.to('.js-beta-title > span', {
+      y: 0,
+      autoAlpha: 1,
+      duration: 1.5,
+      stagger: 0.1,
+    })
+    this.$nextTick(() => {
+      ScrollTrigger.create({
+        animation: tl,
+        trigger: '.js-section-beta',
+        start: '30% bottom',
+      })
+    })
   },
   methods: {
     getUtmParams(link) {
@@ -96,11 +126,17 @@ export default {
   contain style
 
 .title
-  color var(--trans-gray-300)
+  //color var(--trans-gray-300)
+  position relative
+  span
+    opacity 0
+    transform translate(0, 50px)
+    position relative
+    display inline-block
   @media $breakpoint-large
     max-width 35rem
-    center()
-    text-align center
+    //center()
+    //text-align center
 
 .column-header
   position relative
