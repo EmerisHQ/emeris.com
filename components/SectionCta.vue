@@ -45,7 +45,7 @@
             Dive into the app <span class="icon__right">&rarr;</span>
           </tm-button>
         </div>
-        <div class="tm-rf-1 tm-muted mt-4 center mobile-text">
+        <div class="tiny-text tm-rf-1 tm-muted mt-4 center mobile-text z-2">
           Use the app on a desktop device
         </div>
       </div>
@@ -115,7 +115,8 @@ export default {
     min-height: 0
   @media $breakpoint-xl
     min-height: 90vh
-
+.tiny-text
+  position relative
 .title
   position relative
   span
