@@ -1,5 +1,8 @@
 <template>
-  <div v-on-clickaway="closeNav" class="nav-container tm-wrapper headroom">
+  <div
+    v-on-clickaway="closeNav"
+    class="nav-container tm-wrapper headroom headroom--unpinned"
+  >
     <div class="tm-container">
       <nav class="nav" role="navigation">
         <div class="nav-head z-1" :class="isOpen && 'opened'">
@@ -133,7 +136,7 @@ export default {
           // onNotTop: () => (this.isTop = false),
         }
         this.headroom = new Headroom(this.$el, options)
-        this.headroom.init()
+        setTimeout(() => this.headroom.init(), 650) // Should be sync with hero anim (dynamically)
       }
     },
   },
