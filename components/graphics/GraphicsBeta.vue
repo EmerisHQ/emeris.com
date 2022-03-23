@@ -112,7 +112,6 @@ export default {
 
 .hand
   position absolute
-  //mix-blend-mode hard-light
   min-width: 14rem
   height 17rem
   max-width 43rem
@@ -120,22 +119,13 @@ export default {
   z-index 0
   display: flex;
   justify-content: center;
-  //transform translate(-50%, 0%) scale(-1, -1)
-  // animation hero-hand 4s ease-in-out infinite
-  //mask-mode alpha
-  //mask-repeat no-repeat
-  //mask-image url('~/assets/images/elements/hand-mask.svg')
-  //mask-size cover
-  //backdrop-filter blur(4.7px)
+
   @media $breakpoint-medium
     min-width: 27rem
     height 27rem
     top -13.5rem
-    //left 20%
   @media $breakpoint-xl
     width 45rem
-    //top -82%
-    //left 50.5%
 
   &__lay
     position absolute
@@ -165,7 +155,6 @@ export default {
   top 45%
   left 50%
   transform translateX(-50%)
-  // animation orb-1 4s ease-in-out infinite
   @media $breakpoint-medium
     width 9rem
     height 9rem

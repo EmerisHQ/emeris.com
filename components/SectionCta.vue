@@ -130,7 +130,6 @@ export default {
   top 50%
   left: 50%
   width 100%
-  //max-width 26rem
   transform: translate(-50%, -50%)
 
 .text
@@ -175,11 +174,6 @@ export default {
   opacity var(--eph-opacity)
   --eph-rotate 0deg
   --eph-opacity 0
-  //padding-bottom 70%
-  @media $breakpoint-medium
-    //padding-bottom 30%
-  @media $breakpoint-xl
-    //padding-bottom 33%
   &::after
     content ''
     position absolute
@@ -197,15 +191,4 @@ export default {
 .ephemeris-item
   position relative
   width 100%
-    //   top 0
-    //   left 50%
-    //   width 133%
-    //   max-width 100rem
-    //   transform translate(-50%, -27.5%)
-  @media $breakpoint-medium
-    // width 170%
-    // transform translate(-50%, -33%)
-  @media $breakpoint-xl
-    // width 240%
-    // transform translate(-50%, -33%)
 </style>

@@ -167,7 +167,6 @@ img
 
 .background
   position absolute
-  //overflow hidden
   opacity 0
   top 50%
   left: 50%
@@ -278,12 +277,8 @@ img
   align-items center
   justify-content center
   min-height: 100vh
-  //padding-top var(--spacing-12)
   padding-top 0
   padding-bottom 0
-  @media $breakpoint-medium
-    //align-items start
-    //padding-top calc(50vh - 11.5rem)
 
 .text-center
   text-align center

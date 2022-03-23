@@ -85,10 +85,8 @@ export default {
   margin-top var(--spacing-9)
   @media $breakpoint-medium
     grid-column 5 / span 4
-    // margin-top var(--spacing-9)
   @media $breakpoint-xl
     grid-column 7 / span 4
-    // margin-top var(--spacing-6)
 
 .btn-play
   width 100%

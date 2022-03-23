@@ -234,6 +234,4 @@ export default {
 @media $breakpoint-medium
   .section-rates
     position relative
-
-// @media $breakpoint-xxl
 </style>

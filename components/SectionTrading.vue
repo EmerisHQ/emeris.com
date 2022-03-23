@@ -157,7 +157,6 @@ export default {
   flex-shrink: 0;
   height: 100%;
   position: relative;
-  // transition-property: transform;
   width: 12.25rem
   margin-right: 32px
   &:last-child

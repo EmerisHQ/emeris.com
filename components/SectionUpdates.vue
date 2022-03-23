@@ -60,7 +60,6 @@ export default {
     margin-top var(--spacing-6)
 
 .graphics
-  //max-width: 20rem
   margin-inline: auto
   @media $breakpoint-medium
     max-width: 100%

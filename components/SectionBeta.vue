@@ -126,7 +126,6 @@ export default {
   contain style
 
 .title
-  //color var(--trans-gray-300)
   position relative
   span
     opacity 0
@@ -135,8 +134,6 @@ export default {
     display inline-block
   @media $breakpoint-large
     max-width 35rem
-    //center()
-    //text-align center
 
 .column-header
   position relative

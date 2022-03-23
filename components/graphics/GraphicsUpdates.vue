@@ -23,7 +23,6 @@
     />
   </div>
 </template>
-gsap
 <style lang="stylus" scoped>
 .canvas
   position relative
@@ -32,8 +31,8 @@ gsap
   position absolute
   left 0
   top 0
-  height 100% //128%
-  width 100% //auto
+  height 100%
+  width 100%
   max-width: none
 
   @media $breakpoint-xl
@@ -46,7 +45,7 @@ gsap
     position relative
     width 100%
     height 0
-    padding-bottom 119% //155%
+    padding-bottom 119%
     @media $breakpoint-medium
       padding-bottom 158%
     @media $breakpoint-xl

@@ -161,16 +161,11 @@ export default {
   left 0
   right 0
   padding-block 2.75rem
-  //   background rgba(0, 0, 0, 0)
   transition .8s ease all
   &.headroom--not-top
     padding-top var(--spacing-4)
     padding-bottom var(--spacing-4)
-    &.headroom--pinned
-      //   background rgba(0, 0, 0, 0.7)
-      //   @supports ((-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em)))
-      //     background rgba(0, 0, 0, 0.7)
-      //     // backdrop-filter blur(20px)
+
   &.headroom--top
     padding-block var(--spacing-7)
     @media $breakpoint-medium
@@ -188,8 +183,6 @@ export default {
   flex-direction row
   align-items baseline
   justify-content space-between
-//   @media $breakpoint-medium
-//     flex-direction column
 
 .logos-container
   position relative
@@ -205,13 +198,9 @@ export default {
 
 .smallprint
   margin-left var(--spacing-5)
-  // .headroom--top &
-  //   color rgba(24,24,24,0.67)
 
 .nav
   /* if no secondary nav, create similar space */
-  // &:first-child:last-child
-  //   margin-bottom var(--spacing-9)
   display flex
   flex-direction row
   justify-content space-between
@@ -301,9 +290,6 @@ export default {
     &:nth-child(3)
     &:nth-child(4)
       opacity 0
-  // .headroom--top &
-  //   i
-  //     background-color var(--black)
   &.opened
     i
       background-color var(--black)
@@ -340,8 +326,6 @@ export default {
     transform-origin 0 0
     transition transform .25s $ease-out, opacity .2s $ease-out
     filter drop-shadow(0px 34px 64px rgba(230, 254, 88, 0.5))
-    // .headroom--top &
-    //   top calc(-1 * var(--spacing-7))
     &::-webkit-scrollbar
       display none
     &.opened

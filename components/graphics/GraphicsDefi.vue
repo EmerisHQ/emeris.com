@@ -137,8 +137,6 @@ export default {
   &-container
     position sticky
     top 12.5%
-    //height 90vh
-    //width 100%
     aspect-ratio 0.5587761675
     @media $breakpoint-medium
       aspect-ratio none
