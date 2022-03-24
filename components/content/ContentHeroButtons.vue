@@ -21,7 +21,7 @@
           </tm-button>
         </div>
         <tm-button variant="text" class="btn-play" @click.native="openVideo">
-          <span class="text-gradient">▶&ensp;Play Trailer</span>
+          <span class="text">▶&ensp;Play trailer</span>
         </tm-button>
       </div>
       <div class="show-mobile">
