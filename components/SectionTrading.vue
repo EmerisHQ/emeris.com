@@ -159,6 +159,10 @@ export default {
   position: relative;
   width: 12.25rem
   margin-right: 32px
+  padding-left: var(--wrap-gap)
+  &:first-child
+    width: calc(12.25rem - var(--wrap-gap));
+    padding-left: 0;
   &:last-child
     width calc(12.25rem + var(--wrap-gap))
     padding-right var(--wrap-gap)

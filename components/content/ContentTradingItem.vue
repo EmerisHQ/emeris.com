@@ -1,5 +1,5 @@
 <template>
-  <li ref="item" class="list-item" style="opacity: 0.4">
+  <li ref="item" class="list-item">
     <div class="list-info">
       <div class="cover-container">
         <div class="cover-container__inner">
