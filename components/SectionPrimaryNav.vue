@@ -78,8 +78,9 @@
 <script>
 import { mixin as clickaway } from 'vue-clickaway'
 import Headroom from 'headroom.js'
+import { gsap } from 'gsap/dist/gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import LogoEmerisWordmarkColor from '~/components/logos/LogoEmerisWordmarkColor.vue'
-
 export default {
   components: {
     LogoEmerisWordmarkColor,
@@ -101,8 +102,29 @@ export default {
   mounted() {
     window.addEventListener('resize', this.checkMobile)
     this.enableHeadroom()
+
+    gsap.registerPlugin(ScrollTrigger)
+    this.$nextTick(() => {
+      ScrollTrigger.matchMedia({
+        '(min-width: 768px)': () => {
+          // scroll animation
+          gsap.to('.headroom', {
+            background: 'rgba(0,0,0,.7)',
+            backdropFilter: 'blur(10px)',
+            duration: 0.01,
+            ease: 'ease2.out',
+            scrollTrigger: {
+              trigger: '.section-hero',
+              toggleActions: 'restart none none reverse',
+              start: 'bottom top',
+            },
+          })
+        },
+      })
+    })
   },
   beforeDestroy() {
+    ScrollTrigger.kill()
     window.removeEventListener('resize', this.checkMobile)
     this.disableHeadroom()
   },
@@ -146,7 +168,9 @@ export default {
 <style lang="stylus" scoped>
 .headroom
   will-change transform
-  transition transform .4s linear, background .2s linear
+  background transparent
+
+  transition transform .4s linear
 
 .headroom--pinned
   transform translateY(0%)
@@ -161,7 +185,7 @@ export default {
   left 0
   right 0
   padding-block 2.75rem
-  transition .8s ease all
+  transition .8s ease transform, .8s ease padding
   &.headroom--not-top
     padding-top var(--spacing-4)
     padding-bottom var(--spacing-4)
