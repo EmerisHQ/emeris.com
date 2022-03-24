@@ -23,7 +23,7 @@
               <div class="step-item">
                 <div class="tm-rf1 tm-lh-title tm-muted">01</div>
                 <div class="mt-5 tm-rf1 tm-lh-title tm-title tm-bold">
-                  Download Keplr
+                  Install a wallet
                 </div>
                 <div class="mt-5 tm-text tm-rf0 tm-lh-copy step-info">
                   Emeris beta version requires the Keplr browser extension
@@ -40,7 +40,7 @@
               <div class="step-item">
                 <div class="tm-rf1 tm-lh-title tm-muted">02</div>
                 <div class="mt-5 tm-rf1 tm-lh-title tm-title tm-bold">
-                  Connect to Emeris
+                  Connect your wallet
                 </div>
                 <div class="mt-5 tm-text tm-rf0 tm-lh-copy step-info">
                   Launch the Emeris app and connect your Keplr wallet.
@@ -58,7 +58,7 @@
               <div class="step-item">
                 <div class="tm-rf1 tm-lh-title tm-muted">03</div>
                 <div class="mt-5 tm-rf1 tm-lh-title tm-title tm-bold">
-                  Trade. Swap. Pool.
+                  Use Emeris
                 </div>
                 <div class="mt-5 tm-text tm-rf0 tm-lh-copy step-info">
                   Experience cross-chain DeFi with all your assets in one place.
