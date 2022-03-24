@@ -67,7 +67,7 @@ export default {
   justify-content center
   align-items center
   margin-top var(--spacing-6)
-  @media $breakpoint-xl
+  @media $breakpoint-medium
     justify-content start
     margin-top var(--spacing-7)
   .tm-button
@@ -84,7 +84,7 @@ export default {
   grid-row 2 / 3
   margin-top var(--spacing-9)
   @media $breakpoint-medium
-    grid-column 5 / span 4
+    grid-column 6 / span 4
   @media $breakpoint-xl
     grid-column 7 / span 4
 
