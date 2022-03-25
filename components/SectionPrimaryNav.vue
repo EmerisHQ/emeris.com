@@ -21,7 +21,7 @@
           </span>
         </div>
         <div class="nav-tail" :class="isOpen && 'opened'">
-          <ul>
+          <ul ref="navlist">
             <li class="not-top mobile" @click="closeNav">
               <tm-link
                 :href="getUtmParams('https://app.emeris.com/')"
@@ -36,7 +36,18 @@
                 >Support</tm-link
               >
             </li>
-            <li class="not-top tablet" @click="closeNav">
+            <li @click="closeNav">
+              <tm-link
+                :href="getUtmParams('http://support.emeris.com/')"
+                class="tm-rf0 tm-medium tm-lh-title"
+                >Support</tm-link
+              >
+            </li>
+            <li
+              ref="cta"
+              class="not-top tablet js-primnav-cta"
+              @click="closeNav"
+            >
               <tm-button
                 id="launchApp"
                 to-link="external"
@@ -92,6 +103,7 @@ export default {
       // isTop: false,
       currentUrl: this.$route.fullPath,
       headroom: null,
+      ctaWidth: 0,
     }
   },
   computed: {
@@ -105,12 +117,19 @@ export default {
 
     gsap.registerPlugin(ScrollTrigger)
     this.$nextTick(() => {
+      this.getCtaSize()
       ScrollTrigger.matchMedia({
         '(min-width: 768px)': () => {
+          gsap.set(
+            this.$refs.navlist.querySelectorAll('li:not(.js-primnav-cta)'),
+            {
+              x: `${this.ctaWidth}px`,
+            }
+          )
           // scroll animation
           gsap.to('.headroom', {
-            background: 'rgba(0,0,0,.7)',
-            backdropFilter: 'blur(10px)',
+            background: 'rgba(0,0,0,.5)',
+            backdropFilter: 'blur(6px)',
             duration: 0.01,
             ease: 'ease2.out',
             scrollTrigger: {
@@ -119,6 +138,28 @@ export default {
               start: 'bottom top',
             },
           })
+          gsap.to('.js-primnav-cta', {
+            autoAlpha: 1,
+            duration: 0.2,
+            scrollTrigger: {
+              trigger: '.section-hero',
+              toggleActions: 'restart none none reverse',
+              start: 'bottom top',
+            },
+          })
+          gsap.to(
+            this.$refs.navlist.querySelectorAll('li:not(.js-primnav-cta)'),
+            {
+              x: 0,
+              duration: 1.2,
+              ease: 'power4.in',
+              scrollTrigger: {
+                trigger: '.section-hero',
+                toggleActions: 'restart none none reverse',
+                start: 'bottom top',
+              },
+            }
+          )
         },
       })
     })
@@ -140,7 +181,11 @@ export default {
     closeNav() {
       this.isOpen = false
     },
+    getCtaSize() {
+      this.ctaWidth = this.$refs.cta.getBoundingClientRect().width
+    },
     checkMobile() {
+      this.getCtaSize()
       window.innerWidth >= 768 && this.closeNav()
     },
     disableHeadroom() {
@@ -154,8 +199,6 @@ export default {
         const options = {
           offset: 100,
           onUnpin: () => this.closeNav(),
-          // onTop: () => (this.isTop = true),
-          // onNotTop: () => (this.isTop = false),
         }
         this.headroom = new Headroom(this.$el, options)
         setTimeout(() => this.headroom.init(), 500) // Should be sync with hero anim (dynamically)
@@ -166,11 +209,12 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.js-primnav-cta
+  opacity 0
+  visibility hidden
 .headroom
   will-change transform
   background transparent
-
-  transition transform .4s linear
 
 .headroom--pinned
   transform translateY(0%)
@@ -185,7 +229,7 @@ export default {
   left 0
   right 0
   padding-block 2.75rem
-  transition .8s ease transform, .8s ease padding
+  transition .4s ease transform, .8s ease padding
   &.headroom--not-top
     padding-top var(--spacing-4)
     padding-bottom var(--spacing-4)
