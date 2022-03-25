@@ -121,8 +121,8 @@ export default {
           )
           // scroll animation
           gsap.to('.headroom', {
-            background: 'rgba(0,0,0,.5)',
-            backdropFilter: 'blur(6px)',
+            background: 'rgba(0,0,0,.7)',
+            backdropFilter: 'blur(20px)',
             duration: 0.01,
             ease: 'ease2.out',
             scrollTrigger: {
