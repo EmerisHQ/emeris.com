@@ -36,13 +36,6 @@
                 >Support</tm-link
               >
             </li>
-            <li @click="closeNav">
-              <tm-link
-                :href="getUtmParams('http://support.emeris.com/')"
-                class="tm-rf0 tm-medium tm-lh-title"
-                >Support</tm-link
-              >
-            </li>
             <li
               ref="cta"
               class="not-top tablet js-primnav-cta"
