@@ -107,7 +107,6 @@ export default {
       this.dataLoaded = true
     } else {
       window.addEventListener('load', () => {
-        // window.addEventListener('scroll', this.animation, false)
         const tlstart = gsap.timeline({ paused: true })
 
         tlstart.to('.js-hero-title span', {
@@ -175,7 +174,7 @@ export default {
   },
 
   beforeDestroy() {
-    window.removeEventListener('scroll', this.animation, false)
+    ScrollTrigger.kill()
   },
 
   methods: {
@@ -183,9 +182,6 @@ export default {
       this.currentUrl.includes('?') &&
         (link += `?${this.currentUrl.split('?')[1]}`)
       return link
-    },
-    animation() {
-      window.removeEventListener('scroll', this.animation, false)
     },
     scrollTo() {
       VueScrollTo.scrollTo('#intro', 1000, {
