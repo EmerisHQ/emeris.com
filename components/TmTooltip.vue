@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <!-- mapping definitions from dict.json -->
-    <button
+    <div
       v-if="term"
       v-tooltip="{
         content: definition,
@@ -11,9 +11,9 @@
       class="tm-definition"
     >
       <slot></slot>
-    </button>
+    </div>
     <!-- set tooltip text manually -->
-    <button
+    <div
       v-if="text"
       v-tooltip="{
         content: text,
@@ -24,7 +24,7 @@
       :style="controlStyles"
     >
       <slot></slot>
-    </button>
+    </div>
   </div>
 </template>
 

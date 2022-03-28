@@ -1,10 +1,17 @@
 <template>
-  <div class="tm-section section-beta mt-8">
+  <div class="tm-section section-beta mt-8 js-section-beta">
     <div class="tm-wrapper tm-container-narrow">
       <div class="tm-grid-base">
         <div class="column-header">
-          <h1 class="tm-rf6 tm-rf5-m-up tm-bold tm-lh-title tm-serif tm-title">
-            Try the beta today
+          <h1
+            class="
+              tm-rf6 tm-rf5-m-up tm-bold tm-lh-title tm-serif tm-title
+              title
+              js-beta-title
+            "
+          >
+            <span>Try</span> <span>the</span> <span>beta</span>
+            <span>today</span>
           </h1>
         </div>
         <div class="column">
@@ -16,7 +23,7 @@
               <div class="step-item">
                 <div class="tm-rf1 tm-lh-title tm-muted">01</div>
                 <div class="mt-5 tm-rf1 tm-lh-title tm-title tm-bold">
-                  Download Keplr
+                  Install a wallet
                 </div>
                 <div class="mt-5 tm-text tm-rf0 tm-lh-copy step-info">
                   Emeris beta version requires the Keplr browser extension
@@ -33,7 +40,7 @@
               <div class="step-item">
                 <div class="tm-rf1 tm-lh-title tm-muted">02</div>
                 <div class="mt-5 tm-rf1 tm-lh-title tm-title tm-bold">
-                  Connect to Emeris
+                  Connect your wallet
                 </div>
                 <div class="mt-5 tm-text tm-rf0 tm-lh-copy step-info">
                   Launch the Emeris app and connect your Keplr wallet.
@@ -51,7 +58,7 @@
               <div class="step-item">
                 <div class="tm-rf1 tm-lh-title tm-muted">03</div>
                 <div class="mt-5 tm-rf1 tm-lh-title tm-title tm-bold">
-                  Trade. Swap. Pool.
+                  Use Emeris
                 </div>
                 <div class="mt-5 tm-text tm-rf0 tm-lh-copy step-info">
                   Experience cross-chain DeFi with all your assets in one place.
@@ -75,11 +82,34 @@
 </template>
 
 <script>
+import { gsap } from 'gsap/dist/gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+
 export default {
   data() {
     return {
       currentUrl: this.$route.fullPath,
     }
+  },
+  beforeDestroy() {
+    ScrollTrigger.kill()
+  },
+  mounted() {
+    gsap.registerPlugin(ScrollTrigger)
+    const tl = gsap.timeline()
+    tl.to('.js-beta-title > span', {
+      y: 0,
+      autoAlpha: 1,
+      duration: 1.5,
+      stagger: 0.1,
+    })
+    this.$nextTick(() => {
+      ScrollTrigger.create({
+        animation: tl,
+        trigger: '.js-section-beta',
+        start: '30% bottom',
+      })
+    })
   },
   methods: {
     getUtmParams(link) {
@@ -93,14 +123,17 @@ export default {
 
 <style lang="stylus" scoped>
 .section-beta
-  overflow hidden
+  contain style
 
 .title
-  color var(--trans-gray-300)
+  position relative
+  span
+    opacity 0
+    transform translate(0, 50px)
+    position relative
+    display inline-block
   @media $breakpoint-large
     max-width 35rem
-    center()
-    text-align center
 
 .column-header
   position relative
@@ -140,8 +173,11 @@ export default {
   &__inner
     overflow auto
     display flex
+    scroll-snap-type: x mandatory
     padding-inline: var(--wrap-gap)
     padding-bottom var(--spacing-7)
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
     @media $breakpoint-medium
       overflow initial
       display grid
@@ -149,9 +185,14 @@ export default {
       grid-template-columns: repeat(3, 1fr)
       gap: 0 var(--grid-gap-x)
 
+.steps-list__inner::-webkit-scrollbar {
+  display: none;
+}
+
 .step-item
   flex-shrink: 0
   grid-column 1/-1
+  scroll-snap-align center
   margin-left calc(2 * var(--grid-gap-x))
   @media $breakpoint-medium
     grid-column span 1

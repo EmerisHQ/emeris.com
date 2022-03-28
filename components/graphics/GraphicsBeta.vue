@@ -1,41 +1,107 @@
 <template>
-  <div class="canvas">
-    <div class="layer__container">
-      <img
+  <div class="canvas test">
+    <div id="betacanvas" class="layer__container">
+      <!-- <img
         src="~/assets/images/elements/beta.jpg"
         alt="Gold Ephemeris"
         class="layer"
-      />
+      /> -->
+      <tm-sprite
+        :src="'/images/elements/sprite-beta/Emeris_Master_'"
+        :frame-count="44"
+        class="layer"
+      ></tm-sprite>
     </div>
-    <!-- <div class="hand-container"> -->
-    <img
-      class="hand"
-      src="~/assets/images/elements/hand.png"
-      alt="Glass hand"
-    />
-    <!-- </div> -->
-    <div class="orb" />
+    <div class="hand">
+      <picture>
+        <source
+          srcset="~/assets/images/elements/hand-z1.avif"
+          type="image/avif"
+        />
+        <source
+          srcset="~/assets/images/elements/hand-z1.webp"
+          type="image/webp"
+        />
+        <img
+          src="~/assets/images/elements/hand-z1.png"
+          class="hand__lay js-hand"
+          alt="Glass hand"
+          loading="lazy"
+        />
+      </picture>
+      <div class="orb" />
+
+      <picture>
+        <source
+          srcset="~/assets/images/elements/hand-z2.avif"
+          type="image/avif"
+        />
+        <source
+          srcset="~/assets/images/elements/hand-z2.webp"
+          type="image/webp"
+        />
+        <img
+          src="~/assets/images/elements/hand-z2.png"
+          class="hand__lay hand__lay--over js-hand"
+          alt="Glass hand"
+          loading="lazy"
+        />
+      </picture>
+    </div>
   </div>
 </template>
+
+<script>
+import { gsap } from 'gsap/dist/gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+
+export default {
+  mounted() {
+    gsap.registerPlugin(ScrollTrigger)
+
+    // scroll animation
+    this.$nextTick(() => {
+      gsap.to('.js-hand', {
+        y: -30,
+        scrollTrigger: {
+          scrub: 1,
+          trigger: '.js-section-beta',
+          endTrigger: '#betacanvas',
+          start: 'top bottom',
+          end: 'bottom top',
+        },
+      })
+    })
+  },
+  beforeDestroy() {
+    ScrollTrigger.kill()
+  },
+}
+</script>
 
 <style lang="stylus" scoped>
 .canvas
   position relative
+  display flex
+  justify-content center
+
 
 .layer
   position absolute
   top 0
   left 50%
   max-width: none
+  object-fit: contain;
   transform: translateX(-50%)
-  width auto
+  width 100%
   height 100%
   @media $breakpoint-large
     width 100%
-    height auto
+    height 100%
   &__container
     overflow hidden
     position relative
+    width 100%
     height 15.5625rem
     @media $breakpoint-xl
       height 0
@@ -46,46 +112,58 @@
 
 .hand
   position absolute
-  mix-blend-mode hard-light
-  min-width: 27rem
-  width 27rem
+  min-width: 14rem
+  height 17rem
   max-width 43rem
-  top -13.5rem
-  left 52%
-  transform translate(-50%, 0%) scale(-1, -1)
-  // animation hero-hand 4s ease-in-out infinite
-  mask-mode alpha
-  mask-repeat no-repeat
-  mask-image url('~/assets/images/elements/hand-mask.svg')
-  mask-size cover
-  backdrop-filter blur(4.7px)
+  top -7.5rem
+  z-index 0
+  display: flex;
+  justify-content: center;
+
   @media $breakpoint-medium
-    left 50%
+    min-width: 27rem
+    height 27rem
+    top -13.5rem
   @media $breakpoint-xl
     width 45rem
-    top -82%
-    left 50.5%
+
+  &__lay
+    position absolute
+    top 0
+    left 12%
+    max-width 100%
+    height 100%
+    opacity .8
+    transform: translate(0,-30%)
+
+    @media $breakpoint-medium
+      left 20%
+
+    @media $breakpoint-xl
+      left 30%
+
+    &--over
+      z-index: 10
 
 .orb
   position absolute
   z-index 9
-  width 26vw
-  height 26vw
+  width 6rem
+  height 6rem
   max-width 11.25rem
   max-height 11.25rem
-  top 8.5%
+  top 45%
   left 50%
   transform translateX(-50%)
-  // animation orb-1 4s ease-in-out infinite
   @media $breakpoint-medium
-    width 11vw
-    height 11vw
-    top 9%
+    width 9rem
+    height 9rem
+    top 49%
     left 50%
   @media $breakpoint-xl
     width 9.5vw
     height 9.5vw
-    top 9.7%
+    top 50%
     left 50%
   &:before
     content ''

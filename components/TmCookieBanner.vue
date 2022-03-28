@@ -178,9 +178,4 @@ export default {
 .box:hover path
   stroke var(--white)
   transition stroke 0.2s
-
-// @media screen and (max-width: 435px)
-//   .banner-wrapper
-//     white-space normal
-//     width auto
 </style>

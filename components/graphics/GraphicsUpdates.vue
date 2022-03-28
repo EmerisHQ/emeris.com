@@ -1,41 +1,51 @@
 <template>
   <div class="canvas">
     <div class="layer__container">
-      <img
+      <!-- <img
         src="~/assets/images/elements/updates.jpg"
         alt="Gold Gate"
         class="layer"
-      />
+      /> -->
+      <client-only
+        ><tm-sprite
+          :src="'/images/elements/sprite-update/gate-'"
+          :ext="'jpg'"
+          :frame-count="57"
+          class="layer"
+        ></tm-sprite
+      ></client-only>
     </div>
     <img
       class="surfer z-2"
       src="~/assets/images/elements/surfer-controlling.png"
       alt="Interchain Surfer Controlling"
+      loading="lazy"
     />
   </div>
 </template>
-
 <style lang="stylus" scoped>
 .canvas
   position relative
 
 .layer
   position absolute
-  left: 50%
-  top 58%
-  height 128%
-  width auto
+  left 0
+  top 0
+  height 100%
+  width 100%
   max-width: none
-  transform: translate(-50%, -50%)
+
   @media $breakpoint-xl
     height 100%
     top 50%
+    left: 50%
+    transform: translate(-50%, -50%)
   &__container
     overflow hidden
     position relative
     width 100%
     height 0
-    padding-bottom 155%
+    padding-bottom 119%
     @media $breakpoint-medium
       padding-bottom 158%
     @media $breakpoint-xl

@@ -1,92 +1,80 @@
 <template>
-  <div v-observe-visibility="onFalse" class="section-hero tm-section">
+  <div id="section-hero" class="section-hero tm-section">
+    <div class="background">
+      <video
+        autoplay="autoplay"
+        muted="muted"
+        playsinline=""
+        loop="loop"
+        class="background__img"
+      >
+        <source src="~/assets/videos/emeris-loop-xs.mp4" type="video/mp4" />
+      </video>
+      <div class="background__veil"></div>
+    </div>
     <div class="tm-wrapper tm-container">
       <div class="tm-grid-base">
         <h1
+          ref="title"
           class="
             title
             tm-content tm-serif tm-rf5 tm-bold tm-lh-title tm-title
             z-2
+            js-hero-title
           "
         >
-          <span class="tm-text-center">Experience</span>
-          <span class="tm-text-left">the power of</span>
-          <span class="tm-text-right">cross-chain DeFi</span>
+          <div class="tm-text-center"><span>Experience</span></div>
+          <div class="tm-text-left">
+            <span>the</span> <span>power</span> <span>of</span>
+          </div>
+          <div class="tm-text-right">
+            <span>cross-</span><span>chain</span> <span>DeFi</span>
+          </div>
         </h1>
 
-        <!-- <div class="button-container">
-          <tm-button class="btn" @click.native="openVideo">
-            Watch trailer
-          </tm-button>
-          <tm-button
-            v-scroll-to="'#intro'"
-            variant="gradient"
-            href="#"
-            class="scroll-down z-1"
-          >
-            <icon-arrow-down />
-          </tm-button>
-        </div> -->
-      </div>
-      <div class="tm-grid-base">
-        <div class="information">
-          <p class="tm-rf-1 tm-rf0-m-up tm-lh-copy">
-            Emeris is a one-stop portal for all crypto apps, no matter what
-            blockchain they run on. Try the beta today.
-          </p>
-
-          <div class="btn z-1">
-            <div class="btn-container">
-              <div class="show-desktop">
-                <tm-button
-                  id="launchApp"
-                  to-link="external"
-                  :href="getUtmParams('https://app.emeris.com')"
-                  size="m"
-                  border-color="var(--primary)"
-                  glow
-                  variant="gradient"
-                >
-                  <span>Launch app</span>
-                  <span class="icon__right">&rarr;</span>
-                </tm-button>
-              </div>
-              <tm-button
-                variant="text"
-                class="btn-play"
-                @click.native="openVideo"
-              >
-                <span class="text-gradient">▶&ensp;Play Trailer</span>
-              </tm-button>
-            </div>
-            <div class="show-mobile">
-              <tm-button size="m" variant="outlined" disabled class="button">
-                <span>Mobile app coming soon</span>
-              </tm-button>
-              <p class="mt-5 tm-lh-solid tm-rf-1 tm-medium text-center">
-                Use Emeris on a desktop device.
-              </p>
-            </div>
+        <div class="button-container js-full-button">
+          <div class="button-container-in js-full-button2">
+            <tm-button class="btn" @click.native="openVideo">
+              Watch trailer
+            </tm-button>
+            <tm-button
+              variant="gradient"
+              href="#"
+              class="scroll-down z-1"
+              @click.native="scrollTo"
+            >
+              <icon-arrow-down />
+            </tm-button>
           </div>
         </div>
+
+        <content-hero-buttons
+          class="hero-intro-btn js-launch"
+          :open-video="openVideo"
+        ></content-hero-buttons>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-// import IconArrowDown from '~/components/icons/IconArrowDown.vue'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import VueScrollTo from 'vue-scrollto'
+import IconArrowDown from '~/components/icons/IconArrowDown.vue'
 
 export default {
   components: {
-    // IconArrowDown,
+    IconArrowDown,
   },
+
   props: {
     openVideo: {
       type: Function,
       default: () => {},
     },
   },
+
   data() {
     return {
       show: true,
@@ -94,22 +82,110 @@ export default {
       throttle: 0,
       threshold: 0,
       currentUrl: this.$route.fullPath,
+      dataLoaded: false,
     }
   },
+  head() {
+    return {
+      bodyAttrs: {
+        class: !this.dataLoaded ? 'block-Visibility' : '',
+      },
+    }
+  },
+
+  mounted() {
+    if (window.top.scrollY > 0) {
+      gsap.set('.section-hero .js-full-button', { autoAlpha: 0 })
+      gsap.set('.js-launch', { y: 0, autoAlpha: 1 })
+      gsap.set('.js-hero-title span', { y: 0, opacity: 1 })
+      gsap.set('.background', {
+        '--imageBorder': 1,
+        autoAlpha: 1,
+        scale: 0.81,
+      })
+
+      this.dataLoaded = true
+    } else {
+      window.addEventListener('load', () => {
+        const tlstart = gsap.timeline({ paused: true })
+
+        tlstart.to('.js-hero-title span', {
+          y: 0,
+          opacity: 1,
+          duration: 1.5,
+          ease: 'expo.out',
+          stagger: 0.1,
+        })
+
+        tlstart.to(
+          ['.background, .js-full-button'],
+          {
+            autoAlpha: 1,
+            duration: 1,
+            ease: 'linear',
+            onComplete: () => (this.dataLoaded = true),
+          },
+          '<+1.1'
+        )
+
+        tlstart.play()
+      })
+
+      this.$nextTick(() => {
+        gsap.registerPlugin(ScrollTrigger)
+        const tl = gsap.timeline()
+        tl.to('.background', {
+          '--imageBorder': 1,
+          scale: 0.81,
+          duration: 2,
+          ease: 'power2.out',
+        })
+        tl.to(
+          '.section-hero .js-full-button2',
+          {
+            autoAlpha: 0,
+            duration: 0.4,
+            ease: 'power3.out',
+          },
+          '<'
+        )
+        tl.to(
+          '.js-launch',
+          {
+            y: 0,
+            autoAlpha: 1,
+            duration: 1.4,
+            ease: 'power3.out',
+          },
+          '<+.6'
+        )
+
+        ScrollTrigger.create({
+          animation: tl,
+          trigger: '.section-hero',
+          start: 'bottom bottom',
+          end: 'bottom 35%',
+          scrub: true,
+          pin: true,
+        })
+      })
+    }
+  },
+
+  beforeDestroy() {
+    ScrollTrigger.kill()
+  },
+
   methods: {
     getUtmParams(link) {
       this.currentUrl.includes('?') &&
         (link += `?${this.currentUrl.split('?')[1]}`)
       return link
     },
-    visibilityChanged(isVisible) {
-      this.isVisible = isVisible
-    },
-    onTrue() {
-      this.isVisible = true
-    },
-    onFalse() {
-      this.isVisible = false
+    scrollTo() {
+      VueScrollTo.scrollTo('#intro', 1000, {
+        offset: -window.innerHeight + 150,
+      })
     },
   },
 }
@@ -126,54 +202,92 @@ img
 
 .background
   position absolute
-  top -6.5vw
+  opacity 0
+  top 50%
   left: 50%
-  width 37vw
-  height 89.5vw
-  opacity 0.6
-  background-color: #C4C4C4
-  background-image url('~/assets/images/elements/hero.jpg')
-  background-size 800%
-  background-position center
-  background-repeat no-repeat
-  transform: translateX(-50%)
-  @media $breakpoint-medium
-    top 0
-    width 12rem
-    height 27.7rem
-  @media $breakpoint-xl
-    top -7.2rem
-    left: 50.7%
-    width 15rem
-    height 35.4rem
+  width 100%
+  height 100vh
+  transform translate(-50%, -50%) scale(1)
+  will-change: transform
 
+  --imageBorder: 0
+
+  &::before,
+  &::after
+    content ''
+    position absolute
+    display block
+    background var(--bg)
+    height calc(100%+4px)
+    width 30%
+    top -2px
+    left -2px
+    z-index 1
+    transform-origin left
+    transform scaleX(var(--imageBorder))
+    will-change transform
+
+    @media $breakpoint-medium
+      width 40%
+
+  &::after
+    left initial
+    transform-origin right
+    right -2px
+
+  &__img
+    position absolute
+    width 100%
+    height 100vh
+    object-fit: cover
+
+  &__veil
+    position absolute
+    width 100%
+    height 100%
+    transform: scale(1.0)
+    background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(255,255,255,0) 100%);
 .tm-container
   width 100%
 
 .title
   width 100%
   grid-column 1 / -1
+  grid-row 1 / 2
   max-width: 52rem
   margin-top 54vw
   @media $breakpoint-medium
-    margin-top var(--spacing-11)
+    margin-top 0
+    padding-top 5rem
   @media $breakpoint-xl
     grid-column 3 / span 8
-    margin-top var(--spacing-5)
+    padding-top 3rem
   span
-    display block
+    opacity 0
+    transform translate(0, 50px)
+    position relative
+    display inline-block
+
+.hero-intro-btn
+  transform translate3D(0,25vh, 0)
+  opacity 0
+  visibility hidden
 
 .button-container
+  opacity 0
   grid-column 1 / -1
-  display flex
-  justify-content center
-  margin-top var(--spacing-12)
-  max-width: 17.25rem
+  grid-row 2 / 3
+  &-in
+    display flex
+    justify-content center
+    align-items center
+    visibility hidden
+    margin-top var(--spacing-10)
+    max-width: 17.25rem
+
   @media $breakpoint-medium
     margin-inline: auto
     min-width 16rem
-  @media $breakpoint-xl
-    margin-top var(--spacing-9)
   .tm-button
     &:not(:first-child)
       flex-shrink: 0
@@ -195,83 +309,13 @@ img
 
 .section-hero
   display flex
-  align-items flex-end
-  justify-content center
-  // min-height: 100vh
-  padding-top var(--spacing-12)
-  @media $breakpoint-medium
-    align-items center
-    min-height: 0
-    padding-bottom 0
-
-.information
-  grid-column 1 / -1
-  margin-top var(--spacing-9)
-  @media $breakpoint-medium
-    grid-column 5 / span 4
-    margin-top var(--spacing-9)
-  @media $breakpoint-xl
-    grid-column 7 / span 4
-    margin-top var(--spacing-6)
-
-.btn-container
-  display flex
+  contain: style;
   align-items center
-
-.btn-play
-  width 100%
-  margin-bottom var(--spacing-7)
-  @media $breakpoint-medium
-    width auto
-    margin-left var(--spacing-7)
-    margin-bottom 0
-
-.intro
-  grid-column 1 / -1
-  margin-top var(--spacing-11)
-  @media $breakpoint-xl
-    grid-column 2 / span 10
-    margin-top var(--spacing-9)
-  img
-    min-width: 33.6rem
-    border-radius: .35rem
-    transform: matrix(1, -0.04, -0.1, 1, 0, 0)
-    @media $breakpoint-medium
-      border-radius: .75rem
-    @media $breakpoint-large
-      transform: none
-
-.show-mobile
-  max-width: 17rem
-  margin-inline: auto
-  @media $breakpoint-medium
-    display none
-  .button
-    width 100%
-
-.show-desktop
-  display none
-  @media $breakpoint-medium
-    display block
-
-.btn
-  margin-top var(--spacing-6)
-  @media $breakpoint-medium
-    margin-top var(--spacing-7)
+  justify-content center
+  min-height: 100vh
+  padding-top 0
+  padding-bottom 0
 
 .text-center
   text-align center
-
-.text-gradient
-  background var(--title-gradient)
-  -webkit-background-clip text
-  background-clip text
-  -webkit-text-fill-color transparent
-  text-fill-color transparent
-
-// @media $breakpoint-small
-// @media $breakpoint-medium
-// @media $breakpoint-large
-// @media $breakpoint-xl
-// @media $breakpoint-xxl
 </style>

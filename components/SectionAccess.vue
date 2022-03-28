@@ -19,6 +19,7 @@
                     :alt="item.name"
                     class="logo-item"
                     :class="item.img"
+                    loading="lazy"
                   />
                 </div>
                 <div class="content">
@@ -41,6 +42,7 @@
                     :alt="item.name"
                     class="logo-item"
                     :class="item.img"
+                    loading="lazy"
                   />
                 </div>
                 <div class="content">
@@ -253,15 +255,12 @@ export default {
   overflow: hidden
   white-space: nowrap
   margin-inline: calc(-1 * var(--wrap-gap))
-  // padding-inline: var(--wrap-gap)
   @media screen and (min-width: 1120px)
     overflow: initial
   &:hover
     .marquee
       &__item
         animation-play-state: paused
-  // &__container
-  //   margin-inline: calc(-1 * var(--wrap-gap))
   &__item
     animation: marquee 15s linear infinite
     display: inline-block
