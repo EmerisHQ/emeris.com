@@ -121,7 +121,7 @@ export default {
           ['.background, .js-full-button'],
           {
             autoAlpha: 1,
-            duration: 2,
+            duration: 1,
             ease: 'linear',
             onComplete: () => (this.dataLoaded = true),
           },
@@ -133,16 +133,7 @@ export default {
 
       this.$nextTick(() => {
         gsap.registerPlugin(ScrollTrigger)
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: '.section-hero',
-            start: 'bottom bottom',
-            end: 'bottom 35%',
-            scrub: true,
-            pin: true,
-            // markers: true,
-          },
-        })
+        const tl = gsap.timeline()
         tl.to('.background', {
           '--imageBorder': 1,
           scale: 0.81,
@@ -163,11 +154,20 @@ export default {
           {
             y: 0,
             autoAlpha: 1,
-            duration: 1,
+            duration: 1.4,
             ease: 'power3.out',
           },
           '<+.6'
         )
+
+        ScrollTrigger.create({
+          animation: tl,
+          trigger: '.section-hero',
+          start: 'bottom bottom',
+          end: 'bottom 35%',
+          scrub: true,
+          pin: true,
+        })
       })
     }
   },
