@@ -113,12 +113,12 @@ export default {
       this.getCtaSize()
       ScrollTrigger.matchMedia({
         '(min-width: 768px)': () => {
-          gsap.set(
-            this.$refs.navlist.querySelectorAll('li:not(.js-primnav-cta)'),
-            {
-              x: `${this.ctaWidth}px`,
-            }
-          )
+          //   gsap.set(
+          //     this.$refs.navlist.querySelectorAll('li:not(.js-primnav-cta)'),
+          //     {
+          //       x: `${this.ctaWidth}px`,
+          //     }
+          //   )
           // scroll animation
           gsap.to('.headroom', {
             background: 'rgba(0,0,0,.7)',
@@ -131,28 +131,28 @@ export default {
               start: 'bottom top',
             },
           })
-          gsap.to('.js-primnav-cta', {
-            autoAlpha: 1,
-            duration: 0.2,
-            scrollTrigger: {
-              trigger: '.section-hero',
-              toggleActions: 'restart none none reverse',
-              start: 'bottom top',
-            },
-          })
-          gsap.to(
-            this.$refs.navlist.querySelectorAll('li:not(.js-primnav-cta)'),
-            {
-              x: 0,
-              duration: 1.2,
-              ease: 'power4.in',
-              scrollTrigger: {
-                trigger: '.section-hero',
-                toggleActions: 'restart none none reverse',
-                start: 'bottom top',
-              },
-            }
-          )
+          //   gsap.to('.js-primnav-cta', {
+          //     autoAlpha: 1,
+          //     duration: 0.2,
+          //     scrollTrigger: {
+          //       trigger: '.section-hero',
+          //       toggleActions: 'restart none none reverse',
+          //       start: 'bottom top',
+          //     },
+          //   })
+          //   gsap.to(
+          //     this.$refs.navlist.querySelectorAll('li:not(.js-primnav-cta)'),
+          //     {
+          //       x: 0,
+          //       duration: 1.2,
+          //       ease: 'power4.in',
+          //       scrollTrigger: {
+          //         trigger: '.section-hero',
+          //         toggleActions: 'restart none none reverse',
+          //         start: 'bottom top',
+          //       },
+          //     }
+          //   )
         },
       })
     })
@@ -190,7 +190,7 @@ export default {
     enableHeadroom() {
       if (!this.headroom) {
         const options = {
-          offset: 100,
+          offset: 10,
           onUnpin: () => this.closeNav(),
         }
         this.headroom = new Headroom(this.$el, options)
@@ -202,9 +202,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.js-primnav-cta
-  opacity 0
-  visibility hidden
+// .js-primnav-cta
+//   opacity 0
+//   visibility hidden
 .headroom
   will-change transform
   background transparent
@@ -222,7 +222,7 @@ export default {
   left 0
   right 0
   padding-block 2.75rem
-  transition .4s ease transform, .8s ease padding
+  transition .6s ease transform, .8s ease padding
   &.headroom--not-top
     padding-top var(--spacing-4)
     padding-bottom var(--spacing-4)

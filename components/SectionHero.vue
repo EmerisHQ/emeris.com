@@ -1,5 +1,5 @@
 <template>
-  <div class="section-hero tm-section">
+  <div id="section-hero" class="section-hero tm-section">
     <div class="background">
       <video
         autoplay="autoplay"
@@ -15,7 +15,6 @@
     <div class="tm-wrapper tm-container">
       <div class="tm-grid-base">
         <h1
-          id="hero-title"
           ref="title"
           class="
             title
@@ -34,17 +33,19 @@
         </h1>
 
         <div class="button-container js-full-button">
-          <tm-button class="btn" @click.native="openVideo">
-            Watch trailer
-          </tm-button>
-          <tm-button
-            v-scroll-to="'#hero-title'"
-            variant="gradient"
-            href="#"
-            class="scroll-down z-1"
-          >
-            <icon-arrow-down />
-          </tm-button>
+          <div class="button-container-in js-full-button2">
+            <tm-button class="btn" @click.native="openVideo">
+              Watch trailer
+            </tm-button>
+            <tm-button
+              variant="gradient"
+              href="#"
+              class="scroll-down z-1"
+              @click.native="scrollTo"
+            >
+              <icon-arrow-down />
+            </tm-button>
+          </div>
         </div>
 
         <content-hero-buttons
@@ -58,6 +59,8 @@
 
 <script>
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import VueScrollTo from 'vue-scrollto'
 import IconArrowDown from '~/components/icons/IconArrowDown.vue'
 
 export default {
@@ -103,20 +106,70 @@ export default {
 
       this.dataLoaded = true
     } else {
-      window.addEventListener('scroll', this.animation, false)
-      gsap.to('.js-hero-title span', {
-        y: 0,
-        opacity: 1,
-        duration: 1.5,
-        ease: 'expo.out',
-        stagger: 0.1,
+      window.addEventListener('load', () => {
+        // window.addEventListener('scroll', this.animation, false)
+        const tlstart = gsap.timeline({ paused: true })
+
+        tlstart.to('.js-hero-title span', {
+          y: 0,
+          opacity: 1,
+          duration: 1.5,
+          ease: 'expo.out',
+          stagger: 0.1,
+        })
+
+        tlstart.to(
+          ['.background, .js-full-button'],
+          {
+            autoAlpha: 1,
+            duration: 2,
+            ease: 'linear',
+            onComplete: () => (this.dataLoaded = true),
+          },
+          '<+1.1'
+        )
+
+        tlstart.play()
       })
-      gsap.to(['.background', '.section-hero .js-full-button'], {
-        autoAlpha: 1,
-        duration: 2,
-        ease: 'ease2.out',
-        delay: 1,
-        onComplete: () => (this.dataLoaded = true),
+
+      gsap.registerPlugin(ScrollTrigger)
+
+      this.$nextTick(() => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.section-hero',
+            start: 'bottom bottom',
+            end: 'bottom 35%',
+            scrub: true,
+            pin: true,
+            // markers: true,
+          },
+        })
+        tl.to('.background', {
+          '--imageBorder': 1,
+          scale: 0.81,
+          duration: 2,
+          ease: 'power2.out',
+        })
+        tl.to(
+          '.section-hero .js-full-button2',
+          {
+            autoAlpha: 0,
+            duration: 0.4,
+            ease: 'power3.out',
+          },
+          '<'
+        )
+        tl.to(
+          '.js-launch',
+          {
+            y: 0,
+            autoAlpha: 1,
+            duration: 1,
+            ease: 'power3.out',
+          },
+          '<+.6'
+        )
       })
     }
   },
@@ -133,23 +186,10 @@ export default {
     },
     animation() {
       window.removeEventListener('scroll', this.animation, false)
-
-      gsap.killTweensOf('.section-hero .js-full-button')
-      gsap.set('.section-hero .js-full-button', {
-        autoAlpha: 0,
-      })
-
-      gsap.to('.background', {
-        '--imageBorder': 1,
-        scale: 0.81,
-        duration: 1.4,
-        ease: 'power3.out',
-      })
-      gsap.to('.js-launch', {
-        y: 0,
-        autoAlpha: 1,
-        duration: 1.4,
-        ease: 'power3.out',
+    },
+    scrollTo() {
+      VueScrollTo.scrollTo('#intro', 1000, {
+        offset: -window.innerHeight + 150,
       })
     },
   },
@@ -175,7 +215,7 @@ img
   transform translate(-50%, -50%) scale(1)
   will-change: transform
 
-  --imageBorder 0
+  --imageBorder: 0
 
   &::before,
   &::after
@@ -239,15 +279,16 @@ img
   visibility hidden
 
 .button-container
+  opacity 0
   grid-column 1 / -1
   grid-row 2 / 3
-  display flex
-  justify-content center
-  align-items center
-  opacity 0
-  visibility: hidden
-  margin-top var(--spacing-10)
-  max-width: 17.25rem
+  &-in
+    display flex
+    justify-content center
+    align-items center
+    visibility hidden
+    margin-top var(--spacing-10)
+    max-width: 17.25rem
 
   @media $breakpoint-medium
     margin-inline: auto
