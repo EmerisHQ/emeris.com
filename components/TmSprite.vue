@@ -66,18 +66,20 @@ export default {
     })
 
     // scroll animation
-    gsap.to(animation, {
-      frame: this.frameCount - 1,
-      snap: 'frame',
-      ease: 'none',
-      scrollTrigger: {
-        scrub: true,
-        trigger: canvas,
-        start: 'top bottom',
-        end: 'bottom top',
-        anticipatePin: 1,
-      },
-      onUpdate: render,
+    this.$nextTick(() => {
+      gsap.to(animation, {
+        frame: this.frameCount - 1,
+        snap: 'frame',
+        ease: 'none',
+        scrollTrigger: {
+          scrub: true,
+          trigger: canvas,
+          start: 'top bottom',
+          end: 'bottom top',
+          anticipatePin: 1,
+        },
+        onUpdate: render,
+      })
     })
 
     // Render right image in the canvas
