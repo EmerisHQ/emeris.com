@@ -1,5 +1,8 @@
 <template>
-  <div v-on-clickaway="closeNav" class="nav-container tm-wrapper headroom">
+  <div
+    v-on-clickaway="closeNav"
+    class="nav-container tm-wrapper headroom headroom--unpinned"
+  >
     <div class="tm-container">
       <nav class="nav" role="navigation">
         <div class="nav-head z-1" :class="isOpen && 'opened'">
@@ -18,7 +21,7 @@
           </span>
         </div>
         <div class="nav-tail" :class="isOpen && 'opened'">
-          <ul>
+          <ul ref="navlist">
             <!-- <li class="not-top mobile" @click="closeNav">
               <tm-link
                 :href="getUtmParams('https://app.emeris.com/')"
@@ -40,7 +43,11 @@
                 >Support</tm-link
               >
             </li>
-            <li class="not-top tablet" @click="closeNav">
+            <li
+              ref="cta"
+              class="not-top tablet js-primnav-cta"
+              @click="closeNav"
+            >
               <tm-button
                 id="launchApp"
                 to-link="external"
@@ -86,8 +93,9 @@
 <script>
 import { mixin as clickaway } from 'vue-clickaway'
 import Headroom from 'headroom.js'
+import { gsap } from 'gsap/dist/gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import LogoEmerisWordmarkColor from '~/components/logos/LogoEmerisWordmarkColor.vue'
-
 export default {
   components: {
     LogoEmerisWordmarkColor,
@@ -99,6 +107,7 @@ export default {
       // isTop: false,
       currentUrl: this.$route.fullPath,
       headroom: null,
+      ctaWidth: 0,
     }
   },
   computed: {
@@ -109,8 +118,58 @@ export default {
   mounted() {
     window.addEventListener('resize', this.checkMobile)
     this.enableHeadroom()
+
+    gsap.registerPlugin(ScrollTrigger)
+    this.$nextTick(() => {
+      this.getCtaSize()
+      ScrollTrigger.matchMedia({
+        '(min-width: 768px)': () => {
+          //   gsap.set(
+          //     this.$refs.navlist.querySelectorAll('li:not(.js-primnav-cta)'),
+          //     {
+          //       x: `${this.ctaWidth}px`,
+          //     }
+          //   )
+          // scroll animation
+          gsap.to('.headroom', {
+            background: 'rgba(0,0,0,.7)',
+            backdropFilter: 'blur(20px)',
+            duration: 0.01,
+            ease: 'ease2.out',
+            scrollTrigger: {
+              trigger: '.section-hero',
+              toggleActions: 'restart none none reverse',
+              start: 'bottom top',
+            },
+          })
+          //   gsap.to('.js-primnav-cta', {
+          //     autoAlpha: 1,
+          //     duration: 0.2,
+          //     scrollTrigger: {
+          //       trigger: '.section-hero',
+          //       toggleActions: 'restart none none reverse',
+          //       start: 'bottom top',
+          //     },
+          //   })
+          //   gsap.to(
+          //     this.$refs.navlist.querySelectorAll('li:not(.js-primnav-cta)'),
+          //     {
+          //       x: 0,
+          //       duration: 1.2,
+          //       ease: 'power4.in',
+          //       scrollTrigger: {
+          //         trigger: '.section-hero',
+          //         toggleActions: 'restart none none reverse',
+          //         start: 'bottom top',
+          //       },
+          //     }
+          //   )
+        },
+      })
+    })
   },
   beforeDestroy() {
+    ScrollTrigger.kill()
     window.removeEventListener('resize', this.checkMobile)
     this.disableHeadroom()
   },
@@ -126,7 +185,11 @@ export default {
     closeNav() {
       this.isOpen = false
     },
+    getCtaSize() {
+      this.ctaWidth = this.$refs.cta.getBoundingClientRect().width
+    },
     checkMobile() {
+      this.getCtaSize()
       window.innerWidth >= 768 && this.closeNav()
     },
     disableHeadroom() {
@@ -138,13 +201,11 @@ export default {
     enableHeadroom() {
       if (!this.headroom) {
         const options = {
-          offset: 100,
+          offset: 10,
           onUnpin: () => this.closeNav(),
-          // onTop: () => (this.isTop = true),
-          // onNotTop: () => (this.isTop = false),
         }
         this.headroom = new Headroom(this.$el, options)
-        this.headroom.init()
+        setTimeout(() => this.headroom.init(), 500) // Should be sync with hero anim (dynamically)
       }
     },
   },
@@ -152,9 +213,12 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+// .js-primnav-cta
+//   opacity 0
+//   visibility hidden
 .headroom
   will-change transform
-  transition transform .2s linear, background .2s linear
+  background transparent
 
 .headroom--pinned
   transform translateY(0%)
@@ -169,15 +233,11 @@ export default {
   left 0
   right 0
   padding-block 2.75rem
-  background rgba(0, 0, 0, 0)
+  transition .6s ease transform, .8s ease padding
   &.headroom--not-top
     padding-top var(--spacing-4)
     padding-bottom var(--spacing-4)
-    &.headroom--pinned
-      background rgba(0, 0, 0, 1)
-      @supports ((-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em)))
-        background rgba(0, 0, 0, 0.7)
-        backdrop-filter blur(20px)
+
   &.headroom--top
     padding-block var(--spacing-7)
     @media $breakpoint-medium
@@ -195,8 +255,6 @@ export default {
   flex-direction row
   align-items baseline
   justify-content space-between
-//   @media $breakpoint-medium
-//     flex-direction column
 
 .logos-container
   position relative
@@ -212,13 +270,9 @@ export default {
 
 .smallprint
   margin-left var(--spacing-5)
-  // .headroom--top &
-  //   color rgba(24,24,24,0.67)
 
 .nav
   /* if no secondary nav, create similar space */
-  // &:first-child:last-child
-  //   margin-bottom var(--spacing-9)
   display flex
   flex-direction row
   justify-content space-between
@@ -308,9 +362,6 @@ export default {
     &:nth-child(3)
     &:nth-child(4)
       opacity 0
-  // .headroom--top &
-  //   i
-  //     background-color var(--black)
   &.opened
     i
       background-color var(--black)
@@ -347,8 +398,6 @@ export default {
     transform-origin 0 0
     transition transform .25s $ease-out, opacity .2s $ease-out
     filter drop-shadow(0px 34px 64px rgba(230, 254, 88, 0.5))
-    // .headroom--top &
-    //   top calc(-1 * var(--spacing-7))
     &::-webkit-scrollbar
       display none
     &.opened

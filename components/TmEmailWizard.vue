@@ -89,11 +89,12 @@
             key="step2"
             class="wizard__state tm-rf0 tm-lh-copy"
           >
-            <div class="form-wrapper__success" id="signUpSuccess">
+            <div id="signUpSuccess" class="form-wrapper__success">
               <img
                 class="surfer-graphics"
                 src="~/assets/images/elements/surfer-flying.png"
                 alt=""
+                loading="lazy"
               />
               <div class="wizard__title tm-rf1 tm-bold tm-lh-title tm-serif">
                 Almost there
@@ -238,8 +239,6 @@ export default {
   &__inner
     overflow hidden
     min-height 3rem
-    // max-width 17.5rem
-    // background var(--bg)
     background #171717
     border-radius $border-radius-3
     box-shadow 8px 16px 48px rgba(0, 0, 0, 0.21)
@@ -338,7 +337,6 @@ export default {
     position absolute
     trbl -1px
     border-radius inherit
-    // background linear-gradient(280.46deg, #FFF0CA 12.71%, #D3AD5F 33.34%, #FFECC4 41.61%, #997736 59.2%, #FFF2C0 77.69%, #CEA851 97.39%)
 
 .text-with-gradient
   display block
