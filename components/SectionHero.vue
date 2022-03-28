@@ -131,9 +131,8 @@ export default {
         tlstart.play()
       })
 
-      gsap.registerPlugin(ScrollTrigger)
-
       this.$nextTick(() => {
+        gsap.registerPlugin(ScrollTrigger)
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: '.section-hero',
