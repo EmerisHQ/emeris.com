@@ -76,7 +76,7 @@ export default {
     }
   },
   beforeDestroy() {
-    ScrollTrigger.kill()
+    ScrollTrigger.getAll().forEach((t) => t.kill())
   },
   mounted() {
     gsap.registerPlugin(ScrollTrigger)

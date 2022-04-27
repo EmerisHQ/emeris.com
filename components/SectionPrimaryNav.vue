@@ -104,7 +104,7 @@ export default {
   data() {
     return {
       isOpen: false,
-      // isTop: false,
+      tween: null,
       currentUrl: this.$route.fullPath,
       headroom: null,
       ctaWidth: 0,
@@ -115,6 +115,7 @@ export default {
       return this.$route.path === '/'
     },
   },
+
   mounted() {
     window.addEventListener('resize', this.checkMobile)
     this.enableHeadroom()
@@ -124,52 +125,23 @@ export default {
       this.getCtaSize()
       ScrollTrigger.matchMedia({
         '(min-width: 768px)': () => {
-          //   gsap.set(
-          //     this.$refs.navlist.querySelectorAll('li:not(.js-primnav-cta)'),
-          //     {
-          //       x: `${this.ctaWidth}px`,
-          //     }
-          //   )
           // scroll animation
-          gsap.to('.headroom', {
+          this.tween = gsap.to('.headroom', {
             background: 'rgba(0,0,0,.7)',
             backdropFilter: 'blur(20px)',
             duration: 0.01,
-            ease: 'ease2.out',
             scrollTrigger: {
-              trigger: '.section-hero',
+              trigger: 'html',
               toggleActions: 'restart none none reverse',
-              start: 'bottom top',
+              start: 200,
             },
           })
-          //   gsap.to('.js-primnav-cta', {
-          //     autoAlpha: 1,
-          //     duration: 0.2,
-          //     scrollTrigger: {
-          //       trigger: '.section-hero',
-          //       toggleActions: 'restart none none reverse',
-          //       start: 'bottom top',
-          //     },
-          //   })
-          //   gsap.to(
-          //     this.$refs.navlist.querySelectorAll('li:not(.js-primnav-cta)'),
-          //     {
-          //       x: 0,
-          //       duration: 1.2,
-          //       ease: 'power4.in',
-          //       scrollTrigger: {
-          //         trigger: '.section-hero',
-          //         toggleActions: 'restart none none reverse',
-          //         start: 'bottom top',
-          //       },
-          //     }
-          //   )
         },
       })
     })
   },
   beforeDestroy() {
-    ScrollTrigger.kill()
+    ScrollTrigger.getAll().forEach((t) => t.kill())
     window.removeEventListener('resize', this.checkMobile)
     this.disableHeadroom()
   },

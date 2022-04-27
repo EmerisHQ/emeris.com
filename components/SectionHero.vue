@@ -2,6 +2,7 @@
   <div id="section-hero" class="section-hero tm-section">
     <div class="background">
       <video
+        ref="video"
         autoplay="autoplay"
         muted="muted"
         playsinline=""
@@ -106,7 +107,7 @@ export default {
 
       this.dataLoaded = true
     } else {
-      window.addEventListener('load', () => {
+      this.$refs.video.onloadeddata = () => {
         const tlstart = gsap.timeline({ paused: true })
 
         tlstart.to('.js-hero-title span', {
@@ -129,10 +130,11 @@ export default {
         )
 
         tlstart.play()
-      })
+      }
 
       this.$nextTick(() => {
         gsap.registerPlugin(ScrollTrigger)
+
         const tl = gsap.timeline()
         tl.to('.background', {
           '--imageBorder': 1,
@@ -173,7 +175,7 @@ export default {
   },
 
   beforeDestroy() {
-    ScrollTrigger.kill()
+    ScrollTrigger.getAll().forEach((t) => t.kill())
   },
 
   methods: {

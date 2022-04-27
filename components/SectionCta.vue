@@ -91,7 +91,7 @@ export default {
     })
   },
   beforeDestroy() {
-    ScrollTrigger.kill()
+    ScrollTrigger.getAll().forEach((t) => t.kill())
   },
   methods: {
     getUtmParams(link) {

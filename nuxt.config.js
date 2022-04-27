@@ -8,6 +8,10 @@ export default {
   generate: {
     fallback: false,
     routes: ['/', '404'],
+    subFolders: false,
+  },
+  router: {
+    trailingSlash: false,
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {

@@ -1,77 +1,80 @@
 <template>
-  <article>
-    <div class="tm-section mt-11">
-      <div class="tm-wrapper">
-        <div class="tm-container tm-grid-base">
-          <div class="sidebar">
-            <tm-button
-              to-link="internal"
-              to="http://support.emeris.com/"
-              size="s"
-              variant="text"
-            >
-              <span class="icon__left gradient-text">&#8592;</span>
-              <span class="gradient-text">Support</span>
-            </tm-button>
+  <main>
+    <section-primary-nav />
+    <article>
+      <div class="tm-section mt-11">
+        <div class="tm-wrapper">
+          <div class="tm-container tm-grid-base">
+            <div class="sidebar">
+              <tm-button
+                to-link="internal"
+                to="http://support.emeris.com/"
+                size="s"
+                variant="text"
+              >
+                <span class="icon__left gradient-text">&#8592;</span>
+                <span class="gradient-text">Support</span>
+              </tm-button>
 
-            <div class="related">
-              <div
+              <div class="related">
+                <div
+                  class="
+                    subheading
+                    mt-8
+                    tm-rf0 tm-medium tm-lh-title tm-overline tm-muted
+                  "
+                >
+                  Related
+                </div>
+
+                <div v-for="item in questions" :key="item.title" class="mt-5">
+                  <tm-link
+                    :href="`/support/${item.slug}`"
+                    class="tm-rf0 tm-lh-copy"
+                  >
+                    {{ item.title }}
+                  </tm-link>
+                </div>
+              </div>
+            </div>
+            <div class="main tm-center">
+              <h1
                 class="
-                  subheading
-                  mt-8
-                  tm-rf0 tm-medium tm-lh-title tm-overline tm-muted
+                  title
+                  tm-rf4 tm-bold tm-lh-title tm-title tm-serif tm-measure
                 "
               >
-                Related
-              </div>
+                {{ article.title }}
+              </h1>
+              <p class="mt-5 tm-muted tm-lh-copy tm-rf0 tm-measure">
+                Last updated {{ formatDate(article.updatedAt) }}
+              </p>
 
-              <div v-for="item in questions" :key="item.title" class="mt-5">
-                <tm-link
-                  :href="`/support/${item.slug}`"
-                  class="tm-rf0 tm-lh-copy"
-                >
-                  {{ item.title }}
-                </tm-link>
+              <div class="markdown mt-9 tm-lh-copy tm-rf1 tm-measure">
+                <nuxt-content :document="article" />
               </div>
-            </div>
-          </div>
-          <div class="main tm-center">
-            <h1
-              class="
-                title
-                tm-rf4 tm-bold tm-lh-title tm-title tm-serif tm-measure
-              "
-            >
-              {{ article.title }}
-            </h1>
-            <p class="mt-5 tm-muted tm-lh-copy tm-rf0 tm-measure">
-              Last updated {{ formatDate(article.updatedAt) }}
-            </p>
-
-            <div class="markdown mt-9 tm-lh-copy tm-rf1 tm-measure">
-              <nuxt-content :document="article" />
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="tm-section related mobile">
-      <div class="tm-wrapper tm-container">
-        <div
-          class="subheading tm-rf0 tm-medium tm-lh-title tm-overline tm-muted"
-        >
-          Related
-        </div>
+      <div class="tm-section related mobile">
+        <div class="tm-wrapper tm-container">
+          <div
+            class="subheading tm-rf0 tm-medium tm-lh-title tm-overline tm-muted"
+          >
+            Related
+          </div>
 
-        <div v-for="item in questions" :key="item.title" class="mt-5">
-          <tm-link :href="`/support/${item.slug}`" class="tm-rf0 tm-lh-copy">
-            {{ item.title }}
-          </tm-link>
+          <div v-for="item in questions" :key="item.title" class="mt-5">
+            <tm-link :href="`/support/${item.slug}`" class="tm-rf0 tm-lh-copy">
+              {{ item.title }}
+            </tm-link>
+          </div>
         </div>
       </div>
-    </div>
-  </article>
+    </article>
+  </main>
 </template>
 
 <script>

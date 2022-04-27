@@ -1,5 +1,7 @@
 <template>
   <main>
+    <section-primary-nav />
+
     <div class="section-signup tm-section">
       <div class="tm-wrapper tm-container tm-grid-base">
         <div class="text center">
@@ -8,7 +10,7 @@
             src="~/assets/images/elements/surfer.png"
             alt="Interchain Surfer Shadow"
           />
-          <h1 class="tm-rf4 tm-bold tm-lh-title tm-serif">Get updates</h1>
+          <h1 class="tm-rf4 tm-bold tm-lh-title tm-serif">Get updatess</h1>
           <div class="wizard mt-7 tm-measure-narrow">
             <tm-email-wizard />
           </div>

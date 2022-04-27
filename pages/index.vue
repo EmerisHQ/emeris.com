@@ -1,5 +1,7 @@
 <template>
   <main>
+    <section-primary-nav />
+
     <div ref="button" class="fixed-container">
       <tm-cookie-banner />
     </div>

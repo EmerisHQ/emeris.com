@@ -1,5 +1,7 @@
 <template>
   <main>
+    <section-primary-nav />
+
     <div class="section-hero section-first tm-text-center">
       <div class="tm-wrapper tm-section tm-container tm-grid-base">
         <div class="text">

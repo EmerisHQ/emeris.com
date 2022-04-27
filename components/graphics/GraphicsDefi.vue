@@ -75,7 +75,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 export default {
   beforeDestroy() {
     window.removeEventListener('resize', this.sizeImages)
-    ScrollTrigger.kill()
+    ScrollTrigger.getAll().forEach((t) => t.kill())
   },
   mounted() {
     window.addEventListener('resize', this.sizeImages)
