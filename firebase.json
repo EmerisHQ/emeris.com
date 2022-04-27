@@ -1,0 +1,12 @@
+{
+  "hosting": {
+    "public": "dist",
+    "redirects": [
+      {
+        "source": "/support{,/**}",
+        "destination": "https://support.emeris.com",
+        "type": 301
+      }
+    ]
+  }
+}
