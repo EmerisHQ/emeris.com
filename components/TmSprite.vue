@@ -24,79 +24,91 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      testtime: new Date(),
+      animation: {},
+      tween: null,
+      canvas: null,
+      context: null,
+      images: [],
+    }
+  },
   beforeDestroy() {
-    ScrollTrigger.kill()
+    this.tween.kill()
+    ScrollTrigger.getAll().forEach((t) => t.kill())
   },
   mounted() {
     gsap.registerPlugin(ScrollTrigger)
 
     // DOM & config
-    const canvas = this.$refs.canvas
-    const size = canvas.getBoundingClientRect()
-    const context = canvas.getContext('2d')
+    this.canvas = this.$refs.canvas
+    const size = this.canvas.getBoundingClientRect()
+    this.context = this.canvas.getContext('2d')
 
     // Variables
-    const images = []
-    const animation = {
+
+    this.animation = {
       frame: 0,
     }
-    canvas.width = size.width
-    canvas.height = size.height
+    this.canvas.width = size.width
+    this.canvas.height = size.height
 
     // load all images and save them in array (avoid img source modification)
     const currentFrame = (index) =>
       require(`~/assets${this.src + index.toString()}.${this.ext}`)
-
-    ScrollTrigger.create({
-      trigger: this.$refs.sprite,
-      start: '-2200px bottom',
-      once: true,
-      onEnter: () => {
-        for (let i = 0; i < this.frameCount; i++) {
-          const img = new Image()
-          const size = {}
-          img.src = currentFrame(i)
-          img.onload = () => {
-            size.width = img.width
-            size.height = img.height
-          }
-          images.push({ img, size })
-        }
-      },
-    })
-
-    // scroll animation
     this.$nextTick(() => {
-      gsap.to(animation, {
+      ScrollTrigger.create({
+        trigger: this.$refs.sprite,
+        start: '-2200px bottom',
+        once: true,
+        onEnter: () => {
+          for (let i = 0; i < this.frameCount; i++) {
+            const img = new Image()
+            const size = {}
+            img.src = currentFrame(i)
+            img.onload = () => {
+              size.width = img.width
+              size.height = img.height
+            }
+            this.images.push({ img, size })
+          }
+        },
+      })
+
+      // scroll animation
+      this.tween = gsap.to(this.animation, {
         frame: this.frameCount - 1,
         snap: 'frame',
         ease: 'none',
         scrollTrigger: {
           scrub: true,
-          trigger: canvas,
+          trigger: this.canvas,
           start: 'top bottom',
           end: 'bottom top',
           anticipatePin: 1,
         },
-        onUpdate: render,
+        onUpdate: this.render,
       })
     })
-
-    // Render right image in the canvas
-    function render() {
-      context.clearRect(0, 0, canvas.width, canvas.height)
-      context.drawImage(
-        images[animation.frame].img,
-        0,
-        0,
-        images[animation.frame].size.width,
-        images[animation.frame].size.height,
-        0,
-        0,
-        canvas.width,
-        canvas.height
-      )
-    }
+  },
+  methods: {
+    render() {
+      if (this.images.length > 0) {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
+        this.context.drawImage(
+          this.images[this.animation.frame].img,
+          0,
+          0,
+          this.images[this.animation.frame].size.width,
+          this.images[this.animation.frame].size.height,
+          0,
+          0,
+          this.canvas.width,
+          this.canvas.height
+        )
+      }
+    },
   },
 }
 </script>

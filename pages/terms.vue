@@ -1,5 +1,7 @@
 <template>
   <article>
+    <section-primary-nav />
+
     <div class="tm-section mt-11">
       <div class="tm-wrapper">
         <div class="tm-container">

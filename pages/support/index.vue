@@ -1,5 +1,6 @@
 <template>
   <main>
+    <section-primary-nav />
     <div class="tm-section mt-10">
       <div class="tm-wrapper tm-container-narrow">
         <h1
