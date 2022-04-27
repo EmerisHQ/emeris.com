@@ -1,6 +1,7 @@
 {
   "hosting": {
     "public": "dist",
+    "cleanUrls": true,
     "redirects": [
       {
         "source": "/support{,/**}",
