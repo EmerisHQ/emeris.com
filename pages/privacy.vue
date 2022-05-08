@@ -1,24 +1,27 @@
 <template>
-  <article>
-    <div class="tm-section mt-11">
-      <div class="tm-wrapper">
-        <div class="tm-container">
-          <div class="main tm-center tm-measure">
-            <h1 class="title tm-rf4 tm-bold tm-lh-title tm-title tm-serif">
-              {{ article.title }}
-            </h1>
-            <p class="mt-5 tm-muted tm-lh-copy tm-rf0">
-              Last updated {{ formatDate(article.updatedAt) }}
-            </p>
+  <main>
+    <section-primary-nav />
+    <article>
+      <div class="tm-section mt-11">
+        <div class="tm-wrapper">
+          <div class="tm-container">
+            <div class="main tm-center tm-measure">
+              <h1 class="title tm-rf4 tm-bold tm-lh-title tm-title tm-serif">
+                {{ article.title }}
+              </h1>
+              <p class="mt-5 tm-muted tm-lh-copy tm-rf0">
+                Last updated {{ formatDate(article.updatedAt) }}
+              </p>
 
-            <div class="markdown mt-9 tm-lh-copy tm-rf1">
-              <nuxt-content :document="article" />
+              <div class="markdown mt-9 tm-lh-copy tm-rf1">
+                <nuxt-content :document="article" />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </article>
+    </article>
+  </main>
 </template>
 
 <script>
