@@ -20,9 +20,10 @@
             <span class="icon__right">&rarr;</span>
           </tm-button>
         </div>
-        <tm-button variant="text" class="btn-play" @click.native="openVideo">
+        <!-- <tm-button variant="text" class="btn-play" @click.native="openVideo">
           <span class="text">▶&ensp;Play trailer</span>
-        </tm-button>
+        </tm-button> -->
+        <TmEmailWizard />
       </div>
       <div class="show-mobile">
         <tm-button size="m" variant="outlined" disabled class="button">
@@ -83,10 +84,11 @@ export default {
   grid-column 1 / -1
   grid-row 2 / 3
   margin-top var(--spacing-9)
+  text-align: center
   @media $breakpoint-medium
-    grid-column 6 / span 4
+    grid-column 3 / span 4
   @media $breakpoint-xl
-    grid-column 7 / span 4
+     grid-column 4 / span 6
 
 .btn-play
   width 100%
