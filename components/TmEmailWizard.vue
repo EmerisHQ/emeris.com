@@ -14,7 +14,7 @@
                 wizard__get-notified
                 tm-rf0 tm-lh-copy tm-bold tm-measure-narrow
               "
-              for="field-email"
+              :for="`field-email-${_uid}`"
               @click="actionGoForwards"
             >
               <icon-bell-24 class="icon" />
@@ -48,10 +48,10 @@
               >
                 <fieldset class="wizard__form__fieldset">
                   <input
-                    id="field-email"
+                    :id="`field-email-${_uid}`"
                     ref="input"
                     v-model="email"
-                    name="fields[email]"
+                    :name="`fields[email]`"
                     class="wizard__form__fieldset__input tm-rf0 tm-lh-copy"
                     type="email"
                     placeholder="Your email address"
@@ -208,6 +208,7 @@ export default {
     },
     actionGoForwards() {
       this.transition = 'forwards'
+      console.log(this.$refs.input)
       this.$refs.input.focus()
       this.step += 1
     },
