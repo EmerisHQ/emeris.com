@@ -1,17 +1,13 @@
 <template>
   <div class="wizard">
     <div class="wizard-border">
-      <div
-        v-on-clickaway="onClickOutside"
-        class="wizard__inner"
-        :class="step !== 0 && '_light'"
-      >
+      <div class="wizard__inner" :class="[variant, step !== 0 && '_light']">
         <transition-group :name="transition">
           <div
-            v-show="step === 0"
             ref="step0"
             key="step0"
-            class="wizard__step0"
+            class="wizard__step wizard__step0"
+            :class="[variant, step === 0 ? 'visible' : 'invisible']"
           >
             <label
               class="
@@ -22,13 +18,24 @@
               @click="actionGoForwards"
             >
               <icon-bell-24 class="icon" />
-              <span class="tm-rf0 tm-lh-title text-with-gradient">
-                Get email updates
+              <span
+                class="
+                  tm-rf0 tm-lh-title
+                  text-with-gradient
+                  tm-medium tm-text-left
+                "
+              >
+                <slot>Get email updates</slot>
               </span>
               <!-- <icon-arrow-right-24 class="icon" /> -->
             </label>
           </div>
-          <div v-show="step === 1" ref="step1" key="step1">
+          <div
+            ref="step1"
+            key="step1"
+            class="wizard__step wizard__step1"
+            :class="[step === 1 ? 'visible' : 'invisible']"
+          >
             <div class="form-wrapper__action">
               <form
                 id="signUp"
@@ -42,6 +49,7 @@
                 <fieldset class="wizard__form__fieldset">
                   <input
                     id="field-email"
+                    ref="input"
                     v-model="email"
                     name="fields[email]"
                     class="wizard__form__fieldset__input tm-rf0 tm-lh-copy"
@@ -49,7 +57,7 @@
                     placeholder="Your email address"
                     required="required"
                     @keyup="onKeyDown"
-                    @blur="isEmail"
+                    @blur="onClickOutside"
                   />
                   <tm-button
                     variant="text"
@@ -74,8 +82,8 @@
                   tm-rf-1 tm-lh-copy tm-text-center tm-muted
                 "
               >
-                You will receive email updates about Emeris. Unsubscribe at any
-                time.
+                You will receive email updates about Emeris.<br />Unsubscribe
+                anytime.
                 <a href="/privacy">Privacy policy</a>
                 <span v-if="hasError" class="wizard__error">
                   Please enter a valid email address
@@ -84,10 +92,10 @@
             </div>
           </div>
           <div
-            v-show="step === 2"
             ref="step2"
             key="step2"
-            class="wizard__state tm-rf0 tm-lh-copy"
+            class="wizard__step wizard__state tm-rf0 tm-lh-copy"
+            :class="[step === 2 ? 'visible' : 'invisible']"
           >
             <div id="signUpSuccess" class="form-wrapper__success">
               <img
@@ -127,7 +135,7 @@
 
 <script>
 import querystring from 'querystring'
-import { mixin as clickaway } from 'vue-clickaway'
+// import { mixin as clickaway } from 'vue-clickaway'
 import TmButton from './TmButton.vue'
 import IconArrowRight24 from '~/components/icons/IconArrowRight24.vue'
 import IconSpinner24 from '~/components/icons/IconSpinner24.vue'
@@ -140,7 +148,14 @@ export default {
     IconBell24,
     TmButton,
   },
-  mixins: [clickaway],
+  //   mixins: [clickaway],
+  props: {
+    /** 'sans' -> remove background */
+    variant: {
+      type: String,
+      default: '',
+    },
+  },
   data() {
     return {
       step: 0,
@@ -193,6 +208,7 @@ export default {
     },
     actionGoForwards() {
       this.transition = 'forwards'
+      this.$refs.input.focus()
       this.step += 1
     },
     actionGoBackwards() {
@@ -205,6 +221,7 @@ export default {
     },
     onKeyDown(e) {
       this.hasError = false
+      this.isEmail()
       if (e.keyCode === 27) {
         this.actionReset()
         e.preventDefault()
@@ -235,20 +252,30 @@ export default {
 .wizard
   @media $breakpoint-medium
     max-height 3rem
+    max-width 20rem
     overflow visible
   &__inner
-    overflow hidden
     min-height 3rem
-    background #171717
+
+  &__step
+    overflow hidden
     border-radius $border-radius-3
+    background #171717
     box-shadow 8px 16px 48px rgba(0, 0, 0, 0.21)
+
+    &.sans
+        background transparent
+        box-shadow none
     &._light
       background #262626
+
   &__step0
-    position absolute
+    position relative //absolute
     top 0
     left 0
     right 0
+
+
   &__get-notified
     display flex
     align-items center
@@ -262,6 +289,7 @@ export default {
     padding var(--spacing-4) var(--spacing-4)
     transition color 0.15s ease-out, background 0.15s ease-out
     border-radius $border-radius-3
+
     &:hover
       background-color var(--fg-trans)
     .icon
@@ -348,4 +376,13 @@ export default {
 
 .icon-arrow-right
   transform translateY(-1px)
+
+.invisible
+  opacity 0
+  visibility hidden
+  max-height 0
+
+.visible
+  opacity 1
+  visibility visible
 </style>

@@ -1,8 +1,8 @@
 <template>
   <div class="information">
-    <p class="tm-rf-1 tm-rf0-m-up tm-lh-copy">
+    <p class="information_text tm-rf-1 tm-rf0-m-up tm-lh-copy">
       Emeris is a one-stop portal for all crypto apps, no matter what blockchain
-      they run on. Try the beta today.
+      they run on. <br />Try the beta today.
     </p>
 
     <div class="btn z-1">
@@ -16,14 +16,16 @@
             glow
             variant="gradient"
           >
-            <span>Launch app</span>
+            <span>Try the beta</span>
             <span class="icon__right">&rarr;</span>
           </tm-button>
         </div>
         <!-- <tm-button variant="text" class="btn-play" @click.native="openVideo">
           <span class="text">▶&ensp;Play trailer</span>
         </tm-button> -->
-        <TmEmailWizard />
+        <TmEmailWizard class="email-wizard" variant="sans"
+          >Stay tuned for the release</TmEmailWizard
+        >
       </div>
       <div class="show-mobile">
         <tm-button size="m" variant="outlined" disabled class="button">
@@ -69,7 +71,7 @@ export default {
   align-items center
   margin-top var(--spacing-6)
   @media $breakpoint-medium
-    justify-content start
+    justify-content center
     margin-top var(--spacing-7)
   .tm-button
     &:not(:first-child)
@@ -86,9 +88,12 @@ export default {
   margin-top var(--spacing-9)
   text-align: center
   @media $breakpoint-medium
-    grid-column 3 / span 4
+    grid-column 2 / span 6
   @media $breakpoint-xl
      grid-column 4 / span 6
+
+  &_text
+    padding-inline: 8rem
 
 .btn-play
   width 100%
@@ -123,4 +128,10 @@ export default {
   background-clip text
   -webkit-text-fill-color transparent
   text-fill-color transparent
+
+.email-wizard
+  margin-bottom var(--spacing-7)
+  @media $breakpoint-medium
+    margin-left var(--spacing-7)
+    margin-bottom 0
 </style>
