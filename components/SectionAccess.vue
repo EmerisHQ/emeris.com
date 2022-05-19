@@ -58,19 +58,17 @@
           </span>
         </div>
       </div>
-      <div class="mt-9">
+      <div class="tm-grid-base mt-9">
         <div class="info tm-lh-copy tm-rf0 tm-normal tm-text">
           <p>
             Access cutting-edge decentralized exchanges, allowing you to obtain
             experimental or alternative coins that may be difficult or
             impossible to get via traditional centralized exchanges.
           </p>
-          <p>
-            <tm-link v-scroll-to="'#best'" href="#" class="tm-link"
-              >Stay tuned</tm-link
-            >
-            for more chains to be added within the coming weeks.
-          </p>
+        </div>
+        <div class="info tm-lh-copy tm-rf0 tm-normal tm-text">
+          <p>Stay tuned for more chains to be added within the coming weeks.</p>
+          <TmEmailWizard class="mt-7" />
         </div>
       </div>
     </div>
@@ -241,8 +239,17 @@ export default {
 .info
   max-width: 26.25rem
   margin-inline: auto
-  @media $breakpoint-medium
-    text-align center
+  grid-column: 1/span 8
+  @media $breakpoint-large
+    grid-column: 1/span 4
+  @media $breakpoint-xl
+    grid-column: 3/span 4;
+
+  & + .info
+    @media $breakpoint-large
+      grid-column: 5/span 4
+    @media $breakpoint-xl
+      grid-column: 7/span 4
 
 @keyframes marquee
   from
