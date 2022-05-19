@@ -83,14 +83,17 @@ export default {
   grid-column 1 / -1
   grid-row 2 / 3
   margin-top var(--spacing-9)
-  text-align: center
+  text-align: left
   @media $breakpoint-medium
+    text-align: center
     grid-column 2 / span 6
   @media $breakpoint-xl
      grid-column 4 / span 6
 
   &_text
-    padding-inline: 8rem
+    @media $breakpoint-small
+        text-align center
+        padding-inline: 8rem
 
 .btn-play
   width 100%

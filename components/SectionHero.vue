@@ -287,7 +287,7 @@ img
     margin-top var(--spacing-10)
     max-width: 17.25rem
 
-  @media $breakpoint-medium
+  @media $breakpoint-small
     margin-inline: auto
     min-width 16rem
   .tm-button

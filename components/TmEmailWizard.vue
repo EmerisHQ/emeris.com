@@ -280,16 +280,20 @@ export default {
   &__get-notified
     display flex
     align-items center
-    justify-content space-between
+    justify-content center
     color var(--gray-100)
     cursor pointer
     gap var(--spacing-5)
     outline none
     width 100%
+    margin auto
     height auto
     padding var(--spacing-4) var(--spacing-4)
     transition color 0.15s ease-out, background 0.15s ease-out
     border-radius $border-radius-3
+
+    @media $breakpoint-medium
+        justify-content space-between
 
     &:hover
       background-color var(--fg-trans)
@@ -297,7 +301,8 @@ export default {
       flex-shrink 0
     span
       display inline-block
-      width 100%
+      @media $breakpoint-medium
+        width 100%
   &__form
     max-width: $max-width['7']
     width 100%
