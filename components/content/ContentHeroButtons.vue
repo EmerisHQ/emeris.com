@@ -20,11 +20,8 @@
             <span class="icon__right">&rarr;</span>
           </tm-button>
         </div>
-        <!-- <tm-button variant="text" class="btn-play" @click.native="openVideo">
-          <span class="text">▶&ensp;Play trailer</span>
-        </tm-button> -->
         <TmEmailWizard class="email-wizard" variant="sans"
-          >Stay tuned for the release</TmEmailWizard
+          >Stay tuned for the Public Launch</TmEmailWizard
         >
       </div>
       <div class="show-mobile">
