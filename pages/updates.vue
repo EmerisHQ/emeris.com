@@ -48,7 +48,7 @@ export default {
   max-width 17.5rem
 
 .wizard
-  width 100%
+    text-align center
   >>> .wizard
         max-height: 100%
 

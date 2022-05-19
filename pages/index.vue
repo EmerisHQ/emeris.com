@@ -5,7 +5,7 @@
     <div ref="button" class="fixed-container">
       <tm-cookie-banner />
     </div>
-    <section-hero :open-video="openVideo" />
+    <section-hero :open-video="openVideo" class="z-3" />
     <section-intro />
     <section-trading />
     <section-rates />
