@@ -119,7 +119,6 @@ export default {
     0px 10px 16px rgba(22, 25, 49, 0.08), 0px 1px 0px rgba(22, 25, 49, 0.05)
   margin-left calc(var(--wrap-gap) * -1)
   margin-right calc(var(--wrap-gap) * -1)
-  margin-top -1.9rem
   background var(--fg)
   border-width 0.0625rem
   border-style solid
@@ -127,7 +126,7 @@ export default {
   border-image initial
   @media $breakpoint-medium
     position fixed
-    bottom var(--spacing-10)
+    bottom var(--spacing-7)
     left 50%
     border-radius $border-radius-3
     margin-left 0

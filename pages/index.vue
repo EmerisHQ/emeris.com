@@ -90,6 +90,6 @@ export default {
   left var(--wrap-gap)
   right var(--wrap-gap)
   @media $breakpoint-medium
-    bottom var(--wrap-gap)
+    bottom var(--spacing-9)
     left auto
 </style>
