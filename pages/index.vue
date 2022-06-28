@@ -6,7 +6,7 @@
 
     <div class="tm-content">
       <img
-        src="~/assets/images/elements/hero.jpg"
+        src="~/assets/images/elements/emeris-on-hold.jpg"
         alt="Emeris cross-chain crypto portal"
         class="feature-img"
       />
@@ -17,13 +17,13 @@
           ref="title"
           class="
             title
-            tm-content tm-serif tm-rf3 tm-bold tm-lh-title tm-title
-            mt-8
+            tm-content tm-serif tm-rf4 tm-bold tm-lh-title tm-title
+            mt-6
           "
         >
           Emeris is on hold
         </h1>
-        <div class="content-body tm-text tm-rf0 tm-lh-copy mt-6">
+        <div class="content-body tm-text tm-rf0 tm-rf1-m-up tm-lh-copy mt-6">
           <p class="mt-5">
             It's with a heavy heart that we share the news that development on
             Emeris is on hold. We appreciate your support for all our efforts
@@ -50,6 +50,26 @@
             Thank you to everyone who supported us along this journey. We hope
             to see you all again soon!
           </p>
+          <div class="callout mt-8">
+            <h2 class="tm-title tm-rf0 tm-rf1-m-up tm-lh-title tm-bold">
+              Gravity DEX liquidity providers
+            </h2>
+            <p class="tm-rf-1 tm-rf0-m-up tm-muted mt-4">
+              Gravity DEX has been migrated from the Cosmos Hub to Crescent
+              Network. If you still have liquidity in a Gravity DEX pool, please
+              use
+              <tm-link href="https://app.crescent.network/gdex"
+                >Crescent</tm-link
+              >
+              to withdraw your liquidity.
+            </p>
+            <p class="tm-rf-1 tm-rf0-m-up tm-lh-copy tm-muted mt-2">
+              For further support, join the
+              <tm-link href="https://t.me/crescentnetwork"
+                >Crescent Telegram group</tm-link
+              >.
+            </p>
+          </div>
           <p class="tm-muted tm-rf-1 mt-7">Last updated Jun 28, 2022</p>
         </div>
       </div>
@@ -76,12 +96,14 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.tm-content
-  max-width: $max-width['7'];
-
 .feature-img
-  max-width 100%
-  center()
+  display block
+  width 100%
+
+.callout
+  background var(--surface)
+  padding var(--spacing-6)
+  border-radius $border-radius-5
 
 .fixed-container
   position fixed

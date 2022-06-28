@@ -27,16 +27,18 @@
       </div>
       <div class="col col-right">
         <nav ref="links" class="nav tm-rf-1 tm-lh-copy mt-5" role="navigation">
-          <tm-link :href="getUtmParams('/privacy')" class="nav-link">
+          <tm-link :href="getUtmParams('/privacy')" class="nav-link tm-title">
             Privacy
           </tm-link>
-          <tm-link :href="getUtmParams('/terms')" class="nav-link">
+          <tm-link :href="getUtmParams('/terms')" class="nav-link tm-title">
             Terms of Service
           </tm-link>
         </nav>
         <p class="tm-rf-1 tm-lh-copy tm-muted mt-5">
           &copy; Emeris {{ getYearDate }} — Built by
-          <tm-link :href="getUtmParams('https://ignt.com')">Ignite</tm-link>
+          <tm-link class="tm-title" :href="getUtmParams('https://ignt.com')"
+            >Ignite</tm-link
+          >
         </p>
       </div>
     </div>
@@ -109,8 +111,10 @@ export default {
 .footer-inner
   display flex
   flex-direction column
-  align-items center
+  align-items start
+  max-width: $max-width['8'];
   @media $breakpoint-medium
+    max-width none
     flex-direction row
     align-items center
     justify-content space-between
@@ -124,6 +128,8 @@ export default {
     position relative
     font-size 0
     opacity 0.5
+    svg
+      color var(--title)
     &:before
       content ''
       position absolute
