@@ -36,7 +36,7 @@
         </nav>
         <p class="tm-rf-1 tm-lh-copy tm-muted mt-5">
           &copy; Emeris {{ getYearDate }} — Built by
-          <tm-link class="tm-title" :href="getUtmParams('https://ignt.com')"
+          <tm-link class="tm-title" :href="getUtmParams('https://ignite.com')"
             >Ignite</tm-link
           >
         </p>
