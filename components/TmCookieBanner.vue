@@ -70,7 +70,7 @@ export default {
   data() {
     return {
       show: true,
-      visited: true,
+      visited: false,
     }
   },
   mounted() {
