@@ -5,7 +5,12 @@
     "redirects": [
       {
         "source": "/support{,/**}",
-        "destination": "https://support.emeris.com",
+        "destination": "https://emeris.com",
+        "type": 301
+      },
+      {
+        "source": "/updates{,/}",
+        "destination": "https://emeris.com",
         "type": 301
       }
     ]

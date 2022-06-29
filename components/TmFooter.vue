@@ -1,53 +1,7 @@
 <template>
-  <footer class="footer tm-wrapper">
-    <div class="tm-container">
-      <div class="row">
-        <nuxt-link :to="getUtmParams('/')" class="logo">
-          <logo-emeris-wordmark class="logo__emeris" />
-          <span class="sr-only">Emeris</span>
-        </nuxt-link>
-        <nav
-          ref="links"
-          class="nav-bottom tm-rf-1 tm-lh-copy"
-          role="navigation"
-        >
-          <tm-link
-            :href="getUtmParams('http://support.emeris.com/')"
-            class="tm-rf0 tm-rf-1-m link-item tm-muted"
-            >Support</tm-link
-          >
-          <tm-link
-            href="https://drive.google.com/drive/folders/18PKVjLL53WqapZDLMtm7sdpxl7JSrjBT?usp=sharing"
-            class="tm-rf0 tm-rf-1-m link-item tm-muted"
-          >
-            Press Kit
-          </tm-link>
-          <tm-link
-            :href="getUtmParams('/privacy')"
-            class="tm-rf0 tm-rf-1-m link-item tm-muted"
-          >
-            Privacy
-          </tm-link>
-          <tm-link
-            :href="getUtmParams('/terms')"
-            class="tm-rf0 tm-rf-1-m link-item tm-muted"
-          >
-            Terms of Service
-          </tm-link>
-          <tm-link
-            href="https://drive.google.com/file/d/1h4qrMWHGVLGX2vOJ-ryVmHs68Vu_6MY_/view"
-            class="tm-rf0 tm-rf-1-m link-item tm-muted"
-          >
-            Brand assets
-          </tm-link>
-          <tm-link
-            :href="getUtmParams('/updates')"
-            class="tm-rf0 tm-rf-1-m link-item tm-muted"
-            >Get updates</tm-link
-          >
-        </nav>
-      </div>
-      <div class="row mt-7">
+  <footer class="footer tm-wrapper mt-8">
+    <div class="tm-container footer-inner">
+      <div class="col col-left my-6">
         <nav ref="links" class="social-icons" role="navigation">
           <tm-link
             v-for="link in links"
@@ -71,19 +25,20 @@
           </tm-link>
         </nav>
       </div>
-      <div class="row _bottom">
-        <tm-link
-          v-show="pageHasScroll"
-          v-scroll-to="'#top'"
-          href="#"
-          class="tm-rf0 scrolltop"
-        >
-          Back to top
-          <span class="icon__top">&#8593;</span>
-        </tm-link>
-        <p class="smallprint tm-rf-1 tm-lh-copy tm-muted">
+      <div class="col col-right">
+        <nav ref="links" class="nav tm-rf-1 tm-lh-copy mt-5" role="navigation">
+          <tm-link :href="getUtmParams('/privacy')" class="nav-link tm-title">
+            Privacy
+          </tm-link>
+          <tm-link :href="getUtmParams('/terms')" class="nav-link tm-title">
+            Terms of Service
+          </tm-link>
+        </nav>
+        <p class="tm-rf-1 tm-lh-copy tm-muted mt-5">
           &copy; Emeris {{ getYearDate }} — Built by
-          <tm-link :href="getUtmParams('https://ignt.com')">Ignite</tm-link>.
+          <tm-link class="tm-title" :href="getUtmParams('https://ignite.com')"
+            >Ignite</tm-link
+          >
         </p>
       </div>
     </div>
@@ -91,8 +46,6 @@
 </template>
 
 <script>
-import LogoEmerisWordmark from '~/components/logos/LogoEmerisWordmark.vue'
-
 const iconList = [
   [
     'medium',
@@ -109,9 +62,6 @@ const iconList = [
 ]
 
 export default {
-  components: {
-    LogoEmerisWordmark,
-  },
   data() {
     return {
       links: [
@@ -120,25 +70,12 @@ export default {
         { title: 'Telegram', url: 'https://t.me/EmerisHQ' },
       ],
       currentUrl: this.$route.fullPath,
-      pageHasScroll: false,
     }
   },
   computed: {
     getYearDate() {
       return new Date().getUTCFullYear()
     },
-  },
-  watch: {
-    $route() {
-      setTimeout(this.checkHeight, 600)
-    },
-  },
-  mounted() {
-    this.checkHeight()
-    window.addEventListener('resize', this.checkHeight)
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.checkHeight)
   },
   methods: {
     getUtmParams(link) {
@@ -161,38 +98,38 @@ export default {
       })
       return iconPath
     },
-    checkHeight() {
-      this.pageHasScroll = window.innerHeight !== document.body.clientHeight
-    },
   },
 }
 </script>
 
 <style lang="stylus" scoped>
 .footer
-  padding-bottom var(--spacing-8)
+  padding-bottom var(--spacing-12)
   @media $breakpoint-medium
-    margin-top var(--spacing-5)
+    padding-bottom var(--spacing-6)
+
+.footer-inner
+  display flex
+  flex-direction column
+  align-items start
+  max-width: $max-width['8'];
+  @media $breakpoint-medium
+    max-width none
+    flex-direction row
+    align-items center
+    justify-content space-between
 
 .social-icons
-  display grid
-  grid-template-columns repeat(3, 1fr)
-  gap 1rem
-  max-width: 6.5rem
-  margin-top var(--spacing-11)
-  margin-inline: auto
+  display flex
+  gap var(--spacing-6)
   text-align center
-  @media $breakpoint-medium
-    margin-top 0
-  @media $breakpoint-large
-    gap 1.5rem
-    margin-top 0
-    margin-inline 0
 
   &__item
     position relative
-    opacity 0.75
     font-size 0
+    opacity 0.5
+    svg
+      color var(--title)
     &:before
       content ''
       position absolute
@@ -206,107 +143,11 @@ export default {
     &:focus
       opacity 1
 
-.logo
-  display flex
-  align-items center
-  justify-content center
-  gap var(--spacing-4)
-  margin-bottom var(--spacing-9)
-  color inherit
-  transition transform .4s $ease-out, opacity .4s $ease-out, color .4s $ease-out, visibility .4s 0s
+.col-right
   @media $breakpoint-medium
+    display flex
     justify-content center
-    width 100%
-    margin-bottom var(--spacing-8)
-  @media $breakpoint-large
-    width auto
-    margin-bottom 0
 
-  svg
-    width auto
-
-  &__emeris
-    height 1rem
-    @media $breakpoint-xl
-      height 1.35rem
-
-.row
-  @media $breakpoint-xsmall-only
-    flex-direction row
-  @media $breakpoint-small
-    display flex
-    flex-direction column
-    align-items center
-    justify-content space-between
-  @media $breakpoint-large
-    flex-direction row
-  &._bottom
-    margin-top var(--spacing-9)
-    text-align center
-    @media $breakpoint-large
-      margin-top var(--spacing-9)
-      flex-direction: row-reverse
-      text-align left
-
-.scrolltop
-  color var(--quaternary)
-
-.smallprint
-  margin-top var(--spacing-10)
-  @media $breakpoint-medium
-    margin-top var(--spacing-9)
-  @media $breakpoint-large
-    margin-top 0
-
-@media $breakpoint-xsmall-only
-  .nav-bottom
-    display flex
-    flex-direction column
-    align-items center
-
-  .link-item + .link-item
-    margin-left 0
-
-  .link-item
-    margin-top var(--spacing-7)
-
-    &:first-child
-      margin-top 0
-
-  .scrolltop
-    margin-top var(--spacing-10)
-
-
-@media $breakpoint-small
-  .nav-bottom
-    display flex
-    flex-direction column
-
-  .link-item + .link-item
-    margin-left 0
-
-  .link-item
-    margin-top var(--spacing-6)
-    text-align center
-
-    &:first-child
-      margin-top 0
-
-  .scrolltop
-    margin-top var(--spacing-6)
-    text-align center
-
-@media $breakpoint-medium
-  .link-item
-  .scrolltop
-    margin-top 0
-
-  .nav-bottom
-    flex-direction row
-    justify-content center
-    flex-wrap wrap
-    text-align center
-
-  .link-item + .link-item
-    margin-left var(--spacing-6)
+.nav-link
+  margin-right var(--spacing-6)
 </style>
