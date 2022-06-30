@@ -5,9 +5,12 @@ on:
     branches:
       - master
 
+permissions:
+  contents: write
+
 jobs:
   build_and_deploy:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
@@ -31,10 +34,7 @@ jobs:
       - name: Build
         run: npm run generate
 
-      - name: Deploy
-        uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_EMERIS_HQ }}"
-          channelId: live
-          projectId: emeris-hq
+          folder: dist
